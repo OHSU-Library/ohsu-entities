@@ -1,0 +1,318 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfa: <http://www.w3.org/ns/rdfa#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Classes
+
+schema:AdministrativeArea a rdfs:Class ;
+    rdfs:label "AdministrativeArea" ;
+    rdfs:comment "A geographical region, typically under the jurisdiction of a particular government." ;
+    rdfs:subClassOf schema:Place .
+
+schema:BusStop a rdfs:Class ;
+    rdfs:label "BusStop" ;
+    rdfs:comment "A bus stop." ;
+    rdfs:subClassOf schema:CivicStructure .
+
+schema:City a rdfs:Class ;
+    rdfs:label "City" ;
+    rdfs:comment "A city or town." ;
+    rdfs:subClassOf schema:AdministrativeArea .
+
+schema:CivicStructure a rdfs:Class ;
+    rdfs:label "CivicStructure" ;
+    rdfs:comment "A public structure, such as a town hall or concert hall." ;
+    rdfs:subClassOf schema:Place .
+
+schema:ContactPoint a rdfs:Class ;
+    rdfs:label "ContactPoint" ;
+    rdfs:comment "A contact point&#x2014;for example, a Customer Complaints department." ;
+    rdfs:subClassOf schema:StructuredValue .
+
+schema:Country a rdfs:Class ;
+    rdfs:label "Country" ;
+    rdfs:comment "A country." ;
+    rdfs:subClassOf schema:AdministrativeArea .
+
+schema:DayOfWeek a rdfs:Class ;
+    rdfs:label "DayOfWeek" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment """The day of the week, e.g. used to specify to which day the opening hours of an OpeningHoursSpecification refer.</p>
+<p>Originally, URLs from <a href="http://purl.org/goodrelations/v1">GoodRelations</a> were used (for <a class="localLink" href="/Monday">Monday</a>, <a class="localLink" href="/Tuesday">Tuesday</a>, <a class="localLink" href="/Wednesday">Wednesday</a>, <a class="localLink" href="/Thursday">Thursday</a>, <a class="localLink" href="/Friday">Friday</a>, <a class="localLink" href="/Saturday">Saturday</a>, <a class="localLink" href="/Sunday">Sunday</a> plus a special entry for <a class="localLink" href="/PublicHolidays">PublicHolidays</a>); these have now been integrated directly into schema.org.""" ;
+    rdfs:subClassOf schema:Enumeration .
+
+schema:Dentist a rdfs:Class ;
+    rdfs:label "Dentist" ;
+    rdfs:comment "A dentist." ;
+    rdfs:subClassOf schema:LocalBusiness,
+        schema:MedicalOrganization .
+    
+schema:EmergencyService a rdfs:Class ;
+    rdfs:label "EmergencyService" ;
+    rdfs:comment "An emergency service, such as a fire station or ER." ;
+    rdfs:subClassOf schema:LocalBusiness .
+
+schema:Enumeration a rdfs:Class ;
+    rdfs:label "Enumeration" ;
+    rdfs:comment "Lists or enumerations—for example, a list of cuisines or music genres, etc." ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:Hospital a rdfs:Class ;
+    rdfs:label "Hospital" ;
+    rdfs:comment "A hospital." ;
+    rdfs:subClassOf schema:CivicStructure,
+        schema:EmergencyService,
+        schema:MedicalOrganization .
+
+schema:Intangible a rdfs:Class ;
+    rdfs:label "Intangible" ;
+    rdfs:comment "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc." ;
+    rdfs:subClassOf schema:Thing .
+
+schema:LocalBusiness a rdfs:Class ;
+    rdfs:label "LocalBusiness" ;
+    rdfs:comment "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc." ;
+    rdfs:subClassOf schema:Organization,
+        schema:Place .
+
+schema:MedicalOrganization a rdfs:Class ;
+    rdfs:label "MedicalOrganization" ;
+    rdfs:comment "A medical organization (physical or not), such as hospital, institution or clinic." ;
+    rdfs:subClassOf schema:Organization .
+
+schema:OpeningHoursSpecification a rdfs:Class ;
+    rdfs:label "OpeningHoursSpecification" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment """A structured value providing information about the opening hours of a place or a certain service inside a place.</p>
+<p>The place is <strong>open</strong> if the <a class="localLink" href="/opens">opens</a> property is specified, and <strong>closed</strong> otherwise.</p>
+<p>If the value for the <a class="localLink" href="/closes">closes</a> property is less than the value for the <a class="localLink" href="/opens">opens</a> property then the hour range is assumed to span over the next day.""" ;
+    rdfs:subClassOf schema:StructuredValue .
+
+schema:Organization a rdfs:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "An organization such as a school, NGO, corporation, club, etc." ;
+    rdfs:subClassOf schema:Thing .
+
+schema:ParkingFacility a rdfs:Class ;
+    rdfs:label "ParkingFacility" ;
+    rdfs:comment "A parking lot or other parking facility." ;
+    rdfs:subClassOf schema:CivicStructure .
+
+schema:Person a rdfs:Class ;
+    rdfs:label "Person" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    rdfs:comment "A person (alive, dead, undead, or fictional)." ;
+    rdfs:subClassOf schema:Thing ;
+    owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> .
+
+schema:Pharmacy a rdfs:Class ;
+    rdfs:label "Pharmacy" ;
+    rdfs:comment "A pharmacy or drugstore." ;
+    rdfs:subClassOf schema:MedicalOrganization .
+
+schema:Physician a rdfs:Class ;
+    rdfs:label "Physician" ;
+    rdfs:comment "A doctor's office." ;
+    rdfs:subClassOf schema:MedicalOrganization .
+
+schema:Place a rdfs:Class ;
+    rdfs:label "Place" ;
+    rdfs:comment "Entities that have a somewhat fixed, physical extension." ;
+    rdfs:subClassOf schema:Thing .
+
+schema:PostalAddress a rdfs:Class ;
+    rdfs:label "PostalAddress" ;
+    rdfs:comment "The mailing address." ;
+    rdfs:subClassOf schema:ContactPoint .
+
+schema:RVPark a rdfs:Class ;
+    rdfs:label "RVPark" ;
+    rdfs:comment "A place offering space for \"Recreational Vehicles\", Caravans, mobile homes and the like." ;
+    rdfs:subClassOf schema:CivicStructure .        
+
+schema:Specialty a rdfs:Class ;
+    rdfs:label "Specialty" ;
+    rdfs:comment "Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort." ;
+    rdfs:subClassOf schema:Enumeration .
+
+schema:State a rdfs:Class ;
+    rdfs:label "State" ;
+    rdfs:comment "A state or province of a country." ;
+    rdfs:subClassOf schema:AdministrativeArea .
+
+schema:StructuredValue a rdfs:Class ;
+    rdfs:label "StructuredValue" ;
+    rdfs:comment "Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing." ;
+    rdfs:subClassOf schema:Intangible .
+
+schema:TaxiStand a rdfs:Class ;
+    rdfs:label "TaxiStand" ;
+    rdfs:comment "A taxi stand." ;
+    rdfs:subClassOf schema:CivicStructure .
+    
+schema:Thing a rdfs:Class ;
+    rdfs:label "Thing" ;
+    rdfs:comment "The most generic type of item." .
+    
+schema:TrainStation a rdfs:Class ;
+    rdfs:label "TrainStation" ;
+    rdfs:comment "A train station." ;
+    rdfs:subClassOf schema:CivicStructure .
+    
+    
+# Properties
+
+schema:addressCountry a rdf:Property ;
+    rdfs:label "addressCountry" ;
+    schema:domainIncludes schema:GeoCoordinates,
+        schema:GeoShape,
+        schema:PostalAddress ;
+    schema:rangeIncludes schema:Country,
+        schema:Text ;
+    rdfs:comment "The country. For example, USA. You can also provide the two-letter <a href=\"http://en.wikipedia.org/wiki/ISO_3166-1\">ISO 3166-1 alpha-2 country code</a>." .
+
+schema:areaServed a rdf:Property ;
+    rdfs:label "areaServed" ;
+    schema:domainIncludes schema:ContactPoint,
+        schema:DeliveryChargeSpecification,
+        schema:Demand,
+        schema:Offer,
+        schema:Organization,
+        schema:Service ;
+    schema:rangeIncludes schema:AdministrativeArea,
+        schema:GeoShape,
+        schema:Place,
+        schema:Text ;
+    rdfs:comment "The geographic area where a service or offered item is provided." .
+
+schema:arrivalBusStop a rdf:Property ;
+    rdfs:label "arrivalBusStop" ;
+    schema:domainIncludes schema:BusTrip ;
+    schema:rangeIncludes schema:BusStation,
+        schema:BusStop ;
+    rdfs:comment "The stop or station from which the bus arrives." .
+
+schema:branchOf a rdf:Property ;
+    rdfs:label "branchOf" ;
+    schema:domainIncludes schema:LocalBusiness ;
+    schema:rangeIncludes schema:Organization ;
+    schema:supersededBy schema:parentOrganization ;
+    rdfs:comment "The larger organization that this local business is a branch of, if any. Not to be confused with (anatomical)<a class=\"localLink\" href=\"/branch\">branch</a>." .
+
+schema:closes a rdf:Property ;
+    rdfs:label "closes" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    schema:domainIncludes schema:OpeningHoursSpecification ;
+    schema:rangeIncludes schema:Time ;
+    rdfs:comment "The closing hour of the place or service on the given day(s) of the week." .
+
+schema:dayOfWeek a rdf:Property ;
+    rdfs:label "dayOfWeek" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    schema:domainIncludes schema:OpeningHoursSpecification ;
+    schema:rangeIncludes schema:DayOfWeek ;
+    rdfs:comment "The day of the week for which these opening hours are valid." .
+    
+schema:departureBusStop a rdf:Property ;
+    rdfs:label "departureBusStop" ;
+    schema:domainIncludes schema:BusTrip ;
+    schema:rangeIncludes schema:BusStation,
+        schema:BusStop ;
+    rdfs:comment "The stop or station from which the bus departs." .
+
+schema:hoursAvailable a rdf:Property ;
+    rdfs:label "hoursAvailable" ;
+    schema:domainIncludes schema:ContactPoint,
+        schema:LocationFeatureSpecification,
+        schema:Service ;
+    schema:rangeIncludes schema:OpeningHoursSpecification ;
+    rdfs:comment "The hours during which this service or contact is available." .
+
+schema:openingHours a rdf:Property ;
+    rdfs:label "openingHours" ;
+    schema:domainIncludes schema:CivicStructure,
+        schema:LocalBusiness ;
+    schema:rangeIncludes schema:Text ;
+    rdfs:comment """<p>The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.</p>
+<ul>
+<li>Days are specified using the following two-letter combinations: <code>Mo</code>, <code>Tu</code>, <code>We</code>, <code>Th</code>, <code>Fr</code>, <code>Sa</code>, <code>Su</code>.</li>
+<li>Times are specified using 24:00 time. For example, 3pm is specified as <code>15:00</code>. </li>
+<li>Here is an example: <code>&lt;time itemprop="openingHours" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.</li>
+<li>If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.</li>
+</ul>""" .
+
+schema:openingHoursSpecification a rdf:Property ;
+    rdfs:label "openingHoursSpecification" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    schema:domainIncludes schema:Place ;
+    schema:rangeIncludes schema:OpeningHoursSpecification ;
+    rdfs:comment "The opening hours of a certain place." .
+
+schema:opens a rdf:Property ;
+    rdfs:label "opens" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    schema:domainIncludes schema:OpeningHoursSpecification ;
+    schema:rangeIncludes schema:Time ;
+    rdfs:comment "The opening hour of the place or service on the given day(s) of the week." .
+    
+schema:serviceArea a rdf:Property ;
+    rdfs:label "serviceArea" ;
+    schema:domainIncludes schema:ContactPoint,
+        schema:Organization,
+        schema:Service ;
+    schema:rangeIncludes schema:AdministrativeArea,
+        schema:GeoShape,
+        schema:Place ;
+    schema:supersededBy schema:areaServed ;
+    rdfs:comment "The geographic area where the service is provided." .
+
+schema:specialOpeningHoursSpecification a rdf:Property ;
+    rdfs:label "specialOpeningHoursSpecification" ;
+    schema:domainIncludes schema:Place ;
+    schema:rangeIncludes schema:OpeningHoursSpecification ;
+    rdfs:comment """The special opening hours of a certain place.</p>
+<p>Use this to explicitly override general opening hours brought in scope by <a class="localLink" href="/openingHoursSpecification">openingHoursSpecification</a> or <a class="localLink" href="/openingHours">openingHours</a>.""" .
+
+schema:validFrom a rdf:Property ;
+    rdfs:label "validFrom" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    schema:domainIncludes schema:Demand,
+        schema:LocationFeatureSpecification,
+        schema:MonetaryAmount,
+        schema:Offer,
+        schema:OpeningHoursSpecification,
+        schema:Permit,
+        schema:PriceSpecification ;
+    schema:rangeIncludes schema:DateTime ;
+    rdfs:comment "The date when the item becomes valid." .
+
+schema:validThrough a rdf:Property ;
+    rdfs:label "validThrough" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    schema:domainIncludes schema:Demand,
+        schema:JobPosting,
+        schema:LocationFeatureSpecification,
+        schema:MonetaryAmount,
+        schema:Offer,
+        schema:OpeningHoursSpecification,
+        schema:PriceSpecification ;
+    schema:rangeIncludes schema:DateTime ;
+    rdfs:comment "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours." .
+    
+schema:valueReference a rdf:Property ;
+    rdfs:label "valueReference" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    schema:domainIncludes schema:PropertyValue,
+        schema:QualitativeValue,
+        schema:QuantitativeValue ;
+    schema:rangeIncludes schema:Enumeration,
+        schema:PropertyValue,
+        schema:QualitativeValue,
+        schema:QuantitativeValue,
+        schema:StructuredValue ;
+    rdfs:comment "A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature." .

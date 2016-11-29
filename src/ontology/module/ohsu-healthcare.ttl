@@ -1,0 +1,43 @@
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix hc:  <http://purl.org/ohsu/schema/healthcare> .
+@prefix ohsu: <http://purl.org/ohsu/schema> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+<http://purl.org/ohsu/schema/healthccare> a owl:Ontology ;
+    owl:versionInfo "0.0.1"^^xsd:string ;
+    dc:title "OHSU Healthcare Entities" ;
+    rdfs:comment """
+        The OHSU Healthcare Entities Ontology describes...
+        """ ;
+#    owl:imports ;
+#    owl:versionIRI ;
+.
+
+
+# Classes
+
+hc:ClinicalDepartment a owl:Class ;
+    rdfs:label "Clinical Department" .
+
+hc:HealthcareFacility a owl:Class ;
+    rdfs:label "Healthcare Facility" .
+
+hc:HealthcareProviderRole a owl:Class ;
+    rdfs:label "Healthcare Provider" .
+    #TODO rdfs:subClassOf some role class
+    
+hc:HealthcareService a owl:Class ;
+    rdfs:label "Healthcare Service" .
+    #TODO owl:equivalentClass schema:MedicalSpecialty?
+
+hc:HealthcareService a owl:Class ;
+    rdfs:label "Healthcare Service" .
+    #TODO owl:equivalentClass schema:MedicalSpecialty?
+    
+    
