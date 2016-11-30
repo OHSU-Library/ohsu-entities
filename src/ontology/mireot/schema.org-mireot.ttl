@@ -177,25 +177,6 @@ schema:PostalAddress a owl:Class ;
     rdfs:comment "The mailing address." ;
     rdfs:subClassOf schema:ContactPoint .
 
-schema:PropertyValue a owl:Class ;
-    rdfs:label "Property Value" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
-    rdfs:comment """A property-value pair, e.g. representing a feature of a product or place. Use the 'name' property for the name of the property. If there is an additional human-readable version of the value, put that into the 'description' property.</p>
-<p>Always use specific schema.org properties when a) they exist and b) you can populate them. Using PropertyValue as a substitute will typically not trigger the same effect as using the original, specific property.""" ;
-    rdfs:subClassOf schema:StructuredValue .
-
-schema:PropertyValueSpecification a owl:Class ;
-    rdfs:label "Property Value Specification" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_ActionCollabClass> ;
-    rdfs:comment "A Property value specification." ;
-    rdfs:subClassOf schema:Intangible .
-
-schema:QuantitativeValue a owl:Class ;
-    rdfs:label "Quantitative Value" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
-    rdfs:comment "A point value or interval for product characteristics and other purposes." ;
-    rdfs:subClassOf schema:StructuredValue .
-
 schema:Role a owl:Class ;
     rdfs:label "Role" ;
     rdfs:comment """Represents additional information about a relationship or property. For example a Role can be used to say that a 'member' role linking some SportsTeam to a player occurred during a particular time period. Or that a Person's 'actor' role in a Movie was for some particular characterName. Such properties can be attached to a Role entity, which is then associated with the main entities using ordinary properties like 'member' or 'actor'.</p>
@@ -293,13 +274,6 @@ schema:Wednesday a schema:DayOfWeek ;
 #
 # Object Properties
 #
-schema:additionalProperty a owl:ObjectProperty ;
-    rdfs:label "additionalProperty" ;
-    rdfs:domain schema:Place, schema:Product, schema:QualitativeValue, schema:QuantitativeValue ;
-    rdfs:range schema:PropertyValue ;
-    rdfs:comment """A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.</p>
-<p>Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.""" .
-
 schema:affiliation a owl:ObjectProperty ;
     rdfs:label "affiliation" ;
     rdfs:domain schema:Person ;
@@ -442,13 +416,6 @@ schema:subOrganization a owl:ObjectProperty ;
     schema:inverseOf schema:parentOrganization ;
     rdfs:range schema:Organization ;
     rdfs:comment "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property." .
-
-schema:valueReference a owl:ObjectProperty ;
-    rdfs:label "valueReference" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:PropertyValue, schema:QualitativeValue, schema:QuantitativeValue ;
-    rdfs:range schema:Enumeration, schema:PropertyValue, schema:QualitativeValue, schema:QuantitativeValue, schema:StructuredValue ;
-    rdfs:comment "A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature." .
 
 schema:worksFor a owl:ObjectProperty ;
     rdfs:label "worksFor" ;
@@ -606,26 +573,6 @@ schema:legalName a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The official name of the organization, e.g. the registered company name." .
 
-schema:maxValue a owl:DatatypeProperty ;
-    rdfs:label "maxValue" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:MonetaryAmount, schema:PropertyValue, schema:PropertyValueSpecification, schema:QuantitativeValue ;
-    rdfs:range schema:Number ;
-    rdfs:comment "The upper value of some characteristic or property." .
-
-schema:minValue a owl:DatatypeProperty ;
-    rdfs:label "minValue" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:MonetaryAmount, schema:PropertyValue, schema:PropertyValueSpecification, schema:QuantitativeValue ;
-    rdfs:range schema:Number ;
-    rdfs:comment "The lower value of some characteristic or property." .
-
-schema:multipleValues a owl:DatatypeProperty ;
-    rdfs:label "multipleValues" ;
-    rdfs:domain schema:PropertyValueSpecification ;
-    rdfs:range xsd:boolean ;
-    rdfs:comment "Whether multiple values are allowed for the property.  Default is false." .
-
 schema:naics a owl:DatatypeProperty ;
     rdfs:label "naics" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
@@ -670,23 +617,11 @@ schema:postalCode a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The postal code. For example, 94043." .
 
-schema:readonlyValue a owl:DatatypeProperty ;
-    rdfs:label "readonlyValue" ;
-    rdfs:domain schema:PropertyValueSpecification ;
-    rdfs:range xsd:boolean ;
-    rdfs:comment "Whether or not a property is mutable.  Default is false. Specifying this for a property that also has a value makes it act similar to a \"hidden\" input in an HTML form." .
-
 schema:sameAs a owl:DatatypeProperty ;
     rdfs:label "sameAs" ;
     rdfs:domain owl:Thing ;
     rdfs:range xsd:anyURI ;
     rdfs:comment "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website." .
-
-schema:stepValue a owl:DatatypeProperty ;
-    rdfs:label "stepValue" ;
-    rdfs:domain schema:PropertyValueSpecification ;
-    rdfs:range schema:Number ;
-    rdfs:comment "The stepValue attribute indicates the granularity that is expected (and required) of the value in a PropertyValueSpecification." .
 
 schema:streetAddress a owl:DatatypeProperty ;
     rdfs:label "streetAddress" ;
@@ -706,13 +641,6 @@ schema:thumbnailUrl a owl:DatatypeProperty ;
     rdfs:range xsd:anyURI ;
     rdfs:comment "A thumbnail image relevant to the Thing." .
 
-schema:unitText a owl:DatatypeProperty ;
-    rdfs:label "unitText" ;
-    rdfs:domain schema:PropertyValue, schema:QuantitativeValue, schema:TypeAndQuantityNode, schema:UnitPriceSpecification ;
-    rdfs:range xsd:string ;
-    rdfs:comment """A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for
-<a href='unitCode'>unitCode</a>.""" .
-
 schema:validFrom a owl:DatatypeProperty ;
     rdfs:label "validFrom" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
@@ -726,36 +654,6 @@ schema:validThrough a owl:DatatypeProperty ;
     rdfs:domain schema:Demand, schema:JobPosting, schema:LocationFeatureSpecification, schema:MonetaryAmount, schema:Offer, schema:OpeningHoursSpecification, schema:PriceSpecification ;
     rdfs:range xsd:dateTime ;
     rdfs:comment "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours." .
-
-schema:valueMaxLength a owl:DatatypeProperty ;
-    rdfs:label "valueMaxLength" ;
-    rdfs:domain schema:PropertyValueSpecification ;
-    rdfs:range schema:Number ;
-    rdfs:comment "Specifies the allowed range for number of characters in a literal value." .
-
-schema:valueMinLength a owl:DatatypeProperty ;
-    rdfs:label "valueMinLength" ;
-    rdfs:domain schema:PropertyValueSpecification ;
-    rdfs:range schema:Number ;
-    rdfs:comment "Specifies the minimum allowed range for number of characters in a literal value." .
-
-schema:valueName a owl:DatatypeProperty ;
-    rdfs:label "valueName" ;
-    rdfs:domain schema:PropertyValueSpecification ;
-    rdfs:range xsd:string ;
-    rdfs:comment "Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name." .
-
-schema:valuePattern a owl:DatatypeProperty ;
-    rdfs:label "valuePattern" ;
-    rdfs:domain schema:PropertyValueSpecification ;
-    rdfs:range xsd:string ;
-    rdfs:comment "Specifies a regular expression for testing literal values according to the HTML spec." .
-
-schema:valueRequired a owl:DatatypeProperty ;
-    rdfs:label "valueRequired" ;
-    rdfs:domain schema:PropertyValueSpecification ;
-    rdfs:range xsd:boolean ;
-    rdfs:comment "Whether the property must be filled in to complete the action.  Default is false." .
 
 
 #
@@ -790,12 +688,6 @@ schema:colleague a rdf:Property ;
     rdfs:domain schema:Person ;
     rdfs:range schema:Person, xsd:anyURI ;
     rdfs:comment "A colleague of the person." .
-
-schema:defaultValue a rdf:Property ;
-    rdfs:label "defaultValue" ;
-    rdfs:domain schema:PropertyValueSpecification ;
-    rdfs:range xsd:string, owl:Thing ;
-    rdfs:comment "The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values." .
 
 schema:gender a rdf:Property ;
     rdfs:label "gender" ;
@@ -835,17 +727,6 @@ schema:logo a rdf:Property ;
     rdfs:comment "An associated logo." ;
     rdfs:subPropertyOf schema:image .
 
-schema:value a rdf:Property ;
-    rdfs:label "value" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:MonetaryAmount, schema:PropertyValue, schema:QuantitativeValue ;
-    rdfs:range xsd:boolean, schema:Number, schema:StructuredValue, xsd:string ;
-    rdfs:comment """<p>The value of the quantitative value or property value node.</p>
-<ul>
-<li>For <a class="localLink" href="/QuantitativeValue">QuantitativeValue</a> and <a class="localLink" href="/MonetaryAmount">MonetaryAmount</a>, the recommended type for values is 'Number'.</li>
-<li>For <a class="localLink" href="/PropertyValue">PropertyValue</a>, it can be 'Text;', 'Number', 'Boolean', or 'StructuredValue'.</li>
-</ul>""" .
-
 
 #
 # TODO Dual Datatype Properties
@@ -868,15 +749,6 @@ schema:longitude a rdf:Property ;
     rdfs:range schema:Number, xsd:string ;
     rdfs:comment "The longitude of a location. For example <code>-122.08585</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." .
 
-schema:propertyID a rdf:Property ;
-    rdfs:label "propertyID" ;
-    rdfs:domain schema:PropertyValue ;
-    rdfs:range xsd:string, xsd:anyURI ;
-    rdfs:comment """A commonly used identifier for the characteristic represented by the property, e.g. a manufacturer or a standard code for a property. propertyID can be
-(1) a prefixed string, mainly meant to be used with standards for product properties; (2) a site-specific, non-prefixed string (e.g. the primary key of the property or the vendor-specific id of the property), or (3)
-a URL indicating the type of the property, either pointing to an external vocabulary, or a Web resource that describes the property (e.g. a glossary entry).
-Standards bodies should promote a standard prefix for the identifiers of properties from their standards.""" .
-
 schema:roleName a rdf:Property ;
     rdfs:label "roleName" ;
     rdfs:domain schema:Role ;
@@ -888,10 +760,3 @@ schema:startDate a rdf:Property ;
     rdfs:domain schema:CreativeWorkSeason, schema:CreativeWorkSeries, schema:DatedMoneySpecification, schema:Event, schema:Role ;
     rdfs:range xsd:date, xsd:dateTime ;
     rdfs:comment "The start date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." .
-
-schema:unitCode a rdf:Property ;
-    rdfs:label "unitCode" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:PropertyValue, schema:QuantitativeValue, schema:TypeAndQuantityNode, schema:UnitPriceSpecification ;
-    rdfs:range xsd:string, xsd:anyURI ;
-    rdfs:comment "The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon." .
