@@ -6,7 +6,7 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://purl.org/ohsu/schema/mireot/schema.org/> a owl:Ontology 
+<http://purl.org/ohsu/schema/mireot/schema.org/> a owl:Ontology ;
     owl:imports <http://purl.org/ohsu/schema/mireot/health-lifesci> .
 
 #
