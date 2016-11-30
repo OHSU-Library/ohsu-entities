@@ -346,23 +346,23 @@ schema:geographicArea a owl:ObjectProperty ;
 
 schema:hoursAvailable a owl:ObjectProperty ;
     rdfs:label "hoursAvailable" ;
-    rdfs:domain schema:ContactPoint, schema:LocationFeatureSpecification, schema:Service ;
+    rdfs:domain schema:ContactPoint ;
     rdfs:range schema:OpeningHoursSpecification ;
     rdfs:comment "The hours during which this service or contact is available." .
 
 schema:member a owl:ObjectProperty ;
     rdfs:label "member" ;
-    rdfs:domain schema:Organization, schema:ProgramMembership ;
+    rdfs:domain schema:Organization ;
     owl:inverseOf schema:memberOf ;
     rdfs:range schema:Organization, schema:Person ;
-    rdfs:comment "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals." .
+    rdfs:comment "A member of an Organization." .
 
 schema:memberOf a owl:ObjectProperty ;
     rdfs:label "memberOf" ;
     rdfs:domain schema:Organization, schema:Person ;
     owl:inverseOf schema:member ;
-    rdfs:range schema:Organization, schema:ProgramMembership ;
-    rdfs:comment "An Organization (or ProgramMembership) to which this Person or Organization belongs." .
+    rdfs:range schema:Organization ;
+    rdfs:comment "An Organization to which this Person or Organization belongs." .
 
 schema:openingHoursSpecification a owl:ObjectProperty ;
     rdfs:label "openingHoursSpecification" ;
@@ -384,12 +384,6 @@ schema:photo a owl:ObjectProperty ;
     rdfs:range schema:ImageObject, schema:Photograph ;
     rdfs:comment "A photograph of this place." ;
     rdfs:subPropertyOf schema:image .
-
-schema:provider a owl:ObjectProperty ;
-    rdfs:label "provider" ;
-    rdfs:domain schema:BusTrip, schema:CreativeWork, schema:Flight, schema:Invoice, schema:ParcelDelivery, schema:Reservation, schema:Service, schema:TrainTrip ;
-    rdfs:range schema:Organization, schema:Person ;
-    rdfs:comment "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller." .
 
 schema:reviewedBy a owl:ObjectProperty ;
     rdfs:label "reviewedBy" ;
@@ -635,26 +629,6 @@ schema:telephone a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The telephone number." .
 
-schema:thumbnailUrl a owl:DatatypeProperty ;
-    rdfs:label "thumbnailUrl" ;
-    rdfs:domain schema:CreativeWork ;
-    rdfs:range xsd:anyURI ;
-    rdfs:comment "A thumbnail image relevant to the Thing." .
-
-schema:validFrom a owl:DatatypeProperty ;
-    rdfs:label "validFrom" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:Demand, schema:LocationFeatureSpecification, schema:MonetaryAmount, schema:Offer, schema:OpeningHoursSpecification, schema:Permit, schema:PriceSpecification ;
-    rdfs:range xsd:dateTime ;
-    rdfs:comment "The date when the item becomes valid." .
-
-schema:validThrough a owl:DatatypeProperty ;
-    rdfs:label "validThrough" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:Demand, schema:JobPosting, schema:LocationFeatureSpecification, schema:MonetaryAmount, schema:Offer, schema:OpeningHoursSpecification, schema:PriceSpecification ;
-    rdfs:range xsd:dateTime ;
-    rdfs:comment "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours." .
-
 
 #
 # TODO Dual Type Properties 
@@ -673,13 +647,13 @@ schema:addressCountry a rdf:Property ;
 
 schema:areaServed a rdf:Property ;
     rdfs:label "areaServed" ;
-    rdfs:domain schema:ContactPoint, schema:DeliveryChargeSpecification, schema:Demand, schema:Offer, schema:Organization, schema:Service ;
+    rdfs:domain schema:ContactPoint, schema:Organization ;
     rdfs:range schema:AdministrativeArea, schema:GeoShape, schema:Place, xsd:string ;
     rdfs:comment "The geographic area where a service or offered item is provided." .
 
 schema:availableLanguage a rdf:Property ;
     rdfs:label "availableLanguage" ;
-    rdfs:domain schema:ContactPoint, schema:LodgingBusiness, schema:ServiceChannel ;
+    rdfs:domain schema:ContactPoint ;
     rdfs:range schema:Language, xsd:string ;
     rdfs:comment "A language someone may use with the item. Please use one of the language codes from the <a href=\"http://tools.ietf.org/html/bcp47\">IETF BCP 47 standard</a>. See also <a class=\"localLink\" href=\"/inLanguage\">inLanguage</a>" .
 
@@ -715,14 +689,14 @@ schema:image a rdf:Property ;
 
 schema:location a rdf:Property ;
     rdfs:label "location" ;
-    rdfs:domain schema:Action, schema:Event, schema:Organization ;
+    rdfs:domain schema:Organization ;
     rdfs:range schema:Place, schema:PostalAddress, xsd:string ;
     rdfs:comment "The location of for example where the event is happening, an organization is located, or where an action takes place." .
 
 schema:logo a rdf:Property ;
     rdfs:label "logo" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:Brand, schema:Organization, schema:Place, schema:Product, schema:Service ;
+    rdfs:domain schema:Organization, schema:Place ;
     rdfs:range schema:ImageObject, xsd:anyURI ;
     rdfs:comment "An associated logo." ;
     rdfs:subPropertyOf schema:image .
@@ -733,7 +707,7 @@ schema:logo a rdf:Property ;
 #
 schema:endDate a rdf:Property ;
     rdfs:label "endDate" ;
-    rdfs:domain schema:CreativeWorkSeason, schema:CreativeWorkSeries, schema:DatedMoneySpecification, schema:Event, schema:Role ;
+    rdfs:domain schema:Role ;
     rdfs:range xsd:date, xsd:dateTime ;
     rdfs:comment "The end date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." .
 
@@ -757,6 +731,6 @@ schema:roleName a rdf:Property ;
 
 schema:startDate a rdf:Property ;
     rdfs:label "startDate" ;
-    rdfs:domain schema:CreativeWorkSeason, schema:CreativeWorkSeries, schema:DatedMoneySpecification, schema:Event, schema:Role ;
+    rdfs:domain schema:Role ;
     rdfs:range xsd:date, xsd:dateTime ;
     rdfs:comment "The start date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." .
