@@ -26,5 +26,5 @@
 ohsu:Building a owl:Class ;
     rdfs:label "Building" .
 
-ohsu:Campus a owl:Class 
+ohsu:Campus a owl:Class ;
     rdfs:label "Campus" .
