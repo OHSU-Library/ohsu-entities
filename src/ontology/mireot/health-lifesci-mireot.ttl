@@ -315,21 +315,21 @@ schema:Urologic a schema:MedicalSpecialty ;
 #
 schema:availableService a owl:ObjectProperty ;
     rdfs:label "available service" ;
-    schema:domainIncludes schema:Hospital, schema:MedicalClinic, schema:Physician ;
+    rdfs:domain schema:Hospital, schema:MedicalClinic, schema:Physician ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
-    schema:rangeIncludes schema:MedicalProcedure, schema:MedicalTest, schema:MedicalTherapy ;
+    rdfs:range schema:MedicalProcedure, schema:MedicalTest, schema:MedicalTherapy ;
     rdfs:comment "A medical service available from this provider." .
 
 schema:hospitalAffiliation a owl:ObjectProperty ;
     rdfs:label "hospital affiliation" ;
-    schema:domainIncludes schema:Physician ;
+    rdfs:domain schema:Physician ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
-    schema:rangeIncludes schema:Hospital ;
+    rdfs:range schema:Hospital ;
     rdfs:comment "A hospital with which the physician or office is affiliated." .
 
 schema:medicalSpecialty a owl:ObjectProperty ;
     rdfs:label "medical specialty" ;
-    schema:domainIncludes schema:Hospital, schema:MedicalClinic, schema:MedicalOrganization, schema:Physician ;
+    rdfs:domain schema:Hospital, schema:MedicalClinic, schema:MedicalOrganization, schema:Physician ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
-    schema:rangeIncludes schema:MedicalSpecialty ;
+    rdfs:range schema:MedicalSpecialty ;
     rdfs:comment "A medical specialty of the provider." .

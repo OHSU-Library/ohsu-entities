@@ -295,171 +295,171 @@ schema:Wednesday a schema:DayOfWeek ;
 #
 schema:additionalProperty a owl:ObjectProperty ;
     rdfs:label "additionalProperty" ;
-    schema:domainIncludes schema:Place, schema:Product, schema:QualitativeValue, schema:QuantitativeValue ;
-    schema:rangeIncludes schema:PropertyValue ;
+    rdfs:domain schema:Place, schema:Product, schema:QualitativeValue, schema:QuantitativeValue ;
+    rdfs:range schema:PropertyValue ;
     rdfs:comment """A property-value pair representing an additional characteristics of the entitity, e.g. a product feature or another characteristic for which there is no matching property in schema.org.</p>
 <p>Note: Publishers should be aware that applications designed to use specific schema.org properties (e.g. http://schema.org/width, http://schema.org/color, http://schema.org/gtin13, ...) will typically expect such data to be provided using those properties, rather than using the generic property/value mechanism.""" .
 
 schema:affiliation a owl:ObjectProperty ;
     rdfs:label "affiliation" ;
-    schema:domainIncludes schema:Person ;
-    schema:rangeIncludes schema:Organization ;
+    rdfs:domain schema:Person ;
+    rdfs:range schema:Organization ;
     rdfs:comment "An organization that this person is affiliated with. For example, a school/university, a club, or a team." ;
     rdfs:subPropertyOf schema:memberOf .
 
 schema:contactOption a owl:ObjectProperty ;
     rdfs:label "contactOption" ;
-    schema:domainIncludes schema:ContactPoint ;
-    schema:rangeIncludes schema:ContactPointOption ;
+    rdfs:domain schema:ContactPoint ;
+    rdfs:range schema:ContactPointOption ;
     rdfs:comment "An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers)." .
 
 schema:contactPoint a owl:ObjectProperty ;
     rdfs:label "contactPoint" ;
-    schema:domainIncludes schema:Organization, schema:Person ;
-    schema:rangeIncludes schema:ContactPoint ;
+    rdfs:domain schema:Organization, schema:Person ;
+    rdfs:range schema:ContactPoint ;
     rdfs:comment "A contact point for a person or organization." .
 
 schema:containedInPlace a owl:ObjectProperty ;
     rdfs:label "containedInPlace" ;
-    schema:domainIncludes schema:Place ;
+    rdfs:domain schema:Place ;
     schema:inverseOf schema:containsPlace ;
-    schema:rangeIncludes schema:Place ;
+    rdfs:range schema:Place ;
     rdfs:comment "The basic containment relation between a place and one that contains it." .
 
 schema:containsPlace a owl:ObjectProperty ;
     rdfs:label "containsPlace" ;
-    schema:domainIncludes schema:Place ;
+    rdfs:domain schema:Place ;
     schema:inverseOf schema:containedInPlace ;
-    schema:rangeIncludes schema:Place ;
+    rdfs:range schema:Place ;
     rdfs:comment "The basic containment relation between a place and another that it contains." .
 
 schema:dayOfWeek a owl:ObjectProperty ;
     rdfs:label "dayOfWeek" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:OpeningHoursSpecification ;
-    schema:rangeIncludes schema:DayOfWeek ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range schema:DayOfWeek ;
     rdfs:comment "The day of the week for which these opening hours are valid." .
 
 schema:department a owl:ObjectProperty ;
     rdfs:label "department" ;
-    schema:domainIncludes schema:Organization ;
-    schema:rangeIncludes schema:Organization ;
+    rdfs:domain schema:Organization ;
+    rdfs:range schema:Organization ;
     rdfs:comment "A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe." .
 
 schema:employee a owl:ObjectProperty ;
     rdfs:label "employee" ;
-    schema:domainIncludes schema:Organization ;
-    schema:rangeIncludes schema:Person ;
+    rdfs:domain schema:Organization ;
+    rdfs:range schema:Person ;
     rdfs:comment "Someone working for this organization." .
 
 schema:geo a owl:ObjectProperty ;
     rdfs:label "geo" ;
-    schema:domainIncludes schema:Place ;
-    schema:rangeIncludes schema:GeoCoordinates, schema:GeoShape ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:GeoCoordinates, schema:GeoShape ;
     rdfs:comment "The geo coordinates of the place." .
 
 schema:geoMidpoint a owl:ObjectProperty ;
     rdfs:label "geoMidpoint" ;
-    schema:domainIncludes schema:GeoCircle ;
-    schema:rangeIncludes schema:GeoCoordinates ;
+    rdfs:domain schema:GeoCircle ;
+    rdfs:range schema:GeoCoordinates ;
     rdfs:comment "Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle." .
 
 schema:geographicArea a owl:ObjectProperty ;
     rdfs:label "geographicArea" ;
-    schema:domainIncludes schema:Audience ;
-    schema:rangeIncludes schema:AdministrativeArea ;
+    rdfs:domain schema:Audience ;
+    rdfs:range schema:AdministrativeArea ;
     rdfs:comment "The geographic area associated with the audience." .
 
 schema:hoursAvailable a owl:ObjectProperty ;
     rdfs:label "hoursAvailable" ;
-    schema:domainIncludes schema:ContactPoint, schema:LocationFeatureSpecification, schema:Service ;
-    schema:rangeIncludes schema:OpeningHoursSpecification ;
+    rdfs:domain schema:ContactPoint, schema:LocationFeatureSpecification, schema:Service ;
+    rdfs:range schema:OpeningHoursSpecification ;
     rdfs:comment "The hours during which this service or contact is available." .
 
 schema:member a owl:ObjectProperty ;
     rdfs:label "member" ;
-    schema:domainIncludes schema:Organization, schema:ProgramMembership ;
+    rdfs:domain schema:Organization, schema:ProgramMembership ;
     schema:inverseOf schema:memberOf ;
-    schema:rangeIncludes schema:Organization, schema:Person ;
+    rdfs:range schema:Organization, schema:Person ;
     rdfs:comment "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals." .
 
 schema:memberOf a owl:ObjectProperty ;
     rdfs:label "memberOf" ;
-    schema:domainIncludes schema:Organization, schema:Person ;
+    rdfs:domain schema:Organization, schema:Person ;
     schema:inverseOf schema:member ;
-    schema:rangeIncludes schema:Organization, schema:ProgramMembership ;
+    rdfs:range schema:Organization, schema:ProgramMembership ;
     rdfs:comment "An Organization (or ProgramMembership) to which this Person or Organization belongs." .
 
 schema:openingHoursSpecification a owl:ObjectProperty ;
     rdfs:label "openingHoursSpecification" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:Place ;
-    schema:rangeIncludes schema:OpeningHoursSpecification ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:OpeningHoursSpecification ;
     rdfs:comment "The opening hours of a certain place." .
 
 schema:parentOrganization a owl:ObjectProperty ;
     rdfs:label "parentOrganization" ;
-    schema:domainIncludes schema:Organization ;
+    rdfs:domain schema:Organization ;
     schema:inverseOf schema:subOrganization ;
-    schema:rangeIncludes schema:Organization ;
+    rdfs:range schema:Organization ;
     rdfs:comment "The larger organization that this local business is a branch of, if any." .
 
 schema:photo a owl:ObjectProperty ;
     rdfs:label "photo" ;
-    schema:domainIncludes schema:Place ;
-    schema:rangeIncludes schema:ImageObject, schema:Photograph ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:ImageObject, schema:Photograph ;
     rdfs:comment "A photograph of this place." ;
     rdfs:subPropertyOf schema:image .
 
 schema:provider a owl:ObjectProperty ;
     rdfs:label "provider" ;
-    schema:domainIncludes schema:BusTrip, schema:CreativeWork, schema:Flight, schema:Invoice, schema:ParcelDelivery, schema:Reservation, schema:Service, schema:TrainTrip ;
-    schema:rangeIncludes schema:Organization, schema:Person ;
+    rdfs:domain schema:BusTrip, schema:CreativeWork, schema:Flight, schema:Invoice, schema:ParcelDelivery, schema:Reservation, schema:Service, schema:TrainTrip ;
+    rdfs:range schema:Organization, schema:Person ;
     rdfs:comment "The service provider, service operator, or service performer; the goods producer. Another party (a seller) may offer those services or goods on behalf of the provider. A provider may also serve as the seller." .
 
 schema:reviewedBy a owl:ObjectProperty ;
     rdfs:label "reviewedBy" ;
-    schema:domainIncludes schema:WebPage ;
-    schema:rangeIncludes schema:Organization, schema:Person ;
+    rdfs:domain schema:WebPage ;
+    rdfs:range schema:Organization, schema:Person ;
     rdfs:comment "People or organizations that have reviewed the content on this web page for accuracy and/or completeness." .
 
 schema:specialOpeningHoursSpecification a owl:ObjectProperty ;
     rdfs:label "specialOpeningHoursSpecification" ;
-    schema:domainIncludes schema:Place ;
-    schema:rangeIncludes schema:OpeningHoursSpecification ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:OpeningHoursSpecification ;
     rdfs:comment """The special opening hours of a certain place.</p>
 <p>Use this to explicitly override general opening hours brought in scope by <a class="localLink" href="/openingHoursSpecification">openingHoursSpecification</a> or <a class="localLink" href="/openingHours">openingHours</a>.""" .
 
 schema:specialty a owl:ObjectProperty ;
     rdfs:label "specialty" ;
-    schema:domainIncludes schema:WebPage ;
-    schema:rangeIncludes schema:Specialty ;
+    rdfs:domain schema:WebPage ;
+    rdfs:range schema:Specialty ;
     rdfs:comment "One of the domain specialities to which this web page's content applies." .
 
 schema:subOrganization a owl:ObjectProperty ;
     rdfs:label "subOrganization" ;
-    schema:domainIncludes schema:Organization ;
+    rdfs:domain schema:Organization ;
     schema:inverseOf schema:parentOrganization ;
-    schema:rangeIncludes schema:Organization ;
+    rdfs:range schema:Organization ;
     rdfs:comment "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property." .
 
 schema:valueReference a owl:ObjectProperty ;
     rdfs:label "valueReference" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:PropertyValue, schema:QualitativeValue, schema:QuantitativeValue ;
-    schema:rangeIncludes schema:Enumeration, schema:PropertyValue, schema:QualitativeValue, schema:QuantitativeValue, schema:StructuredValue ;
+    rdfs:domain schema:PropertyValue, schema:QualitativeValue, schema:QuantitativeValue ;
+    rdfs:range schema:Enumeration, schema:PropertyValue, schema:QualitativeValue, schema:QuantitativeValue, schema:StructuredValue ;
     rdfs:comment "A pointer to a secondary value that provides additional information on the original value, e.g. a reference temperature." .
 
 schema:worksFor a owl:ObjectProperty ;
     rdfs:label "worksFor" ;
-    schema:domainIncludes schema:Person ;
-    schema:rangeIncludes schema:Organization ;
+    rdfs:domain schema:Person ;
+    rdfs:range schema:Organization ;
     rdfs:comment "Organizations that the person works for." .
 
 schema:workLocation a owl:ObjectProperty ;
     rdfs:label "workLocation" ;
-    schema:domainIncludes schema:Person ;
-    schema:rangeIncludes schema:ContactPoint, schema:Place ;
+    rdfs:domain schema:Person ;
+    rdfs:range schema:ContactPoint, schema:Place ;
     rdfs:comment "A contact location for a person's place of work." ;
     rdfs:subPropertyOf schema:location .
 
@@ -469,180 +469,180 @@ schema:workLocation a owl:ObjectProperty ;
 #
 schema:additionalName a owl:DatatypeProperty ;
     rdfs:label "additionalName" ;
-    schema:domainIncludes schema:Person ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
     rdfs:comment "An additional name for a Person, can be used for a middle name." .
 
 schema:addressLocality a owl:DatatypeProperty ;
     rdfs:label "addressLocality" ;
-    schema:domainIncludes schema:PostalAddress ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:PostalAddress ;
+    rdfs:range xsd:string ;
     rdfs:comment "The locality. For example, Mountain View." .
 
 schema:addressRegion a owl:DatatypeProperty ;
     rdfs:label "addressRegion" ;
-    schema:domainIncludes schema:PostalAddress ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:PostalAddress ;
+    rdfs:range xsd:string ;
     rdfs:comment "The region. For example, CA." .
 
 schema:alternateName a owl:DatatypeProperty ;
     rdfs:label "alternateName" ;
-    schema:domainIncludes owl:Thing ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
     rdfs:comment "An alias for the item." .
 
 schema:box a owl:DatatypeProperty ;
     rdfs:label "box" ;
-    schema:domainIncludes schema:GeoShape ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:GeoShape ;
+    rdfs:range xsd:string ;
     rdfs:comment "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character." .
 
 schema:branchCode a owl:DatatypeProperty ;
     rdfs:label "branchCode" ;
-    schema:domainIncludes schema:Place ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Place ;
+    rdfs:range xsd:string ;
     rdfs:comment """A short textual code (also called "store code") that uniquely identifies a place of business. The code is typically assigned by the parentOrganization and used in structured URLs.</p>
 <p>For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047 the code "3047" is a branchCode for a particular branch.""" .
 
 schema:circle a owl:DatatypeProperty ;
     rdfs:label "circle" ;
-    schema:domainIncludes schema:GeoShape ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:GeoShape ;
+    rdfs:range xsd:string ;
     rdfs:comment "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters." .
 
 schema:closes a owl:DatatypeProperty ;
     rdfs:label "closes" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:OpeningHoursSpecification ;
-    schema:rangeIncludes xsd:time ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range xsd:time ;
     rdfs:comment "The closing hour of the place or service on the given day(s) of the week." .
 
 schema:contactType a owl:DatatypeProperty ;
     rdfs:label "contactType" ;
-    schema:domainIncludes schema:ContactPoint ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:ContactPoint ;
+    rdfs:range xsd:string ;
     rdfs:comment "A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point." .
 
 schema:disambiguatingDescription a owl:DatatypeProperty ;
     rdfs:label "disambiguatingDescription" ;
-    schema:domainIncludes owl:Thing ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
     rdfs:comment "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation." ;
     rdfs:subPropertyOf rdfs:comment .
 
 schema:duns a owl:DatatypeProperty ;
     rdfs:label "duns" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:Organization, schema:Person ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Organization, schema:Person ;
+    rdfs:range xsd:string ;
     rdfs:comment "The Dun &amp; Bradstreet DUNS number for identifying an organization or business person." .
 
 schema:email a owl:DatatypeProperty ;
     rdfs:label "email" ;
-    schema:domainIncludes schema:ContactPoint, schema:Organization, schema:Person ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:ContactPoint, schema:Organization, schema:Person ;
+    rdfs:range xsd:string ;
     rdfs:comment "Email address." .
 
 schema:familyName a owl:DatatypeProperty ;
     rdfs:label "familyName" ;
-    schema:domainIncludes schema:Person ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
     rdfs:comment "Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the name property." .
 
 schema:faxNumber a owl:DatatypeProperty ;
     rdfs:label "faxNumber" ;
-    schema:domainIncludes schema:ContactPoint, schema:Organization, schema:Person, schema:Place ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:ContactPoint, schema:Organization, schema:Person, schema:Place ;
+    rdfs:range xsd:string ;
     rdfs:comment "The fax number." .
 
 schema:givenName a owl:DatatypeProperty ;
     rdfs:label "givenName" ;
-    schema:domainIncludes schema:Person ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
     rdfs:comment "Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the name property." .
 
 schema:globalLocationNumber a owl:DatatypeProperty ;
     rdfs:label "globalLocationNumber" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:Organization, schema:Person, schema:Place ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Organization, schema:Person, schema:Place ;
+    rdfs:range xsd:string ;
     rdfs:comment "The <a href=\"http://www.gs1.org/gln\">Global Location Number</a> (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations." .
 
 schema:honorificPrefix a owl:DatatypeProperty ;
     rdfs:label "honorificPrefix" ;
-    schema:domainIncludes schema:Person ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
     rdfs:comment "An honorific prefix preceding a Person's name such as Dr/Mrs/Mr." .
 
 schema:honorificSuffix a owl:DatatypeProperty ;
     rdfs:label "honorificSuffix" ;
-    schema:domainIncludes schema:Person ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
     rdfs:comment "An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW." .
 
 schema:isicV4 a owl:DatatypeProperty ;
     rdfs:label "isicV4" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:Organization, schema:Person, schema:Place ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Organization, schema:Person, schema:Place ;
+    rdfs:range xsd:string ;
     rdfs:comment "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place." .
 
 schema:jobTitle a owl:DatatypeProperty ;
     rdfs:label "jobTitle" ;
-    schema:domainIncludes schema:Person ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
     rdfs:comment "The job title of the person (for example, Financial Manager)." .
 
 schema:line a owl:DatatypeProperty ;
     rdfs:label "line" ;
-    schema:domainIncludes schema:GeoShape ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:GeoShape ;
+    rdfs:range xsd:string ;
     rdfs:comment "A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space." .
 
 schema:legalName a owl:DatatypeProperty ;
     rdfs:label "legalName" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:Organization ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Organization ;
+    rdfs:range xsd:string ;
     rdfs:comment "The official name of the organization, e.g. the registered company name." .
 
 schema:maxValue a owl:DatatypeProperty ;
     rdfs:label "maxValue" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:MonetaryAmount, schema:PropertyValue, schema:PropertyValueSpecification, schema:QuantitativeValue ;
-    schema:rangeIncludes schema:Number ;
+    rdfs:domain schema:MonetaryAmount, schema:PropertyValue, schema:PropertyValueSpecification, schema:QuantitativeValue ;
+    rdfs:range schema:Number ;
     rdfs:comment "The upper value of some characteristic or property." .
 
 schema:minValue a owl:DatatypeProperty ;
     rdfs:label "minValue" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:MonetaryAmount, schema:PropertyValue, schema:PropertyValueSpecification, schema:QuantitativeValue ;
-    schema:rangeIncludes schema:Number ;
+    rdfs:domain schema:MonetaryAmount, schema:PropertyValue, schema:PropertyValueSpecification, schema:QuantitativeValue ;
+    rdfs:range schema:Number ;
     rdfs:comment "The lower value of some characteristic or property." .
 
 schema:multipleValues a owl:DatatypeProperty ;
     rdfs:label "multipleValues" ;
-    schema:domainIncludes schema:PropertyValueSpecification ;
-    schema:rangeIncludes xsd:boolean ;
+    rdfs:domain schema:PropertyValueSpecification ;
+    rdfs:range xsd:boolean ;
     rdfs:comment "Whether multiple values are allowed for the property.  Default is false." .
 
 schema:naics a owl:DatatypeProperty ;
     rdfs:label "naics" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:Organization, schema:Person ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:Organization, schema:Person ;
+    rdfs:range xsd:string ;
     rdfs:comment "The North American Industry Classification System (NAICS) code for a particular organization or business person." .
 
 schema:numberedPosition a owl:DatatypeProperty ;
     rdfs:label "numberedPosition" ;
-    schema:domainIncludes schema:OrganizationRole ;
-    schema:rangeIncludes schema:Number ;
+    rdfs:domain schema:OrganizationRole ;
+    rdfs:range schema:Number ;
     rdfs:comment "A number associated with a role in an organization, for example, the number on an athlete's jersey." .
 
 schema:openingHours a owl:DatatypeProperty ;
     rdfs:label "openingHours" ;
-    schema:domainIncludes schema:CivicStructure, schema:LocalBusiness ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:CivicStructure, schema:LocalBusiness ;
+    rdfs:range xsd:string ;
     rdfs:comment """<p>The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.</p>
 <ul>
 <li>Days are specified using the following two-letter combinations: <code>Mo</code>, <code>Tu</code>, <code>We</code>, <code>Th</code>, <code>Fr</code>, <code>Sa</code>, <code>Su</code>.</li>
@@ -654,107 +654,107 @@ schema:openingHours a owl:DatatypeProperty ;
 schema:opens a owl:DatatypeProperty ;
     rdfs:label "opens" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:OpeningHoursSpecification ;
-    schema:rangeIncludes xsd:time ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range xsd:time ;
     rdfs:comment "The opening hour of the place or service on the given day(s) of the week." .
 
 schema:polygon a owl:DatatypeProperty ;
     rdfs:label "polygon" ;
-    schema:domainIncludes schema:GeoShape ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:GeoShape ;
+    rdfs:range xsd:string ;
     rdfs:comment "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical." .
 
 schema:postalCode a owl:DatatypeProperty ;
     rdfs:label "postalCode" ;
-    schema:domainIncludes schema:GeoCoordinates, schema:GeoShape, schema:PostalAddress ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:GeoCoordinates, schema:GeoShape, schema:PostalAddress ;
+    rdfs:range xsd:string ;
     rdfs:comment "The postal code. For example, 94043." .
 
 schema:readonlyValue a owl:DatatypeProperty ;
     rdfs:label "readonlyValue" ;
-    schema:domainIncludes schema:PropertyValueSpecification ;
-    schema:rangeIncludes xsd:boolean ;
+    rdfs:domain schema:PropertyValueSpecification ;
+    rdfs:range xsd:boolean ;
     rdfs:comment "Whether or not a property is mutable.  Default is false. Specifying this for a property that also has a value makes it act similar to a \"hidden\" input in an HTML form." .
 
 schema:sameAs a owl:DatatypeProperty ;
     rdfs:label "sameAs" ;
-    schema:domainIncludes owl:Thing ;
-    schema:rangeIncludes xsd:anyURI ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:anyURI ;
     rdfs:comment "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website." .
 
 schema:stepValue a owl:DatatypeProperty ;
     rdfs:label "stepValue" ;
-    schema:domainIncludes schema:PropertyValueSpecification ;
-    schema:rangeIncludes schema:Number ;
+    rdfs:domain schema:PropertyValueSpecification ;
+    rdfs:range schema:Number ;
     rdfs:comment "The stepValue attribute indicates the granularity that is expected (and required) of the value in a PropertyValueSpecification." .
 
 schema:streetAddress a owl:DatatypeProperty ;
     rdfs:label "streetAddress" ;
-    schema:domainIncludes schema:PostalAddress ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:PostalAddress ;
+    rdfs:range xsd:string ;
     rdfs:comment "The street address. For example, 1600 Amphitheatre Pkwy." .
 
 schema:telephone a owl:DatatypeProperty ;
     rdfs:label "telephone" ;
-    schema:domainIncludes schema:ContactPoint, schema:Organization, schema:Person, schema:Place ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:ContactPoint, schema:Organization, schema:Person, schema:Place ;
+    rdfs:range xsd:string ;
     rdfs:comment "The telephone number." .
 
 schema:thumbnailUrl a owl:DatatypeProperty ;
     rdfs:label "thumbnailUrl" ;
-    schema:domainIncludes schema:CreativeWork ;
-    schema:rangeIncludes xsd:anyURI ;
+    rdfs:domain schema:CreativeWork ;
+    rdfs:range xsd:anyURI ;
     rdfs:comment "A thumbnail image relevant to the Thing." .
 
 schema:unitText a owl:DatatypeProperty ;
     rdfs:label "unitText" ;
-    schema:domainIncludes schema:PropertyValue, schema:QuantitativeValue, schema:TypeAndQuantityNode, schema:UnitPriceSpecification ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:PropertyValue, schema:QuantitativeValue, schema:TypeAndQuantityNode, schema:UnitPriceSpecification ;
+    rdfs:range xsd:string ;
     rdfs:comment """A string or text indicating the unit of measurement. Useful if you cannot provide a standard unit code for
 <a href='unitCode'>unitCode</a>.""" .
 
 schema:validFrom a owl:DatatypeProperty ;
     rdfs:label "validFrom" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:Demand, schema:LocationFeatureSpecification, schema:MonetaryAmount, schema:Offer, schema:OpeningHoursSpecification, schema:Permit, schema:PriceSpecification ;
-    schema:rangeIncludes xsd:dateTime ;
+    rdfs:domain schema:Demand, schema:LocationFeatureSpecification, schema:MonetaryAmount, schema:Offer, schema:OpeningHoursSpecification, schema:Permit, schema:PriceSpecification ;
+    rdfs:range xsd:dateTime ;
     rdfs:comment "The date when the item becomes valid." .
 
 schema:validThrough a owl:DatatypeProperty ;
     rdfs:label "validThrough" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:Demand, schema:JobPosting, schema:LocationFeatureSpecification, schema:MonetaryAmount, schema:Offer, schema:OpeningHoursSpecification, schema:PriceSpecification ;
-    schema:rangeIncludes xsd:dateTime ;
+    rdfs:domain schema:Demand, schema:JobPosting, schema:LocationFeatureSpecification, schema:MonetaryAmount, schema:Offer, schema:OpeningHoursSpecification, schema:PriceSpecification ;
+    rdfs:range xsd:dateTime ;
     rdfs:comment "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours." .
 
 schema:valueMaxLength a owl:DatatypeProperty ;
     rdfs:label "valueMaxLength" ;
-    schema:domainIncludes schema:PropertyValueSpecification ;
-    schema:rangeIncludes schema:Number ;
+    rdfs:domain schema:PropertyValueSpecification ;
+    rdfs:range schema:Number ;
     rdfs:comment "Specifies the allowed range for number of characters in a literal value." .
 
 schema:valueMinLength a owl:DatatypeProperty ;
     rdfs:label "valueMinLength" ;
-    schema:domainIncludes schema:PropertyValueSpecification ;
-    schema:rangeIncludes schema:Number ;
+    rdfs:domain schema:PropertyValueSpecification ;
+    rdfs:range schema:Number ;
     rdfs:comment "Specifies the minimum allowed range for number of characters in a literal value." .
 
 schema:valueName a owl:DatatypeProperty ;
     rdfs:label "valueName" ;
-    schema:domainIncludes schema:PropertyValueSpecification ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:PropertyValueSpecification ;
+    rdfs:range xsd:string ;
     rdfs:comment "Indicates the name of the PropertyValueSpecification to be used in URL templates and form encoding in a manner analogous to HTML's input@name." .
 
 schema:valuePattern a owl:DatatypeProperty ;
     rdfs:label "valuePattern" ;
-    schema:domainIncludes schema:PropertyValueSpecification ;
-    schema:rangeIncludes xsd:string ;
+    rdfs:domain schema:PropertyValueSpecification ;
+    rdfs:range xsd:string ;
     rdfs:comment "Specifies a regular expression for testing literal values according to the HTML spec." .
 
 schema:valueRequired a owl:DatatypeProperty ;
     rdfs:label "valueRequired" ;
-    schema:domainIncludes schema:PropertyValueSpecification ;
-    schema:rangeIncludes xsd:boolean ;
+    rdfs:domain schema:PropertyValueSpecification ;
+    rdfs:range xsd:boolean ;
     rdfs:comment "Whether the property must be filled in to complete the action.  Default is false." .
 
 
@@ -763,83 +763,83 @@ schema:valueRequired a owl:DatatypeProperty ;
 #
 schema:address a rdf:Property ;
     rdfs:label "address" ;
-    schema:domainIncludes schema:GeoCoordinates, schema:GeoShape, schema:Organization, schema:Person, schema:Place ;
-    schema:rangeIncludes schema:PostalAddress, xsd:string ;
+    rdfs:domain schema:GeoCoordinates, schema:GeoShape, schema:Organization, schema:Person, schema:Place ;
+    rdfs:range schema:PostalAddress, xsd:string ;
     rdfs:comment "Physical address of the item." .
 
 schema:addressCountry a rdf:Property ;
     rdfs:label "addressCountry" ;
-    schema:domainIncludes schema:GeoCoordinates, schema:GeoShape, schema:PostalAddress ;
-    schema:rangeIncludes schema:Country, xsd:string ;
+    rdfs:domain schema:GeoCoordinates, schema:GeoShape, schema:PostalAddress ;
+    rdfs:range schema:Country, xsd:string ;
     rdfs:comment "The country. For example, USA. You can also provide the two-letter <a href=\"http://en.wikipedia.org/wiki/ISO_3166-1\">ISO 3166-1 alpha-2 country code</a>." .
 
 schema:areaServed a rdf:Property ;
     rdfs:label "areaServed" ;
-    schema:domainIncludes schema:ContactPoint, schema:DeliveryChargeSpecification, schema:Demand, schema:Offer, schema:Organization, schema:Service ;
-    schema:rangeIncludes schema:AdministrativeArea, schema:GeoShape, schema:Place, xsd:string ;
+    rdfs:domain schema:ContactPoint, schema:DeliveryChargeSpecification, schema:Demand, schema:Offer, schema:Organization, schema:Service ;
+    rdfs:range schema:AdministrativeArea, schema:GeoShape, schema:Place, xsd:string ;
     rdfs:comment "The geographic area where a service or offered item is provided." .
 
 schema:availableLanguage a rdf:Property ;
     rdfs:label "availableLanguage" ;
-    schema:domainIncludes schema:ContactPoint, schema:LodgingBusiness, schema:ServiceChannel ;
-    schema:rangeIncludes schema:Language, xsd:string ;
+    rdfs:domain schema:ContactPoint, schema:LodgingBusiness, schema:ServiceChannel ;
+    rdfs:range schema:Language, xsd:string ;
     rdfs:comment "A language someone may use with the item. Please use one of the language codes from the <a href=\"http://tools.ietf.org/html/bcp47\">IETF BCP 47 standard</a>. See also <a class=\"localLink\" href=\"/inLanguage\">inLanguage</a>" .
 
 schema:colleague a rdf:Property ;
     rdfs:label "colleague" ;
-    schema:domainIncludes schema:Person ;
-    schema:rangeIncludes schema:Person, xsd:anyURI ;
+    rdfs:domain schema:Person ;
+    rdfs:range schema:Person, xsd:anyURI ;
     rdfs:comment "A colleague of the person." .
 
 schema:defaultValue a rdf:Property ;
     rdfs:label "defaultValue" ;
-    schema:domainIncludes schema:PropertyValueSpecification ;
-    schema:rangeIncludes xsd:string, owl:Thing ;
+    rdfs:domain schema:PropertyValueSpecification ;
+    rdfs:range xsd:string, owl:Thing ;
     rdfs:comment "The default value of the input.  For properties that expect a literal, the default is a literal value, for properties that expect an object, it's an ID reference to one of the current values." .
 
 schema:gender a rdf:Property ;
     rdfs:label "gender" ;
-    schema:domainIncludes schema:Person ;
-    schema:rangeIncludes schema:GenderType, xsd:string ;
+    rdfs:domain schema:Person ;
+    rdfs:range schema:GenderType, xsd:string ;
     rdfs:comment "Gender of the person. While http://schema.org/Male and http://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender." .
 
 schema:geoRadius a rdf:Property ;
     rdfs:label "geoRadius" ;
-    schema:domainIncludes schema:GeoCircle ;
-    schema:rangeIncludes schema:Distance, schema:Number, xsd:string ;
+    rdfs:domain schema:GeoCircle ;
+    rdfs:range schema:Distance, schema:Number, xsd:string ;
     rdfs:comment "Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation)." .
 
 schema:hasMap a rdf:Property ;
     rdfs:label "hasMap" ;
-    schema:domainIncludes schema:Place ;
-    schema:rangeIncludes schema:Map, xsd:anyURI ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:Map, xsd:anyURI ;
     rdfs:comment "A URL to a map of the place." .
 
 schema:image a rdf:Property ;
     rdfs:label "image" ;
-    schema:domainIncludes owl:Thing ;
-    schema:rangeIncludes schema:ImageObject, xsd:anyURI ;
+    rdfs:domain owl:Thing ;
+    rdfs:range schema:ImageObject, xsd:anyURI ;
     rdfs:comment "An image of the item. This can be a <a class=\"localLink\" href=\"/URL\">URL</a> or a fully described <a class=\"localLink\" href=\"/ImageObject\">ImageObject</a>." .
 
 schema:location a rdf:Property ;
     rdfs:label "location" ;
-    schema:domainIncludes schema:Action, schema:Event, schema:Organization ;
-    schema:rangeIncludes schema:Place, schema:PostalAddress, xsd:string ;
+    rdfs:domain schema:Action, schema:Event, schema:Organization ;
+    rdfs:range schema:Place, schema:PostalAddress, xsd:string ;
     rdfs:comment "The location of for example where the event is happening, an organization is located, or where an action takes place." .
 
 schema:logo a rdf:Property ;
     rdfs:label "logo" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:Brand, schema:Organization, schema:Place, schema:Product, schema:Service ;
-    schema:rangeIncludes schema:ImageObject, xsd:anyURI ;
+    rdfs:domain schema:Brand, schema:Organization, schema:Place, schema:Product, schema:Service ;
+    rdfs:range schema:ImageObject, xsd:anyURI ;
     rdfs:comment "An associated logo." ;
     rdfs:subPropertyOf schema:image .
 
 schema:value a rdf:Property ;
     rdfs:label "value" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:MonetaryAmount, schema:PropertyValue, schema:QuantitativeValue ;
-    schema:rangeIncludes xsd:boolean, schema:Number, schema:StructuredValue, xsd:string ;
+    rdfs:domain schema:MonetaryAmount, schema:PropertyValue, schema:QuantitativeValue ;
+    rdfs:range xsd:boolean, schema:Number, schema:StructuredValue, xsd:string ;
     rdfs:comment """<p>The value of the quantitative value or property value node.</p>
 <ul>
 <li>For <a class="localLink" href="/QuantitativeValue">QuantitativeValue</a> and <a class="localLink" href="/MonetaryAmount">MonetaryAmount</a>, the recommended type for values is 'Number'.</li>
@@ -852,26 +852,26 @@ schema:value a rdf:Property ;
 #
 schema:endDate a rdf:Property ;
     rdfs:label "endDate" ;
-    schema:domainIncludes schema:CreativeWorkSeason, schema:CreativeWorkSeries, schema:DatedMoneySpecification, schema:Event, schema:Role ;
-    schema:rangeIncludes xsd:date, xsd:dateTime ;
+    rdfs:domain schema:CreativeWorkSeason, schema:CreativeWorkSeries, schema:DatedMoneySpecification, schema:Event, schema:Role ;
+    rdfs:range xsd:date, xsd:dateTime ;
     rdfs:comment "The end date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." .
 
 schema:latitude a rdf:Property ;
     rdfs:label "latitude" ;
-    schema:domainIncludes schema:GeoCoordinates ;
-    schema:rangeIncludes schema:Number, xsd:string ;
+    rdfs:domain schema:GeoCoordinates ;
+    rdfs:range schema:Number, xsd:string ;
     rdfs:comment "The latitude of a location. For example <code>37.42242</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." .
 
 schema:longitude a rdf:Property ;
     rdfs:label "longitude" ;
-    schema:domainIncludes schema:GeoCoordinates ;
-    schema:rangeIncludes schema:Number, xsd:string ;
+    rdfs:domain schema:GeoCoordinates ;
+    rdfs:range schema:Number, xsd:string ;
     rdfs:comment "The longitude of a location. For example <code>-122.08585</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." .
 
 schema:propertyID a rdf:Property ;
     rdfs:label "propertyID" ;
-    schema:domainIncludes schema:PropertyValue ;
-    schema:rangeIncludes xsd:string, xsd:anyURI ;
+    rdfs:domain schema:PropertyValue ;
+    rdfs:range xsd:string, xsd:anyURI ;
     rdfs:comment """A commonly used identifier for the characteristic represented by the property, e.g. a manufacturer or a standard code for a property. propertyID can be
 (1) a prefixed string, mainly meant to be used with standards for product properties; (2) a site-specific, non-prefixed string (e.g. the primary key of the property or the vendor-specific id of the property), or (3)
 a URL indicating the type of the property, either pointing to an external vocabulary, or a Web resource that describes the property (e.g. a glossary entry).
@@ -879,19 +879,19 @@ Standards bodies should promote a standard prefix for the identifiers of propert
 
 schema:roleName a rdf:Property ;
     rdfs:label "roleName" ;
-    schema:domainIncludes schema:Role ;
-    schema:rangeIncludes xsd:string, xsd:anyURI ;
+    rdfs:domain schema:Role ;
+    rdfs:range xsd:string, xsd:anyURI ;
     rdfs:comment "A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'." .
 
 schema:startDate a rdf:Property ;
     rdfs:label "startDate" ;
-    schema:domainIncludes schema:CreativeWorkSeason, schema:CreativeWorkSeries, schema:DatedMoneySpecification, schema:Event, schema:Role ;
-    schema:rangeIncludes xsd:date, xsd:dateTime ;
+    rdfs:domain schema:CreativeWorkSeason, schema:CreativeWorkSeries, schema:DatedMoneySpecification, schema:Event, schema:Role ;
+    rdfs:range xsd:date, xsd:dateTime ;
     rdfs:comment "The start date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." .
 
 schema:unitCode a rdf:Property ;
     rdfs:label "unitCode" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    schema:domainIncludes schema:PropertyValue, schema:QuantitativeValue, schema:TypeAndQuantityNode, schema:UnitPriceSpecification ;
-    schema:rangeIncludes xsd:string, xsd:anyURI ;
+    rdfs:domain schema:PropertyValue, schema:QuantitativeValue, schema:TypeAndQuantityNode, schema:UnitPriceSpecification ;
+    rdfs:range xsd:string, xsd:anyURI ;
     rdfs:comment "The unit of measurement given using the UN/CEFACT Common Code (3 characters) or a URL. Other codes than the UN/CEFACT Common Code may be used with a prefix followed by a colon." .
