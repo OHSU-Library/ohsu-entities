@@ -1,21 +1,73 @@
-@prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfa: <http://www.w3.org/ns/rdfa#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <http://schema.org/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://schema.org/> a owl:Ontology 
-#TODO: figure out imports
+<http://purl.org/ohsu/schema/mireot/health-lifesci/> a owl:Ontology .
 
-# owl:import ;
-.
-
-
+#
 # Classes
+#
+schema:Dentist a owl:Class ;
+    rdfs:subClassOf schema:MedicalBusiness .
+    
+schema:MedicalAudience a owl:Class ;
+    rdfs:label "Medical Audience" ;
+    schema:isPartOf <http://health-lifesci.schema.org> ;
+    rdfs:comment "Target audiences for medical web pages. Enumerated type." ;
+    rdfs:subClassOf schema:Audience, schema:MedicalEnumeration, schema:PeopleAudience .
+ 
+schema:MedicalBusiness a owl:Class ;
+    rdfs:label "Medical Business" ;
+    schema:isPartOf <http://health-lifesci.schema.org> ;
+    rdfs:comment "A particular physical or virtual business of an organization for medical purposes. Examples of MedicalBusiness include differents business run by health professionals." ;
+    rdfs:subClassOf schema:LocalBusiness .
 
+schema:MedicalClinic a owl:Class ;
+    rdfs:label "Medical Clinic" ;
+    schema:isPartOf <http://health-lifesci.schema.org> ;
+    rdfs:comment "A facility, often associated with a hospital or medical school, that is devoted to the specific diagnosis and/or healthcare. Previously limited to outpatients but with evolution it may be open to inpatients as well." ;
+    rdfs:subClassOf schema:MedicalBusiness, schema:MedicalOrganization .
+
+schema:MedicalEnumeration a owl:Class ;
+    rdfs:label "Medical Enumeration" ;
+    schema:isPartOf <http://health-lifesci.schema.org> ;
+    rdfs:comment "Enumerations related to health and the practice of medicine: A concept that is used to attribute a quality to another concept, as a qualifier, a collection of items or a listing of all of the elements of a set in medicine practice." ;
+    rdfs:subClassOf schema:Enumeration .
+
+schema:MedicalSpecialty a owl:Class ;
+    rdfs:label "Medical Specialty" ;
+    schema:isPartOf <http://health-lifesci.schema.org> ;
+    rdfs:comment "Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type." ;
+    rdfs:subClassOf schema:MedicalEnumeration, schema:Specialty .
+        
+# schema:MedicalTherapy and its superclasses?
+
+schema:Optician a owl:Class ;
+    rdfs:label "Optician" ;
+    schema:isPartOf <http://health-lifesci.schema.org> ;
+    rdfs:comment "A store that sells reading glasses and similar devices for improving vision." ;
+    rdfs:subClassOf schema:MedicalBusiness .
+
+schema:Patient a owl:Class ;
+    rdfs:label "Patient" ;
+    schema:isPartOf <http://health-lifesci.schema.org> ;
+    rdfs:comment "A patient is any person recipient of health care services." ;
+    rdfs:subClassOf schema:MedicalAudience, schema:Person ;
+    owl:equivalentClass <http://purl.bioontology.org/ontology/SNOMEDCT/116154003> .
+
+schema:Pharmacy a owl:Class ;
+    rdfs:subClassOf schema:MedicalBusiness .
+    
+schema:Physician a owl:Class ;
+    rdfs:subClassOf schema:MedicalBusiness .
+
+
+#
+# Enumeration Members
+#
 schema:Anesthesia a schema:MedicalSpecialty ;
     rdfs:label "Anesthesia" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
@@ -32,12 +84,9 @@ schema:Clinician a schema:MedicalAudience ;
     rdfs:comment "Medical clinicians, including practicing physicians and other medical professionals involved in clinical practice." .
 
 schema:CommunityHealth a schema:MedicalSpecialty ;
-    rdfs:label "CommunityHealth" ;
+    rdfs:label "Community Health" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "A field of public health focusing on improving health characteristics of a defined population in relation with their geographical or environment areas" ;
-    rdfs:subClassOf schema:MedicalBusiness .
-    
-schema:Dentist a owl:Class ;
     rdfs:subClassOf schema:MedicalBusiness .
     
 schema:Dentistry a schema:MedicalSpecialty ;
@@ -52,7 +101,7 @@ schema:Dermatology a schema:MedicalSpecialty ;
     rdfs:subClassOf schema:MedicalBusiness .
 
 schema:DietNutrition a schema:MedicalSpecialty ;
-    rdfs:label "DietNutrition" ;
+    rdfs:label "Diet Nutrition" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "Dietetic and nutrition as a medical speciality." ;
     rdfs:subClassOf schema:MedicalBusiness .
@@ -101,51 +150,15 @@ schema:Infectious a schema:MedicalSpecialty ;
     rdfs:comment "Something in medical science that pertains to infectious diseases i.e caused by bacterial, viral, fungal or parasitic infections." .
 
 schema:LaboratoryScience a schema:MedicalSpecialty ;
-    rdfs:label "LaboratoryScience" ;
+    rdfs:label "Laboratory Science" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "A medical science pertaining to chemical, hematological, immunologic, microscopic, or bacteriological diagnostic analyses or research" .
 
-schema:MedicalAudience a owl:Class ;
-    rdfs:label "MedicalAudience" ;
-    schema:isPartOf <http://health-lifesci.schema.org> ;
-    rdfs:comment "Target audiences for medical web pages. Enumerated type." ;
-    rdfs:subClassOf schema:Audience,
-        schema:MedicalEnumeration,
-        schema:PeopleAudience .
- 
-schema:MedicalBusiness a owl:Class ;
-    rdfs:label "MedicalBusiness" ;
-    schema:isPartOf <http://health-lifesci.schema.org> ;
-    rdfs:comment "A particular physical or virtual business of an organization for medical purposes. Examples of MedicalBusiness include differents business run by health professionals." ;
-    rdfs:subClassOf schema:LocalBusiness .
-
-schema:MedicalClinic a owl:Class ;
-    rdfs:label "MedicalClinic" ;
-    schema:isPartOf <http://health-lifesci.schema.org> ;
-    rdfs:comment "A facility, often associated with a hospital or medical school, that is devoted to the specific diagnosis and/or healthcare. Previously limited to outpatients but with evolution it may be open to inpatients as well." ;
-    rdfs:subClassOf schema:MedicalBusiness,
-        schema:MedicalOrganization .
-
-schema:MedicalEnumeration a owl:Class ;
-    rdfs:label "MedicalEnumeration" ;
-    schema:isPartOf <http://health-lifesci.schema.org> ;
-    rdfs:comment "Enumerations related to health and the practice of medicine: A concept that is used to attribute a quality to another concept, as a qualifier, a collection of items or a listing of all of the elements of a set in medicine practice." ;
-    rdfs:subClassOf schema:Enumeration .
-
 schema:MedicalResearcher a schema:MedicalAudience ;
-    rdfs:label "MedicalResearcher" ;
+    rdfs:label "Medical Researcher" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "Medical researchers." .
     
-schema:MedicalSpecialty a owl:Class ;
-    rdfs:label "MedicalSpecialty" ;
-    schema:isPartOf <http://health-lifesci.schema.org> ;
-    rdfs:comment "Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type." ;
-    rdfs:subClassOf schema:MedicalEnumeration,
-        schema:Specialty .
-        
-# schema:MedicalTherapy and its superclasses?
-
 schema:Midwifery a schema:MedicalSpecialty ;
     rdfs:label "Midwifery" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
@@ -175,7 +188,7 @@ schema:Obstetric a schema:MedicalSpecialty ;
     rdfs:subClassOf schema:MedicalBusiness .
 
 schema:OccupationalTherapy a schema:MedicalSpecialty ;
-    rdfs:label "OccupationalTherapy" ;
+    rdfs:label "Occupational Therapy" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "A treatment of people with physical, emotional, or social problems, using purposeful activity to help them overcome or learn to deal with their problems." ;
     rdfs:subClassOf schema:MedicalTherapy .
@@ -184,12 +197,6 @@ schema:Oncologic a schema:MedicalSpecialty ;
     rdfs:label "Oncologic" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "A specific branch of medical science that deals with benign and malignant tumors, including the study of their development, diagnosis, treatment and prevention." ;
-    rdfs:subClassOf schema:MedicalBusiness .
-
-schema:Optician a owl:Class ;
-    rdfs:label "Optician" ;
-    schema:isPartOf <http://health-lifesci.schema.org> ;
-    rdfs:comment "A store that sells reading glasses and similar devices for improving vision." ;
     rdfs:subClassOf schema:MedicalBusiness .
 
 schema:Optometric a schema:MedicalSpecialty ;
@@ -209,28 +216,14 @@ schema:Pathology a schema:MedicalSpecialty ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "A specific branch of medical science that is concerned with the study of the cause, origin and nature of a disease state, including its consequences as a result of manifestation of the disease. In clinical care, the term is used to designate a branch of medicine using laboratory tests to diagnose and determine the prognostic significance of illness." .
 
-schema:Patient a owl:Class ;
-    rdfs:label "Patient" ;
-    schema:isPartOf <http://health-lifesci.schema.org> ;
-    rdfs:comment "A patient is any person recipient of health care services." ;
-    rdfs:subClassOf schema:MedicalAudience,
-        schema:Person ;
-    owl:equivalentClass <http://purl.bioontology.org/ontology/SNOMEDCT/116154003> .
-
 schema:Pediatric a schema:MedicalSpecialty ;
     rdfs:label "Pediatric" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "A specific branch of medical science that specializes in the care of infants, children and adolescents." ;
     rdfs:subClassOf schema:MedicalBusiness .
 
-schema:Pharmacy a owl:Class ;
-    rdfs:subClassOf schema:MedicalBusiness .
-    
-schema:Physician a owl:Class ;
-    rdfs:subClassOf schema:MedicalBusiness .
-
 schema:PharmacySpecialty a schema:MedicalSpecialty ;
-    rdfs:label "PharmacySpecialty" ;
+    rdfs:label "Pharmacy Specialty" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "The practice or art and science of preparing and dispensing drugs and medicines." .
 
@@ -241,7 +234,7 @@ schema:Physiotherapy a schema:MedicalSpecialty ;
     rdfs:subClassOf schema:MedicalBusiness .
     
 schema:PlasticSurgery a schema:MedicalSpecialty ;
-    rdfs:label "PlasticSurgery" ;
+    rdfs:label "Plastic Surgery" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "A specific branch of medical science that pertains to therapeutic or cosmetic repair or re-formation of missing, injured or malformed tissues or body parts by manual and instrumental means." ;
     rdfs:subClassOf schema:MedicalBusiness .
@@ -253,7 +246,7 @@ schema:Podiatric a schema:MedicalSpecialty ;
     rdfs:subClassOf schema:MedicalBusiness .
     
 schema:PrimaryCare a schema:MedicalSpecialty ;
-    rdfs:label "PrimaryCare" ;
+    rdfs:label "Primary Care" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "The medical care by a physician, or other health-care professional, who is the patient's first contact with the health-care system and who may recommend a specialist if necessary." ;
     rdfs:subClassOf schema:MedicalBusiness .
@@ -265,7 +258,7 @@ schema:Psychiatric a schema:MedicalSpecialty ;
     rdfs:subClassOf schema:MedicalBusiness .
     
 schema:PublicHealth a schema:MedicalSpecialty ;
-    rdfs:label "PublicHealth" ;
+    rdfs:label "Public Health" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "Branch of medicine that pertains to the health services to improve and protect community health, especially epidemiology, sanitation, immunization, and preventive medicine." ;
     rdfs:subClassOf schema:MedicalBusiness .
@@ -286,7 +279,7 @@ schema:Renal a schema:MedicalSpecialty ;
     rdfs:comment "A specific branch of medical science that pertains to the study of the kidneys and its respective disease states." .
 
 schema:RespiratoryTherapy a schema:MedicalSpecialty ;
-    rdfs:label "RespiratoryTherapy" ;
+    rdfs:label "Respiratory Therapy" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "The therapy that is concerned with the maintenance or improvement of respiratory function (as in patients with pulmonary disease)." ;
     rdfs:subClassOf schema:MedicalTherapy .
@@ -297,7 +290,7 @@ schema:Rheumatologic a schema:MedicalSpecialty ;
     rdfs:comment "A specific branch of medical science that deals with the study and treatment of rheumatic, autoimmune or joint diseases." .
 
 schema:SpeechPathology a schema:MedicalSpecialty ;
-    rdfs:label "SpeechPathology" ;
+    rdfs:label "Speech Pathology" ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     rdfs:comment "The scientific study and treatment of defects, disorders, and malfunctions of speech and voice, as stuttering, lisping, or lalling, and of language disturbances, as aphasia or delayed language acquisition." .
     
@@ -317,43 +310,26 @@ schema:Urologic a schema:MedicalSpecialty ;
     rdfs:comment "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases pertaining to the urinary tract and the urogenital system." .
 
 
-# Properties
-
-#TODO: translate domainIncludes/rangeIncludes to rdfs:domain/range
-#TODO: remove domain/range values not included in this MIREOT file
-#TODO: additional schema:Patient properties?
-
-schema:availableService a rdf:Property ;
-    rdfs:label "availableService" ;
-    schema:domainIncludes schema:Hospital,
-        schema:MedicalClinic,
-        schema:Physician ;
+#
+# Object Properties
+#
+schema:availableService a owl:ObjectProperty ;
+    rdfs:label "available service" ;
+    schema:domainIncludes schema:Hospital, schema:MedicalClinic, schema:Physician ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
-    schema:rangeIncludes schema:MedicalProcedure,
-        schema:MedicalTest,
-        schema:MedicalTherapy ;
+    schema:rangeIncludes schema:MedicalProcedure, schema:MedicalTest, schema:MedicalTherapy ;
     rdfs:comment "A medical service available from this provider." .
 
-schema:hospitalAffiliation a rdf:Property ;
-    rdfs:label "hospitalAffiliation" ;
+schema:hospitalAffiliation a owl:ObjectProperty ;
+    rdfs:label "hospital affiliation" ;
     schema:domainIncludes schema:Physician ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     schema:rangeIncludes schema:Hospital ;
     rdfs:comment "A hospital with which the physician or office is affiliated." .
 
-schema:medicalSpecialty a rdf:Property ;
-    rdfs:label "medicalSpecialty" ;
-    schema:domainIncludes schema:Hospital,
-        schema:MedicalClinic,
-        schema:MedicalOrganization,
-        schema:Physician ;
+schema:medicalSpecialty a owl:ObjectProperty ;
+    rdfs:label "medical specialty" ;
+    schema:domainIncludes schema:Hospital, schema:MedicalClinic, schema:MedicalOrganization, schema:Physician ;
     schema:isPartOf <http://health-lifesci.schema.org> ;
     schema:rangeIncludes schema:MedicalSpecialty ;
     rdfs:comment "A medical specialty of the provider." .
-    
-
-
-
-
-
-
