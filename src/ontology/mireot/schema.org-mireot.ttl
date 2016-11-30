@@ -296,14 +296,14 @@ schema:contactPoint a owl:ObjectProperty ;
 schema:containedInPlace a owl:ObjectProperty ;
     rdfs:label "containedInPlace" ;
     rdfs:domain schema:Place ;
-    schema:inverseOf schema:containsPlace ;
+    owl:inverseOf schema:containsPlace ;
     rdfs:range schema:Place ;
     rdfs:comment "The basic containment relation between a place and one that contains it." .
 
 schema:containsPlace a owl:ObjectProperty ;
     rdfs:label "containsPlace" ;
     rdfs:domain schema:Place ;
-    schema:inverseOf schema:containedInPlace ;
+    owl:inverseOf schema:containedInPlace ;
     rdfs:range schema:Place ;
     rdfs:comment "The basic containment relation between a place and another that it contains." .
 
@@ -353,14 +353,14 @@ schema:hoursAvailable a owl:ObjectProperty ;
 schema:member a owl:ObjectProperty ;
     rdfs:label "member" ;
     rdfs:domain schema:Organization, schema:ProgramMembership ;
-    schema:inverseOf schema:memberOf ;
+    owl:inverseOf schema:memberOf ;
     rdfs:range schema:Organization, schema:Person ;
     rdfs:comment "A member of an Organization or a ProgramMembership. Organizations can be members of organizations; ProgramMembership is typically for individuals." .
 
 schema:memberOf a owl:ObjectProperty ;
     rdfs:label "memberOf" ;
     rdfs:domain schema:Organization, schema:Person ;
-    schema:inverseOf schema:member ;
+    owl:inverseOf schema:member ;
     rdfs:range schema:Organization, schema:ProgramMembership ;
     rdfs:comment "An Organization (or ProgramMembership) to which this Person or Organization belongs." .
 
@@ -374,7 +374,7 @@ schema:openingHoursSpecification a owl:ObjectProperty ;
 schema:parentOrganization a owl:ObjectProperty ;
     rdfs:label "parentOrganization" ;
     rdfs:domain schema:Organization ;
-    schema:inverseOf schema:subOrganization ;
+    owl:inverseOf schema:subOrganization ;
     rdfs:range schema:Organization ;
     rdfs:comment "The larger organization that this local business is a branch of, if any." .
 
@@ -413,7 +413,7 @@ schema:specialty a owl:ObjectProperty ;
 schema:subOrganization a owl:ObjectProperty ;
     rdfs:label "subOrganization" ;
     rdfs:domain schema:Organization ;
-    schema:inverseOf schema:parentOrganization ;
+    owl:inverseOf schema:parentOrganization ;
     rdfs:range schema:Organization ;
     rdfs:comment "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property." .
 
