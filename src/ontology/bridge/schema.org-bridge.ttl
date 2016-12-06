@@ -15,4 +15,7 @@ ohsu:Building a owl:Class ;
 ohsu:Campus a owl:Class ;
     rdfs:subClassOf schema:Place .
     
-#TODO bridge healthcare classes
+ohsu:ClinicalDepartment a owl:Class;
+    rdfs:subClassOf schema:MedicalOrganization .
+    
+#ohsu:HealthcareFacility a owl:Class;
