@@ -52,6 +52,13 @@ schema:Country a owl:Class ;
     rdfs:comment "A country." ;
     rdfs:subClassOf schema:AdministrativeArea .
 
+schema:DayOfWeek a owl:Class ;
+    rdfs:label "DayOfWeek" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment """The day of the week, e.g. used to specify to which day the opening hours of an OpeningHoursSpecification refer.</p>
+<p>Originally, URLs from <a href="http://purl.org/goodrelations/v1">GoodRelations</a> were used (for <a class="localLink" href="/Monday">Monday</a>, <a class="localLink" href="/Tuesday">Tuesday</a>, <a class="localLink" href="/Wednesday">Wednesday</a>, <a class="localLink" href="/Thursday">Thursday</a>, <a class="localLink" href="/Friday">Friday</a>, <a class="localLink" href="/Saturday">Saturday</a>, <a class="localLink" href="/Sunday">Sunday</a> plus a special entry for <a class="localLink" href="/PublicHolidays">PublicHolidays</a>); these have now been integrated directly into schema.org.""" ;
+    rdfs:subClassOf schema:Enumeration .
+
 schema:Dentist a owl:Class ;
     rdfs:label "Dentist" ;
     rdfs:comment "A dentist." ;
@@ -119,6 +126,14 @@ schema:MedicalOrganization a owl:Class ;
     rdfs:label "Medical Organization" ;
     rdfs:comment "A medical organization (physical or not), such as hospital, institution or clinic." ;
     rdfs:subClassOf schema:Organization .
+
+schema:OpeningHoursSpecification a owl:Class ;
+    rdfs:label "OpeningHoursSpecification" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment """A structured value providing information about the opening hours of a place or a certain service inside a place.</p>
+<p>The place is <strong>open</strong> if the <a class="localLink" href="/opens">opens</a> property is specified, and <strong>closed</strong> otherwise.</p>
+<p>If the value for the <a class="localLink" href="/closes">closes</a> property is less than the value for the <a class="localLink" href="/opens">opens</a> property then the hour range is assumed to span over the next day.""" ;
+    rdfs:subClassOf schema:StructuredValue .
 
 schema:Organization a owl:Class ;
     rdfs:label "Organization" ;
@@ -207,13 +222,53 @@ schema:TrainStation a owl:Class ;
 #    
 # Enumeration Members
 #
+schema:Friday a schema:DayOfWeek ;
+    rdfs:label "Friday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q130> ;
+    rdfs:comment "The day of the week between Thursday and Saturday." .
+
 schema:HearingImpairedSupported a schema:ContactPointOption ;
     rdfs:label "Hearing Impaired Supported" ;
     rdfs:comment "Uses devices to support users with hearing impairments." .
 
+schema:Monday a schema:DayOfWeek ;
+    rdfs:label "Monday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q105> ;
+    rdfs:comment "The day of the week between Sunday and Tuesday." .
+
+schema:PublicHolidays a schema:DayOfWeek ;
+    rdfs:label "PublicHolidays" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment "This stands for any day that is a public holiday; it is a placeholder for all official public holidays in some particular location. While not technically a \"day of the week\", it can be used with <a class=\"localLink\" href=\"/OpeningHoursSpecification\">OpeningHoursSpecification</a>. In the context of an opening hours specification it can be used to indicate opening hours on public holidays, overriding general opening hours for the day of the week on which a public holiday occurs." .
+
+schema:Saturday a schema:DayOfWeek ;
+    rdfs:label "Saturday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q131> ;
+    rdfs:comment "The day of the week between Friday and Sunday." .
+
+schema:Sunday a schema:DayOfWeek ;
+    rdfs:label "Sunday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q132> ;
+    rdfs:comment "The day of the week between Saturday and Monday." .
+
+schema:Thursday a schema:DayOfWeek ;
+    rdfs:label "Thursday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q129> ;
+    rdfs:comment "The day of the week between Wednesday and Friday." .
+
 schema:TollFree a schema:ContactPointOption ;
     rdfs:label "Toll Free" ;
     rdfs:comment "The associated telephone number is toll free." .
+
+schema:Tuesday a schema:DayOfWeek ;
+    rdfs:label "Tuesday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q127> ;
+    rdfs:comment "The day of the week between Monday and Wednesday." .
+
+schema:Wednesday a schema:DayOfWeek ;
+    rdfs:label "Wednesday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q128> ;
+    rdfs:comment "The day of the week between Tuesday and Thursday." .
 
 
 #
@@ -252,6 +307,13 @@ schema:containsPlace a owl:ObjectProperty ;
     rdfs:range schema:Place ;
     rdfs:comment "The basic containment relation between a place and another that it contains." .
 
+schema:dayOfWeek a owl:ObjectProperty ;
+    rdfs:label "dayOfWeek" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range schema:DayOfWeek ;
+    rdfs:comment "The day of the week for which these opening hours are valid." .
+
 schema:department a owl:ObjectProperty ;
     rdfs:label "department" ;
     rdfs:domain schema:Organization ;
@@ -282,6 +344,14 @@ schema:geographicArea a owl:ObjectProperty ;
     rdfs:range schema:AdministrativeArea ;
     rdfs:comment "The geographic area associated with the audience." .
 
+schema:hoursAvailable a owl:ObjectProperty ;
+    rdfs:label "hoursAvailable" ;
+    rdfs:domain schema:ContactPoint,
+        schema:LocationFeatureSpecification,
+        schema:Service ;
+    rdfs:range schema:OpeningHoursSpecification ;
+    rdfs:comment "The hours during which this service or contact is available." .
+
 schema:member a owl:ObjectProperty ;
     rdfs:label "member" ;
     rdfs:domain schema:Organization ;
@@ -295,6 +365,13 @@ schema:memberOf a owl:ObjectProperty ;
     owl:inverseOf schema:member ;
     rdfs:range schema:Organization ;
     rdfs:comment "An Organization to which this Person or Organization belongs." .
+
+schema:openingHoursSpecification a owl:ObjectProperty ;
+    rdfs:label "openingHoursSpecification" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:OpeningHoursSpecification ;
+    rdfs:comment "The opening hours of a certain place." .
 
 schema:parentOrganization a owl:ObjectProperty ;
     rdfs:label "parentOrganization" ;
@@ -316,6 +393,13 @@ schema:reviewedBy a owl:ObjectProperty ;
     rdfs:range schema:Organization, schema:Person ;
     rdfs:comment "People or organizations that have reviewed the content on this web page for accuracy and/or completeness." .
 
+schema:specialOpeningHoursSpecification a owl:ObjectProperty ;
+    rdfs:label "specialOpeningHoursSpecification" ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:OpeningHoursSpecification ;
+    rdfs:comment """The special opening hours of a certain place.</p>
+<p>Use this to explicitly override general opening hours brought in scope by <a class="localLink" href="/openingHoursSpecification">openingHoursSpecification</a> or <a class="localLink" href="/openingHours">openingHours</a>.""" .
+
 schema:specialty a owl:ObjectProperty ;
     rdfs:label "specialty" ;
     rdfs:domain schema:WebPage ;
@@ -329,7 +413,19 @@ schema:subOrganization a owl:ObjectProperty ;
     rdfs:range schema:Organization ;
     rdfs:comment "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property." .
 
-schema:worksFor a owl:ObjectProperty ;
+schema:validFrom a owl:ObjectProperty ;
+    rdfs:label "validFrom" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range schema:DateTime ;
+    rdfs:comment "The date when the item becomes valid." .
+
+schema:validThrough a owl:ObjectProperty ;
+    rdfs:label "validThrough" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range schema:DateTime ;
+    rdfs:comment "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours." .schema:worksFor a owl:ObjectProperty ;
     rdfs:label "worksFor" ;
     rdfs:domain schema:Person ;
     rdfs:range schema:Organization ;
@@ -388,6 +484,13 @@ schema:circle a owl:DatatypeProperty ;
     rdfs:domain schema:GeoShape ;
     rdfs:range xsd:string ;
     rdfs:comment "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters." .
+
+schema:closes a owl:DatatypeProperty ;
+    rdfs:label "closes" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "The closing hour of the place or service on the given day(s) of the week." .
 
 schema:contactType a owl:DatatypeProperty ;
     rdfs:label "contactType" ;
@@ -503,6 +606,13 @@ schema:openingHours a owl:DatatypeProperty ;
 <li>If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.</li>
 </ul>""" .
 
+schema:opens a owl:DatatypeProperty ;
+    rdfs:label "opens" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range xsd:dateTime  ;
+    rdfs:comment "The opening hour of the place or service on the given day(s) of the week." .
+
 schema:polygon a owl:DatatypeProperty ;
     rdfs:label "polygon" ;
     rdfs:domain schema:GeoShape ;
@@ -515,7 +625,7 @@ schema:postalCode a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The postal code. For example, 94043." .
 
-schema:sameAs a owl:DatatypeProperty ;
+owl:sameAs a owl:DatatypeProperty ;
     rdfs:label "sameAs" ;
     rdfs:domain owl:Thing ;
     rdfs:range xsd:anyURI ;
