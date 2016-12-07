@@ -117,6 +117,11 @@ schema:Landform a owl:Class ;
     rdfs:comment "A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins." ;
     rdfs:subClassOf schema:Place .
 
+schema:Language a rdfs:Class ;
+    rdfs:label "Language" ;
+    rdfs:comment "Natural languages such as Spanish, Tamil, Hindi, English, etc. Formal language code tags expressed in <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> can be used via the <a class=\"localLink\" href=\"/alternateName\">alternateName</a> property. The Language type previously also covered programming languages such as Scheme and Lisp, which are now best represented using <a class=\"localLink\" href=\"/ComputerLanguage\">ComputerLanguage</a>." ;
+    rdfs:subClassOf schema:Intangible .
+
 schema:LocalBusiness a owl:Class ;
     rdfs:label "Local Business" ;
     rdfs:comment "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc." ;
@@ -274,12 +279,36 @@ schema:Wednesday a schema:DayOfWeek ;
 #
 # Object Properties
 #
+schema:address a owl:ObjectProperty ;
+    rdfs:label "address" ;
+    rdfs:domain schema:GeoCoordinates, schema:GeoShape, schema:Organization, schema:Person, schema:Place ;
+    rdfs:range schema:PostalAddress ;
+    rdfs:comment "Physical address of the item." .
+
 schema:affiliation a owl:ObjectProperty ;
     rdfs:label "affiliation" ;
     rdfs:domain schema:Person ;
     rdfs:range schema:Organization ;
     rdfs:comment "An organization that this person is affiliated with. For example, a school/university, a club, or a team." ;
     rdfs:subPropertyOf schema:memberOf .
+
+schema:areaServed a owl:ObjectProperty ;
+    rdfs:label "areaServed" ;
+    rdfs:domain schema:ContactPoint, schema:Organization ;
+    rdfs:range schema:AdministrativeArea, schema:GeoShape, schema:Place ;
+    rdfs:comment "The geographic area where a service or offered item is provided." .
+
+schema:availableLanguage a owl:ObjectProperty ;
+    rdfs:label "availableLanguage" ;
+    rdfs:domain schema:ContactPoint ;
+    rdfs:range schema:Language ;
+    rdfs:comment "A language someone may use with the item. Please use one of the language codes from the <a href=\"http://tools.ietf.org/html/bcp47\">IETF BCP 47 standard</a>. See also <a class=\"localLink\" href=\"/inLanguage\">inLanguage</a>" .
+
+schema:colleague a owl:ObjectProperty ;
+    rdfs:label "colleague" ;
+    rdfs:domain schema:Person ;
+    rdfs:range schema:Person ;
+    rdfs:comment "A colleague of the person." .
 
 schema:contactOption a owl:ObjectProperty ;
     rdfs:label "contactOption" ;
@@ -326,6 +355,12 @@ schema:employee a owl:ObjectProperty ;
     rdfs:range schema:Person ;
     rdfs:comment "Someone working for this organization." .
 
+schema:gender a owl:DatatypeProperty ;
+    rdfs:label "gender" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Gender of the person." .
+
 schema:geo a owl:ObjectProperty ;
     rdfs:label "geo" ;
     rdfs:domain schema:Place ;
@@ -351,6 +386,12 @@ schema:hoursAvailable a owl:ObjectProperty ;
         schema:Service ;
     rdfs:range schema:OpeningHoursSpecification ;
     rdfs:comment "The hours during which this service or contact is available." .
+
+schema:location a owl:ObjectProperty ;
+    rdfs:label "location" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range schema:Place, schema:PostalAddress ;
+    rdfs:comment "The location of for example where the event is happening, an organization is located, or where an action takes place." .
 
 schema:member a owl:ObjectProperty ;
     rdfs:label "member" ;
@@ -379,13 +420,6 @@ schema:parentOrganization a owl:ObjectProperty ;
     owl:inverseOf schema:subOrganization ;
     rdfs:range schema:Organization ;
     rdfs:comment "The larger organization that this local business is a branch of, if any." .
-
-schema:photo a owl:ObjectProperty ;
-    rdfs:label "photo" ;
-    rdfs:domain schema:Place ;
-    rdfs:range schema:ImageObject, schema:Photograph ;
-    rdfs:comment "A photograph of this place." ;
-    rdfs:subPropertyOf schema:image .
 
 schema:reviewedBy a owl:ObjectProperty ;
     rdfs:label "reviewedBy" ;
@@ -447,6 +481,12 @@ schema:additionalName a owl:DatatypeProperty ;
     rdfs:domain schema:Person ;
     rdfs:range xsd:string ;
     rdfs:comment "An additional name for a Person, can be used for a middle name." .
+
+schema:addressCountry a rdf:Property ;
+    rdfs:label "addressCountry" ;
+    rdfs:domain schema:GeoCoordinates, schema:GeoShape, schema:PostalAddress ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The country. For example, USA. You can also provide the two-letter <a href=\"http://en.wikipedia.org/wiki/ISO_3166-1\">ISO 3166-1 alpha-2 country code</a>." .
 
 schema:addressLocality a owl:DatatypeProperty ;
     rdfs:label "addressLocality" ;
@@ -518,6 +558,12 @@ schema:email a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "Email address." .
 
+schema:endDate a rdf:Property ;
+    rdfs:label "endDate" ;
+    rdfs:domain schema:Role ;
+    rdfs:range xsd:date ;
+    rdfs:comment "The end date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." .
+
 schema:familyName a owl:DatatypeProperty ;
     rdfs:label "familyName" ;
     rdfs:domain schema:Person ;
@@ -529,6 +575,12 @@ schema:faxNumber a owl:DatatypeProperty ;
     rdfs:domain schema:ContactPoint, schema:Organization, schema:Person, schema:Place ;
     rdfs:range xsd:string ;
     rdfs:comment "The fax number." .
+
+schema:geoRadius a owl:DatatypeProperty ;
+    rdfs:label "geoRadius" ;
+    rdfs:domain schema:GeoCircle ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation)." .
 
 schema:givenName a owl:DatatypeProperty ;
     rdfs:label "givenName" ;
@@ -543,6 +595,12 @@ schema:globalLocationNumber a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The <a href=\"http://www.gs1.org/gln\">Global Location Number</a> (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations." .
 
+schema:hasMap a owl:DatatypeProperty ;
+    rdfs:label "hasMap" ;
+    rdfs:domain schema:Place ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "A URL to a map of the place." .
+
 schema:honorificPrefix a owl:DatatypeProperty ;
     rdfs:label "honorificPrefix" ;
     rdfs:domain schema:Person ;
@@ -554,6 +612,12 @@ schema:honorificSuffix a owl:DatatypeProperty ;
     rdfs:domain schema:Person ;
     rdfs:range xsd:string ;
     rdfs:comment "An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW." .
+
+schema:image a owl:DatatypeProperty ;
+    rdfs:label "image" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "An image of the item. This can be a <a class=\"localLink\" href=\"/URL\">URL</a> or a fully described <a class=\"localLink\" href=\"/ImageObject\">ImageObject</a>." .
 
 schema:isicV4 a owl:DatatypeProperty ;
     rdfs:label "isicV4" ;
@@ -568,6 +632,12 @@ schema:jobTitle a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The job title of the person (for example, Financial Manager)." .
 
+schema:latitude a owl:DatatypeProperty ;
+    rdfs:label "latitude" ;
+    rdfs:domain schema:GeoCoordinates ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "The latitude of a location. For example <code>37.42242</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." .
+
 schema:line a owl:DatatypeProperty ;
     rdfs:label "line" ;
     rdfs:domain schema:GeoShape ;
@@ -581,6 +651,20 @@ schema:legalName a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The official name of the organization, e.g. the registered company name." .
 
+schema:logo a owl:DatatypeProperty ;
+    rdfs:label "logo" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:Organization, schema:Place ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "An associated logo." ;
+    rdfs:subPropertyOf schema:image .
+
+schema:longitude a owl:DatatypeProperty ;
+    rdfs:label "longitude" ;
+    rdfs:domain schema:GeoCoordinates ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "The longitude of a location. For example <code>-122.08585</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." .
+
 schema:naics a owl:DatatypeProperty ;
     rdfs:label "naics" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
@@ -591,7 +675,7 @@ schema:naics a owl:DatatypeProperty ;
 schema:numberedPosition a owl:DatatypeProperty ;
     rdfs:label "numberedPosition" ;
     rdfs:domain schema:OrganizationRole ;
-    rdfs:range schema:Number ;
+    rdfs:range xsd:decimal ;
     rdfs:comment "A number associated with a role in an organization, for example, the number on an athlete's jersey." .
 
 schema:openingHours a owl:DatatypeProperty ;
@@ -631,6 +715,18 @@ schema:postOfficeBoxNumber a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The post office box number for PO box addresses." .
 
+schema:roleName a owl:DatatypeProperty ;
+    rdfs:label "roleName" ;
+    rdfs:domain schema:Role ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'." .
+
+schema:startDate a rdf:Property ;
+    rdfs:label "startDate" ;
+    rdfs:domain schema:Role ;
+    rdfs:range xsd:date ;
+    rdfs:comment "The start date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." .
+    
 schema:streetAddress a owl:DatatypeProperty ;
     rdfs:label "streetAddress" ;
     rdfs:domain schema:PostalAddress ;
@@ -642,109 +738,3 @@ schema:telephone a owl:DatatypeProperty ;
     rdfs:domain schema:ContactPoint, schema:Organization, schema:Person, schema:Place ;
     rdfs:range xsd:string ;
     rdfs:comment "The telephone number." .
-
-
-#
-# TODO Dual Type Properties 
-#
-schema:address a rdf:Property ;
-    rdfs:label "address" ;
-    rdfs:domain schema:GeoCoordinates, schema:GeoShape, schema:Organization, schema:Person, schema:Place ;
-    rdfs:range schema:PostalAddress, xsd:string ;
-    rdfs:comment "Physical address of the item." .
-
-schema:addressCountry a rdf:Property ;
-    rdfs:label "addressCountry" ;
-    rdfs:domain schema:GeoCoordinates, schema:GeoShape, schema:PostalAddress ;
-    rdfs:range schema:Country, xsd:string ;
-    rdfs:comment "The country. For example, USA. You can also provide the two-letter <a href=\"http://en.wikipedia.org/wiki/ISO_3166-1\">ISO 3166-1 alpha-2 country code</a>." .
-
-schema:areaServed a rdf:Property ;
-    rdfs:label "areaServed" ;
-    rdfs:domain schema:ContactPoint, schema:Organization ;
-    rdfs:range schema:AdministrativeArea, schema:GeoShape, schema:Place, xsd:string ;
-    rdfs:comment "The geographic area where a service or offered item is provided." .
-
-schema:availableLanguage a rdf:Property ;
-    rdfs:label "availableLanguage" ;
-    rdfs:domain schema:ContactPoint ;
-    rdfs:range schema:Language, xsd:string ;
-    rdfs:comment "A language someone may use with the item. Please use one of the language codes from the <a href=\"http://tools.ietf.org/html/bcp47\">IETF BCP 47 standard</a>. See also <a class=\"localLink\" href=\"/inLanguage\">inLanguage</a>" .
-
-schema:colleague a rdf:Property ;
-    rdfs:label "colleague" ;
-    rdfs:domain schema:Person ;
-    rdfs:range schema:Person, xsd:anyURI ;
-    rdfs:comment "A colleague of the person." .
-
-schema:gender a rdf:Property ;
-    rdfs:label "gender" ;
-    rdfs:domain schema:Person ;
-    rdfs:range schema:GenderType, xsd:string ;
-    rdfs:comment "Gender of the person. While http://schema.org/Male and http://schema.org/Female may be used, text strings are also acceptable for people who do not identify as a binary gender." .
-
-schema:geoRadius a rdf:Property ;
-    rdfs:label "geoRadius" ;
-    rdfs:domain schema:GeoCircle ;
-    rdfs:range schema:Distance, schema:Number, xsd:string ;
-    rdfs:comment "Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation)." .
-
-schema:hasMap a rdf:Property ;
-    rdfs:label "hasMap" ;
-    rdfs:domain schema:Place ;
-    rdfs:range schema:Map, xsd:anyURI ;
-    rdfs:comment "A URL to a map of the place." .
-
-schema:image a rdf:Property ;
-    rdfs:label "image" ;
-    rdfs:domain owl:Thing ;
-    rdfs:range schema:ImageObject, xsd:anyURI ;
-    rdfs:comment "An image of the item. This can be a <a class=\"localLink\" href=\"/URL\">URL</a> or a fully described <a class=\"localLink\" href=\"/ImageObject\">ImageObject</a>." .
-
-schema:location a rdf:Property ;
-    rdfs:label "location" ;
-    rdfs:domain schema:Organization ;
-    rdfs:range schema:Place, schema:PostalAddress, xsd:string ;
-    rdfs:comment "The location of for example where the event is happening, an organization is located, or where an action takes place." .
-
-schema:logo a rdf:Property ;
-    rdfs:label "logo" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:Organization, schema:Place ;
-    rdfs:range schema:ImageObject, xsd:anyURI ;
-    rdfs:comment "An associated logo." ;
-    rdfs:subPropertyOf schema:image .
-
-
-#
-# TODO Dual Datatype Properties
-#
-schema:endDate a rdf:Property ;
-    rdfs:label "endDate" ;
-    rdfs:domain schema:Role ;
-    rdfs:range xsd:date, xsd:dateTime ;
-    rdfs:comment "The end date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." .
-
-schema:latitude a rdf:Property ;
-    rdfs:label "latitude" ;
-    rdfs:domain schema:GeoCoordinates ;
-    rdfs:range schema:Number, xsd:string ;
-    rdfs:comment "The latitude of a location. For example <code>37.42242</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." .
-
-schema:longitude a rdf:Property ;
-    rdfs:label "longitude" ;
-    rdfs:domain schema:GeoCoordinates ;
-    rdfs:range schema:Number, xsd:string ;
-    rdfs:comment "The longitude of a location. For example <code>-122.08585</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." .
-
-schema:roleName a rdf:Property ;
-    rdfs:label "roleName" ;
-    rdfs:domain schema:Role ;
-    rdfs:range xsd:string, xsd:anyURI ;
-    rdfs:comment "A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'." .
-
-schema:startDate a rdf:Property ;
-    rdfs:label "startDate" ;
-    rdfs:domain schema:Role ;
-    rdfs:range xsd:date, xsd:dateTime ;
-    rdfs:comment "The start date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." .
