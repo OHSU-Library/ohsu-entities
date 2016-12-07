@@ -17,6 +17,11 @@ schema:AdministrativeArea a owl:Class ;
     rdfs:comment "A geographical region, typically under the jurisdiction of a particular government." ;
     rdfs:subClassOf schema:Place .
 
+schema:Audience a rdfs:Class ;
+    rdfs:label "Audience" ;
+    rdfs:comment "Intended audience for an item, i.e. the group for whom the item was created." ;
+    rdfs:subClassOf schema:Intangible .
+
 schema:BusStop a owl:Class ;
     rdfs:label "Bus Stop" ;
     rdfs:comment "A bus stop." ;
@@ -281,7 +286,16 @@ schema:Wednesday a schema:DayOfWeek ;
 #
 schema:address a owl:ObjectProperty ;
     rdfs:label "address" ;
-    rdfs:domain schema:GeoCoordinates, schema:GeoShape, schema:Organization, schema:Person, schema:Place ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:GeoCoordinates
+            schema:GeoShape
+            schema:Organization
+            schema:Person
+            schema:Place 
+        ) ;
+    ] ;
     rdfs:range schema:PostalAddress ;
     rdfs:comment "Physical address of the item." .
 
@@ -294,8 +308,21 @@ schema:affiliation a owl:ObjectProperty ;
 
 schema:areaServed a owl:ObjectProperty ;
     rdfs:label "areaServed" ;
-    rdfs:domain schema:ContactPoint, schema:Organization ;
-    rdfs:range schema:AdministrativeArea, schema:GeoShape, schema:Place ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:ContactPoint
+            schema:Organization
+        ) ;
+    ] ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:AdministrativeArea
+            schema:GeoShape
+            schema:Place
+            ) ;
+    ] ;
     rdfs:comment "The geographic area where a service or offered item is provided." .
 
 schema:availableLanguage a owl:ObjectProperty ;
@@ -318,7 +345,13 @@ schema:contactOption a owl:ObjectProperty ;
 
 schema:contactPoint a owl:ObjectProperty ;
     rdfs:label "contactPoint" ;
-    rdfs:domain schema:Organization, schema:Person ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:Organization
+            schema:Person
+        ) ;
+    ] ;
     rdfs:range schema:ContactPoint ;
     rdfs:comment "A contact point for a person or organization." .
 
@@ -355,16 +388,16 @@ schema:employee a owl:ObjectProperty ;
     rdfs:range schema:Person ;
     rdfs:comment "Someone working for this organization." .
 
-schema:gender a owl:DatatypeProperty ;
-    rdfs:label "gender" ;
-    rdfs:domain schema:Person ;
-    rdfs:range xsd:string ;
-    rdfs:comment "Gender of the person." .
-
 schema:geo a owl:ObjectProperty ;
     rdfs:label "geo" ;
     rdfs:domain schema:Place ;
-    rdfs:range schema:GeoCoordinates, schema:GeoShape ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:GeoCoordinates
+            schema:GeoShape
+        ) ;
+    ] ;
     rdfs:comment "The geo coordinates of the place." .
 
 schema:geoMidpoint a owl:ObjectProperty ;
@@ -381,28 +414,44 @@ schema:geographicArea a owl:ObjectProperty ;
 
 schema:hoursAvailable a owl:ObjectProperty ;
     rdfs:label "hoursAvailable" ;
-    rdfs:domain schema:ContactPoint,
-        schema:LocationFeatureSpecification,
-        schema:Service ;
+    rdfs:domain schema:ContactPoint ;
     rdfs:range schema:OpeningHoursSpecification ;
     rdfs:comment "The hours during which this service or contact is available." .
 
 schema:location a owl:ObjectProperty ;
     rdfs:label "location" ;
     rdfs:domain schema:Organization ;
-    rdfs:range schema:Place, schema:PostalAddress ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:Place
+            schema:PostalAddress
+        ) ;
+    ] ;
     rdfs:comment "The location of for example where the event is happening, an organization is located, or where an action takes place." .
 
 schema:member a owl:ObjectProperty ;
     rdfs:label "member" ;
     rdfs:domain schema:Organization ;
     owl:inverseOf schema:memberOf ;
-    rdfs:range schema:Organization, schema:Person ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:Organization
+            schema:Person
+        ) ;
+    ] ;
     rdfs:comment "A member of an Organization." .
 
 schema:memberOf a owl:ObjectProperty ;
     rdfs:label "memberOf" ;
-    rdfs:domain schema:Organization, schema:Person ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Person
+        ) ;
+    ] ;
     owl:inverseOf schema:member ;
     rdfs:range schema:Organization ;
     rdfs:comment "An Organization to which this Person or Organization belongs." .
@@ -421,24 +470,12 @@ schema:parentOrganization a owl:ObjectProperty ;
     rdfs:range schema:Organization ;
     rdfs:comment "The larger organization that this local business is a branch of, if any." .
 
-schema:reviewedBy a owl:ObjectProperty ;
-    rdfs:label "reviewedBy" ;
-    rdfs:domain schema:WebPage ;
-    rdfs:range schema:Organization, schema:Person ;
-    rdfs:comment "People or organizations that have reviewed the content on this web page for accuracy and/or completeness." .
-
 schema:specialOpeningHoursSpecification a owl:ObjectProperty ;
     rdfs:label "specialOpeningHoursSpecification" ;
     rdfs:domain schema:Place ;
     rdfs:range schema:OpeningHoursSpecification ;
     rdfs:comment """The special opening hours of a certain place.</p>
 <p>Use this to explicitly override general opening hours brought in scope by <a class="localLink" href="/openingHoursSpecification">openingHoursSpecification</a> or <a class="localLink" href="/openingHours">openingHours</a>.""" .
-
-schema:specialty a owl:ObjectProperty ;
-    rdfs:label "specialty" ;
-    rdfs:domain schema:WebPage ;
-    rdfs:range schema:Specialty ;
-    rdfs:comment "One of the domain specialities to which this web page's content applies." .
 
 schema:subOrganization a owl:ObjectProperty ;
     rdfs:label "subOrganization" ;
@@ -447,19 +484,7 @@ schema:subOrganization a owl:ObjectProperty ;
     rdfs:range schema:Organization ;
     rdfs:comment "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property." .
 
-schema:validFrom a owl:ObjectProperty ;
-    rdfs:label "validFrom" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:OpeningHoursSpecification ;
-    rdfs:range schema:DateTime ;
-    rdfs:comment "The date when the item becomes valid." .
-
-schema:validThrough a owl:ObjectProperty ;
-    rdfs:label "validThrough" ;
-    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:OpeningHoursSpecification ;
-    rdfs:range schema:DateTime ;
-    rdfs:comment "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours." .schema:worksFor a owl:ObjectProperty ;
+schema:worksFor a owl:ObjectProperty ;
     rdfs:label "worksFor" ;
     rdfs:domain schema:Person ;
     rdfs:range schema:Organization ;
@@ -468,7 +493,13 @@ schema:validThrough a owl:ObjectProperty ;
 schema:workLocation a owl:ObjectProperty ;
     rdfs:label "workLocation" ;
     rdfs:domain schema:Person ;
-    rdfs:range schema:ContactPoint, schema:Place ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:ContactPoint
+            schema:Place
+        ) ;
+    ] ;
     rdfs:comment "A contact location for a person's place of work." ;
     rdfs:subPropertyOf schema:location .
 
@@ -484,7 +515,14 @@ schema:additionalName a owl:DatatypeProperty ;
 
 schema:addressCountry a rdf:Property ;
     rdfs:label "addressCountry" ;
-    rdfs:domain schema:GeoCoordinates, schema:GeoShape, schema:PostalAddress ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:GeoCoordinates
+            schema:GeoShape
+            schema:PostalAddress
+        ) ;
+    ] ;
     rdfs:range xsd:string ;
     rdfs:comment "The country. For example, USA. You can also provide the two-letter <a href=\"http://en.wikipedia.org/wiki/ISO_3166-1\">ISO 3166-1 alpha-2 country code</a>." .
 
@@ -548,13 +586,26 @@ schema:disambiguatingDescription a owl:DatatypeProperty ;
 schema:duns a owl:DatatypeProperty ;
     rdfs:label "duns" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:Organization, schema:Person ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Person
+        ) ;
+    ] ;
     rdfs:range xsd:string ;
     rdfs:comment "The Dun &amp; Bradstreet DUNS number for identifying an organization or business person." .
 
 schema:email a owl:DatatypeProperty ;
     rdfs:label "email" ;
-    rdfs:domain schema:ContactPoint, schema:Organization, schema:Person ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:ContactPoint
+            schema:Organization
+            schema:Person
+        ) ;
+    ] ;
     rdfs:range xsd:string ;
     rdfs:comment "Email address." .
 
@@ -572,9 +623,23 @@ schema:familyName a owl:DatatypeProperty ;
 
 schema:faxNumber a owl:DatatypeProperty ;
     rdfs:label "faxNumber" ;
-    rdfs:domain schema:ContactPoint, schema:Organization, schema:Person, schema:Place ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:ContactPoint
+            schema:Organization
+            schema:Person
+            schema:Place
+        ) ;
+    ] ;
     rdfs:range xsd:string ;
     rdfs:comment "The fax number." .
+
+schema:gender a owl:DatatypeProperty ;
+    rdfs:label "gender" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Gender of the person." .
 
 schema:geoRadius a owl:DatatypeProperty ;
     rdfs:label "geoRadius" ;
@@ -591,7 +656,14 @@ schema:givenName a owl:DatatypeProperty ;
 schema:globalLocationNumber a owl:DatatypeProperty ;
     rdfs:label "globalLocationNumber" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:Organization, schema:Person, schema:Place ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Person
+             schema:Place
+        ) ;
+    ] ;
     rdfs:range xsd:string ;
     rdfs:comment "The <a href=\"http://www.gs1.org/gln\">Global Location Number</a> (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations." .
 
@@ -622,7 +694,14 @@ schema:image a owl:DatatypeProperty ;
 schema:isicV4 a owl:DatatypeProperty ;
     rdfs:label "isicV4" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:Organization, schema:Person, schema:Place ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Person
+             schema:Place
+        ) ;
+    ] ;
     rdfs:range xsd:string ;
     rdfs:comment "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place." .
 
@@ -654,7 +733,13 @@ schema:legalName a owl:DatatypeProperty ;
 schema:logo a owl:DatatypeProperty ;
     rdfs:label "logo" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:Organization, schema:Place ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Place
+        ) ;
+    ] ;
     rdfs:range xsd:anyURI ;
     rdfs:comment "An associated logo." ;
     rdfs:subPropertyOf schema:image .
@@ -668,7 +753,13 @@ schema:longitude a owl:DatatypeProperty ;
 schema:naics a owl:DatatypeProperty ;
     rdfs:label "naics" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
-    rdfs:domain schema:Organization, schema:Person ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Person
+        ) ;
+    ] ;
     rdfs:range xsd:string ;
     rdfs:comment "The North American Industry Classification System (NAICS) code for a particular organization or business person." .
 
@@ -680,7 +771,13 @@ schema:numberedPosition a owl:DatatypeProperty ;
 
 schema:openingHours a owl:DatatypeProperty ;
     rdfs:label "openingHours" ;
-    rdfs:domain schema:CivicStructure, schema:LocalBusiness ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:CivicStructure
+            schema:LocalBusiness
+        ) ;
+    ] ;
     rdfs:range xsd:string ;
     rdfs:comment """<p>The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.</p>
 <ul>
@@ -694,7 +791,7 @@ schema:opens a owl:DatatypeProperty ;
     rdfs:label "opens" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
     rdfs:domain schema:OpeningHoursSpecification ;
-    rdfs:range xsd:dateTime  ;
+    rdfs:range xsd:dateTime ;
     rdfs:comment "The opening hour of the place or service on the given day(s) of the week." .
 
 schema:polygon a owl:DatatypeProperty ;
@@ -705,7 +802,14 @@ schema:polygon a owl:DatatypeProperty ;
 
 schema:postalCode a owl:DatatypeProperty ;
     rdfs:label "postalCode" ;
-    rdfs:domain schema:GeoCoordinates, schema:GeoShape, schema:PostalAddress ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:GeoCoordinates
+            schema:GeoShape
+            schema:PostalAddress
+        ) ;
+    ];
     rdfs:range xsd:string ;
     rdfs:comment "The postal code. For example, 94043." .
 
@@ -735,6 +839,28 @@ schema:streetAddress a owl:DatatypeProperty ;
 
 schema:telephone a owl:DatatypeProperty ;
     rdfs:label "telephone" ;
-    rdfs:domain schema:ContactPoint, schema:Organization, schema:Person, schema:Place ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:ContactPoint
+            schema:Organization
+            schema:Person
+            schema:Place
+        ) ;
+    ] ;
     rdfs:range xsd:string ;
     rdfs:comment "The telephone number." .
+
+schema:validFrom a owl:DatatypeProperty ;
+    rdfs:label "validFrom" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "The date when the item becomes valid." .
+
+schema:validThrough a owl:DatatypeProperty ;
+    rdfs:label "validThrough" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours." .
