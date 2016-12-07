@@ -625,11 +625,11 @@ schema:postalCode a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The postal code. For example, 94043." .
 
-owl:sameAs a owl:DatatypeProperty ;
-    rdfs:label "sameAs" ;
-    rdfs:domain owl:Thing ;
-    rdfs:range xsd:anyURI ;
-    rdfs:comment "URL of a reference Web page that unambiguously indicates the item's identity. E.g. the URL of the item's Wikipedia page, Freebase page, or official website." .
+schema:postOfficeBoxNumber a owl:DatatypeProperty ;
+    rdfs:label "postOfficeBoxNumber" ;
+    rdfs:domain schema:PostalAddress ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The post office box number for PO box addresses." .
 
 schema:streetAddress a owl:DatatypeProperty ;
     rdfs:label "streetAddress" ;
