@@ -23,7 +23,7 @@ schema:AdministrativeArea a owl:Class ;
     rdfs:comment "A geographical region, typically under the jurisdiction of a particular government." ;
     rdfs:subClassOf schema:Place
 .
-schema:Audience a rdfs:Class ;
+schema:Audience a owl:Class ;
     rdfs:label "Audience" ;
     rdfs:comment "Intended audience for an item, i.e. the group for whom the item was created." ;
     rdfs:subClassOf schema:Intangible
@@ -128,7 +128,7 @@ schema:Landform a owl:Class ;
     rdfs:comment "A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins." ;
     rdfs:subClassOf schema:Place
 .
-schema:Language a rdfs:Class ;
+schema:Language a owl:Class ;
     rdfs:label "Language" ;
     rdfs:comment "Natural languages such as Spanish, Tamil, Hindi, English, etc. Formal language code tags expressed in <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> can be used via the <a class=\"localLink\" href=\"/alternateName\">alternateName</a> property. The Language type previously also covered programming languages such as Scheme and Lisp, which are now best represented using <a class=\"localLink\" href=\"/ComputerLanguage\">ComputerLanguage</a>." ;
     rdfs:subClassOf schema:Intangible
