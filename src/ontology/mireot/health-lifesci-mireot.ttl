@@ -9,7 +9,7 @@
 #
 # Ontology
 #
-<http://purl.org/ohsu/schema/mireot/health-lifesci/> a owl:Ontology
+<http://purl.org/ohsu/schema/mireot/health-lifesci> a owl:Ontology
 .
 
 
