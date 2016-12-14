@@ -81,29 +81,9 @@ schema:Clinician a schema:MedicalAudience ;
     rdfs:label "Clinician" ;
     rdfs:comment "Medical clinicians, including practicing physicians and other medical professionals involved in clinical practice."
 .
-schema:CommunityHealth a schema:MedicalSpecialty ;
-    rdfs:label "Community Health" ;
-    rdfs:comment "A field of public health focusing on improving health characteristics of a defined population in relation with their geographical or environment areas" ;
-    rdfs:subClassOf schema:MedicalBusiness
-.
 schema:Dentistry a schema:MedicalSpecialty ;
     rdfs:label "Dentistry" ;
     rdfs:comment "A branch of medicine that is involved in the dental care."
-.
-schema:Dermatology a schema:MedicalSpecialty ;
-    rdfs:label "Dermatology" ;
-    rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of skin." ;
-    rdfs:subClassOf schema:MedicalBusiness
-.
-schema:DietNutrition a schema:MedicalSpecialty ;
-    rdfs:label "Diet Nutrition" ;
-    rdfs:comment "Dietetic and nutrition as a medical speciality." ;
-    rdfs:subClassOf schema:MedicalBusiness
-.
-schema:Emergency a schema:MedicalSpecialty ;
-    rdfs:label "Emergency" ;
-    rdfs:comment "A specific branch of medical science that deals with the evaluation and initial treatment of medical conditions caused by trauma or sudden illness." ;
-    rdfs:subClassOf schema:MedicalBusiness
 .
 schema:Endocrine a schema:MedicalSpecialty ;
     rdfs:label "Endocrine" ;
@@ -116,16 +96,6 @@ schema:Gastroenterologic a schema:MedicalSpecialty ;
 schema:Genetic a schema:MedicalSpecialty ;
     rdfs:label "Genetic" ;
     rdfs:comment "A specific branch of medical science that pertains to hereditary transmission and the variation of inherited characteristics and disorders."
-.
-schema:Geriatric a schema:MedicalSpecialty ;
-    rdfs:label "Geriatric" ;
-    rdfs:comment "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases, debilities and provision of care to the aged." ;
-    rdfs:subClassOf schema:MedicalBusiness
-.
-schema:Gynecologic a schema:MedicalSpecialty ;
-    rdfs:label "Gynecologic" ;
-    rdfs:comment "A specific branch of medical science that pertains to the health care of women, particularly in the diagnosis and treatment of disorders affecting the female reproductive system." ;
-    rdfs:subClassOf schema:MedicalBusiness
 .
 schema:Hematologic a schema:MedicalSpecialty ;
     rdfs:label "Hematologic" ;
@@ -143,11 +113,6 @@ schema:MedicalResearcher a schema:MedicalAudience ;
     rdfs:label "Medical Researcher" ;
     rdfs:comment "Medical researchers."
 .
-schema:Midwifery a schema:MedicalSpecialty ;
-    rdfs:label "Midwifery" ;
-    rdfs:comment "A nurse-like health profession that deals with pregnancy, childbirth, and the postpartum period (including care of the newborn), besides sexual and reproductive health of women throughout their lives." ;
-    rdfs:subClassOf schema:MedicalBusiness
-.
 schema:Musculoskeletal a schema:MedicalSpecialty ;
     rdfs:label "Musculoskeletal" ;
     rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of muscles, ligaments and skeletal system."
@@ -155,6 +120,86 @@ schema:Musculoskeletal a schema:MedicalSpecialty ;
 schema:Neurologic a schema:MedicalSpecialty ;
     rdfs:label "Neurologic" ;
     rdfs:comment "A specific branch of medical science that studies the nerves and nervous system and its respective disease states."
+.
+schema:Pathology a schema:MedicalSpecialty ;
+    rdfs:label "Pathology" ;
+    rdfs:comment "A specific branch of medical science that is concerned with the study of the cause, origin and nature of a disease state, including its consequences as a result of manifestation of the disease. In clinical care, the term is used to designate a branch of medicine using laboratory tests to diagnose and determine the prognostic significance of illness."
+.
+schema:PharmacySpecialty a schema:MedicalSpecialty ;
+    rdfs:label "Pharmacy Specialty" ;
+    rdfs:comment "The practice or art and science of preparing and dispensing drugs and medicines."
+.
+schema:Pulmonary a schema:MedicalSpecialty ;
+    rdfs:label "Pulmonary" ;
+    rdfs:comment "A specific branch of medical science that pertains to the study of the respiratory system and its respective disease states."
+.
+schema:Radiography a schema:MedicalSpecialty ;
+    rdfs:label "Radiography" ;
+    rdfs:comment "Radiography is an imaging technique that uses electromagnetic radiation other than visible light, especially X-rays, to view the internal structure of a non-uniformly composed and opaque object such as the human body."
+.
+schema:Renal a schema:MedicalSpecialty ;
+    rdfs:label "Renal" ;
+    rdfs:comment "A specific branch of medical science that pertains to the study of the kidneys and its respective disease states."
+.
+schema:Rheumatologic a schema:MedicalSpecialty ;
+    rdfs:label "Rheumatologic" ;
+    rdfs:comment "A specific branch of medical science that deals with the study and treatment of rheumatic, autoimmune or joint diseases."
+.
+schema:SpeechPathology a schema:MedicalSpecialty ;
+    rdfs:label "Speech Pathology" ;
+    rdfs:comment "The scientific study and treatment of defects, disorders, and malfunctions of speech and voice, as stuttering, lisping, or lalling, and of language disturbances, as aphasia or delayed language acquisition."
+.
+schema:Surgical a schema:MedicalSpecialty ;
+    rdfs:label "Surgical" ;
+    rdfs:comment "A specific branch of medical science that pertains to treating diseases, injuries and deformities by manual and instrumental means."
+.
+schema:Toxicologic a schema:MedicalSpecialty ;
+    rdfs:label "Toxicologic" ;
+    rdfs:comment "A specific branch of medical science that is concerned with poisons, their nature, effects and detection and involved in the treatment of poisoning."
+.
+schema:Urologic a schema:MedicalSpecialty ;
+    rdfs:label "Urologic" ;
+    rdfs:comment "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases pertaining to the urinary tract and the urogenital system."
+.
+
+
+#
+# Punned Class/Enumeration Members
+#
+schema:CommunityHealth a schema:MedicalSpecialty ;
+    rdfs:label "Community Health" ;
+    rdfs:comment "A field of public health focusing on improving health characteristics of a defined population in relation with their geographical or environment areas" ;
+    rdfs:subClassOf schema:MedicalBusiness
+.
+schema:Dermatology a schema:MedicalSpecialty ;
+    rdfs:label "Dermatology" ;
+    rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of skin." ;
+    rdfs:subClassOf schema:MedicalBusiness
+.
+schema:DietNutrition a schema:MedicalSpecialty ;
+    rdfs:label "Diet Nutrition" ;
+    rdfs:comment "Dietetic and nutrition as a medical speciality." ;
+    rdfs:subClassOf schema:MedicalBusiness
+.
+schema:Emergency a schema:MedicalSpecialty ;
+    rdfs:label "Emergency" ;
+    rdfs:comment "A specific branch of medical science that deals with the evaluation and initial treatment of medical conditions caused by trauma or sudden illness." ;
+    rdfs:subClassOf schema:MedicalBusiness
+.
+schema:Geriatric a schema:MedicalSpecialty ;
+    rdfs:label "Geriatric" ;
+    rdfs:comment "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases, debilities and provision of care to the aged." ;
+    rdfs:subClassOf schema:MedicalBusiness
+.
+schema:Gynecologic a schema:MedicalSpecialty ;
+    rdfs:label "Gynecologic" ;
+    rdfs:comment "A specific branch of medical science that pertains to the health care of women, particularly in the diagnosis and treatment of disorders affecting the female reproductive system." ;
+    rdfs:subClassOf schema:MedicalBusiness
+.
+schema:Midwifery a schema:MedicalSpecialty ;
+    rdfs:label "Midwifery" ;
+    rdfs:comment "A nurse-like health profession that deals with pregnancy, childbirth, and the postpartum period (including care of the newborn), besides sexual and reproductive health of women throughout their lives." ;
+    rdfs:subClassOf schema:MedicalBusiness
 .
 schema:Nursing a schema:MedicalSpecialty ;
     rdfs:label "Nursing" ;
@@ -186,18 +231,15 @@ schema:Otolaryngologic a schema:MedicalSpecialty ;
     rdfs:comment "A specific branch of medical science that is concerned with the ear, nose and throat and their respective disease states." ;
     rdfs:subClassOf schema:MedicalBusiness
 .
-schema:Pathology a schema:MedicalSpecialty ;
-    rdfs:label "Pathology" ;
-    rdfs:comment "A specific branch of medical science that is concerned with the study of the cause, origin and nature of a disease state, including its consequences as a result of manifestation of the disease. In clinical care, the term is used to designate a branch of medicine using laboratory tests to diagnose and determine the prognostic significance of illness."
-.
 schema:Pediatric a schema:MedicalSpecialty ;
     rdfs:label "Pediatric" ;
     rdfs:comment "A specific branch of medical science that specializes in the care of infants, children and adolescents." ;
     rdfs:subClassOf schema:MedicalBusiness
 .
-schema:PharmacySpecialty a schema:MedicalSpecialty ;
-    rdfs:label "Pharmacy Specialty" ;
-    rdfs:comment "The practice or art and science of preparing and dispensing drugs and medicines."
+schema:RespiratoryTherapy a schema:MedicalSpecialty ;
+    rdfs:label "Respiratory Therapy" ;
+    rdfs:comment "The therapy that is concerned with the maintenance or improvement of respiratory function (as in patients with pulmonary disease)." ;
+    rdfs:subClassOf schema:MedicalTherapy
 .
 schema:Physiotherapy a schema:MedicalSpecialty ;
     rdfs:label "Physiotherapy" ;
@@ -228,43 +270,6 @@ schema:PublicHealth a schema:MedicalSpecialty ;
     rdfs:label "Public Health" ;
     rdfs:comment "Branch of medicine that pertains to the health services to improve and protect community health, especially epidemiology, sanitation, immunization, and preventive medicine." ;
     rdfs:subClassOf schema:MedicalBusiness
-.
-schema:Pulmonary a schema:MedicalSpecialty ;
-    rdfs:label "Pulmonary" ;
-    rdfs:comment "A specific branch of medical science that pertains to the study of the respiratory system and its respective disease states."
-.
-schema:Radiography a schema:MedicalSpecialty ;
-    rdfs:label "Radiography" ;
-    rdfs:comment "Radiography is an imaging technique that uses electromagnetic radiation other than visible light, especially X-rays, to view the internal structure of a non-uniformly composed and opaque object such as the human body."
-.
-schema:Renal a schema:MedicalSpecialty ;
-    rdfs:label "Renal" ;
-    rdfs:comment "A specific branch of medical science that pertains to the study of the kidneys and its respective disease states."
-.
-schema:RespiratoryTherapy a schema:MedicalSpecialty ;
-    rdfs:label "Respiratory Therapy" ;
-    rdfs:comment "The therapy that is concerned with the maintenance or improvement of respiratory function (as in patients with pulmonary disease)." ;
-    rdfs:subClassOf schema:MedicalTherapy
-.
-schema:Rheumatologic a schema:MedicalSpecialty ;
-    rdfs:label "Rheumatologic" ;
-    rdfs:comment "A specific branch of medical science that deals with the study and treatment of rheumatic, autoimmune or joint diseases."
-.
-schema:SpeechPathology a schema:MedicalSpecialty ;
-    rdfs:label "Speech Pathology" ;
-    rdfs:comment "The scientific study and treatment of defects, disorders, and malfunctions of speech and voice, as stuttering, lisping, or lalling, and of language disturbances, as aphasia or delayed language acquisition."
-.
-schema:Surgical a schema:MedicalSpecialty ;
-    rdfs:label "Surgical" ;
-    rdfs:comment "A specific branch of medical science that pertains to treating diseases, injuries and deformities by manual and instrumental means."
-.
-schema:Toxicologic a schema:MedicalSpecialty ;
-    rdfs:label "Toxicologic" ;
-    rdfs:comment "A specific branch of medical science that is concerned with poisons, their nature, effects and detection and involved in the treatment of poisoning."
-.
-schema:Urologic a schema:MedicalSpecialty ;
-    rdfs:label "Urologic" ;
-    rdfs:comment "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases pertaining to the urinary tract and the urogenital system."
 .
 
 
