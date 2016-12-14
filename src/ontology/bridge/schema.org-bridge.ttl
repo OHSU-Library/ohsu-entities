@@ -10,12 +10,14 @@
 <http://purl.org/ohsu/schema/bridge/schema.org> a owl:Ontology .
 
 ohsu:Building a owl:Class ;
-    rdfs:subClassOf schema:Place .
-    
+    rdfs:subClassOf schema:Place
+.
 ohsu:Campus a owl:Class ;
-    rdfs:subClassOf schema:Place .
-    
-ohsu:ClinicalDepartment a owl:Class;
-    rdfs:subClassOf schema:MedicalOrganization .
-    
-#ohsu:HealthcareFacility a owl:Class;
+    rdfs:subClassOf schema:Place
+.    
+ohsu:ClinicalDepartment a owl:Class ;
+    rdfs:subClassOf schema:MedicalOrganization
+.
+ohsu:HealthcareFacility a owl:Class ;
+    rdfs:subClassOf schema:CivicStructure
+.
