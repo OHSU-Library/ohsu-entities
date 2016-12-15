@@ -16,9 +16,6 @@
 #
 # Classes
 #
-schema:Dentist a owl:Class ;
-    rdfs:subClassOf schema:MedicalBusiness
-.
 schema:MedicalAudience a owl:Class ;
     rdfs:label "Medical Audience" ;
     rdfs:comment "Target audiences for medical web pages. Enumerated type." ;
