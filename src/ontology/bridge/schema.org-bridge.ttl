@@ -35,7 +35,7 @@ ohsu:HealthcareProviderRole a owl:Class ;
 ohsu:HealthcareService a owl:Class ;
     rdfs:subClassOf schema:Enumeration .
 
-ohsu:HealthcareService a owl:Class ;
+ohsu:HealthcareSpecialty a owl:Class ;
     rdfs:subClassOf schema:Enumeration .
 
 ohsu:LocalSearchCategory a owl:Class ;

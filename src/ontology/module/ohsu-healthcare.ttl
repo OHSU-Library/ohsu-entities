@@ -31,7 +31,7 @@ ohsu:HealthcareService a owl:Class ;
     rdfs:label "Healthcare Service"  .
 
 ohsu:HealthcareSpecialty a owl:Class ;
-    rdfs:label "Healthcare Service"  .
+    rdfs:label "Healthcare Specialty"  .
 
 ohsu:HealthcareLocalSearchCategory a owl:Class ;
     rdfs:label "Healthcare Local Search Category" ;
