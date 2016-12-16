@@ -19,7 +19,9 @@
 schema:MedicalAudience a owl:Class ;
     rdfs:label "Medical Audience" ;
     rdfs:comment "Target audiences for medical web pages. Enumerated type." ;
-    rdfs:subClassOf schema:Audience, schema:MedicalEnumeration, schema:PeopleAudience ;
+    rdfs:subClassOf schema:Audience ; 
+    rdfs:subClassOf schema:MedicalEnumeration; 
+    rdfs:subClassOf schema:PeopleAudience ;
 .
 schema:MedicalBusiness a owl:Class ;
     rdfs:label "Medical Business" ;
@@ -29,7 +31,8 @@ schema:MedicalBusiness a owl:Class ;
 schema:MedicalClinic a owl:Class ;
     rdfs:label "Medical Clinic" ;
     rdfs:comment "A facility, often associated with a hospital or medical school, that is devoted to the specific diagnosis and/or healthcare. Previously limited to outpatients but with evolution it may be open to inpatients as well." ;
-    rdfs:subClassOf schema:MedicalBusiness, schema:MedicalOrganization ;
+    rdfs:subClassOf schema:MedicalBusiness ;
+    rdfs:subClassOf schema:MedicalOrganization ;
 .
 schema:MedicalEnumeration a owl:Class ;
     rdfs:label "Medical Enumeration" ;
@@ -39,7 +42,8 @@ schema:MedicalEnumeration a owl:Class ;
 schema:MedicalSpecialty a owl:Class ;
     rdfs:label "Medical Specialty" ;
     rdfs:comment "Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type." ;
-    rdfs:subClassOf schema:MedicalEnumeration, schema:Specialty ;
+    rdfs:subClassOf schema:MedicalEnumeration ;
+    rdfs:subClassOf schema:Specialty ;
 .
 
 # schema:MedicalTherapy and its superclasses?
@@ -52,7 +56,8 @@ schema:Optician a owl:Class ;
 schema:Patient a owl:Class ;
     rdfs:label "Patient" ;
     rdfs:comment "A patient is any person recipient of health care services." ;
-    rdfs:subClassOf schema:MedicalAudience, schema:Person ;
+    rdfs:subClassOf schema:MedicalAudience ;
+    rdfs:subClassOf schema:Person ;
     owl:equivalentClass <http://purl.bioontology.org/ontology/SNOMEDCT/116154003> ;
 .
 schema:Pharmacy a owl:Class ;

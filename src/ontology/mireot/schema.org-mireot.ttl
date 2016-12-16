@@ -73,7 +73,8 @@ schema:DayOfWeek a owl:Class ;
 schema:Dentist a owl:Class ;
     rdfs:label "Dentist" ;
     rdfs:comment "A dentist." ;
-    rdfs:subClassOf schema:LocalBusiness, schema:MedicalOrganization ;
+    rdfs:subClassOf schema:LocalBusiness ; 
+    rdfs:subClassOf schema:MedicalOrganization ;
 .
 schema:EducationalOrganization a owl:Class ;
     rdfs:label "Educational Organization" ;
@@ -116,7 +117,9 @@ schema:GeoShape a owl:Class ;
 schema:Hospital a owl:Class ;
     rdfs:label "Hospital" ;
     rdfs:comment "A hospital." ;
-    rdfs:subClassOf schema:CivicStructure, schema:EmergencyService, schema:MedicalOrganization ;
+    rdfs:subClassOf schema:CivicStructure ;
+    rdfs:subClassOf schema:EmergencyService ;
+    rdfs:subClassOf schema:MedicalOrganization ;
 .
 schema:Intangible a owl:Class ;
     rdfs:label "Intangible" ;
@@ -136,7 +139,8 @@ schema:Language a owl:Class ;
 schema:LocalBusiness a owl:Class ;
     rdfs:label "Local Business" ;
     rdfs:comment "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc." ;
-    rdfs:subClassOf schema:Organization, schema:Place ;
+    rdfs:subClassOf schema:Organization ;
+    rdfs:subClassOf schema:Place ;
 .
 schema:MedicalOrganization a owl:Class ;
     rdfs:label "Medical Organization" ;
