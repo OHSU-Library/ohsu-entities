@@ -40,3 +40,11 @@ ohsu:HealthcareService a owl:Class ;
 
 ohsu:LocalSearchCategory a owl:Class ;
     rdfs:subClassOf schema:Enumeration .
+
+
+#
+# Datatype Properties
+#
+ohsu:nationalProviderId a owl:DatatypeProperty ;
+    schema:alternateName "NPI" ;
+    rdfs:domain schema:Person .
