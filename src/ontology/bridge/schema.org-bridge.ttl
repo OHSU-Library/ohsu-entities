@@ -28,3 +28,15 @@ ohsu:ClinicalDepartment a owl:Class ;
 
 ohsu:HealthcareFacility a owl:Class ;
     rdfs:subClassOf schema:CivicStructure .
+
+ohsu:HealthcareProviderRole a owl:Class ;
+    rdfs:subClassOf schema:Role.
+
+ohsu:HealthcareService a owl:Class ;
+    rdfs:subClassOf schema:Enumeration .
+
+ohsu:HealthcareService a owl:Class ;
+    rdfs:subClassOf schema:Enumeration .
+
+ohsu:LocalSearchCategory a owl:Class ;
+    rdfs:subClassOf schema:Enumeration .
