@@ -13,11 +13,6 @@ Persistent URL for the ontology is http://purl.org/ohsu/schema.  The ontology cu
   * mireot/ : MIREOT files for other ontologies/vocabularies
   * module/ : institutional mission-specific ontology module files
 
-## TODOs as of 2016.11.30
+## TODOs as of 2016.12.15
 
-* remove domain/range entities that are not part of the schema.org MIREOTs
-* transform multiple-entity domains and ranges to owl:unions
-* choose single type for multiple-type domains and ranges
-* bridge OHSU healthcare entities
 * add and bridge concepts not covered by schema.org
-* finish search category mapping to healthcare services and specialties
