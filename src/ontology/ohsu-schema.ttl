@@ -1,3 +1,4 @@
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix ohsu: <http://purl.org/ohsu/schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -7,24 +8,71 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
+#
+# Ontology
+#
 <http://purl.org/ohsu/schema> a owl:Ontology ;
     owl:versionInfo "0.0.1"^^xsd:string ;
     rdfs:label "OHSU Entities" ;
-    rdfs:comment """
-        The OHSU Entities Ontology describes people, places, and things at Oregon Health 
-        & Science University, and the relationships between them.
-        """ ;
+    rdfs:comment "The OHSU Entities Ontology describes people, places, and things at Oregon Health & Science University, and the relationships between them." ;
     owl:imports <http://purl.org/ohsu/schema/healthcare> ;
     owl:imports <http://purl.org/ohsu/schema/mireot/schema.org> ;
     owl:imports <http://purl.org/ohsu/schema/bridge/schema.org> .
 
-   
+
 #
 # Classes
 #
-
 ohsu:Building a owl:Class ;
     rdfs:label "Building" .
 
 ohsu:Campus a owl:Class ;
     rdfs:label "Campus" .
+
+ohsu:LocalSearchCategory a owl:Class ;
+    rdfs:label "Local Search Category" ;
+    rdfs:comment "A category used by search engines for ranking purposes." ;
+     dct:source <https://moz.com/local/categories> .
+
+ohsu:CivicStructureLocalSearchCategory a owl:Class ;
+    rdfs:label "Civic Structure Local Search Category" ;
+    rdfs:subClassOf ohsu:LocalSearchCategory .
+
+
+#
+# Enumeration Members
+#
+ohsu:Heliport a ohsu:CivicStructureLocalSearchCategory ;
+    rdfs:label "Heliport" ;
+    dct:source <https://moz.com/local/categories/category/Heliport> .
+
+ohsu:RVPark a ohsu:CivicStructureLocalSearchCategory ;
+    rdfs:label "RV Park" ;
+    dct:source <https://moz.com/local/categories/category/RV%20Park> .
+
+ohsu:ParkingGarage a ohsu:CivicStructureLocalSearchCategory ;
+    rdfs:label "Parking Garage" ;
+    dct:source <https://moz.com/local/categories/category/Parking%20Garage> .
+
+ohsu:ParkingLot a ohsu:CivicStructureLocalSearchCategory ;
+    rdfs:label "Parking Lot" ;
+    dct:source <https://moz.com/local/categories/category/Parking%20Lot> .
+
+
+#
+# Object Properties
+#
+ohsu:localSearchCategory a owl:ObjectProperty ;
+    rdfs:label "local search category" ;
+    rdfs:comment "A local category search of a thing." ;
+    rdfs:domain owl:Thing ;
+    rdfs:range ohsu:LocalSearchCategory .
+
+
+#
+# Datatype Properties
+#
+ohsu:searchPriority a owl:DatatypeProperty ;
+    rdfs:label "search priority";
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string .
