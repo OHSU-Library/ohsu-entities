@@ -10,32 +10,34 @@
 #
 # Ontology
 #
-<http://purl.org/ohsu/schema/healthcare> a owl:Ontology .
+<http://purl.org/ohsu/schema/healthcare> a owl:Ontology ;
+.
 
 
 #
 # Classes
 #
 ohsu:ClinicalDepartment a owl:Class ;
-    rdfs:label "Clinical Department"  .
-
+    rdfs:label "Clinical Department"  ;
+.
 ohsu:HealthcareFacility a owl:Class ;
     rdfs:label "Healthcare Facility" ;
     rdfs:comment "Health facilities are places that provide health care. They include hospitals, clinics, outpatient care centers, and specialized care centers, such as birthing centers and psychiatric care centers." ;
-    rdfs:isDefinedBy <https://medlineplus.gov/healthfacilities.html> .
-
+    rdfs:isDefinedBy <https://medlineplus.gov/healthfacilities.html> ;
+.
 ohsu:HealthcareProviderRole a owl:Class ;
-    rdfs:label "Healthcare Provider"  .
-
+    rdfs:label "Healthcare Provider"  ;
+.
 ohsu:HealthcareService a owl:Class ;
-    rdfs:label "Healthcare Service"  .
-
+    rdfs:label "Healthcare Service"  ;
+.
 ohsu:HealthcareSpecialty a owl:Class ;
-    rdfs:label "Healthcare Specialty"  .
-
+    rdfs:label "Healthcare Specialty"  ;
+.
 ohsu:HealthcareLocalSearchCategory a owl:Class ;
     rdfs:label "Healthcare Local Search Category" ;
-    rdfs:subClassOf ohsu:LocalSearchCategory .
+    rdfs:subClassOf ohsu:LocalSearchCategory ;
+.
 
 
 #
@@ -43,505 +45,506 @@ ohsu:HealthcareLocalSearchCategory a owl:Class ;
 #
 ohsu:AbortionClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Abortion" ;
-    dct:source <https://moz.com/local/categories/category/Abortion%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Abortion%20Clinic> ;
+.
 ohsu:AcupunctureClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Acupuncture Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Acupuncture%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Acupuncture%20Clinic> ;
+.
 ohsu:AddictionTreatmentCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Addiction Treatment Center" ;
-    dct:source <https://moz.com/local/categories/category/Addiction%20Treatment%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Addiction%20Treatment%20Center> ;
+.
 ohsu:AlcoholismTreatmentProgram a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Alcoholism Treatment Program" ;
-    dct:source <https://moz.com/local/categories/category/Alcoholism%20Treatment%20Program> .
-
+    dct:source <https://moz.com/local/categories/category/Alcoholism%20Treatment%20Program> ;
+.
 ohsu:Allergist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Allergist" ;
-    dct:source <https://moz.com/local/categories/category/Allergist> .
-
+    dct:source <https://moz.com/local/categories/category/Allergist> ;
+.
 ohsu:AlternativeMedicinePractitioner a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Alternative Medicine Practitioner" ;
-    dct:source <https://moz.com/local/categories/category/Alternative%20Medicine%20Practitioner> .
-
+    dct:source <https://moz.com/local/categories/category/Alternative%20Medicine%20Practitioner> ;
+.
 ohsu:AmbulanceService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Ambulance Service" ;
-    dct:source <https://moz.com/local/categories/category/Ambulance%20Service> .
-
+    dct:source <https://moz.com/local/categories/category/Ambulance%20Service> ;
+.
 ohsu:Anesthesiologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Anesthesiologist" ;
-    dct:source <https://moz.com/local/categories/category/Anesthesiologist> .
-
+    dct:source <https://moz.com/local/categories/category/Anesthesiologist> ;
+.
 ohsu:Audiologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Audiologist" ;
-    dct:source <https://moz.com/local/categories/category/Audiologist> .
-
+    dct:source <https://moz.com/local/categories/category/Audiologist> ;
+.
 ohsu:Biofeedback a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Biofeedback" ;
-    dct:source <https://moz.com/local/categories/category/Biofeedback%20Therapist> .
-
+    dct:source <https://moz.com/local/categories/category/Biofeedback%20Therapist> ;
+.
 ohsu:BirthControlCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Birth Control Center" ;
-    dct:source <https://moz.com/local/categories/category/Birth%20Control%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Birth%20Control%20Center> ;
+.
 ohsu:CancerTreatmentCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Cancer Treatment Center" ;
-    dct:source <https://moz.com/local/categories/category/Cancer%20Treatment%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Cancer%20Treatment%20Center> ;
+.
 ohsu:Cardiologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Cardiologist" ;
-    dct:source <https://moz.com/local/categories/category/Cardiologist> .
-
+    dct:source <https://moz.com/local/categories/category/Cardiologist> ;
+.
 ohsu:ChildPsychologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Child Psychologist" ;
-    dct:source <https://moz.com/local/categories/category/Child%20Psychologist> .
-
+    dct:source <https://moz.com/local/categories/category/Child%20Psychologist> ;
+.
 ohsu:ChildrensHospital a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Children's Hospital" ;
-    dct:source <https://moz.com/local/categories/category/Children's%20Hospital> .
-
+    dct:source <https://moz.com/local/categories/category/Children's%20Hospital> ;
+.
 ohsu:Chiropractor a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Chiropractor" ;
-    dct:source <https://moz.com/local/categories/category/Chiropractor> .
-
+    dct:source <https://moz.com/local/categories/category/Chiropractor> ;
+.
 ohsu:Counselor a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Counselor" ;
-    dct:source <https://moz.com/local/categories/category/Counselor> .
-
+    dct:source <https://moz.com/local/categories/category/Counselor> ;
+.
 ohsu:Culture a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Culture" ;
-    dct:source <https://moz.com/local/categories/category/Culture> .
-
+    dct:source <https://moz.com/local/categories/category/Culture> ;
+.
 ohsu:DentalClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Dental Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Dental%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Dental%20Clinic> ;
+.
 ohsu:DentalImplantsPeriodontist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Dental Implants Periodontist" ;
-    dct:source <https://moz.com/local/categories/category/Dental%20Implants%20Periodontist> .
-
+    dct:source <https://moz.com/local/categories/category/Dental%20Implants%20Periodontist> ;
+.
 ohsu:DentalLab a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Dental Lab" ;
-    dct:source <https://moz.com/local/categories/category/Dental%20Lab> .
-
+    dct:source <https://moz.com/local/categories/category/Dental%20Lab> ;
+.
 ohsu:Dentist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Dentist" ;
-    dct:source <https://moz.com/local/categories/category/Dentist> .
-
+    dct:source <https://moz.com/local/categories/category/Dentist> ;
+.
 ohsu:Dermatologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Dermatologist" ;
-    dct:source <https://moz.com/local/categories/category/Dermatologist> .
-
+    dct:source <https://moz.com/local/categories/category/Dermatologist> ;
+.
 ohsu:DiabetesCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Diabetes Center" ;
-    dct:source <https://moz.com/local/categories/category/Diabetes%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Diabetes%20Center> ;
+.
 ohsu:Diabetologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Diabetologist" ;
-    dct:source <https://moz.com/local/categories/category/Diabetologist> .
-
+    dct:source <https://moz.com/local/categories/category/Diabetologist> ;
+.
 ohsu:DialysisCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Dialysis Center" ;
-    dct:source <https://moz.com/local/categories/category/Dialysis%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Dialysis%20Center> ;
+.
 ohsu:Doctor a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Doctor" ;
-    dct:source <https://moz.com/local/categories/category/Doctor> .
-
+    dct:source <https://moz.com/local/categories/category/Doctor> ;
+.
 ohsu:DrugAddictionTreatmentCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Drug Addiction Treatment Center" ;
-    dct:source <https://moz.com/local/categories/category/Drug%20Addiction%20Treatment%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Drug%20Addiction%20Treatment%20Center> ;
+.
 ohsu:EatingDisorderTreatmentCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Eating Disorder Treatment Center" ;
-    dct:source <https://moz.com/local/categories/category/Eating%20Disorder%20Treatment%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Eating%20Disorder%20Treatment%20Center> ;
+.
 ohsu:EmergencyCarePhysician a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Emergency Care Physician" ;
-    dct:source <https://moz.com/local/categories/category/Emergency%20Care%20Physician> .
-
+    dct:source <https://moz.com/local/categories/category/Emergency%20Care%20Physician> ;
+.
 ohsu:EmergencyDentalService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Emergency Dental Service" ;
-    dct:source <https://moz.com/local/categories/category/Emergency%20Dental%20Service> .
-
+    dct:source <https://moz.com/local/categories/category/Emergency%20Dental%20Service> ;
+.
 ohsu:EmergencyRoom a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Emergency Room" ;
-    dct:source <https://moz.com/local/categories/category/Emergency%20Room> .
-
+    dct:source <https://moz.com/local/categories/category/Emergency%20Room> ;
+.
 ohsu:Endocrinologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Endocrinologist" ;
-    dct:source <https://moz.com/local/categories/category/Endocrinologist> .
-
+    dct:source <https://moz.com/local/categories/category/Endocrinologist> ;
+.
 ohsu:Endodontist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Endodontist" ;
-    dct:source <https://moz.com/local/categories/category/Endodontist> .
-
+    dct:source <https://moz.com/local/categories/category/Endodontist> ;
+.
 ohsu:EyeCareCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Eye Care Center" ;
-    dct:source <https://moz.com/local/categories/category/Eye%20Care%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Eye%20Care%20Center> ;
+.
 ohsu:FamliyPracticePhysician a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Famliy Practice Physician" ;
-    dct:source <https://moz.com/local/categories/category/Family%20Practice%20Physician> .
-
+    dct:source <https://moz.com/local/categories/category/Family%20Practice%20Physician> ;
+.
 ohsu:FertilityClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Fertility Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Fertility%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Fertility%20Clinic> ;
+.
 ohsu:FertilityPhysician a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Fertility Physician" ;
-    dct:source <https://moz.com/local/categories/category/Fertility%20Physician> .
-
+    dct:source <https://moz.com/local/categories/category/Fertility%20Physician> ;
+.
 ohsu:FreeClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Free Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Free%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Free%20Clinic> ;
+.
 ohsu:Gastroenterologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Gastroenterologist" ;
-    dct:source <https://moz.com/local/categories/category/Gastroenterologist> .
-
+    dct:source <https://moz.com/local/categories/category/Gastroenterologist> ;
+.
 ohsu:HandSurgeon a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Hand Surgeon" ;
-    dct:source <https://moz.com/local/categories/category/Hand%20Surgeon> .
-
+    dct:source <https://moz.com/local/categories/category/Hand%20Surgeon> ;
+.
 ohsu:HearingAidEquipmentStore a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Hearing Aid Equipment Store" ;
-    dct:source <https://moz.com/local/categories/category/Hearing%20Aid%20Equipment%20Store> .
-
+    dct:source <https://moz.com/local/categories/category/Hearing%20Aid%20Equipment%20Store> ;
+.
 ohsu:HearingAidRepairService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Hearing Aid Repair Service" ;
-    dct:source <https://moz.com/local/categories/category/Hearing%20Aid%20Repair%20Service> .
-
+    dct:source <https://moz.com/local/categories/category/Hearing%20Aid%20Repair%20Service> ;
+.
 ohsu:HearingAidStore a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Hearing Aid Store" ;
-    dct:source <https://moz.com/local/categories/category/Hearing%20Aid%20Store> .
-
+    dct:source <https://moz.com/local/categories/category/Hearing%20Aid%20Store> ;
+.
 ohsu:Hematologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Hematologist" ;
-    dct:source <https://moz.com/local/categories/category/Hematologist> .
-
+    dct:source <https://moz.com/local/categories/category/Hematologist> ;
+.
 ohsu:HolisticMedicinePractitioner a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Holistic Medicine Practitioner" ;
-    dct:source <https://moz.com/local/categories/category/Holistic%20Medicine%20Practitioner> .
-
+    dct:source <https://moz.com/local/categories/category/Holistic%20Medicine%20Practitioner> ;
+.
 ohsu:Hospital a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Hospital" ;
-    dct:source <https://moz.com/local/categories/category/Hospital> .
-
+    dct:source <https://moz.com/local/categories/category/Hospital> ;
+.
 ohsu:InfectiousDiseasePhysician a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Infectious Disease Physician" ;
-    dct:source <https://moz.com/local/categories/category/Infectious%20Disease%20Physician> .
-
+    dct:source <https://moz.com/local/categories/category/Infectious%20Disease%20Physician> ;
+.
 ohsu:Internist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Internist" ;
-    dct:source <https://moz.com/local/categories/category/Internist> .
-
+    dct:source <https://moz.com/local/categories/category/Internist> ;
+.
 ohsu:MammographyService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Mammography Service" ;
-    dct:source <https://moz.com/local/categories/category/Mammography%20Service> .
-
+    dct:source <https://moz.com/local/categories/category/Mammography%20Service> ;
+.
 ohsu:MassageTherapist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Massage Therapist" ;
-    dct:source <https://moz.com/local/categories/category/Massage%20Therapist> .
-
+    dct:source <https://moz.com/local/categories/category/Massage%20Therapist> ;
+.
 ohsu:MedicalCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Medical Center" ;
-    dct:source <https://moz.com/local/categories/category/Medical%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Medical%20Center> ;
+.
 ohsu:MedicalClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Medical Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Medical%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Medical%20Clinic> ;
+.
 ohsu:MedicalDiagnosticImagingCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Medical Diagnostic Imaging Center" ;
-    dct:source <https://moz.com/local/categories/category/Medical%20Diagnostic%20Imaging%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Medical%20Diagnostic%20Imaging%20Center> ;
+.
 ohsu:MedicalGroup a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Medical Group" ;
-    dct:source <https://moz.com/local/categories/category/Medical%20Group> .
-
+    dct:source <https://moz.com/local/categories/category/Medical%20Group> ;
+.
 ohsu:MedicalLaboratory a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Medical Laboratory" ;
-    dct:source <https://moz.com/local/categories/category/Medical%20Laboratory> .
-
+    dct:source <https://moz.com/local/categories/category/Medical%20Laboratory> ;
+.
 ohsu:MedicalSpa a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Medical Spa" ;
-    dct:source <https://moz.com/local/categories/category/Medical%20Spa> .
-
+    dct:source <https://moz.com/local/categories/category/Medical%20Spa> ;
+.
 ohsu:MedicalTranscriptionService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Medical Transcription Service" ;
-    dct:source <https://moz.com/local/categories/category/Medical%20Transcription%20Service> .
-
+    dct:source <https://moz.com/local/categories/category/Medical%20Transcription%20Service> ;
+.
 ohsu:MeditationCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "MeditationCenter" ;
-    dct:source <https://moz.com/local/categories/category/Meditation%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Meditation%20Center> ;
+.
 ohsu:MentalHealthClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Mental Health Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Mental%20Health%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Mental%20Health%20Clinic> ;
+.
 ohsu:MentalHealthService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Mental Health Service" ;
-    dct:source <https://moz.com/local/categories/category/Mental%20Health%20Service> .
-
+    dct:source <https://moz.com/local/categories/category/Mental%20Health%20Service> ;
+.
 ohsu:Midwife a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Midwife" ;
-    dct:source <https://moz.com/local/categories/category/Midwife> .
-
+    dct:source <https://moz.com/local/categories/category/Midwife> ;
+.
 ohsu:MRICenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "MRI Center" ;
-    dct:source <https://moz.com/local/categories/category/MRI%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/MRI%20Center> ;
+.
 ohsu:NeonatalPhysician a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Neonatal Physician" ;
-    dct:source <https://moz.com/local/categories/category/Neonatal%20Physician> .
-
+    dct:source <https://moz.com/local/categories/category/Neonatal%20Physician> ;
+.
 ohsu:Nephrologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Nephrologist" ;
-    dct:source <https://moz.com/local/categories/category/Nephrologist> .
-
+    dct:source <https://moz.com/local/categories/category/Nephrologist> ;
+.
 ohsu:Neurologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Neurologist" ;
-    dct:source <https://moz.com/local/categories/category/Neurologist> .
-
+    dct:source <https://moz.com/local/categories/category/Neurologist> ;
+.
 ohsu:Nutritionist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Nutritionist" ;
-    dct:source <https://moz.com/local/categories/category/Nutritionist> .
-
+    dct:source <https://moz.com/local/categories/category/Nutritionist> ;
+.
 ohsu:ObstetricianGynecologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Obstetrician-Gynecologist" ;
-    dct:source <https://moz.com/local/categories/category/Obstetrician-Gynecologist> .
-
+    dct:source <https://moz.com/local/categories/category/Obstetrician-Gynecologist> ;
+.
 ohsu:OccupationalHealthService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Occupational Health Service" ;
-    dct:source <https://moz.com/local/categories/category/Occupational%20Health%20Service> .
-
+    dct:source <https://moz.com/local/categories/category/Occupational%20Health%20Service> ;
+.
 ohsu:OccupationalTherapist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Occupational Therapist" ;
-    dct:source <https://moz.com/local/categories/category/Occupational%20Therapist> .
-
+    dct:source <https://moz.com/local/categories/category/Occupational%20Therapist> ;
+.
 ohsu:Oncologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Oncologist" ;
-    dct:source <https://moz.com/local/categories/category/Oncologist> .
-
+    dct:source <https://moz.com/local/categories/category/Oncologist> ;
+.
 ohsu:Opthalmologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Opthalmologist" ;
-    dct:source <https://moz.com/local/categories/category/Ophthalmologist> .
-
+    dct:source <https://moz.com/local/categories/category/Ophthalmologist> ;
+.
 ohsu:Optician a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Optician" ;
-    dct:source <https://moz.com/local/categories/category/Optician> .
-
+    dct:source <https://moz.com/local/categories/category/Optician> ;
+.
 ohsu:Optometrist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Optometrist" ;
-    dct:source <https://moz.com/local/categories/category/Optometrist> .
-
+    dct:source <https://moz.com/local/categories/category/Optometrist> ;
+.
 ohsu:OralSurgeon a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Oral Surgeon" ;
-    dct:source <https://moz.com/local/categories/category/Oral%20Surgeon> .
-
+    dct:source <https://moz.com/local/categories/category/Oral%20Surgeon> ;
+.
 ohsu:Orthodontist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Orthodontist" ;
-    dct:source <https://moz.com/local/categories/category/Orthodontist> .
-
+    dct:source <https://moz.com/local/categories/category/Orthodontist> ;
+.
 ohsu:OrthopedicSurgeon a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Orthopedic Surgeon" ;
-    dct:source <https://moz.com/local/categories/category/Orthopedic%20Surgeon> .
-
+    dct:source <https://moz.com/local/categories/category/Orthopedic%20Surgeon> ;
+.
 ohsu:OrthoticsAndProstheticsService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Orthotics & Prosthetics Service" ;
-    dct:source <https://moz.com/local/categories/category/Orthotics%20%26%20Prosthetics%20Service>  .
-
+    dct:source <https://moz.com/local/categories/category/Orthotics%20%26%20Prosthetics%20Service>  ;
+.
 ohsu:Osteopath a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Osteopath" ;
-    dct:source <https://moz.com/local/categories/category/Osteopath> .
-
+    dct:source <https://moz.com/local/categories/category/Osteopath> ;
+.
 ohsu:Otolaryngologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Otolaryngologist" ;
-    dct:source <https://moz.com/local/categories/category/Otolaryngologist> .
-
+    dct:source <https://moz.com/local/categories/category/Otolaryngologist> ;
+.
 ohsu:PainControlClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Pain Control Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Pain%20Control%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Pain%20Control%20Clinic> ;
+.
 ohsu:PainManagementPhysician a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Pain Management Physician" ;
-    dct:source <https://moz.com/local/categories/category/Pain%20Management%20Physician> .
-
+    dct:source <https://moz.com/local/categories/category/Pain%20Management%20Physician> ;
+.
 ohsu:Pathologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Pathologist" ;
-    dct:source <https://moz.com/local/categories/category/Pathologist> .
-
+    dct:source <https://moz.com/local/categories/category/Pathologist> ;
+.
 ohsu:PediatricCardiologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Pediatric Cardiologist" ;
-    dct:source <https://moz.com/local/categories/category/Pediatric%20Cardiologist> .
-
+    dct:source <https://moz.com/local/categories/category/Pediatric%20Cardiologist> ;
+.
 ohsu:PediatricDentist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Pediatric Dentist" ;
-    dct:source <https://moz.com/local/categories/category/Pediatric%20Dentist> .
-
+    dct:source <https://moz.com/local/categories/category/Pediatric%20Dentist> ;
+.
 ohsu:PediatricOpthalmologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Pediatric Opthalmologist" ;
-    dct:source <https://moz.com/local/categories/category/Pediatric%20Opthalmologist> .
-
+    dct:source <https://moz.com/local/categories/category/Pediatric%20Opthalmologist> ;
+.
 ohsu:Pediatrician a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Pediatrician" ;
-    dct:source <https://moz.com/local/categories/category/Pediatrician> .
-
+    dct:source <https://moz.com/local/categories/category/Pediatrician> ;
+.
 ohsu:Periodontist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Periodontist" ;
-    dct:source <https://moz.com/local/categories/category/Periodontist> .
-
+    dct:source <https://moz.com/local/categories/category/Periodontist> ;
+.
 ohsu:Pharmacy a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Pharmacy" ;
-    dct:source <https://moz.com/local/categories/category/Pharmacy> .
-
+    dct:source <https://moz.com/local/categories/category/Pharmacy> ;
+.
 ohsu:Physiatrist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Physiatrist" ;
-    dct:source <https://moz.com/local/categories/category/Physiatrist> .
-
+    dct:source <https://moz.com/local/categories/category/Physiatrist> ;
+.
 ohsu:PhysicalTherapyClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Physical Therapy Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Physical%20Therapy%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Physical%20Therapy%20Clinic> ;
+.
 ohsu:PhysicianReferralService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Physician Referral Service" ;
-    dct:source <https://moz.com/local/categories/category/Physician%20Referral%20Service> .
-
+    dct:source <https://moz.com/local/categories/category/Physician%20Referral%20Service> ;
+.
 ohsu:Physiotherapist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Physiotherapist" ;
-    dct:source <https://moz.com/local/categories/category/Physiotherapist> .
-
+    dct:source <https://moz.com/local/categories/category/Physiotherapist> ;
+.
 ohsu:PlasticSurgeon a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Plastic Surgeon" ;
-    dct:source <https://moz.com/local/categories/category/Plastic%20Surgeon> .
-
+    dct:source <https://moz.com/local/categories/category/Plastic%20Surgeon> ;
+.
 ohsu:Podiatrist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Podiatrist" ;
-    dct:source <https://moz.com/local/categories/category/Podiatrist> .
-
+    dct:source <https://moz.com/local/categories/category/Podiatrist> ;
+.
 ohsu:PregnancyCareCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Pregnancy Care Center" ;
-    dct:source <https://moz.com/local/categories/category/Pregnancy%20Care%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Pregnancy%20Care%20Center> ;
+.
 ohsu:Proctologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Proctologist" ;
-    dct:source <https://moz.com/local/categories/category/Proctologist> .
-
+    dct:source <https://moz.com/local/categories/category/Proctologist> ;
+.
 ohsu:Psychiatrist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Psychiatrist" ;
-    dct:source <https://moz.com/local/categories/category/Psychiatrist> .
-
+    dct:source <https://moz.com/local/categories/category/Psychiatrist> ;
+.
 ohsu:Psychologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Psychologist" ;
-    dct:source <https://moz.com/local/categories/category/Psychologist> .
-
+    dct:source <https://moz.com/local/categories/category/Psychologist> ;
+.
 ohsu:Psychotherapist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Psychotherapist" ;
-    dct:source <https://moz.com/local/categories/category/Psychotherapist> .
-
+    dct:source <https://moz.com/local/categories/category/Psychotherapist> ;
+.
 ohsu:Pulmonologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Pulmonologist" ;
-    dct:source <https://moz.com/local/categories/category/Pulmonologist> .
-
+    dct:source <https://moz.com/local/categories/category/Pulmonologist> ;
+.
 ohsu:Radiologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Radiologist" ;
-    dct:source <https://moz.com/local/categories/category/Radiologist> .
-
+    dct:source <https://moz.com/local/categories/category/Radiologist> ;
+.
 ohsu:RehabilitationCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Rehabilitation Center" ;
-    dct:source <https://moz.com/local/categories/category/Rehabilitation%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Rehabilitation%20Center> ;
+.
 ohsu:ReproductiveHealthClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Reproductive Health Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Reproductive%20Health%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Reproductive%20Health%20Clinic> ;
+.
 ohsu:Rheumatologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Rheumatologist" ;
-    dct:source <https://moz.com/local/categories/category/Rheumatologist> .
-
+    dct:source <https://moz.com/local/categories/category/Rheumatologist> ;
+.
 ohsu:SkinCareClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Skin Care Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Skin%20Care%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Skin%20Care%20Clinic> ;
+.
 ohsu:SleepClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Sleep Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Sleep%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Sleep%20Clinic> ;
+.
 ohsu:Spa a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Spa" ;
-    dct:source <https://moz.com/local/categories/category/Spa> .
-
+    dct:source <https://moz.com/local/categories/category/Spa> ;
+.
 ohsu:SpeechPathologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Speech Pathologist" ;
-    dct:source <https://moz.com/local/categories/category/Speech%20Pathologist> .
-
+    dct:source <https://moz.com/local/categories/category/Speech%20Pathologist> ;
+.
 ohsu:SportsMassageTherapist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Sports Massage Therapist" ;
-    dct:source <https://moz.com/local/categories/category/Sports%20Massage%20Therapist> .
-
+    dct:source <https://moz.com/local/categories/category/Sports%20Massage%20Therapist> ;
+.
 ohsu:SportsMedicineClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Sports Medicine Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Sports%20Medicine%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Sports%20Medicine%20Clinic> ;
+.
 ohsu:SportsMedicinePhysician a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Sports Medicine Physician" ;
-    dct:source <https://moz.com/local/categories/category/Sports%20Medicine%20Physician> .
-
+    dct:source <https://moz.com/local/categories/category/Sports%20Medicine%20Physician> ;
+.
 ohsu:STDTestingService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "STD Testing Service" ;
-    dct:source <https://moz.com/local/categories/category/STD%20Testing%20Service> .
-
+    dct:source <https://moz.com/local/categories/category/STD%20Testing%20Service> ;
+.
 ohsu:Surgeon a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Surgeon" ;
-    dct:source <https://moz.com/local/categories/category/Surgeon> .
-
+    dct:source <https://moz.com/local/categories/category/Surgeon> ;
+.
 ohsu:SurgicalCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Surgical Center" ;
-    dct:source <https://moz.com/local/categories/category/Surgical%20Center> .
-
+    dct:source <https://moz.com/local/categories/category/Surgical%20Center> ;
+.
 ohsu:TeethWhiteningService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Teeth Whitening Service" ;
-    dct:source <https://moz.com/local/categories/category/Teeth%20Whitening%20Service> .
-
+    dct:source <https://moz.com/local/categories/category/Teeth%20Whitening%20Service> ;
+.
 ohsu:UniversityHospital a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "University Hospital" ;
-    dct:source <https://moz.com/local/categories/category/University%20Hospital> .
-
+    dct:source <https://moz.com/local/categories/category/University%20Hospital> ;
+.
 ohsu:UrgentCareFacility a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Urgent Care Facility" ;
-    dct:source <https://moz.com/local/categories/category/Urgent%20Care%20Facility> .
-
+    dct:source <https://moz.com/local/categories/category/Urgent%20Care%20Facility> ;
+.
 ohsu:Urologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Urologist" ;
-    dct:source <https://moz.com/local/categories/category/Urologist> .
-
+    dct:source <https://moz.com/local/categories/category/Urologist> ;
+.
 ohsu:VascularSurgeon a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Vascular Surgeon" ;
-    dct:source <https://moz.com/local/categories/category/Vascular%20Surgeon> .
-
+    dct:source <https://moz.com/local/categories/category/Vascular%20Surgeon> ;
+.
 ohsu:WalkInClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Walk-In Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Walk-In%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Walk-In%20Clinic> ;
+.
 ohsu:WeightLossService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Weight Loss Service" ;
-    dct:source <https://moz.com/local/categories/category/Weight%20Loss%20Service> .
-
+    dct:source <https://moz.com/local/categories/category/Weight%20Loss%20Service> ;
+.
 ohsu:WellnessProgram a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Wellness Program" ;
-    dct:source <https://moz.com/local/categories/category/Wellness%20Program> .
-
+    dct:source <https://moz.com/local/categories/category/Wellness%20Program> ;
+.
 # Wheelchair Categories?  Rental Service, Repair Service, Store
 
 ohsu:WomensHealthClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Women's Health Clinic" ;
-    dct:source <https://moz.com/local/categories/category/Women's%20Health%20Clinic> .
-
+    dct:source <https://moz.com/local/categories/category/Women's%20Health%20Clinic> ;
+.
 ohsu:XrayLab a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "X-ray Lab" ;
-    dct:source <https://moz.com/local/categories/category/X-ray%20Lab> .
+    dct:source <https://moz.com/local/categories/category/X-ray%20Lab> ;
+.
 
 
 #
@@ -549,4 +552,5 @@ ohsu:XrayLab a ohsu:HealthcareLocalSearchCategory ;
 #
 ohsu:nationalProviderId a owl:DatatypeProperty ;
     rdfs:label "national provider id" ;
-    rdfs:range xsd:string .
+    rdfs:range xsd:string ;
+.

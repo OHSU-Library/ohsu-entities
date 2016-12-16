@@ -10,14 +10,17 @@
 #
 # Ontology
 #
-<http://purl.org/ohsu/schema/research> a owl:Ontology .
+<http://purl.org/ohsu/schema/research> a owl:Ontology ;
+.
+
 
 #
 # Classes
 #
 ohsu:ResearchLocalSearchCategory a owl:Class ;
     rdfs:label "Research Local Search Category" ;
-    rdfs:subClassOf ohsu:LocalSearchCategory .
+    rdfs:subClassOf ohsu:LocalSearchCategory ;
+.
 
 
 #
@@ -25,8 +28,10 @@ ohsu:ResearchLocalSearchCategory a owl:Class ;
 #
 ohsu:ResearchFoundation a ohsu:ResearchLocalSearchCategory ;
     rdfs:label "ResearchFoundation" ;
-    dct:source <https://moz.com/local/categories/category/Research%20Foundation> .
+    dct:source <https://moz.com/local/categories/category/Research%20Foundation> ;
+.
 
 ohsu:ResearchInstitute a ohsu:ResearchLocalSearchCategory ;
     rdfs:label "Resarch Institute" ;
-    dct:source <https://moz.com/local/categories/category/Research%20Institute> .
+    dct:source <https://moz.com/local/categories/category/Research%20Institute> ;
+.

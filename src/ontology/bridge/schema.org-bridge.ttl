@@ -11,35 +11,37 @@
 #
 # Ontology
 #
-<http://purl.org/ohsu/schema/bridge/schema.org> a owl:Ontology .
+<http://purl.org/ohsu/schema/bridge/schema.org> a owl:Ontology ;
+.
 
 
 #
 # Classes
 #
 ohsu:Building a owl:Class ;
-    rdfs:subClassOf schema:Place .
-
+    rdfs:subClassOf schema:Place ;
+.
 ohsu:Campus a owl:Class ;
-    rdfs:subClassOf schema:Place .
-
+    rdfs:subClassOf schema:Place ;
+.
 ohsu:ClinicalDepartment a owl:Class ;
-    rdfs:subClassOf schema:MedicalOrganization .
-
+    rdfs:subClassOf schema:MedicalOrganization ;
+.
 ohsu:HealthcareFacility a owl:Class ;
-    rdfs:subClassOf schema:CivicStructure .
-
+    rdfs:subClassOf schema:CivicStructure ;
+.
 ohsu:HealthcareProviderRole a owl:Class ;
     rdfs:subClassOf schema:Role.
 
 ohsu:HealthcareService a owl:Class ;
-    rdfs:subClassOf schema:Enumeration .
-
+    rdfs:subClassOf schema:Enumeration ;
+.
 ohsu:HealthcareSpecialty a owl:Class ;
-    rdfs:subClassOf schema:Enumeration .
-
+    rdfs:subClassOf schema:Enumeration ;
+.
 ohsu:LocalSearchCategory a owl:Class ;
-    rdfs:subClassOf schema:Enumeration .
+    rdfs:subClassOf schema:Enumeration ;
+.
 
 
 #
@@ -47,4 +49,5 @@ ohsu:LocalSearchCategory a owl:Class ;
 #
 ohsu:nationalProviderId a owl:DatatypeProperty ;
     schema:alternateName "NPI" ;
-    rdfs:domain schema:Person .
+    rdfs:domain schema:Person ;
+.
