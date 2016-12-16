@@ -1,0 +1,57 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ohsu: <http://purl.org/ohsu/schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+#
+# Ontology
+#
+<http://purl.org/ohsu/schema/education> a owl:Ontology .
+
+
+#
+# Classes
+#
+ohsu:EducationLocalSearchCategory a owl:Class ;
+    rdfs:label "Education Local Search Category" ;
+    rdfs:subClassOf ohsu:LocalSearchCategory .
+
+
+#
+# Enumeration Members
+#
+ohsu:College a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "College" ;
+    dct:source <https://moz.com/local/categories/category/College> .
+
+ohsu:DentalSchool a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Dental School" ;
+    dct:source <https://moz.com/local/categories/category/Dental%20School> .
+
+ohsu:GraduateSchool a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Graduate School" ;
+    dct:source <https://moz.com/local/categories/category/Graduate%20School> .
+
+ohsu:Library a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Library" ;
+    dct:source <https://moz.com/local/categories/category/Library> .
+
+ohsu:MedicalSchool a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Medical School" ;
+    dct:source <https://moz.com/local/categories/category/Medical%20School> .
+
+ohsu:NursingSchool a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Nursing School" ;
+    dct:source <https://moz.com/local/categories/category/Nursing%20School> .
+
+ohsu:PublicUniversity a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Public University" ;
+    dct:source <https://moz.com/local/categories/category/Public%20University> .
+
+ohsu:University a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "University" ;
+    dct:source <https://moz.com/local/categories/category/University> .

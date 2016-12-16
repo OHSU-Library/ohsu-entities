@@ -1,0 +1,32 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ohsu: <http://purl.org/ohsu/schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+#
+# Ontology
+#
+<http://purl.org/ohsu/schema/research> a owl:Ontology .
+
+#
+# Classes
+#
+ohsu:ResearchLocalSearchCategory a owl:Class ;
+    rdfs:label "Research Local Search Category" ;
+    rdfs:subClassOf ohsu:LocalSearchCategory .
+
+
+#
+# Enumeration Members
+#
+ohsu:ResearchFoundation a ohsu:ResearchLocalSearchCategory ;
+    rdfs:label "ResearchFoundation" ;
+    dct:source <https://moz.com/local/categories/category/Research%20Foundation> .
+
+ohsu:ResearchInstitute a ohsu:ResearchLocalSearchCategory ;
+    rdfs:label "Resarch Institute" ;
+    dct:source <https://moz.com/local/categories/category/Research%20Institute> .
