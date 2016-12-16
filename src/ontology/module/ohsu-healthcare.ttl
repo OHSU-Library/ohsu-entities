@@ -542,3 +542,11 @@ ohsu:WomensHealthClinic a ohsu:HealthcareLocalSearchCategory ;
 ohsu:XrayLab a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "X-ray Lab" ;
     dct:source <https://moz.com/local/categories/category/X-ray%20Lab> .
+
+
+#
+# Datatype Properties
+#
+ohsu:nationalProviderId a owl:DatatypeProperty ;
+    rdfs:label "national provider id" ;
+    rdfs:range xsd:string .
