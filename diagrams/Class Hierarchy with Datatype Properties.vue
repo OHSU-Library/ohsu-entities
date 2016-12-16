@@ -1,18 +1,19 @@
-<!-- Tufts VUE 3.3.0 concept-map (Schema MIREOT Class Hierarchy.vue) 2016-12-15 -->
+<!-- Tufts VUE 3.3.0 concept-map (Class Hierarchy with Datatype Properties.vue) 2016-12-16 -->
 <!-- Tufts VUE: http://vue.tufts.edu/ -->
 <!-- Do Not Remove: VUE mapping @version(1.1) jar:file:/Applications/VUE.app/Contents/Resources/Java/VUE.jar!/tufts/vue/resources/lw_mapping_1_1.xml -->
-<!-- Do Not Remove: Saved date Thu Dec 15 19:48:41 PST 2016 by whimar on platform Mac OS X 10.11.6 in JVM 1.8.0_91-b14 -->
+<!-- Do Not Remove: Saved date Fri Dec 16 00:22:05 PST 2016 by whimar on platform Mac OS X 10.11.6 in JVM 1.8.0_91-b14 -->
 <!-- Do Not Remove: Saving version @(#)VUE: built October 8 2015 at 1658 by tomadm on Linux 2.6.32-504.23.4.el6.x86_64 i386 JVM 1.7.0_21-b11(bits=32) -->
 <?xml version="1.0" encoding="US-ASCII"?>
 <LW-MAP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="none" ID="0"
-    label="Schema MIREOT Class Hierarchy.vue" created="1481674142768"
-    x="0.0" y="0.0" width="1.4E-45" height="1.4E-45" strokeWidth="0.0" autoSized="false">
-    <resource referenceCreated="1481860122031" size="134448"
-        spec="/Users/whimar/Projects/OHSU Entities Taxology/diagrams/Schema MIREOT Class Hierarchy.vue"
+    label="Class Hierarchy with Datatype Properties.vue"
+    created="1481674142768" x="0.0" y="0.0" width="1.4E-45"
+    height="1.4E-45" strokeWidth="0.0" autoSized="false">
+    <resource referenceCreated="1481876525072" size="134189"
+        spec="/Users/whimar/git/ohsu-entities/diagrams/Class Hierarchy with Datatype Properties.vue"
         type="1" xsi:type="URLResource">
-        <title>Schema MIREOT Class Hierarchy.vue</title>
-        <property key="File" value="/Users/whimar/Projects/OHSU Entities Taxology/diagrams/Schema MIREOT Class Hierarchy.vue"/>
+        <title>Class Hierarchy with Datatype Properties.vue</title>
+        <property key="File" value="/Users/whimar/git/ohsu-entities/diagrams/Class Hierarchy with Datatype Properties.vue"/>
     </resource>
     <fillColor>#FFFFFF</fillColor>
     <strokeColor>#404040</strokeColor>
@@ -1144,20 +1145,6 @@
         <point2 x="1093.993" y="1388.1948"/>
         <ID1 xsi:type="node">325</ID1>
         <ID2 xsi:type="node">300</ID2>
-    </child>
-    <child ID="340" label="schema:memberOf" layerID="1"
-        created="1481859278337" x="195.56863" y="9.533462"
-        width="316.29565" height="41.07625" strokeWidth="3.0"
-        autoSized="false" controlCount="2" arrowState="2" xsi:type="link">
-        <strokeColor>#FC938D</strokeColor>
-        <textColor>#FC938D</textColor>
-        <font>Arial-plain-11</font>
-        <URIString>http://vue.tufts.edu/rdf/resource/05bf05b9c669f41701255ef0307f1dea</URIString>
-        <point1 x="197.06863" y="29.51661"/>
-        <point2 x="510.3643" y="11.664902"/>
-        <ID1 xsi:type="node">37</ID1>
-        <ctrlPoint0 x="339.80872" y="-40.13609" xsi:type="point"/>
-        <ctrlPoint1 x="366.59015" y="117.02879" xsi:type="point"/>
     </child>
     <child ID="7" label="owl:Thing" layerID="1" created="1481674171328"
         x="-559.8123" y="-792.69073" width="237.79999"
@@ -2383,9 +2370,8 @@
 </richText>
         <label>Classes</label>
     </child>
-    <child ID="317"
-        label="Datatype&#xa;    &#xa;    &#xa;      Properties"
-        layerID="1" created="1481847708948" x="1841.0359" y="-718.0901"
+    <child ID="317" label="Datatype Properties" layerID="1"
+        created="1481847708948" x="1841.0359" y="-718.0901"
         width="111.0" height="58.0" strokeWidth="0.0" autoSized="false" xsi:type="text">
         <strokeColor>#404040</strokeColor>
         <textColor>#000000</textColor>
@@ -2405,22 +2391,18 @@
   &lt;/head&gt;
   &lt;body&gt;
     &lt;p color="#000000" style="color: #000000; text-align: center"&gt;
-      &lt;font style="font-size:24;"&gt;Datatype
-&lt;/font&gt;    &lt;/p&gt;
+      &lt;font style="font-size:24;"&gt;Datatype &lt;/font&gt;
+    &lt;/p&gt;
     &lt;p color="#000000" style="color: #000000; text-align: center"&gt;
       &lt;font style="font-size:24;"&gt;Properties&lt;/font&gt;
     &lt;/p&gt;
   &lt;/body&gt;
 &lt;/html&gt;
 </richText>
-        <label>Datatype
-    
-    
-      Properties</label>
+        <label>Datatype Properties</label>
     </child>
-    <child ID="320"
-        label="Object&#xa;    &#xa;    &#xa;      Properties"
-        layerID="1" created="1481847880643" x="1998.4364" y="-718.0901"
+    <child ID="320" label="Object Properties" layerID="1"
+        created="1481847880643" x="1998.4364" y="-718.0901"
         width="111.0" height="58.0" strokeWidth="0.0" autoSized="false" xsi:type="text">
         <strokeColor>#404040</strokeColor>
         <textColor>#000000</textColor>
@@ -2440,18 +2422,15 @@
   &lt;/head&gt;
   &lt;body&gt;
     &lt;p color="#000000" style="color: #000000; text-align: center"&gt;
-      &lt;font style="font-size:24;"&gt;Object
-&lt;/font&gt;    &lt;/p&gt;
+      &lt;font style="font-size:24;"&gt;Object &lt;/font&gt;
+    &lt;/p&gt;
     &lt;p color="#000000" style="color: #000000; text-align: center"&gt;
       &lt;font style="font-size:24;"&gt;Properties&lt;/font&gt;
     &lt;/p&gt;
   &lt;/body&gt;
 &lt;/html&gt;
 </richText>
-        <label>Object
-    
-    
-      Properties</label>
+        <label>Object Properties</label>
     </child>
     <child ID="322" label="ohsu:Healthcare&#xa;LocalSearchCategory"
         layerID="1" created="1481857793077" x="827.34064" y="1490.2998"
@@ -2666,7 +2645,7 @@
         y="0.0" width="1.4E-45" height="1.4E-45" strokeWidth="0.0" autoSized="false">
         <URIString>http://vue.tufts.edu/rdf/resource/fb580ceec669f4173fd8a4e3924610cd</URIString>
     </layer>
-    <userZoom>0.286888300503005</userZoom>
+    <userZoom>0.28375974760766143</userZoom>
     <userOrigin x="-1126.0216" y="-407.81482"/>
     <presentationBackground>#202020</presentationBackground>
     <PathwayList currentPathway="0" revealerIndex="-1">
@@ -2719,6 +2698,6 @@
     </PathwayList>
     <date>2016-12-13</date>
     <modelVersion>6</modelVersion>
-    <saveLocation>/Users/whimar/Projects/OHSU Entities Taxology/diagrams</saveLocation>
-    <saveFile>/Users/whimar/Projects/OHSU Entities Taxology/diagrams/Schema MIREOT Class Hierarchy.vue</saveFile>
+    <saveLocation>/Users/whimar/git/ohsu-entities/diagrams</saveLocation>
+    <saveFile>/Users/whimar/git/ohsu-entities/diagrams/Class Hierarchy with Datatype Properties.vue</saveFile>
 </LW-MAP>
