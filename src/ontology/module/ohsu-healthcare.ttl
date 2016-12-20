@@ -44,7 +44,7 @@ ohsu:HealthcareLocalSearchCategory a owl:Class ;
 # Enumeration Members
 #
 ohsu:AbortionClinic a ohsu:HealthcareLocalSearchCategory ;
-    rdfs:label "Abortion" ;
+    rdfs:label "Abortion Clinic" ;
     dct:source <https://moz.com/local/categories/category/Abortion%20Clinic> ;
 .
 ohsu:AcupunctureClinic a ohsu:HealthcareLocalSearchCategory ;
@@ -202,6 +202,10 @@ ohsu:FreeClinic a ohsu:HealthcareLocalSearchCategory ;
 ohsu:Gastroenterologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Gastroenterologist" ;
     dct:source <https://moz.com/local/categories/category/Gastroenterologist> ;
+.
+ohsu:Gym a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:Label "Gym" ;
+    dct:source <https://moz.com/local/categories/category/Gym> ;
 .
 ohsu:HandSurgeon a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Hand Surgeon" ;
@@ -402,6 +406,10 @@ ohsu:Pharmacy a ohsu:HealthcareLocalSearchCategory ;
 ohsu:Physiatrist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Physiatrist" ;
     dct:source <https://moz.com/local/categories/category/Physiatrist> ;
+.
+ohsu:PhysicalFitnessProgram a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Physical Fitness Program" ;
+    dct:source <https://moz.com/local/categories/category/Physical%20Fitness%20Program> ;
 .
 ohsu:PhysicalTherapyClinic a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Physical Therapy Clinic" ;
