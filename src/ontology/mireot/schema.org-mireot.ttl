@@ -126,6 +126,11 @@ schema:Language a owl:Class ;
     rdfs:comment "Natural languages such as Spanish, Tamil, Hindi, English, etc. Formal language code tags expressed in <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> can be used via the <a class=\"localLink\" href=\"/alternateName\">alternateName</a> property. The Language type previously also covered programming languages such as Scheme and Lisp, which are now best represented using <a class=\"localLink\" href=\"/ComputerLanguage\">ComputerLanguage</a>." ;
     rdfs:subClassOf schema:Intangible ;
 .
+schema:Library a owl:Class ;
+    rdfs:label "Library" ;
+    rdfs:comment "A library." ;
+    rdfs:subClassOf schema:LocalBusiness ;
+.
 schema:LocalBusiness a owl:Class ;
     rdfs:label "Local Business" ;
     rdfs:comment "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc." ;
