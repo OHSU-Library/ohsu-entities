@@ -62,10 +62,6 @@ schema:Cardiovascular a schema:MedicalSpecialty ;
     rdfs:label "Cardiovascular" ;
     rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of heart and vasculature." ;
 .
-schema:Clinician a schema:MedicalAudience ;
-    rdfs:label "Clinician" ;
-    rdfs:comment "Medical clinicians, including practicing physicians and other medical professionals involved in clinical practice." ;
-.
 schema:CommunityHealth a schema:MedicalSpecialty ;
     rdfs:label "Community Health" ;
     rdfs:comment "A field of public health focusing on improving health characteristics of a defined population in relation with their geographical or environment areas" ;
@@ -117,10 +113,6 @@ schema:Infectious a schema:MedicalSpecialty ;
 schema:LaboratoryScience a schema:MedicalSpecialty ;
     rdfs:label "Laboratory Science" ;
     rdfs:comment "A medical science pertaining to chemical, hematological, immunologic, microscopic, or bacteriological diagnostic analyses or research" ;
-.
-schema:MedicalResearcher a schema:MedicalAudience ;
-    rdfs:label "Medical Researcher" ;
-    rdfs:comment "Medical researchers." ;
 .
 schema:Midwifery a schema:MedicalSpecialty ;
     rdfs:label "Midwifery" ;
