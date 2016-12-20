@@ -23,16 +23,6 @@ schema:AdministrativeArea a owl:Class ;
     rdfs:comment "A geographical region, typically under the jurisdiction of a particular government." ;
     rdfs:subClassOf schema:Place ;
 .
-schema:Audience a owl:Class ;
-    rdfs:label "Audience" ;
-    rdfs:comment "Intended audience for an item, i.e. the group for whom the item was created." ;
-    rdfs:subClassOf schema:Intangible ;
-.
-schema:BusStop a owl:Class ;
-    rdfs:label "Bus Stop" ;
-    rdfs:comment "A bus stop." ;
-    rdfs:subClassOf schema:CivicStructure ;
-.
 schema:City a owl:Class ;
     rdfs:label "City" ;
     rdfs:comment "A city or town." ;
@@ -228,16 +218,6 @@ schema:StructuredValue a owl:Class ;
     rdfs:comment "Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing." ;
     rdfs:subClassOf schema:Intangible ;
 .
-schema:TaxiStand a owl:Class ;
-    rdfs:label "Taxi Stand" ;
-    rdfs:comment "A taxi stand." ;
-    rdfs:subClassOf schema:CivicStructure ;
-.
-schema:TrainStation a owl:Class ;
-    rdfs:label "Train Station" ;
-    rdfs:comment "A train station." ;
-    rdfs:subClassOf schema:CivicStructure ;
-.
 
 
 #
@@ -417,12 +397,6 @@ schema:geoMidpoint a owl:ObjectProperty ;
     rdfs:domain schema:GeoCircle ;
     rdfs:range schema:GeoCoordinates ;
     rdfs:comment "Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle." ;
-.
-schema:geographicArea a owl:ObjectProperty ;
-    rdfs:label "geographicArea" ;
-    rdfs:domain schema:Audience ;
-    rdfs:range schema:AdministrativeArea ;
-    rdfs:comment "The geographic area associated with the audience." ;
 .
 schema:hoursAvailable a owl:ObjectProperty ;
     rdfs:label "hoursAvailable" ;
