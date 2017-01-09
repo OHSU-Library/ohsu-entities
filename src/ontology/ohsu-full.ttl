@@ -15,11 +15,6 @@
     owl:versionInfo "0.0.1"^^xsd:string ;
     rdfs:label "OHSU Entities" ;
     rdfs:comment "The OHSU Entities Ontology describes people, places, and things at Oregon Health & Science University, and the relationships between them." ;
-    owl:imports <http://purl.org/ohsu/schema/healthcare> ;
-    owl:imports <http://purl.org/ohsu/schema/education> ;
-    owl:imports <http://purl.org/ohsu/schema/research> ;
-    owl:imports <http://purl.org/ohsu/schema/mireot/schema.org> ;
-    owl:imports <http://purl.org/ohsu/schema/bridge/schema.org> ;
 .
 
 
