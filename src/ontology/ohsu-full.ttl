@@ -1,0 +1,1840 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix ohsu: <http://purl.org/ohsu/schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+#
+# Ontology
+#
+<http://purl.org/ohsu/schema> a owl:Ontology ;
+    owl:versionInfo "0.0.1"^^xsd:string ;
+    rdfs:label "OHSU Entities" ;
+    rdfs:comment "The OHSU Entities Ontology describes people, places, and things at Oregon Health & Science University, and the relationships between them." ;
+    owl:imports <http://purl.org/ohsu/schema/healthcare> ;
+    owl:imports <http://purl.org/ohsu/schema/education> ;
+    owl:imports <http://purl.org/ohsu/schema/research> ;
+    owl:imports <http://purl.org/ohsu/schema/mireot/schema.org> ;
+    owl:imports <http://purl.org/ohsu/schema/bridge/schema.org> ;
+.
+
+
+#
+# Classes
+#
+ohsu:Building a owl:Class ;
+    rdfs:label "Building" ;
+.
+ohsu:Campus a owl:Class ;
+    rdfs:label "Campus" ;
+.
+ohsu:LocalSearchCategory a owl:Class ;
+    rdfs:label "Local Search Category" ;
+    rdfs:comment "A category used by search engines for ranking purposes." ;
+     dct:source <https://moz.com/local/categories> ;
+.
+ohsu:CivicStructureLocalSearchCategory a owl:Class ;
+    rdfs:label "Civic Structure Local Search Category" ;
+    rdfs:subClassOf ohsu:LocalSearchCategory ;
+.
+
+
+#
+# Enumeration Members
+#
+ohsu:Heliport a ohsu:CivicStructureLocalSearchCategory ;
+    rdfs:label "Heliport" ;
+    dct:source <https://moz.com/local/categories/category/Heliport> ;
+.
+ohsu:RVPark a ohsu:CivicStructureLocalSearchCategory ;
+    rdfs:label "RV Park" ;
+    dct:source <https://moz.com/local/categories/category/RV%20Park> ;
+.
+ohsu:ParkingGarage a ohsu:CivicStructureLocalSearchCategory ;
+    rdfs:label "Parking Garage" ;
+    dct:source <https://moz.com/local/categories/category/Parking%20Garage> ;
+.
+ohsu:ParkingLot a ohsu:CivicStructureLocalSearchCategory ;
+    rdfs:label "Parking Lot" ;
+    dct:source <https://moz.com/local/categories/category/Parking%20Lot> ;
+.
+
+
+#
+# Object Properties
+#
+ohsu:localSearchCategory a owl:ObjectProperty ;
+    rdfs:label "local search category" ;
+    rdfs:comment "A local category search of a thing." ;
+    rdfs:domain owl:Thing ;
+    rdfs:range ohsu:LocalSearchCategory ;
+.
+
+
+#
+# Datatype Properties
+#
+ohsu:searchPriority a owl:DatatypeProperty ;
+    rdfs:label "search priority";
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+.
+
+
+# HEALTHCARE
+#
+# Classes
+#
+ohsu:ClinicalDepartment a owl:Class ;
+    rdfs:label "Clinical Department"  ;
+.
+ohsu:HealthcareFacility a owl:Class ;
+    rdfs:label "Healthcare Facility" ;
+    rdfs:comment "Health facilities are places that provide health care. They include hospitals, clinics, outpatient care centers, and specialized care centers, such as birthing centers and psychiatric care centers." ;
+    rdfs:isDefinedBy <https://medlineplus.gov/healthfacilities.html> ;
+.
+ohsu:HealthcareProviderRole a owl:Class ;
+    rdfs:label "Healthcare Provider"  ;
+.
+ohsu:HealthcareService a owl:Class ;
+    rdfs:label "Healthcare Service"  ;
+.
+ohsu:HealthcareSpecialty a owl:Class ;
+    rdfs:label "Healthcare Specialty"  ;
+.
+ohsu:HealthcareLocalSearchCategory a owl:Class ;
+    rdfs:label "Healthcare Local Search Category" ;
+    rdfs:subClassOf ohsu:LocalSearchCategory ;
+.
+
+
+#
+# Enumeration Members
+#
+ohsu:AbortionClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Abortion Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Abortion%20Clinic> ;
+.
+ohsu:AcupunctureClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Acupuncture Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Acupuncture%20Clinic> ;
+.
+ohsu:AddictionTreatmentCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Addiction Treatment Center" ;
+    dct:source <https://moz.com/local/categories/category/Addiction%20Treatment%20Center> ;
+.
+ohsu:AlcoholismTreatmentProgram a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Alcoholism Treatment Program" ;
+    dct:source <https://moz.com/local/categories/category/Alcoholism%20Treatment%20Program> ;
+.
+ohsu:Allergist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Allergist" ;
+    dct:source <https://moz.com/local/categories/category/Allergist> ;
+.
+ohsu:AlternativeMedicinePractitioner a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Alternative Medicine Practitioner" ;
+    dct:source <https://moz.com/local/categories/category/Alternative%20Medicine%20Practitioner> ;
+.
+ohsu:AmbulanceService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Ambulance Service" ;
+    dct:source <https://moz.com/local/categories/category/Ambulance%20Service> ;
+.
+ohsu:Anesthesiologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Anesthesiologist" ;
+    dct:source <https://moz.com/local/categories/category/Anesthesiologist> ;
+.
+ohsu:Audiologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Audiologist" ;
+    dct:source <https://moz.com/local/categories/category/Audiologist> ;
+.
+ohsu:Biofeedback a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Biofeedback" ;
+    dct:source <https://moz.com/local/categories/category/Biofeedback%20Therapist> ;
+.
+ohsu:BirthControlCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Birth Control Center" ;
+    dct:source <https://moz.com/local/categories/category/Birth%20Control%20Center> ;
+.
+ohsu:CancerTreatmentCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Cancer Treatment Center" ;
+    dct:source <https://moz.com/local/categories/category/Cancer%20Treatment%20Center> ;
+.
+ohsu:Cardiologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Cardiologist" ;
+    dct:source <https://moz.com/local/categories/category/Cardiologist> ;
+.
+ohsu:ChildPsychologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Child Psychologist" ;
+    dct:source <https://moz.com/local/categories/category/Child%20Psychologist> ;
+.
+ohsu:ChildrensHospital a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Children's Hospital" ;
+    dct:source <https://moz.com/local/categories/category/Children's%20Hospital> ;
+.
+ohsu:Chiropractor a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Chiropractor" ;
+    dct:source <https://moz.com/local/categories/category/Chiropractor> ;
+.
+ohsu:Counselor a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Counselor" ;
+    dct:source <https://moz.com/local/categories/category/Counselor> ;
+.
+ohsu:Culture a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Culture" ;
+    dct:source <https://moz.com/local/categories/category/Culture> ;
+.
+ohsu:DentalClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Dental Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Dental%20Clinic> ;
+.
+ohsu:DentalImplantsPeriodontist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Dental Implants Periodontist" ;
+    dct:source <https://moz.com/local/categories/category/Dental%20Implants%20Periodontist> ;
+.
+ohsu:DentalLab a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Dental Lab" ;
+    dct:source <https://moz.com/local/categories/category/Dental%20Lab> ;
+.
+ohsu:Dentist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Dentist" ;
+    dct:source <https://moz.com/local/categories/category/Dentist> ;
+.
+ohsu:Dermatologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Dermatologist" ;
+    dct:source <https://moz.com/local/categories/category/Dermatologist> ;
+.
+ohsu:DiabetesCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Diabetes Center" ;
+    dct:source <https://moz.com/local/categories/category/Diabetes%20Center> ;
+.
+ohsu:Diabetologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Diabetologist" ;
+    dct:source <https://moz.com/local/categories/category/Diabetologist> ;
+.
+ohsu:DialysisCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Dialysis Center" ;
+    dct:source <https://moz.com/local/categories/category/Dialysis%20Center> ;
+.
+ohsu:Doctor a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Doctor" ;
+    dct:source <https://moz.com/local/categories/category/Doctor> ;
+.
+ohsu:DrugAddictionTreatmentCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Drug Addiction Treatment Center" ;
+    dct:source <https://moz.com/local/categories/category/Drug%20Addiction%20Treatment%20Center> ;
+.
+ohsu:EatingDisorderTreatmentCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Eating Disorder Treatment Center" ;
+    dct:source <https://moz.com/local/categories/category/Eating%20Disorder%20Treatment%20Center> ;
+.
+ohsu:EmergencyCarePhysician a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Emergency Care Physician" ;
+    dct:source <https://moz.com/local/categories/category/Emergency%20Care%20Physician> ;
+.
+ohsu:EmergencyDentalService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Emergency Dental Service" ;
+    dct:source <https://moz.com/local/categories/category/Emergency%20Dental%20Service> ;
+.
+ohsu:EmergencyRoom a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Emergency Room" ;
+    dct:source <https://moz.com/local/categories/category/Emergency%20Room> ;
+.
+ohsu:Endocrinologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Endocrinologist" ;
+    dct:source <https://moz.com/local/categories/category/Endocrinologist> ;
+.
+ohsu:Endodontist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Endodontist" ;
+    dct:source <https://moz.com/local/categories/category/Endodontist> ;
+.
+ohsu:EyeCareCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Eye Care Center" ;
+    dct:source <https://moz.com/local/categories/category/Eye%20Care%20Center> ;
+.
+ohsu:FamliyPracticePhysician a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Famliy Practice Physician" ;
+    dct:source <https://moz.com/local/categories/category/Family%20Practice%20Physician> ;
+.
+ohsu:FertilityClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Fertility Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Fertility%20Clinic> ;
+.
+ohsu:FertilityPhysician a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Fertility Physician" ;
+    dct:source <https://moz.com/local/categories/category/Fertility%20Physician> ;
+.
+ohsu:FreeClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Free Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Free%20Clinic> ;
+.
+ohsu:Gastroenterologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Gastroenterologist" ;
+    dct:source <https://moz.com/local/categories/category/Gastroenterologist> ;
+.
+ohsu:Gym a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:Label "Gym" ;
+    dct:source <https://moz.com/local/categories/category/Gym> ;
+.
+ohsu:HandSurgeon a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Hand Surgeon" ;
+    dct:source <https://moz.com/local/categories/category/Hand%20Surgeon> ;
+.
+ohsu:HearingAidEquipmentStore a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Hearing Aid Equipment Store" ;
+    dct:source <https://moz.com/local/categories/category/Hearing%20Aid%20Equipment%20Store> ;
+.
+ohsu:HearingAidRepairService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Hearing Aid Repair Service" ;
+    dct:source <https://moz.com/local/categories/category/Hearing%20Aid%20Repair%20Service> ;
+.
+ohsu:HearingAidStore a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Hearing Aid Store" ;
+    dct:source <https://moz.com/local/categories/category/Hearing%20Aid%20Store> ;
+.
+ohsu:Hematologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Hematologist" ;
+    dct:source <https://moz.com/local/categories/category/Hematologist> ;
+.
+ohsu:HolisticMedicinePractitioner a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Holistic Medicine Practitioner" ;
+    dct:source <https://moz.com/local/categories/category/Holistic%20Medicine%20Practitioner> ;
+.
+ohsu:Hospital a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Hospital" ;
+    dct:source <https://moz.com/local/categories/category/Hospital> ;
+.
+ohsu:InfectiousDiseasePhysician a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Infectious Disease Physician" ;
+    dct:source <https://moz.com/local/categories/category/Infectious%20Disease%20Physician> ;
+.
+ohsu:Internist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Internist" ;
+    dct:source <https://moz.com/local/categories/category/Internist> ;
+.
+ohsu:MammographyService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Mammography Service" ;
+    dct:source <https://moz.com/local/categories/category/Mammography%20Service> ;
+.
+ohsu:MassageTherapist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Massage Therapist" ;
+    dct:source <https://moz.com/local/categories/category/Massage%20Therapist> ;
+.
+ohsu:MedicalCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Medical Center" ;
+    dct:source <https://moz.com/local/categories/category/Medical%20Center> ;
+.
+ohsu:MedicalClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Medical Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Medical%20Clinic> ;
+.
+ohsu:MedicalDiagnosticImagingCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Medical Diagnostic Imaging Center" ;
+    dct:source <https://moz.com/local/categories/category/Medical%20Diagnostic%20Imaging%20Center> ;
+.
+ohsu:MedicalGroup a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Medical Group" ;
+    dct:source <https://moz.com/local/categories/category/Medical%20Group> ;
+.
+ohsu:MedicalLaboratory a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Medical Laboratory" ;
+    dct:source <https://moz.com/local/categories/category/Medical%20Laboratory> ;
+.
+ohsu:MedicalSpa a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Medical Spa" ;
+    dct:source <https://moz.com/local/categories/category/Medical%20Spa> ;
+.
+ohsu:MedicalTranscriptionService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Medical Transcription Service" ;
+    dct:source <https://moz.com/local/categories/category/Medical%20Transcription%20Service> ;
+.
+ohsu:MeditationCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "MeditationCenter" ;
+    dct:source <https://moz.com/local/categories/category/Meditation%20Center> ;
+.
+ohsu:MentalHealthClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Mental Health Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Mental%20Health%20Clinic> ;
+.
+ohsu:MentalHealthService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Mental Health Service" ;
+    dct:source <https://moz.com/local/categories/category/Mental%20Health%20Service> ;
+.
+ohsu:Midwife a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Midwife" ;
+    dct:source <https://moz.com/local/categories/category/Midwife> ;
+.
+ohsu:MRICenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "MRI Center" ;
+    dct:source <https://moz.com/local/categories/category/MRI%20Center> ;
+.
+ohsu:NeonatalPhysician a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Neonatal Physician" ;
+    dct:source <https://moz.com/local/categories/category/Neonatal%20Physician> ;
+.
+ohsu:Nephrologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Nephrologist" ;
+    dct:source <https://moz.com/local/categories/category/Nephrologist> ;
+.
+ohsu:Neurologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Neurologist" ;
+    dct:source <https://moz.com/local/categories/category/Neurologist> ;
+.
+ohsu:Nutritionist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Nutritionist" ;
+    dct:source <https://moz.com/local/categories/category/Nutritionist> ;
+.
+ohsu:ObstetricianGynecologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Obstetrician-Gynecologist" ;
+    dct:source <https://moz.com/local/categories/category/Obstetrician-Gynecologist> ;
+.
+ohsu:OccupationalHealthService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Occupational Health Service" ;
+    dct:source <https://moz.com/local/categories/category/Occupational%20Health%20Service> ;
+.
+ohsu:OccupationalTherapist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Occupational Therapist" ;
+    dct:source <https://moz.com/local/categories/category/Occupational%20Therapist> ;
+.
+ohsu:Oncologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Oncologist" ;
+    dct:source <https://moz.com/local/categories/category/Oncologist> ;
+.
+ohsu:Opthalmologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Opthalmologist" ;
+    dct:source <https://moz.com/local/categories/category/Ophthalmologist> ;
+.
+ohsu:Optician a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Optician" ;
+    dct:source <https://moz.com/local/categories/category/Optician> ;
+.
+ohsu:Optometrist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Optometrist" ;
+    dct:source <https://moz.com/local/categories/category/Optometrist> ;
+.
+ohsu:OralSurgeon a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Oral Surgeon" ;
+    dct:source <https://moz.com/local/categories/category/Oral%20Surgeon> ;
+.
+ohsu:Orthodontist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Orthodontist" ;
+    dct:source <https://moz.com/local/categories/category/Orthodontist> ;
+.
+ohsu:OrthopedicSurgeon a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Orthopedic Surgeon" ;
+    dct:source <https://moz.com/local/categories/category/Orthopedic%20Surgeon> ;
+.
+ohsu:OrthoticsAndProstheticsService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Orthotics & Prosthetics Service" ;
+    dct:source <https://moz.com/local/categories/category/Orthotics%20%26%20Prosthetics%20Service>  ;
+.
+ohsu:Osteopath a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Osteopath" ;
+    dct:source <https://moz.com/local/categories/category/Osteopath> ;
+.
+ohsu:Otolaryngologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Otolaryngologist" ;
+    dct:source <https://moz.com/local/categories/category/Otolaryngologist> ;
+.
+ohsu:PainControlClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Pain Control Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Pain%20Control%20Clinic> ;
+.
+ohsu:PainManagementPhysician a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Pain Management Physician" ;
+    dct:source <https://moz.com/local/categories/category/Pain%20Management%20Physician> ;
+.
+ohsu:Pathologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Pathologist" ;
+    dct:source <https://moz.com/local/categories/category/Pathologist> ;
+.
+ohsu:PediatricCardiologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Pediatric Cardiologist" ;
+    dct:source <https://moz.com/local/categories/category/Pediatric%20Cardiologist> ;
+.
+ohsu:PediatricDentist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Pediatric Dentist" ;
+    dct:source <https://moz.com/local/categories/category/Pediatric%20Dentist> ;
+.
+ohsu:PediatricOpthalmologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Pediatric Opthalmologist" ;
+    dct:source <https://moz.com/local/categories/category/Pediatric%20Opthalmologist> ;
+.
+ohsu:Pediatrician a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Pediatrician" ;
+    dct:source <https://moz.com/local/categories/category/Pediatrician> ;
+.
+ohsu:Periodontist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Periodontist" ;
+    dct:source <https://moz.com/local/categories/category/Periodontist> ;
+.
+ohsu:Pharmacy a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Pharmacy" ;
+    dct:source <https://moz.com/local/categories/category/Pharmacy> ;
+.
+ohsu:Physiatrist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Physiatrist" ;
+    dct:source <https://moz.com/local/categories/category/Physiatrist> ;
+.
+ohsu:PhysicalFitnessProgram a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Physical Fitness Program" ;
+    dct:source <https://moz.com/local/categories/category/Physical%20Fitness%20Program> ;
+.
+ohsu:PhysicalTherapyClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Physical Therapy Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Physical%20Therapy%20Clinic> ;
+.
+ohsu:PhysicianReferralService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Physician Referral Service" ;
+    dct:source <https://moz.com/local/categories/category/Physician%20Referral%20Service> ;
+.
+ohsu:Physiotherapist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Physiotherapist" ;
+    dct:source <https://moz.com/local/categories/category/Physiotherapist> ;
+.
+ohsu:PlasticSurgeon a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Plastic Surgeon" ;
+    dct:source <https://moz.com/local/categories/category/Plastic%20Surgeon> ;
+.
+ohsu:Podiatrist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Podiatrist" ;
+    dct:source <https://moz.com/local/categories/category/Podiatrist> ;
+.
+ohsu:PregnancyCareCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Pregnancy Care Center" ;
+    dct:source <https://moz.com/local/categories/category/Pregnancy%20Care%20Center> ;
+.
+ohsu:Proctologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Proctologist" ;
+    dct:source <https://moz.com/local/categories/category/Proctologist> ;
+.
+ohsu:Psychiatrist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Psychiatrist" ;
+    dct:source <https://moz.com/local/categories/category/Psychiatrist> ;
+.
+ohsu:Psychologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Psychologist" ;
+    dct:source <https://moz.com/local/categories/category/Psychologist> ;
+.
+ohsu:Psychotherapist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Psychotherapist" ;
+    dct:source <https://moz.com/local/categories/category/Psychotherapist> ;
+.
+ohsu:Pulmonologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Pulmonologist" ;
+    dct:source <https://moz.com/local/categories/category/Pulmonologist> ;
+.
+ohsu:Radiologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Radiologist" ;
+    dct:source <https://moz.com/local/categories/category/Radiologist> ;
+.
+ohsu:RehabilitationCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Rehabilitation Center" ;
+    dct:source <https://moz.com/local/categories/category/Rehabilitation%20Center> ;
+.
+ohsu:ReproductiveHealthClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Reproductive Health Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Reproductive%20Health%20Clinic> ;
+.
+ohsu:Rheumatologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Rheumatologist" ;
+    dct:source <https://moz.com/local/categories/category/Rheumatologist> ;
+.
+ohsu:SkinCareClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Skin Care Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Skin%20Care%20Clinic> ;
+.
+ohsu:SleepClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Sleep Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Sleep%20Clinic> ;
+.
+ohsu:Spa a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Spa" ;
+    dct:source <https://moz.com/local/categories/category/Spa> ;
+.
+ohsu:SpeechPathologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Speech Pathologist" ;
+    dct:source <https://moz.com/local/categories/category/Speech%20Pathologist> ;
+.
+ohsu:SportsMassageTherapist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Sports Massage Therapist" ;
+    dct:source <https://moz.com/local/categories/category/Sports%20Massage%20Therapist> ;
+.
+ohsu:SportsMedicineClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Sports Medicine Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Sports%20Medicine%20Clinic> ;
+.
+ohsu:SportsMedicinePhysician a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Sports Medicine Physician" ;
+    dct:source <https://moz.com/local/categories/category/Sports%20Medicine%20Physician> ;
+.
+ohsu:STDTestingService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "STD Testing Service" ;
+    dct:source <https://moz.com/local/categories/category/STD%20Testing%20Service> ;
+.
+ohsu:Surgeon a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Surgeon" ;
+    dct:source <https://moz.com/local/categories/category/Surgeon> ;
+.
+ohsu:SurgicalCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Surgical Center" ;
+    dct:source <https://moz.com/local/categories/category/Surgical%20Center> ;
+.
+ohsu:TeethWhiteningService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Teeth Whitening Service" ;
+    dct:source <https://moz.com/local/categories/category/Teeth%20Whitening%20Service> ;
+.
+ohsu:UniversityHospital a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "University Hospital" ;
+    dct:source <https://moz.com/local/categories/category/University%20Hospital> ;
+.
+ohsu:UrgentCareFacility a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Urgent Care Facility" ;
+    dct:source <https://moz.com/local/categories/category/Urgent%20Care%20Facility> ;
+.
+ohsu:Urologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Urologist" ;
+    dct:source <https://moz.com/local/categories/category/Urologist> ;
+.
+ohsu:VascularSurgeon a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Vascular Surgeon" ;
+    dct:source <https://moz.com/local/categories/category/Vascular%20Surgeon> ;
+.
+ohsu:WalkInClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Walk-In Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Walk-In%20Clinic> ;
+.
+ohsu:WeightLossService a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Weight Loss Service" ;
+    dct:source <https://moz.com/local/categories/category/Weight%20Loss%20Service> ;
+.
+ohsu:WellnessProgram a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Wellness Program" ;
+    dct:source <https://moz.com/local/categories/category/Wellness%20Program> ;
+.
+# Wheelchair Categories?  Rental Service, Repair Service, Store
+
+ohsu:WomensHealthClinic a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Women's Health Clinic" ;
+    dct:source <https://moz.com/local/categories/category/Women's%20Health%20Clinic> ;
+.
+ohsu:XrayLab a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "X-ray Lab" ;
+    dct:source <https://moz.com/local/categories/category/X-ray%20Lab> ;
+.
+
+
+#
+# Datatype Properties
+#
+ohsu:nationalProviderId a owl:DatatypeProperty ;
+    rdfs:label "national provider id" ;
+    rdfs:range xsd:string ;
+.
+
+#EDUCATION
+#
+# Classes
+#
+ohsu:EducationLocalSearchCategory a owl:Class ;
+    rdfs:label "Education Local Search Category" ;
+    rdfs:subClassOf ohsu:LocalSearchCategory ;
+.
+
+
+#
+# Enumeration Members
+#
+ohsu:College a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "College" ;
+    dct:source <https://moz.com/local/categories/category/College> ;
+.
+ohsu:DentalSchool a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Dental School" ;
+    dct:source <https://moz.com/local/categories/category/Dental%20School> ;
+.
+ohsu:GraduateSchool a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Graduate School" ;
+    dct:source <https://moz.com/local/categories/category/Graduate%20School> ;
+.
+ohsu:Library a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Library" ;
+    dct:source <https://moz.com/local/categories/category/Library> ;
+.
+ohsu:MedicalSchool a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Medical School" ;
+    dct:source <https://moz.com/local/categories/category/Medical%20School> ;
+.
+ohsu:NursingSchool a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Nursing School" ;
+    dct:source <https://moz.com/local/categories/category/Nursing%20School> ;
+.
+ohsu:PublicUniversity a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Public University" ;
+    dct:source <https://moz.com/local/categories/category/Public%20University> ;
+.
+ohsu:University a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "University" ;
+    dct:source <https://moz.com/local/categories/category/University> ;
+.
+
+#RESEARCH
+#
+# Classes
+#
+ohsu:Building a owl:Class ;
+    rdfs:subClassOf schema:Place ;
+.
+ohsu:Campus a owl:Class ;
+    rdfs:subClassOf schema:Place ;
+.
+ohsu:ClinicalDepartment a owl:Class ;
+    rdfs:subClassOf schema:MedicalOrganization ;
+.
+ohsu:HealthcareFacility a owl:Class ;
+    rdfs:subClassOf schema:CivicStructure ;
+.
+ohsu:HealthcareProviderRole a owl:Class ;
+    rdfs:subClassOf schema:Role.
+
+ohsu:HealthcareService a owl:Class ;
+    rdfs:subClassOf schema:Enumeration ;
+.
+ohsu:HealthcareSpecialty a owl:Class ;
+    rdfs:subClassOf schema:Enumeration ;
+.
+ohsu:LocalSearchCategory a owl:Class ;
+    rdfs:subClassOf schema:Enumeration ;
+.
+
+
+#
+# Datatype Properties
+#
+ohsu:nationalProviderId a owl:DatatypeProperty ;
+    schema:alternateName "NPI" ;
+    rdfs:domain schema:Person ;
+.
+
+
+#SCHEMA MIREOT
+#
+# Classes
+#
+schema:AdministrativeArea a owl:Class ;
+    rdfs:label "Administrative Area" ;
+    rdfs:comment "A geographical region, typically under the jurisdiction of a particular government." ;
+    rdfs:subClassOf schema:Place ;
+.
+schema:City a owl:Class ;
+    rdfs:label "City" ;
+    rdfs:comment "A city or town." ;
+    rdfs:subClassOf schema:AdministrativeArea ;
+.
+schema:CivicStructure a owl:Class ;
+    rdfs:label "Civic Structure" ;
+    rdfs:comment "A public structure, such as a town hall or concert hall." ;
+    rdfs:subClassOf schema:Place ;
+.
+schema:CollegeOrUniversity a owl:Class ;
+    rdfs:label "College Or University" ;
+    rdfs:comment "A college, university, or other third-level educational institution." ;
+    rdfs:subClassOf schema:EducationalOrganization ;
+.
+schema:ContactPoint a owl:Class ;
+    rdfs:label "Contact Point" ;
+    rdfs:comment "A contact point&#x2014;for example, a Customer Complaints department." ;
+    rdfs:subClassOf schema:StructuredValue ;
+.
+schema:ContactPointOption a owl:Class ;
+    rdfs:label "Contact Point Option" ;
+    rdfs:comment "Enumerated options related to a ContactPoint." ;
+    rdfs:subClassOf schema:Enumeration ;
+.
+schema:Country a owl:Class ;
+    rdfs:label "Country" ;
+    rdfs:comment "A country." ;
+    rdfs:subClassOf schema:AdministrativeArea ;
+.
+schema:DayOfWeek a owl:Class ;
+    rdfs:label "DayOfWeek" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment """The day of the week, e.g. used to specify to which day the opening hours of an OpeningHoursSpecification refer.</p>
+<p>Originally, URLs from <a href="http://purl.org/goodrelations/v1">GoodRelations</a> were used (for <a class="localLink" href="/Monday">Monday</a>, <a class="localLink" href="/Tuesday">Tuesday</a>, <a class="localLink" href="/Wednesday">Wednesday</a>, <a class="localLink" href="/Thursday">Thursday</a>, <a class="localLink" href="/Friday">Friday</a>, <a class="localLink" href="/Saturday">Saturday</a>, <a class="localLink" href="/Sunday">Sunday</a> plus a special entry for <a class="localLink" href="/PublicHolidays">PublicHolidays</a>); these have now been integrated directly into schema.org.""" ;
+    rdfs:subClassOf schema:Enumeration ;
+.
+schema:Dentist a owl:Class ;
+    rdfs:label "Dentist" ;
+    rdfs:comment "A dentist." ;
+    rdfs:subClassOf schema:LocalBusiness ; 
+    rdfs:subClassOf schema:MedicalOrganization ;
+.
+schema:EducationalOrganization a owl:Class ;
+    rdfs:label "Educational Organization" ;
+    rdfs:comment "An educational organization." ;
+    rdfs:subClassOf schema:Organization ;
+.
+schema:EmergencyService a owl:Class ;
+    rdfs:label "Emergency Service" ;
+    rdfs:comment "An emergency service, such as a fire station or ER." ;
+    rdfs:subClassOf schema:LocalBusiness ;
+.
+schema:EmployeeRole a owl:Class ;
+    rdfs:label "Employee Role" ;
+    rdfs:comment "A subclass of OrganizationRole used to describe employee relationships." ;
+    rdfs:subClassOf schema:OrganizationRole ;
+.
+schema:Enumeration a owl:Class ;
+    rdfs:label "Enumeration" ;
+    rdfs:comment "Lists or enumerations—for example, a list of cuisines or music genres, etc." ;
+    rdfs:subClassOf schema:Intangible ;
+.
+schema:GeoCircle a owl:Class ;
+    rdfs:label "Geo Circle" ;
+    rdfs:comment """A GeoCircle is a GeoShape representing a circular geographic area. As it is a GeoShape
+          it provides the simple textual property 'circle', but also allows the combination of postalCode alongside geoRadius.
+          The center of the circle can be indicated via the 'geoMidpoint' property, or more approximately using 'address', 'postalCode'.""" ;
+    rdfs:subClassOf schema:GeoShape ;
+.
+schema:GeoCoordinates a owl:Class ;
+    rdfs:label "Geo Coordinates" ;
+    rdfs:comment "The geographic coordinates of a place or event." ;
+    rdfs:subClassOf schema:StructuredValue ;
+.
+schema:GeoShape a owl:Class ;
+    rdfs:label "Geo Shape" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    rdfs:comment "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs. Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points." ;
+    rdfs:subClassOf schema:StructuredValue ;
+.
+schema:Hospital a owl:Class ;
+    rdfs:label "Hospital" ;
+    rdfs:comment "A hospital." ;
+    rdfs:subClassOf schema:CivicStructure ;
+    rdfs:subClassOf schema:EmergencyService ;
+    rdfs:subClassOf schema:MedicalOrganization ;
+.
+schema:Intangible a owl:Class ;
+    rdfs:label "Intangible" ;
+    rdfs:comment "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc." ;
+    rdfs:subClassOf owl:Thing ;
+.
+schema:Landform a owl:Class ;
+    rdfs:label "Landform" ;
+    rdfs:comment "A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins." ;
+    rdfs:subClassOf schema:Place ;
+.
+schema:Language a owl:Class ;
+    rdfs:label "Language" ;
+    rdfs:comment "Natural languages such as Spanish, Tamil, Hindi, English, etc. Formal language code tags expressed in <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> can be used via the <a class=\"localLink\" href=\"/alternateName\">alternateName</a> property. The Language type previously also covered programming languages such as Scheme and Lisp, which are now best represented using <a class=\"localLink\" href=\"/ComputerLanguage\">ComputerLanguage</a>." ;
+    rdfs:subClassOf schema:Intangible ;
+.
+schema:Library a owl:Class ;
+    rdfs:label "Library" ;
+    rdfs:comment "A library." ;
+    rdfs:subClassOf schema:LocalBusiness ;
+.
+schema:LocalBusiness a owl:Class ;
+    rdfs:label "Local Business" ;
+    rdfs:comment "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc." ;
+    rdfs:subClassOf schema:Organization ;
+    rdfs:subClassOf schema:Place ;
+.
+schema:MedicalOrganization a owl:Class ;
+    rdfs:label "Medical Organization" ;
+    rdfs:comment "A medical organization (physical or not), such as hospital, institution or clinic." ;
+    rdfs:subClassOf schema:Organization ;
+.
+schema:OpeningHoursSpecification a owl:Class ;
+    rdfs:label "OpeningHoursSpecification" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment """A structured value providing information about the opening hours of a place or a certain service inside a place.</p>
+<p>The place is <strong>open</strong> if the <a class="localLink" href="/opens">opens</a> property is specified, and <strong>closed</strong> otherwise.</p>
+<p>If the value for the <a class="localLink" href="/closes">closes</a> property is less than the value for the <a class="localLink" href="/opens">opens</a> property then the hour range is assumed to span over the next day.""" ;
+    rdfs:subClassOf schema:StructuredValue ;
+.
+schema:Organization a owl:Class ;
+    rdfs:label "Organization" ;
+    rdfs:comment "An organization such as a school, NGO, corporation, club, etc." ;
+    rdfs:subClassOf owl:Thing ;
+.
+schema:OrganizationRole a owl:Class ;
+    rdfs:label "Organization Role" ;
+    rdfs:comment "A subclass of Role used to describe roles within organizations." ;
+    rdfs:subClassOf schema:Role ;
+.
+schema:ParkingFacility a owl:Class ;
+    rdfs:label "Parking Facility" ;
+    rdfs:comment "A parking lot or other parking facility." ;
+    rdfs:subClassOf schema:CivicStructure ;
+.
+schema:Person a owl:Class ;
+    rdfs:label "Person" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+    rdfs:comment "A person (alive, dead, undead, or fictional)." ;
+    rdfs:subClassOf owl:Thing ;
+    owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ;
+.
+schema:Pharmacy a owl:Class ;
+    rdfs:label "Pharmacy" ;
+    rdfs:comment "A pharmacy or drugstore." ;
+    rdfs:subClassOf schema:MedicalOrganization ;
+.
+schema:Physician a owl:Class ;
+    rdfs:label "Physician" ;
+    rdfs:comment "A doctor's office." ;
+    rdfs:subClassOf schema:MedicalOrganization ;
+.
+schema:Place a owl:Class ;
+    rdfs:label "Place" ;
+    rdfs:comment "Entities that have a somewhat fixed, physical extension." ;
+    rdfs:subClassOf owl:Thing ;
+.
+schema:PostalAddress a owl:Class ;
+    rdfs:label "Postal Address" ;
+    rdfs:comment "The mailing address." ;
+    rdfs:subClassOf schema:ContactPoint ;
+.
+schema:Role a owl:Class ;
+    rdfs:label "Role" ;
+    rdfs:comment """Represents additional information about a relationship or property. For example a Role can be used to say that a 'member' role linking some SportsTeam to a player occurred during a particular time period. Or that a Person's 'actor' role in a Movie was for some particular characterName. Such properties can be attached to a Role entity, which is then associated with the main entities using ordinary properties like 'member' or 'actor'.</p>
+<p>See also <a href="http://blog.schema.org/2014/06/introducing-role.html">blog post</a>.""" ;
+    rdfs:subClassOf schema:Intangible ;
+.
+schema:RVPark a owl:Class ;
+    rdfs:label "RVPark" ;
+    rdfs:comment "A place offering space for \"Recreational Vehicles\", Caravans, mobile homes and the like." ;
+    rdfs:subClassOf schema:CivicStructure ;
+.
+schema:School a owl:Class ;
+    rdfs:label "School" ;
+    rdfs:comment "A school." ;
+    rdfs:subClassOf schema:EducationalOrganization ;
+.
+schema:Specialty a owl:Class ;
+    rdfs:label "Specialty" ;
+    rdfs:comment "Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort." ;
+    rdfs:subClassOf schema:Enumeration ;
+.
+schema:State a owl:Class ;
+    rdfs:label "State" ;
+    rdfs:comment "A state or province of a country." ;
+    rdfs:subClassOf schema:AdministrativeArea ;
+.
+schema:StructuredValue a owl:Class ;
+    rdfs:label "Structured Value" ;
+    rdfs:comment "Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing." ;
+    rdfs:subClassOf schema:Intangible ;
+.
+
+
+#
+# Enumeration Members
+#
+schema:Friday a schema:DayOfWeek ;
+    rdfs:label "Friday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q130> ;
+    rdfs:comment "The day of the week between Thursday and Saturday." ;
+.
+schema:HearingImpairedSupported a schema:ContactPointOption ;
+    rdfs:label "Hearing Impaired Supported" ;
+    rdfs:comment "Uses devices to support users with hearing impairments." ;
+.
+schema:Monday a schema:DayOfWeek ;
+    rdfs:label "Monday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q105> ;
+    rdfs:comment "The day of the week between Sunday and Tuesday." ;
+.
+schema:PublicHolidays a schema:DayOfWeek ;
+    rdfs:label "PublicHolidays" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment "This stands for any day that is a public holiday; it is a placeholder for all official public holidays in some particular location. While not technically a \"day of the week\", it can be used with <a class=\"localLink\" href=\"/OpeningHoursSpecification\">OpeningHoursSpecification</a>. In the context of an opening hours specification it can be used to indicate opening hours on public holidays, overriding general opening hours for the day of the week on which a public holiday occurs." ;
+.
+schema:Saturday a schema:DayOfWeek ;
+    rdfs:label "Saturday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q131> ;
+    rdfs:comment "The day of the week between Friday and Sunday." ;
+.
+schema:Sunday a schema:DayOfWeek ;
+    rdfs:label "Sunday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q132> ;
+    rdfs:comment "The day of the week between Saturday and Monday." ;
+.
+schema:Thursday a schema:DayOfWeek ;
+    rdfs:label "Thursday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q129> ;
+    rdfs:comment "The day of the week between Wednesday and Friday." ;
+.
+schema:TollFree a schema:ContactPointOption ;
+    rdfs:label "Toll Free" ;
+    rdfs:comment "The associated telephone number is toll free." ;
+.
+schema:Tuesday a schema:DayOfWeek ;
+    rdfs:label "Tuesday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q127> ;
+    rdfs:comment "The day of the week between Monday and Wednesday." ;
+.
+schema:Wednesday a schema:DayOfWeek ;
+    rdfs:label "Wednesday" ;
+    owl:sameAs <http://www.wikidata.org/entity/Q128> ;
+    rdfs:comment "The day of the week between Tuesday and Thursday." ;
+.
+
+
+#
+# Object Properties
+#
+schema:address a owl:ObjectProperty ;
+    rdfs:label "address" ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:GeoCoordinates
+            schema:GeoShape
+            schema:Organization
+            schema:Person
+            schema:Place 
+        ) ;
+    ] ;
+    rdfs:range schema:PostalAddress ;
+    rdfs:comment "Physical address of the item." ;
+.
+schema:affiliation a owl:ObjectProperty ;
+    rdfs:label "affiliation" ;
+    rdfs:domain schema:Person ;
+    rdfs:range schema:Organization ;
+    rdfs:comment "An organization that this person is affiliated with. For example, a school/university, a club, or a team." ;
+    rdfs:subPropertyOf schema:memberOf ;
+.
+schema:areaServed a owl:ObjectProperty ;
+    rdfs:label "areaServed" ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:ContactPoint
+            schema:Organization
+        ) ;
+    ] ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:AdministrativeArea
+            schema:GeoShape
+            schema:Place
+            ) ;
+    ] ;
+    rdfs:comment "The geographic area where a service or offered item is provided." ;
+.
+schema:availableLanguage a owl:ObjectProperty ;
+    rdfs:label "availableLanguage" ;
+    rdfs:domain schema:ContactPoint ;
+    rdfs:range schema:Language ;
+    rdfs:comment "A language someone may use with the item. Please use one of the language codes from the <a href=\"http://tools.ietf.org/html/bcp47\">IETF BCP 47 standard</a>. See also <a class=\"localLink\" href=\"/inLanguage\">inLanguage</a>" ;
+.
+schema:colleague a owl:ObjectProperty ;
+    rdfs:label "colleague" ;
+    rdfs:domain schema:Person ;
+    rdfs:range schema:Person ;
+    rdfs:comment "A colleague of the person." ;
+.
+schema:contactOption a owl:ObjectProperty ;
+    rdfs:label "contactOption" ;
+    rdfs:domain schema:ContactPoint ;
+    rdfs:range schema:ContactPointOption ;
+    rdfs:comment "An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers)." ;
+.
+schema:contactPoint a owl:ObjectProperty ;
+    rdfs:label "contactPoint" ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:Organization
+            schema:Person
+        ) ;
+    ] ;
+    rdfs:range schema:ContactPoint ;
+    rdfs:comment "A contact point for a person or organization." ;
+.
+schema:containedInPlace a owl:ObjectProperty ;
+    rdfs:label "containedInPlace" ;
+    rdfs:domain schema:Place ;
+    owl:inverseOf schema:containsPlace ;
+    rdfs:range schema:Place ;
+    rdfs:comment "The basic containment relation between a place and one that contains it." ;
+.
+schema:containsPlace a owl:ObjectProperty ;
+    rdfs:label "containsPlace" ;
+    rdfs:domain schema:Place ;
+    owl:inverseOf schema:containedInPlace ;
+    rdfs:range schema:Place ;
+    rdfs:comment "The basic containment relation between a place and another that it contains." ;
+.
+schema:dayOfWeek a owl:ObjectProperty ;
+    rdfs:label "dayOfWeek" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range schema:DayOfWeek ;
+    rdfs:comment "The day of the week for which these opening hours are valid." ;
+.
+schema:department a owl:ObjectProperty ;
+    rdfs:label "department" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range schema:Organization ;
+    rdfs:comment "A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe." ;
+.
+schema:employee a owl:ObjectProperty ;
+    rdfs:label "employee" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range schema:Person ;
+    rdfs:comment "Someone working for this organization." ;
+.
+schema:geo a owl:ObjectProperty ;
+    rdfs:label "geo" ;
+    rdfs:domain schema:Place ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:GeoCoordinates
+            schema:GeoShape
+        ) ;
+    ] ;
+    rdfs:comment "The geo coordinates of the place." ;
+.
+schema:geoMidpoint a owl:ObjectProperty ;
+    rdfs:label "geoMidpoint" ;
+    rdfs:domain schema:GeoCircle ;
+    rdfs:range schema:GeoCoordinates ;
+    rdfs:comment "Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle." ;
+.
+schema:hoursAvailable a owl:ObjectProperty ;
+    rdfs:label "hoursAvailable" ;
+    rdfs:domain schema:ContactPoint ;
+    rdfs:range schema:OpeningHoursSpecification ;
+    rdfs:comment "The hours during which this service or contact is available." ;
+.
+schema:location a owl:ObjectProperty ;
+    rdfs:label "location" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:Place
+            schema:PostalAddress
+        ) ;
+    ] ;
+    rdfs:comment "The location of for example where the event is happening, an organization is located, or where an action takes place." ;
+.
+schema:member a owl:ObjectProperty ;
+    rdfs:label "member" ;
+    rdfs:domain schema:Organization ;
+    owl:inverseOf schema:memberOf ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:Organization
+            schema:Person
+        ) ;
+    ] ;
+    rdfs:comment "A member of an Organization." ;
+.
+schema:memberOf a owl:ObjectProperty ;
+    rdfs:label "memberOf" ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Person
+        ) ;
+    ] ;
+    owl:inverseOf schema:member ;
+    rdfs:range schema:Organization ;
+    rdfs:comment "An Organization to which this Person or Organization belongs." ;
+.
+schema:openingHoursSpecification a owl:ObjectProperty ;
+    rdfs:label "openingHoursSpecification" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:OpeningHoursSpecification ;
+    rdfs:comment "The opening hours of a certain place." ;
+.
+schema:parentOrganization a owl:ObjectProperty ;
+    rdfs:label "parentOrganization" ;
+    rdfs:domain schema:Organization ;
+    owl:inverseOf schema:subOrganization ;
+    rdfs:range schema:Organization ;
+    rdfs:comment "The larger organization that this local business is a branch of, if any." ;
+.
+schema:specialOpeningHoursSpecification a owl:ObjectProperty ;
+    rdfs:label "specialOpeningHoursSpecification" ;
+    rdfs:domain schema:Place ;
+    rdfs:range schema:OpeningHoursSpecification ;
+    rdfs:comment """The special opening hours of a certain place.</p>
+<p>Use this to explicitly override general opening hours brought in scope by <a class="localLink" href="/openingHoursSpecification">openingHoursSpecification</a> or <a class="localLink" href="/openingHours">openingHours</a>.""" ;
+.
+schema:subOrganization a owl:ObjectProperty ;
+    rdfs:label "subOrganization" ;
+    rdfs:domain schema:Organization ;
+    owl:inverseOf schema:parentOrganization ;
+    rdfs:range schema:Organization ;
+    rdfs:comment "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property." ;
+.
+schema:worksFor a owl:ObjectProperty ;
+    rdfs:label "worksFor" ;
+    rdfs:domain schema:Person ;
+    rdfs:range schema:Organization ;
+    rdfs:comment "Organizations that the person works for." ;
+.
+schema:workLocation a owl:ObjectProperty ;
+    rdfs:label "workLocation" ;
+    rdfs:domain schema:Person ;
+    rdfs:range [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:ContactPoint
+            schema:Place
+        ) ;
+    ] ;
+    rdfs:comment "A contact location for a person's place of work." ;
+    rdfs:subPropertyOf schema:location ;
+.
+
+
+#
+# Datatype Properties
+#
+schema:additionalName a owl:DatatypeProperty ;
+    rdfs:label "additionalName" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
+    rdfs:comment "An additional name for a Person, can be used for a middle name." ;
+.
+schema:addressCountry a rdf:Property ;
+    rdfs:label "addressCountry" ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:GeoCoordinates
+            schema:GeoShape
+            schema:PostalAddress
+        ) ;
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The country. For example, USA. You can also provide the two-letter <a href=\"http://en.wikipedia.org/wiki/ISO_3166-1\">ISO 3166-1 alpha-2 country code</a>." ;
+.
+schema:addressLocality a owl:DatatypeProperty ;
+    rdfs:label "addressLocality" ;
+    rdfs:domain schema:PostalAddress ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The locality. For example, Mountain View." ;
+.
+schema:addressRegion a owl:DatatypeProperty ;
+    rdfs:label "addressRegion" ;
+    rdfs:domain schema:PostalAddress ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The region. For example, CA." ;
+.
+schema:alternateName a owl:DatatypeProperty ;
+    rdfs:label "alternateName" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:comment "An alias for the item." ;
+.
+schema:box a owl:DatatypeProperty ;
+    rdfs:label "box" ;
+    rdfs:domain schema:GeoShape ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character." ;
+.
+schema:branchCode a owl:DatatypeProperty ;
+    rdfs:label "branchCode" ;
+    rdfs:domain schema:Place ;
+    rdfs:range xsd:string ;
+    rdfs:comment """A short textual code (also called "store code") that uniquely identifies a place of business. The code is typically assigned by the parentOrganization and used in structured URLs.</p>
+<p>For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047 the code "3047" is a branchCode for a particular branch.""" ;
+.
+schema:circle a owl:DatatypeProperty ;
+    rdfs:label "circle" ;
+    rdfs:domain schema:GeoShape ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters." ;
+.
+schema:closes a owl:DatatypeProperty ;
+    rdfs:label "closes" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "The closing hour of the place or service on the given day(s) of the week." ;
+.
+schema:contactType a owl:DatatypeProperty ;
+    rdfs:label "contactType" ;
+    rdfs:domain schema:ContactPoint ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point." ;
+.
+schema:disambiguatingDescription a owl:DatatypeProperty ;
+    rdfs:label "disambiguatingDescription" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation." ;
+    rdfs:subPropertyOf rdfs:comment ;
+.
+schema:duns a owl:DatatypeProperty ;
+    rdfs:label "duns" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Person
+        ) ;
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The Dun &amp; Bradstreet DUNS number for identifying an organization or business person." ;
+.
+schema:email a owl:DatatypeProperty ;
+    rdfs:label "email" ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:ContactPoint
+            schema:Organization
+            schema:Person
+        ) ;
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Email address." ;
+.
+schema:endDate a rdf:Property ;
+    rdfs:label "endDate" ;
+    rdfs:domain schema:Role ;
+    rdfs:range xsd:date ;
+    rdfs:comment "The end date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." ;
+.
+schema:familyName a owl:DatatypeProperty ;
+    rdfs:label "familyName" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the name property." ;
+.
+schema:faxNumber a owl:DatatypeProperty ;
+    rdfs:label "faxNumber" ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:ContactPoint
+            schema:Organization
+            schema:Person
+            schema:Place
+        ) ;
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The fax number." ;
+.
+schema:gender a owl:DatatypeProperty ;
+    rdfs:label "gender" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Gender of the person." ;
+.
+schema:geoRadius a owl:DatatypeProperty ;
+    rdfs:label "geoRadius" ;
+    rdfs:domain schema:GeoCircle ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation)." ;
+.
+schema:givenName a owl:DatatypeProperty ;
+    rdfs:label "givenName" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the name property." ;
+.
+schema:globalLocationNumber a owl:DatatypeProperty ;
+    rdfs:label "globalLocationNumber" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Person
+             schema:Place
+        ) ;
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The <a href=\"http://www.gs1.org/gln\">Global Location Number</a> (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations." ;
+.
+schema:hasMap a owl:DatatypeProperty ;
+    rdfs:label "hasMap" ;
+    rdfs:domain schema:Place ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "A URL to a map of the place." ;
+.
+schema:honorificPrefix a owl:DatatypeProperty ;
+    rdfs:label "honorificPrefix" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
+    rdfs:comment "An honorific prefix preceding a Person's name such as Dr/Mrs/Mr." ;
+.
+schema:honorificSuffix a owl:DatatypeProperty ;
+    rdfs:label "honorificSuffix" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
+    rdfs:comment "An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW." ;
+.
+schema:image a owl:DatatypeProperty ;
+    rdfs:label "image" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "An image of the item. This can be a <a class=\"localLink\" href=\"/URL\">URL</a> or a fully described <a class=\"localLink\" href=\"/ImageObject\">ImageObject</a>." ;
+.
+schema:isicV4 a owl:DatatypeProperty ;
+    rdfs:label "isicV4" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Person
+             schema:Place
+        ) ;
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place." ;
+.
+schema:jobTitle a owl:DatatypeProperty ;
+    rdfs:label "jobTitle" ;
+    rdfs:domain schema:Person ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The job title of the person (for example, Financial Manager)." ;
+.
+schema:latitude a owl:DatatypeProperty ;
+    rdfs:label "latitude" ;
+    rdfs:domain schema:GeoCoordinates ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "The latitude of a location. For example <code>37.42242</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." ;
+.
+schema:line a owl:DatatypeProperty ;
+    rdfs:label "line" ;
+    rdfs:domain schema:GeoShape ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space." ;
+.
+schema:legalName a owl:DatatypeProperty ;
+    rdfs:label "legalName" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:Organization ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The official name of the organization, e.g. the registered company name." ;
+.
+schema:logo a owl:DatatypeProperty ;
+    rdfs:label "logo" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Place
+        ) ;
+    ] ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "An associated logo." ;
+    rdfs:subPropertyOf schema:image ;
+.
+schema:longitude a owl:DatatypeProperty ;
+    rdfs:label "longitude" ;
+    rdfs:domain schema:GeoCoordinates ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "The longitude of a location. For example <code>-122.08585</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." ;
+.
+schema:naics a owl:DatatypeProperty ;
+    rdfs:label "naics" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+             schema:Organization
+             schema:Person
+        ) ;
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The North American Industry Classification System (NAICS) code for a particular organization or business person." ;
+.
+schema:numberedPosition a owl:DatatypeProperty ;
+    rdfs:label "numberedPosition" ;
+    rdfs:domain schema:OrganizationRole ;
+    rdfs:range xsd:decimal ;
+    rdfs:comment "A number associated with a role in an organization, for example, the number on an athlete's jersey." ;
+.
+schema:openingHours a owl:DatatypeProperty ;
+    rdfs:label "openingHours" ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:CivicStructure
+            schema:LocalBusiness
+        ) ;
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment """<p>The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.</p>
+<ul>
+<li>Days are specified using the following two-letter combinations: <code>Mo</code>, <code>Tu</code>, <code>We</code>, <code>Th</code>, <code>Fr</code>, <code>Sa</code>, <code>Su</code>.</li>
+<li>Times are specified using 24:00 time. For example, 3pm is specified as <code>15:00</code>. </li>
+<li>Here is an example: <code>&lt;time itemprop="openingHours" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.</li>
+<li>If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.</li>
+</ul>""" ;
+.
+schema:opens a owl:DatatypeProperty ;
+    rdfs:label "opens" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "The opening hour of the place or service on the given day(s) of the week." ;
+.
+schema:polygon a owl:DatatypeProperty ;
+    rdfs:label "polygon" ;
+    rdfs:domain schema:GeoShape ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical." ;
+.
+schema:postalCode a owl:DatatypeProperty ;
+    rdfs:label "postalCode" ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:GeoCoordinates
+            schema:GeoShape
+            schema:PostalAddress
+        ) ;
+    ];
+    rdfs:range xsd:string ;
+    rdfs:comment "The postal code. For example, 94043." ;
+.
+schema:postOfficeBoxNumber a owl:DatatypeProperty ;
+    rdfs:label "postOfficeBoxNumber" ;
+    rdfs:domain schema:PostalAddress ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The post office box number for PO box addresses." ;
+.
+schema:roleName a owl:DatatypeProperty ;
+    rdfs:label "roleName" ;
+    rdfs:domain schema:Role ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'." ;
+.
+schema:startDate a rdf:Property ;
+    rdfs:label "startDate" ;
+    rdfs:domain schema:Role ;
+    rdfs:range xsd:date ;
+    rdfs:comment "The start date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)."
+.  
+schema:streetAddress a owl:DatatypeProperty ;
+    rdfs:label "streetAddress" ;
+    rdfs:domain schema:PostalAddress ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The street address. For example, 1600 Amphitheatre Pkwy." ;
+.
+schema:telephone a owl:DatatypeProperty ;
+    rdfs:label "telephone" ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:ContactPoint
+            schema:Organization
+            schema:Person
+            schema:Place
+        ) ;
+    ] ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The telephone number." ;
+.
+schema:validFrom a owl:DatatypeProperty ;
+    rdfs:label "validFrom" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "The date when the item becomes valid." ;
+.
+schema:validThrough a owl:DatatypeProperty ;
+    rdfs:label "validThrough" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+    rdfs:domain schema:OpeningHoursSpecification ;
+    rdfs:range xsd:dateTime ;
+    rdfs:comment "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours." ;
+.
+
+#HEALTH-LIFESCI MIREOT
+#
+# Classes
+#
+schema:MedicalBusiness a owl:Class ;
+    rdfs:label "Medical Business" ;
+    rdfs:comment "A particular physical or virtual business of an organization for medical purposes. Examples of MedicalBusiness include differents business run by health professionals." ;
+    rdfs:subClassOf schema:LocalBusiness ;
+.
+schema:MedicalClinic a owl:Class ;
+    rdfs:label "Medical Clinic" ;
+    rdfs:comment "A facility, often associated with a hospital or medical school, that is devoted to the specific diagnosis and/or healthcare. Previously limited to outpatients but with evolution it may be open to inpatients as well." ;
+    rdfs:subClassOf schema:MedicalBusiness ;
+    rdfs:subClassOf schema:MedicalOrganization ;
+.
+schema:MedicalEnumeration a owl:Class ;
+    rdfs:label "Medical Enumeration" ;
+    rdfs:comment "Enumerations related to health and the practice of medicine: A concept that is used to attribute a quality to another concept, as a qualifier, a collection of items or a listing of all of the elements of a set in medicine practice." ;
+    rdfs:subClassOf schema:Enumeration ;
+.
+schema:MedicalSpecialty a owl:Class ;
+    rdfs:label "Medical Specialty" ;
+    rdfs:comment "Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type." ;
+    rdfs:subClassOf schema:MedicalEnumeration ;
+    rdfs:subClassOf schema:Specialty ;
+.
+schema:Optician a owl:Class ;
+    rdfs:label "Optician" ;
+    rdfs:comment "A store that sells reading glasses and similar devices for improving vision." ;
+    rdfs:subClassOf schema:MedicalBusiness ;
+.
+schema:Pharmacy a owl:Class ;
+    rdfs:subClassOf schema:MedicalBusiness ;
+.
+schema:Physician a owl:Class ;
+    rdfs:subClassOf schema:MedicalBusiness ;
+.
+
+
+#
+# Enumeration Members
+#
+schema:Anesthesia a schema:MedicalSpecialty ;
+    rdfs:label "Anesthesia" ;
+    rdfs:comment "A specific branch of medical science that pertains to study of anesthetics and their application." ;
+.
+schema:Cardiovascular a schema:MedicalSpecialty ;
+    rdfs:label "Cardiovascular" ;
+    rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of heart and vasculature." ;
+.
+schema:CommunityHealth a schema:MedicalSpecialty ;
+    rdfs:label "Community Health" ;
+    rdfs:comment "A field of public health focusing on improving health characteristics of a defined population in relation with their geographical or environment areas" ;
+.
+schema:Dentistry a schema:MedicalSpecialty ;
+    rdfs:label "Dentistry" ;
+    rdfs:comment "A branch of medicine that is involved in the dental care." ;
+.
+schema:Dermatology a schema:MedicalSpecialty ;
+    rdfs:label "Dermatology" ;
+    rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of skin." ;
+.
+schema:DietNutrition a schema:MedicalSpecialty ;
+    rdfs:label "Diet Nutrition" ;
+    rdfs:comment "Dietetic and nutrition as a medical speciality." ;
+.
+schema:Emergency a schema:MedicalSpecialty ;
+    rdfs:label "Emergency" ;
+    rdfs:comment "A specific branch of medical science that deals with the evaluation and initial treatment of medical conditions caused by trauma or sudden illness." ;
+.
+schema:Endocrine a schema:MedicalSpecialty ;
+    rdfs:label "Endocrine" ;
+    rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of endocrine glands and their secretions." ;
+.
+schema:Gastroenterologic a schema:MedicalSpecialty ;
+    rdfs:label "Gastroenterologic" ;
+    rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of digestive system." ;
+.
+schema:Genetic a schema:MedicalSpecialty ;
+    rdfs:label "Genetic" ;
+    rdfs:comment "A specific branch of medical science that pertains to hereditary transmission and the variation of inherited characteristics and disorders." ;
+.
+schema:Geriatric a schema:MedicalSpecialty ;
+    rdfs:label "Geriatric" ;
+    rdfs:comment "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases, debilities and provision of care to the aged." ;
+.
+schema:Gynecologic a schema:MedicalSpecialty ;
+    rdfs:label "Gynecologic" ;
+    rdfs:comment "A specific branch of medical science that pertains to the health care of women, particularly in the diagnosis and treatment of disorders affecting the female reproductive system." ;
+.
+schema:Hematologic a schema:MedicalSpecialty ;
+    rdfs:label "Hematologic" ;
+    rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of blood and blood producing organs." ;
+.
+schema:Infectious a schema:MedicalSpecialty ;
+    rdfs:label "Infectious" ;
+    rdfs:comment "Something in medical science that pertains to infectious diseases i.e caused by bacterial, viral, fungal or parasitic infections." ;
+.
+schema:LaboratoryScience a schema:MedicalSpecialty ;
+    rdfs:label "Laboratory Science" ;
+    rdfs:comment "A medical science pertaining to chemical, hematological, immunologic, microscopic, or bacteriological diagnostic analyses or research" ;
+.
+schema:Midwifery a schema:MedicalSpecialty ;
+    rdfs:label "Midwifery" ;
+    rdfs:comment "A nurse-like health profession that deals with pregnancy, childbirth, and the postpartum period (including care of the newborn), besides sexual and reproductive health of women throughout their lives." ;
+.
+schema:Musculoskeletal a schema:MedicalSpecialty ;
+    rdfs:label "Musculoskeletal" ;
+    rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of muscles, ligaments and skeletal system." ;
+.
+schema:Neurologic a schema:MedicalSpecialty ;
+    rdfs:label "Neurologic" ;
+    rdfs:comment "A specific branch of medical science that studies the nerves and nervous system and its respective disease states." ;
+.
+schema:Nursing a schema:MedicalSpecialty ;
+    rdfs:label "Nursing" ;
+    rdfs:comment "A health profession of a person formally educated and trained in the care of the sick or infirm person." ;
+.
+schema:Obstetric a schema:MedicalSpecialty ;
+    rdfs:label "Obstetric" ;
+    rdfs:comment "A specific branch of medical science that specializes in the care of women during the prenatal and postnatal care and with the delivery of the child." ;
+.
+schema:OccupationalTherapy a schema:MedicalSpecialty ;
+    rdfs:label "Occupational Therapy" ;
+    rdfs:comment "A treatment of people with physical, emotional, or social problems, using purposeful activity to help them overcome or learn to deal with their problems." ;
+.
+schema:Oncologic a schema:MedicalSpecialty ;
+    rdfs:label "Oncologic" ;
+    rdfs:comment "A specific branch of medical science that deals with benign and malignant tumors, including the study of their development, diagnosis, treatment and prevention." ;
+.
+schema:Optometric a schema:MedicalSpecialty ;
+    rdfs:label "Optometric" ;
+    rdfs:comment "The science or practice of testing visual acuity and prescribing corrective lenses." ;
+.
+schema:Otolaryngologic a schema:MedicalSpecialty ;
+    rdfs:label "Otolaryngologic" ;
+    rdfs:comment "A specific branch of medical science that is concerned with the ear, nose and throat and their respective disease states." ;
+.
+schema:Pathology a schema:MedicalSpecialty ;
+    rdfs:label "Pathology" ;
+    rdfs:comment "A specific branch of medical science that is concerned with the study of the cause, origin and nature of a disease state, including its consequences as a result of manifestation of the disease. In clinical care, the term is used to designate a branch of medicine using laboratory tests to diagnose and determine the prognostic significance of illness." ;
+.
+schema:Pediatric a schema:MedicalSpecialty ;
+    rdfs:label "Pediatric" ;
+    rdfs:comment "A specific branch of medical science that specializes in the care of infants, children and adolescents." ;
+.
+schema:PharmacySpecialty a schema:MedicalSpecialty ;
+    rdfs:label "Pharmacy Specialty" ;
+    rdfs:comment "The practice or art and science of preparing and dispensing drugs and medicines." ;
+.
+schema:Physiotherapy a schema:MedicalSpecialty ;
+    rdfs:label "Physiotherapy" ;
+    rdfs:comment "The practice of treatment of disease, injury, or deformity by physical methods such as massage, heat treatment, and exercise rather than by drugs or surgery.." ;
+.
+schema:PlasticSurgery a schema:MedicalSpecialty ;
+    rdfs:label "Plastic Surgery" ;
+    rdfs:comment "A specific branch of medical science that pertains to therapeutic or cosmetic repair or re-formation of missing, injured or malformed tissues or body parts by manual and instrumental means." ;
+.
+schema:Podiatric a schema:MedicalSpecialty ;
+    rdfs:label "Podiatric" ;
+    rdfs:comment "Podiatry is the care of the human foot, especially the diagnosis and treatment of foot disorders." ;
+.
+schema:PrimaryCare a schema:MedicalSpecialty ;
+    rdfs:label "Primary Care" ;
+    rdfs:comment "The medical care by a physician, or other health-care professional, who is the patient's first contact with the health-care system and who may recommend a specialist if necessary." ;
+.
+schema:Psychiatric a schema:MedicalSpecialty ;
+    rdfs:label "Psychiatric" ;
+    rdfs:comment "A specific branch of medical science that is concerned with the study, treatment, and prevention of mental illness, using both medical and psychological therapies." ;
+.
+schema:PublicHealth a schema:MedicalSpecialty ;
+    rdfs:label "Public Health" ;
+    rdfs:comment "Branch of medicine that pertains to the health services to improve and protect community health, especially epidemiology, sanitation, immunization, and preventive medicine." ;
+.
+schema:Pulmonary a schema:MedicalSpecialty ;
+    rdfs:label "Pulmonary" ;
+    rdfs:comment "A specific branch of medical science that pertains to the study of the respiratory system and its respective disease states." ;
+.
+schema:Radiography a schema:MedicalSpecialty ;
+    rdfs:label "Radiography" ;
+    rdfs:comment "Radiography is an imaging technique that uses electromagnetic radiation other than visible light, especially X-rays, to view the internal structure of a non-uniformly composed and opaque object such as the human body." ;
+.
+schema:Renal a schema:MedicalSpecialty ;
+    rdfs:label "Renal" ;
+    rdfs:comment "A specific branch of medical science that pertains to the study of the kidneys and its respective disease states." ;
+.
+schema:RespiratoryTherapy a schema:MedicalSpecialty ;
+    rdfs:label "Respiratory Therapy" ;
+    rdfs:comment "The therapy that is concerned with the maintenance or improvement of respiratory function (as in patients with pulmonary disease)." ;
+.
+schema:Rheumatologic a schema:MedicalSpecialty ;
+    rdfs:label "Rheumatologic" ;
+    rdfs:comment "A specific branch of medical science that deals with the study and treatment of rheumatic, autoimmune or joint diseases." ;
+.
+schema:SpeechPathology a schema:MedicalSpecialty ;
+    rdfs:label "Speech Pathology" ;
+    rdfs:comment "The scientific study and treatment of defects, disorders, and malfunctions of speech and voice, as stuttering, lisping, or lalling, and of language disturbances, as aphasia or delayed language acquisition." ;
+.
+schema:Surgical a schema:MedicalSpecialty ;
+    rdfs:label "Surgical" ;
+    rdfs:comment "A specific branch of medical science that pertains to treating diseases, injuries and deformities by manual and instrumental means." ;
+.
+schema:Toxicologic a schema:MedicalSpecialty ;
+    rdfs:label "Toxicologic" ;
+    rdfs:comment "A specific branch of medical science that is concerned with poisons, their nature, effects and detection and involved in the treatment of poisoning." ;
+.
+schema:Urologic a schema:MedicalSpecialty ;
+    rdfs:label "Urologic" ;
+    rdfs:comment "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases pertaining to the urinary tract and the urogenital system." ;
+.
+
+
+#
+# Object Properties
+#
+schema:hospitalAffiliation a owl:ObjectProperty ;
+    rdfs:label "hospital affiliation" ;
+    rdfs:domain schema:Physician ;
+    rdfs:range schema:Hospital ;
+    rdfs:comment "A hospital with which the physician or office is affiliated." ;
+.
+schema:medicalSpecialty a owl:ObjectProperty ;
+    rdfs:label "medical specialty" ;
+    rdfs:domain [
+        rdf:type owl:Class ;
+        owl:unionOf (
+            schema:Hospital
+            schema:MedicalClinic
+            schema:MedicalOrganization
+            schema:Physician 
+        ) ;
+    ] ;
+    rdfs:range schema:MedicalSpecialty ;
+    rdfs:comment "A medical specialty of the provider." ;
+.
+
+
+#BRIDGE
+#
+# Classes
+#
+ohsu:Building a owl:Class ;
+    rdfs:subClassOf schema:Place ;
+.
+ohsu:Campus a owl:Class ;
+    rdfs:subClassOf schema:Place ;
+.
+ohsu:ClinicalDepartment a owl:Class ;
+    rdfs:subClassOf schema:MedicalOrganization ;
+.
+ohsu:HealthcareFacility a owl:Class ;
+    rdfs:subClassOf schema:CivicStructure ;
+.
+ohsu:HealthcareProviderRole a owl:Class ;
+    rdfs:subClassOf schema:Role.
+
+ohsu:HealthcareService a owl:Class ;
+    rdfs:subClassOf schema:Enumeration ;
+.
+ohsu:HealthcareSpecialty a owl:Class ;
+    rdfs:subClassOf schema:Enumeration ;
+.
+ohsu:LocalSearchCategory a owl:Class ;
+    rdfs:subClassOf schema:Enumeration ;
+.
+
+
+#
+# Datatype Properties
+#
+ohsu:nationalProviderId a owl:DatatypeProperty ;
+    schema:alternateName "NPI" ;
+    rdfs:domain schema:Person ;
+.
