@@ -26,24 +26,47 @@
           
             echo " ${fileContent} " > tempFileCurl.ttl
 
-            res=$(curl -X POST --data-binary @tempFileCurl.ttl http://ohsu-entities.vagrantshare.com/syntaxvalidation)
+	    res=$(curl -X POST --data-binary @tempFileCurl.ttl http://ohsu-entities.vagrantshare.com/client)  
 
-	    if echo $res | grep -q "Error"; then
-		echo "\t\033[31mValidation Failed! ${file}\033[0m"
-		echo $res
-		pass=false
-	    else
-	       echo "\t\033[32mValidation Passed! ${file}\033[0m"
-	    fi
+            if [ "$curlCode" = "6" ] || [ "$curlCode" = "7" ]; then 
+                echo "\t\033[31mConnection refused or service not available\033[0m";
+                message="See the above messages!"
+                pass=false
+            elif [ "$curlCode" = "0" ]; then 
+              if echo $res | grep -q "Service Temporarily Unavailable"; then
+                  echo "\t\033[31mConnection refused or service not available\033[0m";
+                  message="See the above messages!"
+                  pass=false
+              elif echo $res | grep -q "Undefined error"; then
+                  message="See the above messages!"
+		  pass=false
+              elif echo $res | grep -q "Error"; then
+                  echo "\t\033[31mValidation Failed! ${file}\033[0m"
+                  echo $res
+                  message="Your commit contains files with syntactic errors. Please fix the errors and try again"
+                  pass=false
+              elif echo $res | grep -q "Syntax Validation"; then
+	           echo "\t\033[32mValidation Passed! ${file}\033[0m"
+              elif echo $res | grep -q "prefix"; then
+                  echo "\t\033[32mValidation passed and the ${file} file reformatted!\033[0m"
+                  echo "$res" > ${file}
+              fi
+            else
+                echo "\t\033[31mUndefined error. Contact the administrator!\033[0m";
+                message="See the above messages!"
+                pass=false
+            fi
    
             rm -f tempFileCurl.ttl
 
 	done
 
-	echo "\Turtle validation complete\n"
+        git update-index --again
+
+	echo "\Validation complete\n"
 
 	if ! $pass; then
-	    echo "\033[41mCOMMIT FAILED:\033[0m Your commit contains files that should pass Validation but do not. Please fix the errors and try again.\n"
+	    echo "\033[41mCOMMIT FAILED:\033[0m Your commit contains files with syntactic errors. Please fix the errors and try again.\n"
 	    echo ${file}
 	    exit 1
 	else
