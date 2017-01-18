@@ -12,7 +12,3 @@ Persistent URL for the ontology is http://purl.org/ohsu/schema.  The ontology cu
   * bridge/ : bridge files to other ontologies/vocabularies
   * mireot/ : MIREOT files for other ontologies/vocabularies
   * module/ : institutional mission-specific ontology module files
-
-## TODOs as of 2016.12.15
-
-* add and bridge concepts not covered by schema.org
