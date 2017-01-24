@@ -1,18 +1,18 @@
-<!-- Tufts VUE 3.3.0 concept-map (Full Postal Address Model.vue) 2017-01-22 -->
+<!-- Tufts VUE 3.3.0 concept-map (Full Postal Address Model.vue) 2017-01-23 -->
 <!-- Tufts VUE: http://vue.tufts.edu/ -->
 <!-- Do Not Remove: VUE mapping @version(1.1) jar:file:/Applications/VUE.app/Contents/Resources/Java/VUE.jar!/tufts/vue/resources/lw_mapping_1_1.xml -->
-<!-- Do Not Remove: Saved date Sun Jan 22 23:02:51 PST 2017 by whimar on platform Mac OS X 10.11.6 in JVM 1.8.0_91-b14 -->
+<!-- Do Not Remove: Saved date Mon Jan 23 17:31:14 PST 2017 by whimar on platform Mac OS X 10.11.6 in JVM 1.8.0_91-b14 -->
 <!-- Do Not Remove: Saving version @(#)VUE: built October 8 2015 at 1658 by tomadm on Linux 2.6.32-504.23.4.el6.x86_64 i386 JVM 1.7.0_21-b11(bits=32) -->
 <?xml version="1.0" encoding="US-ASCII"?>
 <LW-MAP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="none" ID="0"
     label="Full Postal Address Model.vue" created="1485152582765"
     x="0.0" y="0.0" width="1.4E-45" height="1.4E-45" strokeWidth="0.0" autoSized="false">
-    <resource referenceCreated="1485154971825" size="26170"
-        spec="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/Full Postal Address Model.vue"
+    <resource referenceCreated="1485221474933" size="26183"
+        spec="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models/Full Postal Address Model.vue"
         type="1" xsi:type="URLResource">
         <title>Full Postal Address Model.vue</title>
-        <property key="File" value="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/Full Postal Address Model.vue"/>
+        <property key="File" value="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models/Full Postal Address Model.vue"/>
     </resource>
     <fillColor>#FFFFFF</fillColor>
     <strokeColor>#404040</strokeColor>
@@ -59,15 +59,15 @@
         <ID2 xsi:type="node">22</ID2>
     </child>
     <child ID="9" label="schema:contactPoint" layerID="1"
-        created="1485152583739" x="-355.01138" y="100.29114"
-        width="174.6413" height="41.14657" strokeWidth="3.0"
+        created="1485152583739" x="-393.38007" y="241.78531"
+        width="216.2906" height="65.651184" strokeWidth="3.0"
         autoSized="false" controlCount="0" arrowState="2" xsi:type="link">
         <strokeColor>#FCDBD9</strokeColor>
         <textColor>#000000</textColor>
         <font>Verdana-plain-11</font>
         <URIString>http://vue.tufts.edu/rdf/resource/ca019a540a00010e22ec30bd5fd2c4e9</URIString>
-        <point1 x="-353.51138" y="101.791145"/>
-        <point2 x="-181.87009" y="139.93771"/>
+        <point1 x="-391.88007" y="305.9365"/>
+        <point2 x="-178.58946" y="243.28531"/>
         <ID1 xsi:type="node">28</ID1>
         <ID2 xsi:type="node">11</ID2>
     </child>
@@ -330,7 +330,7 @@
         <shape xsi:type="ellipse"/>
     </child>
     <child ID="28" label="owl:unionOf" layerID="1"
-        created="1485152583739" x="-666.6297" y="-93.423935"
+        created="1485152583739" x="-702.39136" y="189.77843"
         width="316.8352" height="321.66696" strokeWidth="3.0"
         strokeStyle="4" autoSized="false" xsi:type="node">
         <fillColor>#00000000</fillColor>
@@ -362,22 +362,23 @@
         <shape xsi:type="ellipse"/>
     </child>
     <child ID="31" label="schema:workLocation" layerID="1"
-        created="1485152583739" x="-468.0043" y="133.7395"
-        width="284.21594" height="31.669327" strokeWidth="3.0"
+        created="1485152583739" x="-506.8676" y="261.5365"
+        width="335.94373" height="138.04965" strokeWidth="3.0"
         autoSized="false" controlCount="0" arrowState="2" xsi:type="link">
         <strokeColor>#FCDBD9</strokeColor>
         <textColor>#000000</textColor>
         <font>Verdana-plain-11</font>
         <URIString>http://vue.tufts.edu/rdf/resource/ca019a560a00010e22ec30bd509d74a3</URIString>
-        <point1 x="-466.5043" y="135.23949"/>
-        <point2 x="-185.28835" y="163.90881"/>
+        <point1 x="-505.3676" y="398.08615"/>
+        <point2 x="-172.42389" y="263.0365"/>
         <ID1 xsi:type="node">30</ID1>
         <ID2 xsi:type="node">11</ID2>
     </child>
     <child ID="32"
-        label="OHSU Entities Ontology &#xa;    &#xa;    &#xa;      Full Postal Address Model"
-        layerID="1" created="1485152583739" x="-281.68024" y="-264.7695"
-        width="436.0" height="78.0" strokeWidth="0.0" autoSized="false" xsi:type="text">
+        label="OHSU Entities Ontology Full Postal Address Model"
+        layerID="1" created="1485152583739" x="-194.72165"
+        y="-460.42633" width="436.0" height="78.0" strokeWidth="0.0"
+        autoSized="false" xsi:type="text">
         <strokeColor>#404040</strokeColor>
         <textColor>#000000</textColor>
         <font>Verdana-plain-12</font>
@@ -407,10 +408,7 @@
   &lt;/body&gt;
 &lt;/html&gt;
 </richText>
-        <label>OHSU Entities Ontology 
-    
-    
-      Full Postal Address Model</label>
+        <label>OHSU Entities Ontology Full Postal Address Model</label>
     </child>
     <child ID="40" label="ohsu:localSearchCategory" layerID="1"
         created="1485152804104" x="184.72481" y="313.06146"
@@ -436,17 +434,93 @@
         <URIString>http://vue.tufts.edu/rdf/resource/ca019a560a00010e22ec30bdae94d092</URIString>
         <shape xsi:type="ellipse"/>
     </child>
+    <child ID="42" label="schema:address" layerID="1"
+        created="1485221344272" x="-332.30112" y="0.86476135"
+        width="168.87877" height="89.22611" strokeWidth="3.0"
+        autoSized="false" controlCount="0" arrowState="2" xsi:type="link">
+        <strokeColor>#FCDBD9</strokeColor>
+        <textColor>#000000</textColor>
+        <font>Verdana-plain-12</font>
+        <URIString>http://vue.tufts.edu/rdf/resource/ce1932b8c669fe174b3b60a31ee228be</URIString>
+        <point1 x="-330.80112" y="2.3647614"/>
+        <point2 x="-164.92235" y="88.59087"/>
+        <ID1 xsi:type="node">43</ID1>
+        <ID2 xsi:type="node">11</ID2>
+    </child>
+    <child ID="43" label="owl:unionOf" layerID="1"
+        created="1485221401741" x="-931.9992" y="-456.42484"
+        width="638.53766" height="624.47766" strokeWidth="3.0"
+        strokeStyle="4" autoSized="false" xsi:type="node">
+        <fillColor>#00000000</fillColor>
+        <strokeColor>#D0D0D0</strokeColor>
+        <textColor>#D0D0D0</textColor>
+        <font>Verdana-plain-12</font>
+        <URIString>http://vue.tufts.edu/rdf/resource/ce1932bac669fe174b3b60a356a95091</URIString>
+        <child ID="46" label="schema:GeoCoordinates"
+            created="1485221412267" x="268.36884" y="85.4371"
+            width="171.4" height="155.19841" strokeWidth="3.0"
+            autoSized="false" xsi:type="node">
+            <fillColor>#FCDBD9</fillColor>
+            <strokeColor>#000000</strokeColor>
+            <textColor>#000000</textColor>
+            <font>Verdana-plain-12</font>
+            <URIString>http://vue.tufts.edu/rdf/resource/ce1932bac669fe174b3b60a3b404e7ed</URIString>
+            <shape xsi:type="ellipse"/>
+        </child>
+        <child ID="47" label="schema:GeoShape" created="1485221416236"
+            x="268.36884" y="204.8359" width="136.79999"
+            height="122.93286" strokeWidth="3.0" autoSized="false" xsi:type="node">
+            <fillColor>#FCDBD9</fillColor>
+            <strokeColor>#000000</strokeColor>
+            <textColor>#000000</textColor>
+            <font>Verdana-plain-12</font>
+            <URIString>http://vue.tufts.edu/rdf/resource/ce1932bbc669fe174b3b60a3a1d99604</URIString>
+            <shape xsi:type="ellipse"/>
+        </child>
+        <child ID="44" label="schema:Organization"
+            created="1485221401741" x="268.36884" y="300.03555"
+            width="152.79999" height="138.63655" strokeWidth="3.0"
+            autoSized="false" xsi:type="node">
+            <fillColor>#FCDBD9</fillColor>
+            <strokeColor>#000000</strokeColor>
+            <textColor>#000000</textColor>
+            <font>Verdana-plain-12</font>
+            <URIString>http://vue.tufts.edu/rdf/resource/ce1932bbc669fe174b3b60a3a61975df</URIString>
+            <shape xsi:type="ellipse"/>
+        </child>
+        <child ID="45" label="schema:Person" created="1485221401741"
+            x="268.36884" y="407.01297" width="114.8" height="107.51599"
+            strokeWidth="3.0" autoSized="false" xsi:type="node">
+            <fillColor>#FCDBD9</fillColor>
+            <strokeColor>#000000</strokeColor>
+            <textColor>#000000</textColor>
+            <font>Verdana-plain-12</font>
+            <URIString>http://vue.tufts.edu/rdf/resource/ce1932bcc669fe174b3b60a3f838dc66</URIString>
+            <shape xsi:type="ellipse"/>
+        </child>
+        <child ID="48" label="schema:Place" created="1485221445631"
+            x="268.36884" y="490.64996" width="104.8" height="91.187485"
+            strokeWidth="3.0" autoSized="false" xsi:type="node">
+            <fillColor>#FCDBD9</fillColor>
+            <strokeColor>#000000</strokeColor>
+            <textColor>#000000</textColor>
+            <font>Verdana-plain-12</font>
+            <URIString>http://vue.tufts.edu/rdf/resource/ce1932bec669fe174b3b60a3eb3f93f0</URIString>
+            <shape xsi:type="ellipse"/>
+        </child>
+        <shape xsi:type="ellipse"/>
+    </child>
     <layer ID="1" label="Layer 1" created="1485152582765" x="0.0"
         y="0.0" width="1.4E-45" height="1.4E-45" strokeWidth="0.0" autoSized="false">
         <URIString>http://vue.tufts.edu/rdf/resource/ca019a560a00010e22ec30bd64478726</URIString>
     </layer>
-    <userZoom>1.0</userZoom>
-    <userOrigin x="-898.1297" y="-1415.5857"/>
+    <userZoom>0.6899836060735092</userZoom>
+    <userOrigin x="-911.0643" y="-446.98816"/>
     <presentationBackground>#202020</presentationBackground>
     <PathwayList currentPathway="0" revealerIndex="-1">
         <pathway ID="0" label="Untitled Pathway" created="1485152582765"
             x="0.0" y="0.0" width="1.4E-45" height="1.4E-45"
-            strokeWidth="0.0" autoSized="false" currentIndex="-1" open="true">
+            strokeWidth="0.0" autoSized="false" currentIndex="0" open="true">
             <strokeColor>#B3FF6633</strokeColor>
             <textColor>#000000</textColor>
             <font>SansSerif-plain-14</font>
@@ -493,6 +567,6 @@
     </PathwayList>
     <date>2017-01-22</date>
     <modelVersion>6</modelVersion>
-    <saveLocation>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams</saveLocation>
-    <saveFile>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/Full Postal Address Model.vue</saveFile>
+    <saveLocation>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models</saveLocation>
+    <saveFile>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models/Full Postal Address Model.vue</saveFile>
 </LW-MAP>
