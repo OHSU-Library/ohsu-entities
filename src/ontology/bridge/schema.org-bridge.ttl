@@ -21,9 +21,6 @@
 ohsu:Campus a owl:Class ;
     rdfs:subClassOf schema:Place ;
 .
-ohsu:ClinicalDepartment a owl:Class ;
-    rdfs:subClassOf schema:MedicalOrganization ;
-.
 ohsu:HealthcareFacility a owl:Class ;
     rdfs:subClassOf schema:CivicStructure ;
 .
