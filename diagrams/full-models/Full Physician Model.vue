@@ -1,14 +1,14 @@
 <!-- Tufts VUE 3.3.0 concept-map (Full Physician Model.vue) 2017-01-23 -->
 <!-- Tufts VUE: http://vue.tufts.edu/ -->
 <!-- Do Not Remove: VUE mapping @version(1.1) jar:file:/Applications/VUE.app/Contents/Resources/Java/VUE.jar!/tufts/vue/resources/lw_mapping_1_1.xml -->
-<!-- Do Not Remove: Saved date Mon Jan 23 19:35:05 PST 2017 by whimar on platform Mac OS X 10.11.6 in JVM 1.8.0_91-b14 -->
+<!-- Do Not Remove: Saved date Mon Jan 23 19:36:16 PST 2017 by whimar on platform Mac OS X 10.11.6 in JVM 1.8.0_91-b14 -->
 <!-- Do Not Remove: Saving version @(#)VUE: built October 8 2015 at 1658 by tomadm on Linux 2.6.32-504.23.4.el6.x86_64 i386 JVM 1.7.0_21-b11(bits=32) -->
 <?xml version="1.0" encoding="US-ASCII"?>
 <LW-MAP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="none" ID="0"
     label="Full Physician Model.vue" created="1484867929817" x="0.0"
     y="0.0" width="1.4E-45" height="1.4E-45" strokeWidth="0.0" autoSized="false">
-    <resource referenceCreated="1485228905637" size="49239"
+    <resource referenceCreated="1485228976577" size="49868"
         spec="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models/Full Physician Model.vue"
         type="1" xsi:type="URLResource">
         <title>Full Physician Model.vue</title>
@@ -262,19 +262,8 @@
         <textColor>#000000</textColor>
         <font>Verdana-plain-12</font>
         <URIString>http://vue.tufts.edu/rdf/resource/ba846f0a0a00010e58ea9a68d679c4ec</URIString>
-        <child ID="200" label="ohsu:nationalProviderId"
-            created="1485154814574" x="175.21326" y="87.900024"
-            width="153.0" height="24.0" strokeWidth="1.0"
-            autoSized="true" xsi:type="node">
-            <fillColor>#FFC63B</fillColor>
-            <strokeColor>#000000</strokeColor>
-            <textColor>#000000</textColor>
-            <font>Verdana-plain-12</font>
-            <URIString>http://vue.tufts.edu/rdf/resource/ca2037360a00010e22ec30bda8263517</URIString>
-            <shape xsi:type="rectangle"/>
-        </child>
         <child ID="176" label="ohsu:searchPriority"
-            created="1484892605072" x="175.21326" y="108.900024"
+            created="1484892605072" x="175.21326" y="98.400024"
             width="126.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#A6A6A6</fillColor>
@@ -285,7 +274,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="156" label="schema:alternateName"
-            created="1484892605072" x="175.21326" y="129.90002"
+            created="1484892605072" x="175.21326" y="119.400024"
             width="151.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -296,7 +285,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="169" label="schema:branchCode"
-            created="1484892605072" x="175.21326" y="150.90002"
+            created="1484892605072" x="175.21326" y="140.40002"
             width="132.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -307,7 +296,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="203" label="schema:description"
-            created="1485228885058" x="175.21326" y="171.90002"
+            created="1485228885058" x="175.21326" y="161.40002"
             width="126.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -318,7 +307,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="157" label="schema:disambiguationDescription"
-            created="1484892605072" x="175.21326" y="192.90002"
+            created="1484892605072" x="175.21326" y="182.40002"
             width="218.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -329,7 +318,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="158" label="schema:duns" created="1484892605072"
-            x="175.21326" y="213.90002" width="91.0" height="24.0"
+            x="175.21326" y="203.40002" width="91.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -339,7 +328,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="159" label="schema:email" created="1484892605072"
-            x="175.21326" y="234.90002" width="94.0" height="24.0"
+            x="175.21326" y="224.40002" width="94.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -349,7 +338,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="160" label="schema:faxNumber" created="1484892605072"
-            x="175.21326" y="255.90002" width="128.0" height="24.0"
+            x="175.21326" y="245.40002" width="128.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -359,7 +348,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="161" label="schema:globalLocationNumber"
-            created="1484892605072" x="175.21326" y="276.90002"
+            created="1484892605072" x="175.21326" y="266.40002"
             width="194.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -370,7 +359,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="172" label="schema:hasMap (xsd:anyURI)"
-            created="1484892605072" x="175.21326" y="297.90002"
+            created="1484892605072" x="175.21326" y="287.40002"
             width="190.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -381,7 +370,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="162" label="schema:image (xsd:anyURI)"
-            created="1484892605072" x="175.21326" y="318.90002"
+            created="1484892605072" x="175.21326" y="308.40002"
             width="181.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -393,7 +382,7 @@
         </child>
         <child ID="163"
             label="schema:isAcceptingNewPatients (xsd:boolean)"
-            created="1484892605072" x="175.21326" y="339.90002"
+            created="1484892605072" x="175.21326" y="329.40002"
             width="287.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FC938D</fillColor>
@@ -404,7 +393,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="164" label="schema:isicV4" created="1484892605072"
-            x="175.21326" y="360.90002" width="96.0" height="24.0"
+            x="175.21326" y="350.40002" width="96.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -414,7 +403,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="165" label="schema:legalName" created="1484892605072"
-            x="175.21326" y="381.90002" width="124.0" height="24.0"
+            x="175.21326" y="371.40002" width="124.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -424,7 +413,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="166" label="schema:logo (xsd:anyURI)"
-            created="1484892605072" x="175.21326" y="402.90002"
+            created="1484892605072" x="175.21326" y="392.40002"
             width="169.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -435,7 +424,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="167" label="schema:naics" created="1484892605072"
-            x="175.21326" y="423.90002" width="92.0" height="24.0"
+            x="175.21326" y="413.40002" width="92.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -445,7 +434,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="204" label="schema:name" created="1485228885058"
-            x="175.21326" y="444.90002" width="96.0" height="24.0"
+            x="175.21326" y="434.40002" width="96.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -455,7 +444,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="175" label="schema:openingHours"
-            created="1484892605072" x="175.21326" y="465.90002"
+            created="1484892605072" x="175.21326" y="455.40002"
             width="144.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -466,7 +455,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="168" label="schema:telephone" created="1484892605072"
-            x="175.21326" y="486.90002" width="121.0" height="24.0"
+            x="175.21326" y="476.40002" width="121.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -896,7 +885,7 @@
         <URIString>http://vue.tufts.edu/rdf/resource/b922a47a0a00010e58ea9a68e32ddd5f</URIString>
     </layer>
     <userZoom>0.686339107612429</userZoom>
-    <userOrigin x="1223.2235" y="-387.30746"/>
+    <userOrigin x="964.8246" y="-374.04608"/>
     <presentationBackground>#202020</presentationBackground>
     <PathwayList currentPathway="0" revealerIndex="-1">
         <pathway ID="0" label="Untitled Pathway" created="1484867929817"
