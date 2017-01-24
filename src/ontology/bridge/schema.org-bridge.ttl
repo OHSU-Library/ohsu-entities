@@ -24,12 +24,6 @@ ohsu:Campus a owl:Class ;
 ohsu:HealthcareFacility a owl:Class ;
     rdfs:subClassOf schema:CivicStructure ;
 .
-ohsu:HealthcareService a owl:Class ;
-    rdfs:subClassOf schema:Enumeration ;
-.
-ohsu:HealthcareSpecialty a owl:Class ;
-    rdfs:subClassOf schema:Enumeration ;
-.
 ohsu:LocalSearchCategory a owl:Class ;
     rdfs:subClassOf schema:Enumeration ;
 .
