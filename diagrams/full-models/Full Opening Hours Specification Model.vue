@@ -1,7 +1,7 @@
-<!-- Tufts VUE 3.3.0 concept-map (Full Opening Hours Specification Model.vue) 2017-01-22 -->
+<!-- Tufts VUE 3.3.0 concept-map (Full Opening Hours Specification Model.vue) 2017-01-23 -->
 <!-- Tufts VUE: http://vue.tufts.edu/ -->
 <!-- Do Not Remove: VUE mapping @version(1.1) jar:file:/Applications/VUE.app/Contents/Resources/Java/VUE.jar!/tufts/vue/resources/lw_mapping_1_1.xml -->
-<!-- Do Not Remove: Saved date Sun Jan 22 23:02:47 PST 2017 by whimar on platform Mac OS X 10.11.6 in JVM 1.8.0_91-b14 -->
+<!-- Do Not Remove: Saved date Mon Jan 23 19:32:44 PST 2017 by whimar on platform Mac OS X 10.11.6 in JVM 1.8.0_91-b14 -->
 <!-- Do Not Remove: Saving version @(#)VUE: built October 8 2015 at 1658 by tomadm on Linux 2.6.32-504.23.4.el6.x86_64 i386 JVM 1.7.0_21-b11(bits=32) -->
 <?xml version="1.0" encoding="US-ASCII"?>
 <LW-MAP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -9,11 +9,11 @@
     label="Full Opening Hours Specification Model.vue"
     created="1485153230177" x="0.0" y="0.0" width="1.4E-45"
     height="1.4E-45" strokeWidth="0.0" autoSized="false">
-    <resource referenceCreated="1485154967426" size="16789"
-        spec="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/Full Opening Hours Specification Model.vue"
+    <resource referenceCreated="1485228764627" size="16802"
+        spec="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models/Full Opening Hours Specification Model.vue"
         type="1" xsi:type="URLResource">
         <title>Full Opening Hours Specification Model.vue</title>
-        <property key="File" value="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/Full Opening Hours Specification Model.vue"/>
+        <property key="File" value="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models/Full Opening Hours Specification Model.vue"/>
     </resource>
     <fillColor>#FFFFFF</fillColor>
     <strokeColor>#404040</strokeColor>
@@ -21,69 +21,69 @@
     <font>SansSerif-plain-14</font>
     <URIString>http://vue.tufts.edu/rdf/resource/ca0ad9ba0a00010e22ec30bdc153b483</URIString>
     <child ID="6" label="schema:dayOfWeek" layerID="1"
-        created="1485153231130" x="184.54326" y="-113.69769"
-        width="167.69034" height="56.707882" strokeWidth="3.0"
+        created="1485153231130" x="188.00836" y="-112.90071"
+        width="164.49115" height="57.75817" strokeWidth="3.0"
         autoSized="false" controlCount="0" arrowState="2" xsi:type="link">
         <strokeColor>#FCDBD9</strokeColor>
         <textColor>#000000</textColor>
         <font>Verdana-plain-11</font>
         <URIString>http://vue.tufts.edu/rdf/resource/ca0ad9ba0a00010e22ec30bdf0db8b12</URIString>
-        <point1 x="186.04324" y="-58.48981"/>
-        <point2 x="350.73358" y="-112.19769"/>
+        <point1 x="189.50836" y="-56.64254"/>
+        <point2 x="350.9995" y="-111.40071"/>
         <ID1 xsi:type="node">10</ID1>
         <ID2 xsi:type="node">15</ID2>
     </child>
     <child ID="7" label="schema:hoursAvailable" layerID="1"
-        created="1485153231130" x="-409.09708" y="-119.20016"
-        width="278.79553" height="72.7941" strokeWidth="3.0"
+        created="1485153231130" x="-409.2334" y="-118.672554"
+        width="279.14777" height="74.96912" strokeWidth="3.0"
         autoSized="false" controlCount="0" arrowState="2" xsi:type="link">
         <strokeColor>#FCDBD9</strokeColor>
         <textColor>#000000</textColor>
         <font>Verdana-plain-11</font>
         <URIString>http://vue.tufts.edu/rdf/resource/ca0ad9bb0a00010e22ec30bddfb5b29f</URIString>
-        <point1 x="-407.59708" y="-117.70016"/>
-        <point2 x="-131.80154" y="-47.90606"/>
+        <point1 x="-407.7334" y="-117.172554"/>
+        <point2 x="-131.58565" y="-45.203434"/>
         <ID1 xsi:type="node">16</ID1>
         <ID2 xsi:type="node">10</ID2>
     </child>
     <child ID="8" label="schema:openingHoursSpecification" layerID="1"
-        created="1485153231130" x="-462.96304" y="-14.138199"
-        width="326.9295" height="121.01313" strokeWidth="3.0"
+        created="1485153231130" x="-446.1618" y="-11.965561"
+        width="310.22607" height="118.961716" strokeWidth="3.0"
         autoSized="false" controlCount="1" arrowState="2" xsi:type="link">
         <strokeColor>#FCDBD9</strokeColor>
         <textColor>#000000</textColor>
         <font>Verdana-plain-11</font>
         <URIString>http://vue.tufts.edu/rdf/resource/ca0ad9bb0a00010e22ec30bdb6faee6b</URIString>
-        <point1 x="-461.46304" y="105.37494"/>
-        <point2 x="-137.53354" y="-12.299093"/>
+        <point1 x="-444.6618" y="105.496155"/>
+        <point2 x="-137.43571" y="-9.827652"/>
         <ID1 xsi:type="node">17</ID1>
         <ID2 xsi:type="node">10</ID2>
         <ctrlPoint0 x="-361.77548" y="-19.115265" xsi:type="point"/>
     </child>
     <child ID="9" label="schema:specialOpeningHoursSpecification"
-        layerID="1" created="1485153231130" x="-448.09174" y="35.0903"
-        width="318.66644" height="89.57335" strokeWidth="3.0"
+        layerID="1" created="1485153231130" x="-422.87726" y="43.05118"
+        width="294.1798" height="88.69726" strokeWidth="3.0"
         autoSized="false" controlCount="0" arrowState="2" xsi:type="link">
         <strokeColor>#FCDBD9</strokeColor>
         <textColor>#000000</textColor>
         <font>Verdana-plain-11</font>
         <URIString>http://vue.tufts.edu/rdf/resource/ca0ad9bb0a00010e22ec30bdc962c1e3</URIString>
-        <point1 x="-446.59174" y="123.16365"/>
-        <point2 x="-130.9253" y="36.590298"/>
+        <point1 x="-421.37726" y="130.24844"/>
+        <point2 x="-130.19746" y="44.551186"/>
         <ID1 xsi:type="node">17</ID1>
         <ID2 xsi:type="node">10</ID2>
     </child>
     <child ID="10" label="schema:OpeningHoursSpecification" layerID="1"
         created="1485153231130" x="-137.8086" y="-162.05896"
-        width="333.40002" height="309.6372" strokeWidth="3.0"
-        autoSized="false" xsi:type="node">
+        width="337.40002" height="318.40002" strokeWidth="3.0"
+        autoSized="true" xsi:type="node">
         <fillColor>#FCDBD9</fillColor>
         <strokeColor>#000000</strokeColor>
         <textColor>#000000</textColor>
         <font>Verdana-plain-12</font>
         <URIString>http://vue.tufts.edu/rdf/resource/ca0ad9bb0a00010e22ec30bdbf798994</URIString>
         <child ID="19" label="ohsu:searchPriority"
-            created="1485153396583" x="72.70001" y="71.8186"
+            created="1485153396583" x="74.70001" y="65.70001"
             width="126.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#A6A6A6</fillColor>
@@ -93,18 +93,8 @@
             <URIString>http://vue.tufts.edu/rdf/resource/ca0ad9bb0a00010e22ec30bdabdd7e44</URIString>
             <shape xsi:type="rectangle"/>
         </child>
-        <child ID="20" label="rdfs:label" created="1485153396583"
-            x="72.70001" y="92.8186" width="65.0" height="24.0"
-            strokeWidth="1.0" autoSized="true" xsi:type="node">
-            <fillColor>#FFFFFF</fillColor>
-            <strokeColor>#000000</strokeColor>
-            <textColor>#000000</textColor>
-            <font>Verdana-plain-12</font>
-            <URIString>http://vue.tufts.edu/rdf/resource/ca0ad9bb0a00010e22ec30bdec5477a8</URIString>
-            <shape xsi:type="rectangle"/>
-        </child>
         <child ID="21" label="schema:alternateName"
-            created="1485153396583" x="72.70001" y="113.8186"
+            created="1485153396583" x="74.70001" y="86.70001"
             width="151.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -115,7 +105,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="11" label="schema:closes" created="1485153231130"
-            x="72.70001" y="134.8186" width="97.0" height="24.0"
+            x="74.70001" y="107.70001" width="97.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -124,8 +114,19 @@
             <URIString>http://vue.tufts.edu/rdf/resource/ca0ad9bb0a00010e22ec30bd9d6bf3e0</URIString>
             <shape xsi:type="rectangle"/>
         </child>
+        <child ID="24" label="schema:description"
+            created="1485228741446" x="74.70001" y="128.70001"
+            width="126.0" height="24.0" strokeWidth="1.0"
+            autoSized="true" xsi:type="node">
+            <fillColor>#FCDBD9</fillColor>
+            <strokeColor>#000000</strokeColor>
+            <textColor>#000000</textColor>
+            <font>Verdana-plain-12</font>
+            <URIString>http://vue.tufts.edu/rdf/resource/ce886dd4c669fe174b3b60a394f16603</URIString>
+            <shape xsi:type="rectangle"/>
+        </child>
         <child ID="22" label="schema:disambiguationDescription"
-            created="1485153396583" x="72.70001" y="155.8186"
+            created="1485153396583" x="74.70001" y="149.70001"
             width="218.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -136,7 +137,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="23" label="schema:image (xsd:anyURI)"
-            created="1485153396583" x="72.70001" y="176.8186"
+            created="1485153396583" x="74.70001" y="170.70001"
             width="181.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -146,8 +147,18 @@
             <URIString>http://vue.tufts.edu/rdf/resource/ca0ad9bb0a00010e22ec30bdaf30236b</URIString>
             <shape xsi:type="rectangle"/>
         </child>
+        <child ID="25" label="schema:name" created="1485228741446"
+            x="74.70001" y="191.70001" width="96.0" height="24.0"
+            strokeWidth="1.0" autoSized="true" xsi:type="node">
+            <fillColor>#FCDBD9</fillColor>
+            <strokeColor>#000000</strokeColor>
+            <textColor>#000000</textColor>
+            <font>Verdana-plain-12</font>
+            <URIString>http://vue.tufts.edu/rdf/resource/ce886dd4c669fe174b3b60a3e143c3bd</URIString>
+            <shape xsi:type="rectangle"/>
+        </child>
         <child ID="12" label="schema:opens" created="1485153231130"
-            x="72.70001" y="197.8186" width="97.0" height="24.0"
+            x="74.70001" y="212.70001" width="97.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -157,7 +168,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="13" label="schema:validFrom (xsd:dateTime)"
-            created="1485153231130" x="72.70001" y="218.8186"
+            created="1485153231130" x="74.70001" y="233.70001"
             width="214.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -168,7 +179,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="14" label="schema:validThrough (xsd:dateTime)"
-            created="1485153231130" x="72.70001" y="239.8186"
+            created="1485153231130" x="74.70001" y="254.70001"
             width="233.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -214,7 +225,7 @@
         <shape xsi:type="ellipse"/>
     </child>
     <child ID="18"
-        label="OHSU Entities Ontology &#xa;    &#xa;    &#xa;      Full Opening Hours &#xa;      Specification Model"
+        label="OHSU Entities Ontology Full Opening Hours Specification Model"
         layerID="1" created="1485153357230" x="-321.02515"
         y="-290.62036" width="568.0" height="71.0" strokeWidth="0.0"
         autoSized="false" xsi:type="text">
@@ -248,23 +259,19 @@
   &lt;/body&gt;
 &lt;/html&gt;
 </richText>
-        <label>OHSU Entities Ontology 
-    
-    
-      Full Opening Hours 
-      Specification Model</label>
+        <label>OHSU Entities Ontology Full Opening Hours Specification Model</label>
     </child>
     <layer ID="1" label="Layer 1" created="1485153230178" x="0.0"
         y="0.0" width="1.4E-45" height="1.4E-45" strokeWidth="0.0" autoSized="false">
         <URIString>http://vue.tufts.edu/rdf/resource/ca0ad9bc0a00010e22ec30bd34f475d3</URIString>
     </layer>
-    <userZoom>1.7588252496037877</userZoom>
+    <userZoom>1.0</userZoom>
     <userOrigin x="-1006.08264" y="-569.43567"/>
     <presentationBackground>#202020</presentationBackground>
     <PathwayList currentPathway="0" revealerIndex="-1">
         <pathway ID="0" label="Untitled Pathway" created="1485153230177"
             x="0.0" y="0.0" width="1.4E-45" height="1.4E-45"
-            strokeWidth="0.0" autoSized="false" currentIndex="-1" open="true">
+            strokeWidth="0.0" autoSized="false" currentIndex="0" open="true">
             <strokeColor>#B3993333</strokeColor>
             <textColor>#000000</textColor>
             <font>SansSerif-plain-14</font>
@@ -311,6 +318,6 @@
     </PathwayList>
     <date>2017-01-22</date>
     <modelVersion>6</modelVersion>
-    <saveLocation>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams</saveLocation>
-    <saveFile>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/Full Opening Hours Specification Model.vue</saveFile>
+    <saveLocation>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models</saveLocation>
+    <saveFile>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models/Full Opening Hours Specification Model.vue</saveFile>
 </LW-MAP>

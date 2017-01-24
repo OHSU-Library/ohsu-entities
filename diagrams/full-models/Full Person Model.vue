@@ -1,18 +1,18 @@
-<!-- Tufts VUE 3.3.0 concept-map (Full Person Model.vue) 2017-01-22 -->
+<!-- Tufts VUE 3.3.0 concept-map (Full Person Model.vue) 2017-01-23 -->
 <!-- Tufts VUE: http://vue.tufts.edu/ -->
 <!-- Do Not Remove: VUE mapping @version(1.1) jar:file:/Applications/VUE.app/Contents/Resources/Java/VUE.jar!/tufts/vue/resources/lw_mapping_1_1.xml -->
-<!-- Do Not Remove: Saved date Sun Jan 22 23:00:31 PST 2017 by whimar on platform Mac OS X 10.11.6 in JVM 1.8.0_91-b14 -->
+<!-- Do Not Remove: Saved date Mon Jan 23 19:34:19 PST 2017 by whimar on platform Mac OS X 10.11.6 in JVM 1.8.0_91-b14 -->
 <!-- Do Not Remove: Saving version @(#)VUE: built October 8 2015 at 1658 by tomadm on Linux 2.6.32-504.23.4.el6.x86_64 i386 JVM 1.7.0_21-b11(bits=32) -->
 <?xml version="1.0" encoding="US-ASCII"?>
 <LW-MAP xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="none" ID="0"
     label="Full Person Model.vue" created="1481700757567" x="0.0"
     y="0.0" width="1.4E-45" height="1.4E-45" strokeWidth="0.0" autoSized="false">
-    <resource referenceCreated="1485154831627" size="30568"
-        spec="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/Full Person Model.vue"
+    <resource referenceCreated="1485228859714" size="30049"
+        spec="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models/Full Person Model.vue"
         type="1" xsi:type="URLResource">
         <title>Full Person Model.vue</title>
-        <property key="File" value="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/Full Person Model.vue"/>
+        <property key="File" value="/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models/Full Person Model.vue"/>
     </resource>
     <fillColor>#FFFFFF</fillColor>
     <strokeColor>#404040</strokeColor>
@@ -197,7 +197,7 @@
         <font>Verdana-plain-12</font>
         <URIString>http://vue.tufts.edu/rdf/resource/b9232f4d0a00010e58ea9a68fd0d3e48</URIString>
         <child ID="84" label="ohsu:searchPriority"
-            created="1484866520610" x="191.98337" y="90.55002"
+            created="1484866520610" x="191.98337" y="80.05002"
             width="126.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#A6A6A6</fillColor>
@@ -207,18 +207,8 @@
             <URIString>http://vue.tufts.edu/rdf/resource/b9232f4f0a00010e58ea9a684ebfcb0e</URIString>
             <shape xsi:type="rectangle"/>
         </child>
-        <child ID="131" label="rdfs:label" created="1485151755859"
-            x="191.98337" y="111.55002" width="65.0" height="24.0"
-            strokeWidth="1.0" autoSized="true" xsi:type="node">
-            <fillColor>#FFFFFF</fillColor>
-            <strokeColor>#000000</strokeColor>
-            <textColor>#000000</textColor>
-            <font>Verdana-plain-12</font>
-            <URIString>http://vue.tufts.edu/rdf/resource/ca1fb30b0a00010e22ec30bd3dc565c1</URIString>
-            <shape xsi:type="rectangle"/>
-        </child>
         <child ID="43" label="schema:additionalName"
-            created="1484860565553" x="191.98337" y="132.55002"
+            created="1484860565553" x="191.98337" y="101.05002"
             width="154.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -229,7 +219,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="81" label="schema:alternateName"
-            created="1484866520610" x="191.98337" y="153.55002"
+            created="1484866520610" x="191.98337" y="122.05002"
             width="151.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -239,8 +229,19 @@
             <URIString>http://vue.tufts.edu/rdf/resource/b9232f4d0a00010e58ea9a68d7848c6b</URIString>
             <shape xsi:type="rectangle"/>
         </child>
+        <child ID="132" label="schema:description"
+            created="1485228850079" x="191.98337" y="143.05002"
+            width="126.0" height="24.0" strokeWidth="1.0"
+            autoSized="true" xsi:type="node">
+            <fillColor>#FCDBD9</fillColor>
+            <strokeColor>#000000</strokeColor>
+            <textColor>#000000</textColor>
+            <font>Verdana-plain-12</font>
+            <URIString>http://vue.tufts.edu/rdf/resource/ce89e143c669fe174b3b60a3f48ea335</URIString>
+            <shape xsi:type="rectangle"/>
+        </child>
         <child ID="82" label="schema:disambiguationDescription"
-            created="1484866520610" x="191.98337" y="174.55002"
+            created="1484866520610" x="191.98337" y="164.05002"
             width="218.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -251,7 +252,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="44" label="schema:duns" created="1484860565553"
-            x="191.98337" y="195.55002" width="91.0" height="24.0"
+            x="191.98337" y="185.05002" width="91.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -261,7 +262,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="45" label="schema:email" created="1484860565553"
-            x="191.98337" y="216.55002" width="94.0" height="24.0"
+            x="191.98337" y="206.05002" width="94.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -271,7 +272,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="46" label="schema:familyName" created="1484860565553"
-            x="191.98337" y="237.55002" width="133.0" height="24.0"
+            x="191.98337" y="227.05002" width="133.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -281,7 +282,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="47" label="schema:faxNumber" created="1484860565553"
-            x="191.98337" y="258.55002" width="128.0" height="24.0"
+            x="191.98337" y="248.05002" width="128.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -291,7 +292,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="48" label="schema:gender" created="1484860565553"
-            x="191.98337" y="279.55002" width="103.0" height="24.0"
+            x="191.98337" y="269.05002" width="103.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -301,7 +302,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="49" label="schema:givenName" created="1484860565553"
-            x="191.98337" y="300.55002" width="129.0" height="24.0"
+            x="191.98337" y="290.05002" width="129.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -311,7 +312,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="50" label="schema:globalLocationNumber"
-            created="1484860565553" x="191.98337" y="321.55002"
+            created="1484860565553" x="191.98337" y="311.05002"
             width="194.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -322,7 +323,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="51" label="schema:honorificPrefix"
-            created="1484860565553" x="191.98337" y="342.55002"
+            created="1484860565553" x="191.98337" y="332.05002"
             width="146.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -333,7 +334,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="52" label="schema:honorificSuffix"
-            created="1484860565553" x="191.98337" y="363.55002"
+            created="1484860565553" x="191.98337" y="353.05002"
             width="147.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -344,7 +345,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="83" label="schema:image (xsd:anyURI)"
-            created="1484866520610" x="191.98337" y="384.55002"
+            created="1484866520610" x="191.98337" y="374.05002"
             width="181.0" height="24.0" strokeWidth="1.0"
             autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
@@ -355,7 +356,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="53" label="schema:isicV4" created="1484860565553"
-            x="191.98337" y="405.55002" width="96.0" height="24.0"
+            x="191.98337" y="395.05002" width="96.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -365,7 +366,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="54" label="schema:jobTitle" created="1484860565553"
-            x="191.98337" y="426.55002" width="105.0" height="24.0"
+            x="191.98337" y="416.05002" width="105.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -375,7 +376,7 @@
             <shape xsi:type="rectangle"/>
         </child>
         <child ID="55" label="schema:naics" created="1484860565553"
-            x="191.98337" y="447.55002" width="92.0" height="24.0"
+            x="191.98337" y="437.05002" width="92.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -384,8 +385,18 @@
             <URIString>http://vue.tufts.edu/rdf/resource/b9232f4e0a00010e58ea9a68584e5f02</URIString>
             <shape xsi:type="rectangle"/>
         </child>
+        <child ID="133" label="schema:name" created="1485228850079"
+            x="191.98337" y="458.05002" width="96.0" height="24.0"
+            strokeWidth="1.0" autoSized="true" xsi:type="node">
+            <fillColor>#FCDBD9</fillColor>
+            <strokeColor>#000000</strokeColor>
+            <textColor>#000000</textColor>
+            <font>Verdana-plain-12</font>
+            <URIString>http://vue.tufts.edu/rdf/resource/ce89e144c669fe174b3b60a343e9a92b</URIString>
+            <shape xsi:type="rectangle"/>
+        </child>
         <child ID="56" label="schema:telephone" created="1484860565553"
-            x="191.98337" y="468.55002" width="121.0" height="24.0"
+            x="191.98337" y="479.05002" width="121.0" height="24.0"
             strokeWidth="1.0" autoSized="true" xsi:type="node">
             <fillColor>#FCDBD9</fillColor>
             <strokeColor>#000000</strokeColor>
@@ -510,7 +521,7 @@
         y="0.0" width="1.4E-45" height="1.4E-45" strokeWidth="0.0" autoSized="false">
         <URIString>http://vue.tufts.edu/rdf/resource/fe63a103c669f4173fd8a4e31358cd9a</URIString>
     </layer>
-    <userZoom>1.0736886142309838</userZoom>
+    <userZoom>1.0</userZoom>
     <userOrigin x="248.4499" y="-132.48677"/>
     <presentationBackground>#202020</presentationBackground>
     <PathwayList currentPathway="0" revealerIndex="-1">
@@ -563,6 +574,6 @@
     </PathwayList>
     <date>2016-12-13</date>
     <modelVersion>6</modelVersion>
-    <saveLocation>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams</saveLocation>
-    <saveFile>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/Full Person Model.vue</saveFile>
+    <saveLocation>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models</saveLocation>
+    <saveFile>/Users/whimar/git/ohsu-library/ohsu-entities/diagrams/full-models/Full Person Model.vue</saveFile>
 </LW-MAP>
