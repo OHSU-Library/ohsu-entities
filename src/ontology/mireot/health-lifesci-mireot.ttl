@@ -16,13 +16,6 @@
 #
 # Classes
 #
-schema:MedicalAudience a owl:Class ;
-    rdfs:label "Medical Audience" ;
-    rdfs:comment "Target audiences for medical web pages. Enumerated type." ;
-    rdfs:subClassOf schema:Audience ; 
-    rdfs:subClassOf schema:MedicalEnumeration; 
-    rdfs:subClassOf schema:PeopleAudience ;
-.
 schema:MedicalBusiness a owl:Class ;
     rdfs:label "Medical Business" ;
     rdfs:comment "A particular physical or virtual business of an organization for medical purposes. Examples of MedicalBusiness include differents business run by health professionals." ;
@@ -45,20 +38,10 @@ schema:MedicalSpecialty a owl:Class ;
     rdfs:subClassOf schema:MedicalEnumeration ;
     rdfs:subClassOf schema:Specialty ;
 .
-
-# schema:MedicalTherapy and its superclasses?
-
 schema:Optician a owl:Class ;
     rdfs:label "Optician" ;
     rdfs:comment "A store that sells reading glasses and similar devices for improving vision." ;
     rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Patient a owl:Class ;
-    rdfs:label "Patient" ;
-    rdfs:comment "A patient is any person recipient of health care services." ;
-    rdfs:subClassOf schema:MedicalAudience ;
-    rdfs:subClassOf schema:Person ;
-    owl:equivalentClass <http://purl.bioontology.org/ontology/SNOMEDCT/116154003> ;
 .
 schema:Pharmacy a owl:Class ;
     rdfs:subClassOf schema:MedicalBusiness ;
@@ -79,13 +62,25 @@ schema:Cardiovascular a schema:MedicalSpecialty ;
     rdfs:label "Cardiovascular" ;
     rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of heart and vasculature." ;
 .
-schema:Clinician a schema:MedicalAudience ;
-    rdfs:label "Clinician" ;
-    rdfs:comment "Medical clinicians, including practicing physicians and other medical professionals involved in clinical practice." ;
+schema:CommunityHealth a schema:MedicalSpecialty ;
+    rdfs:label "Community Health" ;
+    rdfs:comment "A field of public health focusing on improving health characteristics of a defined population in relation with their geographical or environment areas" ;
 .
 schema:Dentistry a schema:MedicalSpecialty ;
     rdfs:label "Dentistry" ;
     rdfs:comment "A branch of medicine that is involved in the dental care." ;
+.
+schema:Dermatology a schema:MedicalSpecialty ;
+    rdfs:label "Dermatology" ;
+    rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of skin." ;
+.
+schema:DietNutrition a schema:MedicalSpecialty ;
+    rdfs:label "Diet Nutrition" ;
+    rdfs:comment "Dietetic and nutrition as a medical speciality." ;
+.
+schema:Emergency a schema:MedicalSpecialty ;
+    rdfs:label "Emergency" ;
+    rdfs:comment "A specific branch of medical science that deals with the evaluation and initial treatment of medical conditions caused by trauma or sudden illness." ;
 .
 schema:Endocrine a schema:MedicalSpecialty ;
     rdfs:label "Endocrine" ;
@@ -99,6 +94,14 @@ schema:Genetic a schema:MedicalSpecialty ;
     rdfs:label "Genetic" ;
     rdfs:comment "A specific branch of medical science that pertains to hereditary transmission and the variation of inherited characteristics and disorders." ;
 .
+schema:Geriatric a schema:MedicalSpecialty ;
+    rdfs:label "Geriatric" ;
+    rdfs:comment "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases, debilities and provision of care to the aged." ;
+.
+schema:Gynecologic a schema:MedicalSpecialty ;
+    rdfs:label "Gynecologic" ;
+    rdfs:comment "A specific branch of medical science that pertains to the health care of women, particularly in the diagnosis and treatment of disorders affecting the female reproductive system." ;
+.
 schema:Hematologic a schema:MedicalSpecialty ;
     rdfs:label "Hematologic" ;
     rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of blood and blood producing organs." ;
@@ -111,9 +114,9 @@ schema:LaboratoryScience a schema:MedicalSpecialty ;
     rdfs:label "Laboratory Science" ;
     rdfs:comment "A medical science pertaining to chemical, hematological, immunologic, microscopic, or bacteriological diagnostic analyses or research" ;
 .
-schema:MedicalResearcher a schema:MedicalAudience ;
-    rdfs:label "Medical Researcher" ;
-    rdfs:comment "Medical researchers." ;
+schema:Midwifery a schema:MedicalSpecialty ;
+    rdfs:label "Midwifery" ;
+    rdfs:comment "A nurse-like health profession that deals with pregnancy, childbirth, and the postpartum period (including care of the newborn), besides sexual and reproductive health of women throughout their lives." ;
 .
 schema:Musculoskeletal a schema:MedicalSpecialty ;
     rdfs:label "Musculoskeletal" ;
@@ -123,13 +126,65 @@ schema:Neurologic a schema:MedicalSpecialty ;
     rdfs:label "Neurologic" ;
     rdfs:comment "A specific branch of medical science that studies the nerves and nervous system and its respective disease states." ;
 .
+schema:Nursing a schema:MedicalSpecialty ;
+    rdfs:label "Nursing" ;
+    rdfs:comment "A health profession of a person formally educated and trained in the care of the sick or infirm person." ;
+.
+schema:Obstetric a schema:MedicalSpecialty ;
+    rdfs:label "Obstetric" ;
+    rdfs:comment "A specific branch of medical science that specializes in the care of women during the prenatal and postnatal care and with the delivery of the child." ;
+.
+schema:OccupationalTherapy a schema:MedicalSpecialty ;
+    rdfs:label "Occupational Therapy" ;
+    rdfs:comment "A treatment of people with physical, emotional, or social problems, using purposeful activity to help them overcome or learn to deal with their problems." ;
+.
+schema:Oncologic a schema:MedicalSpecialty ;
+    rdfs:label "Oncologic" ;
+    rdfs:comment "A specific branch of medical science that deals with benign and malignant tumors, including the study of their development, diagnosis, treatment and prevention." ;
+.
+schema:Optometric a schema:MedicalSpecialty ;
+    rdfs:label "Optometric" ;
+    rdfs:comment "The science or practice of testing visual acuity and prescribing corrective lenses." ;
+.
+schema:Otolaryngologic a schema:MedicalSpecialty ;
+    rdfs:label "Otolaryngologic" ;
+    rdfs:comment "A specific branch of medical science that is concerned with the ear, nose and throat and their respective disease states." ;
+.
 schema:Pathology a schema:MedicalSpecialty ;
     rdfs:label "Pathology" ;
     rdfs:comment "A specific branch of medical science that is concerned with the study of the cause, origin and nature of a disease state, including its consequences as a result of manifestation of the disease. In clinical care, the term is used to designate a branch of medicine using laboratory tests to diagnose and determine the prognostic significance of illness." ;
 .
+schema:Pediatric a schema:MedicalSpecialty ;
+    rdfs:label "Pediatric" ;
+    rdfs:comment "A specific branch of medical science that specializes in the care of infants, children and adolescents." ;
+.
 schema:PharmacySpecialty a schema:MedicalSpecialty ;
     rdfs:label "Pharmacy Specialty" ;
     rdfs:comment "The practice or art and science of preparing and dispensing drugs and medicines." ;
+.
+schema:Physiotherapy a schema:MedicalSpecialty ;
+    rdfs:label "Physiotherapy" ;
+    rdfs:comment "The practice of treatment of disease, injury, or deformity by physical methods such as massage, heat treatment, and exercise rather than by drugs or surgery.." ;
+.
+schema:PlasticSurgery a schema:MedicalSpecialty ;
+    rdfs:label "Plastic Surgery" ;
+    rdfs:comment "A specific branch of medical science that pertains to therapeutic or cosmetic repair or re-formation of missing, injured or malformed tissues or body parts by manual and instrumental means." ;
+.
+schema:Podiatric a schema:MedicalSpecialty ;
+    rdfs:label "Podiatric" ;
+    rdfs:comment "Podiatry is the care of the human foot, especially the diagnosis and treatment of foot disorders." ;
+.
+schema:PrimaryCare a schema:MedicalSpecialty ;
+    rdfs:label "Primary Care" ;
+    rdfs:comment "The medical care by a physician, or other health-care professional, who is the patient's first contact with the health-care system and who may recommend a specialist if necessary." ;
+.
+schema:Psychiatric a schema:MedicalSpecialty ;
+    rdfs:label "Psychiatric" ;
+    rdfs:comment "A specific branch of medical science that is concerned with the study, treatment, and prevention of mental illness, using both medical and psychological therapies." ;
+.
+schema:PublicHealth a schema:MedicalSpecialty ;
+    rdfs:label "Public Health" ;
+    rdfs:comment "Branch of medicine that pertains to the health services to improve and protect community health, especially epidemiology, sanitation, immunization, and preventive medicine." ;
 .
 schema:Pulmonary a schema:MedicalSpecialty ;
     rdfs:label "Pulmonary" ;
@@ -142,6 +197,10 @@ schema:Radiography a schema:MedicalSpecialty ;
 schema:Renal a schema:MedicalSpecialty ;
     rdfs:label "Renal" ;
     rdfs:comment "A specific branch of medical science that pertains to the study of the kidneys and its respective disease states." ;
+.
+schema:RespiratoryTherapy a schema:MedicalSpecialty ;
+    rdfs:label "Respiratory Therapy" ;
+    rdfs:comment "The therapy that is concerned with the maintenance or improvement of respiratory function (as in patients with pulmonary disease)." ;
 .
 schema:Rheumatologic a schema:MedicalSpecialty ;
     rdfs:label "Rheumatologic" ;
@@ -166,139 +225,8 @@ schema:Urologic a schema:MedicalSpecialty ;
 
 
 #
-# Punned Class/Enumeration Members
-#
-schema:CommunityHealth a schema:MedicalSpecialty ;
-    rdfs:label "Community Health" ;
-    rdfs:comment "A field of public health focusing on improving health characteristics of a defined population in relation with their geographical or environment areas" ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Dermatology a schema:MedicalSpecialty ;
-    rdfs:label "Dermatology" ;
-    rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of skin." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:DietNutrition a schema:MedicalSpecialty ;
-    rdfs:label "Diet Nutrition" ;
-    rdfs:comment "Dietetic and nutrition as a medical speciality." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Emergency a schema:MedicalSpecialty ;
-    rdfs:label "Emergency" ;
-    rdfs:comment "A specific branch of medical science that deals with the evaluation and initial treatment of medical conditions caused by trauma or sudden illness." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Geriatric a schema:MedicalSpecialty ;
-    rdfs:label "Geriatric" ;
-    rdfs:comment "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases, debilities and provision of care to the aged." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Gynecologic a schema:MedicalSpecialty ;
-    rdfs:label "Gynecologic" ;
-    rdfs:comment "A specific branch of medical science that pertains to the health care of women, particularly in the diagnosis and treatment of disorders affecting the female reproductive system." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Midwifery a schema:MedicalSpecialty ;
-    rdfs:label "Midwifery" ;
-    rdfs:comment "A nurse-like health profession that deals with pregnancy, childbirth, and the postpartum period (including care of the newborn), besides sexual and reproductive health of women throughout their lives." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Nursing a schema:MedicalSpecialty ;
-    rdfs:label "Nursing" ;
-    rdfs:comment "A health profession of a person formally educated and trained in the care of the sick or infirm person." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Obstetric a schema:MedicalSpecialty ;
-    rdfs:label "Obstetric" ;
-    rdfs:comment "A specific branch of medical science that specializes in the care of women during the prenatal and postnatal care and with the delivery of the child." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:OccupationalTherapy a schema:MedicalSpecialty ;
-    rdfs:label "Occupational Therapy" ;
-    rdfs:comment "A treatment of people with physical, emotional, or social problems, using purposeful activity to help them overcome or learn to deal with their problems." ;
-    rdfs:subClassOf schema:MedicalTherapy ;
-.
-schema:Oncologic a schema:MedicalSpecialty ;
-    rdfs:label "Oncologic" ;
-    rdfs:comment "A specific branch of medical science that deals with benign and malignant tumors, including the study of their development, diagnosis, treatment and prevention." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Optometric a schema:MedicalSpecialty ;
-    rdfs:label "Optometric" ;
-    rdfs:comment "The science or practice of testing visual acuity and prescribing corrective lenses." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Otolaryngologic a schema:MedicalSpecialty ;
-    rdfs:label "Otolaryngologic" ;
-    rdfs:comment "A specific branch of medical science that is concerned with the ear, nose and throat and their respective disease states." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Pediatric a schema:MedicalSpecialty ;
-    rdfs:label "Pediatric" ;
-    rdfs:comment "A specific branch of medical science that specializes in the care of infants, children and adolescents." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:RespiratoryTherapy a schema:MedicalSpecialty ;
-    rdfs:label "Respiratory Therapy" ;
-    rdfs:comment "The therapy that is concerned with the maintenance or improvement of respiratory function (as in patients with pulmonary disease)." ;
-    rdfs:subClassOf schema:MedicalTherapy ;
-.
-schema:Physiotherapy a schema:MedicalSpecialty ;
-    rdfs:label "Physiotherapy" ;
-    rdfs:comment "The practice of treatment of disease, injury, or deformity by physical methods such as massage, heat treatment, and exercise rather than by drugs or surgery.." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:PlasticSurgery a schema:MedicalSpecialty ;
-    rdfs:label "Plastic Surgery" ;
-    rdfs:comment "A specific branch of medical science that pertains to therapeutic or cosmetic repair or re-formation of missing, injured or malformed tissues or body parts by manual and instrumental means." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Podiatric a schema:MedicalSpecialty ;
-    rdfs:label "Podiatric" ;
-    rdfs:comment "Podiatry is the care of the human foot, especially the diagnosis and treatment of foot disorders." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:PrimaryCare a schema:MedicalSpecialty ;
-    rdfs:label "Primary Care" ;
-    rdfs:comment "The medical care by a physician, or other health-care professional, who is the patient's first contact with the health-care system and who may recommend a specialist if necessary." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:Psychiatric a schema:MedicalSpecialty ;
-    rdfs:label "Psychiatric" ;
-    rdfs:comment "A specific branch of medical science that is concerned with the study, treatment, and prevention of mental illness, using both medical and psychological therapies." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-schema:PublicHealth a schema:MedicalSpecialty ;
-    rdfs:label "Public Health" ;
-    rdfs:comment "Branch of medicine that pertains to the health services to improve and protect community health, especially epidemiology, sanitation, immunization, and preventive medicine." ;
-    rdfs:subClassOf schema:MedicalBusiness ;
-.
-
-
-#
 # Object Properties
 #
-
-# schema:availableService a owl:ObjectProperty ;
-#     rdfs:label "available service" ;
-#     rdfs:domain [
-#         rdf:type owl:Class ;
-#         owl:unionOf (
-#             schema:Hospital
-#             schema:MedicalClinic
-#             schema:Physician 
-#         );
-#     ] ;
-#     rdfs:range [
-#         rdf:type:owl:Class ;
-#         owl:unionOf (
-#             schema:MedicalProcedure
-#             schema:MedicalTest
-#             schema:MedicalTherapy 
-#         ) ;
-#     ] ;
-#     rdfs:comment "A medical service available from this provider." ;
-# .
 schema:hospitalAffiliation a owl:ObjectProperty ;
     rdfs:label "hospital affiliation" ;
     rdfs:domain schema:Physician ;

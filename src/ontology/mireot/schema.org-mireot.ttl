@@ -23,16 +23,6 @@ schema:AdministrativeArea a owl:Class ;
     rdfs:comment "A geographical region, typically under the jurisdiction of a particular government." ;
     rdfs:subClassOf schema:Place ;
 .
-schema:Audience a owl:Class ;
-    rdfs:label "Audience" ;
-    rdfs:comment "Intended audience for an item, i.e. the group for whom the item was created." ;
-    rdfs:subClassOf schema:Intangible ;
-.
-schema:BusStop a owl:Class ;
-    rdfs:label "Bus Stop" ;
-    rdfs:comment "A bus stop." ;
-    rdfs:subClassOf schema:CivicStructure ;
-.
 schema:City a owl:Class ;
     rdfs:label "City" ;
     rdfs:comment "A city or town." ;
@@ -136,6 +126,11 @@ schema:Language a owl:Class ;
     rdfs:comment "Natural languages such as Spanish, Tamil, Hindi, English, etc. Formal language code tags expressed in <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> can be used via the <a class=\"localLink\" href=\"/alternateName\">alternateName</a> property. The Language type previously also covered programming languages such as Scheme and Lisp, which are now best represented using <a class=\"localLink\" href=\"/ComputerLanguage\">ComputerLanguage</a>." ;
     rdfs:subClassOf schema:Intangible ;
 .
+schema:Library a owl:Class ;
+    rdfs:label "Library" ;
+    rdfs:comment "A library." ;
+    rdfs:subClassOf schema:LocalBusiness ;
+.
 schema:LocalBusiness a owl:Class ;
     rdfs:label "Local Business" ;
     rdfs:comment "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc." ;
@@ -227,16 +222,6 @@ schema:StructuredValue a owl:Class ;
     rdfs:label "Structured Value" ;
     rdfs:comment "Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing." ;
     rdfs:subClassOf schema:Intangible ;
-.
-schema:TaxiStand a owl:Class ;
-    rdfs:label "Taxi Stand" ;
-    rdfs:comment "A taxi stand." ;
-    rdfs:subClassOf schema:CivicStructure ;
-.
-schema:TrainStation a owl:Class ;
-    rdfs:label "Train Station" ;
-    rdfs:comment "A train station." ;
-    rdfs:subClassOf schema:CivicStructure ;
 .
 
 
@@ -417,12 +402,6 @@ schema:geoMidpoint a owl:ObjectProperty ;
     rdfs:domain schema:GeoCircle ;
     rdfs:range schema:GeoCoordinates ;
     rdfs:comment "Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle." ;
-.
-schema:geographicArea a owl:ObjectProperty ;
-    rdfs:label "geographicArea" ;
-    rdfs:domain schema:Audience ;
-    rdfs:range schema:AdministrativeArea ;
-    rdfs:comment "The geographic area associated with the audience." ;
 .
 schema:hoursAvailable a owl:ObjectProperty ;
     rdfs:label "hoursAvailable" ;
