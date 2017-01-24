@@ -568,6 +568,13 @@ schema:contactType a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point." ;
 .
+schema:description a owl:DatatypeProperty ;
+    rdfs:label "description" ;
+    rdfs:domain schema:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:comment "A description of the item." ;
+    owl:equivalentProperty dct:description
+.
 schema:disambiguatingDescription a owl:DatatypeProperty ;
     rdfs:label "disambiguatingDescription" ;
     rdfs:domain owl:Thing ;
@@ -754,6 +761,12 @@ schema:naics a owl:DatatypeProperty ;
     ] ;
     rdfs:range xsd:string ;
     rdfs:comment "The North American Industry Classification System (NAICS) code for a particular organization or business person." ;
+.
+schema:name a owl:DatatypeProperty ;
+    rdfs:label "name" ;
+    rdfs:domain schema:Thing ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The name of the item."
 .
 schema:numberedPosition a owl:DatatypeProperty ;
     rdfs:label "numberedPosition" ;
