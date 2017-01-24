@@ -18,9 +18,6 @@
 #
 # Classes
 #
-ohsu:Building a owl:Class ;
-    rdfs:subClassOf schema:Place ;
-.
 ohsu:Campus a owl:Class ;
     rdfs:subClassOf schema:Place ;
 .
