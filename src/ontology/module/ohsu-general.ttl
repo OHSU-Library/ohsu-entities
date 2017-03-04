@@ -51,7 +51,7 @@ ohsu:ParkingLot a ohsu:CivicStructureLocalSearchCategory ;
 #
 ohsu:localSearchCategory a owl:ObjectProperty ;
     rdfs:label "local search category" ;
-    rdfs:comment "A local category search of a thing." ;
+    rdfs:comment "A local search category of a thing." ;
     rdfs:domain owl:Thing ;
     rdfs:range ohsu:LocalSearchCategory ;
 .
