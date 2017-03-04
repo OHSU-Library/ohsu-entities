@@ -1,82 +1,2458 @@
-@prefix dct: <http://purl.org/dc/terms/> .
-@prefix ohsu: <http://purl.org/ohsu/schema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <http://schema.org/> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.w3.org/2002/07/owl#> .
+
+[ rdf:type owl:Ontology ;
+   rdfs:label "OHSU Entities Ontology" ;
+   rdfs:comment "The OHSU Entities Ontology describes people, places, and things at Oregon Health & Science University, and the relationships between them. It reuses and extends the schema.org ontology."
+ ] .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/source
+<http://purl.org/dc/terms/source> rdf:type owl:AnnotationProperty .
 
 
-#
-# Ontology
-#
-<http://purl.org/ohsu/schema> a owl:Ontology ;
-    owl:versionInfo "0.0.1"^^xsd:string ;
-    rdfs:label "OHSU Entities" ;
-    rdfs:comment "The OHSU Entities Ontology describes people, places, and things at Oregon Health & Science University, and the relationships between them." ;
-    owl:imports <http://purl.org/ohsu/schema/healthcare> ;
-    owl:imports <http://purl.org/ohsu/schema/education> ;
-    owl:imports <http://purl.org/ohsu/schema/research> ;
-    owl:imports <http://purl.org/ohsu/schema/mireot/schema.org> ;
-    owl:imports <http://purl.org/ohsu/schema/bridge/schema.org> ;
-.
+###  http://www.w3.org/2000/01/rdf-schema#Label
+rdfs:Label rdf:type owl:AnnotationProperty .
 
 
-#
-# Classes
-#
-ohsu:Campus a owl:Class ;
-    rdfs:label "Campus" ;
-.
-ohsu:LocalSearchCategory a owl:Class ;
-    rdfs:label "Local Search Category" ;
-    rdfs:comment "A category used by search engines for ranking purposes." ;
-     dct:source <https://moz.com/local/categories> ;
-.
-ohsu:CivicStructureLocalSearchCategory a owl:Class ;
-    rdfs:label "Civic Structure Local Search Category" ;
-    rdfs:subClassOf ohsu:LocalSearchCategory ;
-.
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
 
 
-#
-# Enumeration Members
-#
-ohsu:Heliport a ohsu:CivicStructureLocalSearchCategory ;
-    rdfs:label "Heliport" ;
-    dct:source <https://moz.com/local/categories/category/Heliport> ;
-.
-ohsu:RVPark a ohsu:CivicStructureLocalSearchCategory ;
-    rdfs:label "RV Park" ;
-    dct:source <https://moz.com/local/categories/category/RV%20Park> ;
-.
-ohsu:ParkingGarage a ohsu:CivicStructureLocalSearchCategory ;
-    rdfs:label "Parking Garage" ;
-    dct:source <https://moz.com/local/categories/category/Parking%20Garage> ;
-.
-ohsu:ParkingLot a ohsu:CivicStructureLocalSearchCategory ;
-    rdfs:label "Parking Lot" ;
-    dct:source <https://moz.com/local/categories/category/Parking%20Lot> ;
-.
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/ohsu/schema#localSearchCategory
+<http://purl.org/ohsu/schema#localSearchCategory> rdf:type owl:ObjectProperty ;
+                                                  rdfs:domain owl:Thing ;
+                                                  rdfs:range <http://purl.org/ohsu/schema#LocalSearchCategory> ;
+                                                  rdfs:comment "A local category search of a thing." ;
+                                                  rdfs:label "local search category" .
 
 
-#
-# Object Properties
-#
-ohsu:localSearchCategory a owl:ObjectProperty ;
-    rdfs:label "local search category" ;
-    rdfs:comment "A local category search of a thing." ;
-    rdfs:domain owl:Thing ;
-    rdfs:range ohsu:LocalSearchCategory ;
-.
+###  http://schema.org/address
+<http://schema.org/address> rdf:type owl:ObjectProperty ;
+                            rdfs:domain [ rdf:type owl:Class ;
+                                          owl:unionOf ( <http://schema.org/GeoCoordinates>
+                                                        <http://schema.org/GeoShape>
+                                                        <http://schema.org/Organization>
+                                                        <http://schema.org/Person>
+                                                        <http://schema.org/Place>
+                                                      )
+                                        ] ;
+                            rdfs:range <http://schema.org/PostalAddress> ;
+                            rdfs:comment "Physical address of the item." ;
+                            rdfs:label "address" .
 
 
-#
-# Datatype Properties
-#
-ohsu:searchPriority a owl:DatatypeProperty ;
-    rdfs:label "search priority";
-    rdfs:domain owl:Thing ;
-    rdfs:range xsd:string ;
-.
+###  http://schema.org/affiliation
+<http://schema.org/affiliation> rdf:type owl:ObjectProperty ;
+                                rdfs:subPropertyOf <http://schema.org/memberOf> ;
+                                rdfs:domain <http://schema.org/Person> ;
+                                rdfs:range <http://schema.org/Organization> ;
+                                rdfs:comment "An organization that this person is affiliated with. For example, a school/university, a club, or a team." ;
+                                rdfs:label "affiliation" .
+
+
+###  http://schema.org/areaServed
+<http://schema.org/areaServed> rdf:type owl:ObjectProperty ;
+                               rdfs:domain [ rdf:type owl:Class ;
+                                             owl:unionOf ( <http://schema.org/ContactPoint>
+                                                           <http://schema.org/Organization>
+                                                         )
+                                           ] ;
+                               rdfs:range [ rdf:type owl:Class ;
+                                            owl:unionOf ( <http://schema.org/AdministrativeArea>
+                                                          <http://schema.org/GeoShape>
+                                                          <http://schema.org/Place>
+                                                        )
+                                          ] ;
+                               rdfs:comment "The geographic area where a service or offered item is provided." ;
+                               rdfs:label "areaServed" .
+
+
+###  http://schema.org/availableLanguage
+<http://schema.org/availableLanguage> rdf:type owl:ObjectProperty ;
+                                      rdfs:domain <http://schema.org/ContactPoint> ;
+                                      rdfs:range <http://schema.org/Language> ;
+                                      rdfs:comment "A language someone may use with the item. Please use one of the language codes from the <a href=\"http://tools.ietf.org/html/bcp47\">IETF BCP 47 standard</a>. See also <a class=\"localLink\" href=\"/inLanguage\">inLanguage</a>" ;
+                                      rdfs:label "availableLanguage" .
+
+
+###  http://schema.org/colleague
+<http://schema.org/colleague> rdf:type owl:ObjectProperty ;
+                              rdfs:domain <http://schema.org/Person> ;
+                              rdfs:range <http://schema.org/Person> ;
+                              rdfs:comment "A colleague of the person." ;
+                              rdfs:label "colleague" .
+
+
+###  http://schema.org/contactOption
+<http://schema.org/contactOption> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <http://schema.org/ContactPoint> ;
+                                  rdfs:range <http://schema.org/ContactPointOption> ;
+                                  rdfs:comment "An option available on this contact point (e.g. a toll-free number or support for hearing-impaired callers)." ;
+                                  rdfs:label "contactOption" .
+
+
+###  http://schema.org/contactPoint
+<http://schema.org/contactPoint> rdf:type owl:ObjectProperty ;
+                                 rdfs:domain [ rdf:type owl:Class ;
+                                               owl:unionOf ( <http://schema.org/Organization>
+                                                             <http://schema.org/Person>
+                                                           )
+                                             ] ;
+                                 rdfs:range <http://schema.org/ContactPoint> ;
+                                 rdfs:comment "A contact point for a person or organization." ;
+                                 rdfs:label "contactPoint" .
+
+
+###  http://schema.org/containedInPlace
+<http://schema.org/containedInPlace> rdf:type owl:ObjectProperty ;
+                                     owl:inverseOf <http://schema.org/containsPlace> ;
+                                     rdfs:domain <http://schema.org/Place> ;
+                                     rdfs:range <http://schema.org/Place> ;
+                                     rdfs:comment "The basic containment relation between a place and one that contains it." ;
+                                     rdfs:label "containedInPlace" .
+
+
+###  http://schema.org/containsPlace
+<http://schema.org/containsPlace> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <http://schema.org/Place> ;
+                                  rdfs:range <http://schema.org/Place> ;
+                                  rdfs:comment "The basic containment relation between a place and another that it contains." ;
+                                  rdfs:label "containsPlace" .
+
+
+###  http://schema.org/dayOfWeek
+<http://schema.org/dayOfWeek> rdf:type owl:ObjectProperty ;
+                              rdfs:domain <http://schema.org/OpeningHoursSpecification> ;
+                              rdfs:range <http://schema.org/DayOfWeek> ;
+                              <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                              rdfs:comment "The day of the week for which these opening hours are valid." ;
+                              rdfs:label "dayOfWeek" .
+
+
+###  http://schema.org/department
+<http://schema.org/department> rdf:type owl:ObjectProperty ;
+                               rdfs:domain <http://schema.org/Organization> ;
+                               rdfs:range <http://schema.org/Organization> ;
+                               rdfs:comment "A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe." ;
+                               rdfs:label "department" .
+
+
+###  http://schema.org/employee
+<http://schema.org/employee> rdf:type owl:ObjectProperty ;
+                             rdfs:domain <http://schema.org/Organization> ;
+                             rdfs:range <http://schema.org/Person> ;
+                             rdfs:comment "Someone working for this organization." ;
+                             rdfs:label "employee" .
+
+
+###  http://schema.org/geo
+<http://schema.org/geo> rdf:type owl:ObjectProperty ;
+                        rdfs:domain <http://schema.org/Place> ;
+                        rdfs:range [ rdf:type owl:Class ;
+                                     owl:unionOf ( <http://schema.org/GeoCoordinates>
+                                                   <http://schema.org/GeoShape>
+                                                 )
+                                   ] ;
+                        rdfs:comment "The geo coordinates of the place." ;
+                        rdfs:label "geo" .
+
+
+###  http://schema.org/geoMidpoint
+<http://schema.org/geoMidpoint> rdf:type owl:ObjectProperty ;
+                                rdfs:domain <http://schema.org/GeoCircle> ;
+                                rdfs:range <http://schema.org/GeoCoordinates> ;
+                                rdfs:comment "Indicates the GeoCoordinates at the centre of a GeoShape e.g. GeoCircle." ;
+                                rdfs:label "geoMidpoint" .
+
+
+###  http://schema.org/hospitalAffiliation
+<http://schema.org/hospitalAffiliation> rdf:type owl:ObjectProperty ;
+                                        rdfs:domain <http://schema.org/Physician> ;
+                                        rdfs:range <http://schema.org/Hospital> ;
+                                        rdfs:comment "A hospital with which the physician or office is affiliated." ;
+                                        rdfs:label "hospital affiliation" .
+
+
+###  http://schema.org/hoursAvailable
+<http://schema.org/hoursAvailable> rdf:type owl:ObjectProperty ;
+                                   rdfs:domain <http://schema.org/ContactPoint> ;
+                                   rdfs:range <http://schema.org/OpeningHoursSpecification> ;
+                                   rdfs:comment "The hours during which this service or contact is available." ;
+                                   rdfs:label "hoursAvailable" .
+
+
+###  http://schema.org/location
+<http://schema.org/location> rdf:type owl:ObjectProperty ;
+                             rdfs:domain <http://schema.org/Organization> ;
+                             rdfs:range [ rdf:type owl:Class ;
+                                          owl:unionOf ( <http://schema.org/Place>
+                                                        <http://schema.org/PostalAddress>
+                                                      )
+                                        ] ;
+                             rdfs:comment "The location of for example where the event is happening, an organization is located, or where an action takes place." ;
+                             rdfs:label "location" .
+
+
+###  http://schema.org/medicalSpecialty
+<http://schema.org/medicalSpecialty> rdf:type owl:ObjectProperty ;
+                                     rdfs:domain [ rdf:type owl:Class ;
+                                                   owl:unionOf ( <http://schema.org/Hospital>
+                                                                 <http://schema.org/MedicalClinic>
+                                                                 <http://schema.org/MedicalOrganization>
+                                                                 <http://schema.org/Physician>
+                                                               )
+                                                 ] ;
+                                     rdfs:range <http://schema.org/MedicalSpecialty> ;
+                                     rdfs:comment "A medical specialty of the provider." ;
+                                     rdfs:label "medical specialty" .
+
+
+###  http://schema.org/member
+<http://schema.org/member> rdf:type owl:ObjectProperty ;
+                           owl:inverseOf <http://schema.org/memberOf> ;
+                           rdfs:domain <http://schema.org/Organization> ;
+                           rdfs:range [ rdf:type owl:Class ;
+                                        owl:unionOf ( <http://schema.org/Organization>
+                                                      <http://schema.org/Person>
+                                                    )
+                                      ] ;
+                           rdfs:comment "A member of an Organization." ;
+                           rdfs:label "member" .
+
+
+###  http://schema.org/memberOf
+<http://schema.org/memberOf> rdf:type owl:ObjectProperty ;
+                             rdfs:domain [ rdf:type owl:Class ;
+                                           owl:unionOf ( <http://schema.org/Organization>
+                                                         <http://schema.org/Person>
+                                                       )
+                                         ] ;
+                             rdfs:range <http://schema.org/Organization> ;
+                             rdfs:comment "An Organization to which this Person or Organization belongs." ;
+                             rdfs:label "memberOf" .
+
+
+###  http://schema.org/openingHoursSpecification
+<http://schema.org/openingHoursSpecification> rdf:type owl:ObjectProperty ;
+                                              rdfs:domain <http://schema.org/Place> ;
+                                              rdfs:range <http://schema.org/OpeningHoursSpecification> ;
+                                              <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                                              rdfs:comment "The opening hours of a certain place." ;
+                                              rdfs:label "openingHoursSpecification" .
+
+
+###  http://schema.org/parentOrganization
+<http://schema.org/parentOrganization> rdf:type owl:ObjectProperty ;
+                                       owl:inverseOf <http://schema.org/subOrganization> ;
+                                       rdfs:domain <http://schema.org/Organization> ;
+                                       rdfs:range <http://schema.org/Organization> ;
+                                       rdfs:comment "The larger organization that this local business is a branch of, if any." ;
+                                       rdfs:label "parentOrganization" .
+
+
+###  http://schema.org/specialOpeningHoursSpecification
+<http://schema.org/specialOpeningHoursSpecification> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://schema.org/Place> ;
+                                                     rdfs:range <http://schema.org/OpeningHoursSpecification> ;
+                                                     rdfs:comment """The special opening hours of a certain place.</p>
+<p>Use this to explicitly override general opening hours brought in scope by <a class=\"localLink\" href=\"/openingHoursSpecification\">openingHoursSpecification</a> or <a class=\"localLink\" href=\"/openingHours\">openingHours</a>.""" ;
+                                                     rdfs:label "specialOpeningHoursSpecification" .
+
+
+###  http://schema.org/subOrganization
+<http://schema.org/subOrganization> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <http://schema.org/Organization> ;
+                                    rdfs:range <http://schema.org/Organization> ;
+                                    rdfs:comment "A relationship between two organizations where the first includes the second, e.g., as a subsidiary. See also: the more specific 'department' property." ;
+                                    rdfs:label "subOrganization" .
+
+
+###  http://schema.org/workLocation
+<http://schema.org/workLocation> rdf:type owl:ObjectProperty ;
+                                 rdfs:subPropertyOf <http://schema.org/location> ;
+                                 rdfs:domain <http://schema.org/Person> ;
+                                 rdfs:range [ rdf:type owl:Class ;
+                                              owl:unionOf ( <http://schema.org/ContactPoint>
+                                                            <http://schema.org/Place>
+                                                          )
+                                            ] ;
+                                 rdfs:comment "A contact location for a person's place of work." ;
+                                 rdfs:label "workLocation" .
+
+
+###  http://schema.org/worksFor
+<http://schema.org/worksFor> rdf:type owl:ObjectProperty ;
+                             rdfs:domain <http://schema.org/Person> ;
+                             rdfs:range <http://schema.org/Organization> ;
+                             rdfs:comment "Organizations that the person works for." ;
+                             rdfs:label "worksFor" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/ohsu/schema#nationalProviderId
+<http://purl.org/ohsu/schema#nationalProviderId> rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain <http://schema.org/Person> ;
+                                                 rdfs:range xsd:string ;
+                                                 <http://schema.org/alternateName> "NPI" ;
+                                                 rdfs:label "national provider id" .
+
+
+###  http://purl.org/ohsu/schema#searchPriority
+<http://purl.org/ohsu/schema#searchPriority> rdf:type owl:DatatypeProperty ;
+                                             rdfs:domain owl:Thing ;
+                                             rdfs:range xsd:string ;
+                                             rdfs:label "search priority" .
+
+
+###  http://schema.org/additionalName
+<http://schema.org/additionalName> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain <http://schema.org/Person> ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:comment "An additional name for a Person, can be used for a middle name." ;
+                                   rdfs:label "additionalName" .
+
+
+###  http://schema.org/addressCountry
+<http://schema.org/addressCountry> rdf:type owl:DatatypeProperty ;
+                                   rdfs:domain [ rdf:type owl:Class ;
+                                                 owl:unionOf ( <http://schema.org/GeoCoordinates>
+                                                               <http://schema.org/GeoShape>
+                                                               <http://schema.org/PostalAddress>
+                                                             )
+                                               ] ;
+                                   rdfs:range xsd:string ;
+                                   rdfs:comment "The country. For example, USA. You can also provide the two-letter <a href=\"http://en.wikipedia.org/wiki/ISO_3166-1\">ISO 3166-1 alpha-2 country code</a>." ;
+                                   rdfs:label "addressCountry" .
+
+
+###  http://schema.org/addressLocality
+<http://schema.org/addressLocality> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <http://schema.org/PostalAddress> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "The locality. For example, Mountain View." ;
+                                    rdfs:label "addressLocality" .
+
+
+###  http://schema.org/addressRegion
+<http://schema.org/addressRegion> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <http://schema.org/PostalAddress> ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:comment "The region. For example, CA." ;
+                                  rdfs:label "addressRegion" .
+
+
+###  http://schema.org/alternateName
+<http://schema.org/alternateName> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain owl:Thing ;
+                                  rdfs:range xsd:string .
+
+
+###  http://schema.org/box
+<http://schema.org/box> rdf:type owl:DatatypeProperty ;
+                        rdfs:domain <http://schema.org/GeoShape> ;
+                        rdfs:range xsd:string ;
+                        rdfs:comment "A box is the area enclosed by the rectangle formed by two points. The first point is the lower corner, the second point is the upper corner. A box is expressed as two points separated by a space character." ;
+                        rdfs:label "box" .
+
+
+###  http://schema.org/branchCode
+<http://schema.org/branchCode> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <http://schema.org/Place> ;
+                               rdfs:range xsd:string ;
+                               rdfs:comment """A short textual code (also called \"store code\") that uniquely identifies a place of business. The code is typically assigned by the parentOrganization and used in structured URLs.</p>
+<p>For example, in the URL http://www.starbucks.co.uk/store-locator/etc/detail/3047 the code \"3047\" is a branchCode for a particular branch.""" ;
+                               rdfs:label "branchCode" .
+
+
+###  http://schema.org/circle
+<http://schema.org/circle> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain <http://schema.org/GeoShape> ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "A circle is the circular region of a specified radius centered at a specified latitude and longitude. A circle is expressed as a pair followed by a radius in meters." ;
+                           rdfs:label "circle" .
+
+
+###  http://schema.org/closes
+<http://schema.org/closes> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain <http://schema.org/OpeningHoursSpecification> ;
+                           rdfs:range xsd:dateTime ;
+                           <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                           rdfs:comment "The closing hour of the place or service on the given day(s) of the week." ;
+                           rdfs:label "closes" .
+
+
+###  http://schema.org/contactType
+<http://schema.org/contactType> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <http://schema.org/ContactPoint> ;
+                                rdfs:range xsd:string ;
+                                rdfs:comment "A person or organization can have different contact points, for different purposes. For example, a sales contact point, a PR contact point and so on. This property is used to specify the kind of contact point." ;
+                                rdfs:label "contactType" .
+
+
+###  http://schema.org/description
+<http://schema.org/description> rdf:type owl:DatatypeProperty ;
+                                rdfs:domain <http://schema.org/Thing> ;
+                                rdfs:range xsd:string ;
+                                rdfs:comment "A description of the item." ;
+                                rdfs:label "description" .
+
+
+###  http://schema.org/disambiguatingDescription
+<http://schema.org/disambiguatingDescription> rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain owl:Thing ;
+                                              rdfs:range xsd:string ;
+                                              rdfs:comment "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation." ;
+                                              rdfs:label "disambiguatingDescription" .
+
+
+###  http://schema.org/duns
+<http://schema.org/duns> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain [ rdf:type owl:Class ;
+                                       owl:unionOf ( <http://schema.org/Organization>
+                                                     <http://schema.org/Person>
+                                                   )
+                                     ] ;
+                         rdfs:range xsd:string ;
+                         <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                         rdfs:comment "The Dun &amp; Bradstreet DUNS number for identifying an organization or business person." ;
+                         rdfs:label "duns" .
+
+
+###  http://schema.org/email
+<http://schema.org/email> rdf:type owl:DatatypeProperty ;
+                          rdfs:domain [ rdf:type owl:Class ;
+                                        owl:unionOf ( <http://schema.org/ContactPoint>
+                                                      <http://schema.org/Organization>
+                                                      <http://schema.org/Person>
+                                                    )
+                                      ] ;
+                          rdfs:range xsd:string ;
+                          rdfs:comment "Email address." ;
+                          rdfs:label "email" .
+
+
+###  http://schema.org/endDate
+<http://schema.org/endDate> rdf:type owl:DatatypeProperty ;
+                            rdfs:domain <http://schema.org/Role> ;
+                            rdfs:range xsd:date ;
+                            rdfs:comment "The end date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." ;
+                            rdfs:label "endDate" .
+
+
+###  http://schema.org/familyName
+<http://schema.org/familyName> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain <http://schema.org/Person> ;
+                               rdfs:range xsd:string ;
+                               rdfs:comment "Family name. In the U.S., the last name of an Person. This can be used along with givenName instead of the name property." ;
+                               rdfs:label "familyName" .
+
+
+###  http://schema.org/faxNumber
+<http://schema.org/faxNumber> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain [ rdf:type owl:Class ;
+                                            owl:unionOf ( <http://schema.org/ContactPoint>
+                                                          <http://schema.org/Organization>
+                                                          <http://schema.org/Person>
+                                                          <http://schema.org/Place>
+                                                        )
+                                          ] ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "The fax number." ;
+                              rdfs:label "faxNumber" .
+
+
+###  http://schema.org/gender
+<http://schema.org/gender> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain <http://schema.org/Person> ;
+                           rdfs:range xsd:string ;
+                           rdfs:comment "Gender of the person." ;
+                           rdfs:label "gender" .
+
+
+###  http://schema.org/geoRadius
+<http://schema.org/geoRadius> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <http://schema.org/GeoCircle> ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Indicates the approximate radius of a GeoCircle (metres unless indicated otherwise via Distance notation)." ;
+                              rdfs:label "geoRadius" .
+
+
+###  http://schema.org/givenName
+<http://schema.org/givenName> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <http://schema.org/Person> ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Given name. In the U.S., the first name of a Person. This can be used along with familyName instead of the name property." ;
+                              rdfs:label "givenName" .
+
+
+###  http://schema.org/globalLocationNumber
+<http://schema.org/globalLocationNumber> rdf:type owl:DatatypeProperty ;
+                                         rdfs:domain [ rdf:type owl:Class ;
+                                                       owl:unionOf ( <http://schema.org/Organization>
+                                                                     <http://schema.org/Person>
+                                                                     <http://schema.org/Place>
+                                                                   )
+                                                     ] ;
+                                         rdfs:range xsd:string ;
+                                         <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                                         rdfs:comment "The <a href=\"http://www.gs1.org/gln\">Global Location Number</a> (GLN, sometimes also referred to as International Location Number or ILN) of the respective organization, person, or place. The GLN is a 13-digit number used to identify parties and physical locations." ;
+                                         rdfs:label "globalLocationNumber" .
+
+
+###  http://schema.org/hasMap
+<http://schema.org/hasMap> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain <http://schema.org/Place> ;
+                           rdfs:range xsd:anyURI ;
+                           rdfs:comment "A URL to a map of the place." ;
+                           rdfs:label "hasMap" .
+
+
+###  http://schema.org/honorificPrefix
+<http://schema.org/honorificPrefix> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <http://schema.org/Person> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "An honorific prefix preceding a Person's name such as Dr/Mrs/Mr." ;
+                                    rdfs:label "honorificPrefix" .
+
+
+###  http://schema.org/honorificSuffix
+<http://schema.org/honorificSuffix> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <http://schema.org/Person> ;
+                                    rdfs:range xsd:string ;
+                                    rdfs:comment "An honorific suffix preceding a Person's name such as M.D. /PhD/MSCSW." ;
+                                    rdfs:label "honorificSuffix" .
+
+
+###  http://schema.org/image
+<http://schema.org/image> rdf:type owl:DatatypeProperty ;
+                          rdfs:domain owl:Thing ;
+                          rdfs:range xsd:anyURI ;
+                          rdfs:comment "An image of the item. This can be a <a class=\"localLink\" href=\"/URL\">URL</a> or a fully described <a class=\"localLink\" href=\"/ImageObject\">ImageObject</a>." ;
+                          rdfs:label "image" .
+
+
+###  http://schema.org/isicV4
+<http://schema.org/isicV4> rdf:type owl:DatatypeProperty ;
+                           rdfs:domain [ rdf:type owl:Class ;
+                                         owl:unionOf ( <http://schema.org/Organization>
+                                                       <http://schema.org/Person>
+                                                       <http://schema.org/Place>
+                                                     )
+                                       ] ;
+                           rdfs:range xsd:string ;
+                           <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                           rdfs:comment "The International Standard of Industrial Classification of All Economic Activities (ISIC), Revision 4 code for a particular organization, business person, or place." ;
+                           rdfs:label "isicV4" .
+
+
+###  http://schema.org/jobTitle
+<http://schema.org/jobTitle> rdf:type owl:DatatypeProperty ;
+                             rdfs:domain <http://schema.org/Person> ;
+                             rdfs:range xsd:string ;
+                             rdfs:comment "The job title of the person (for example, Financial Manager)." ;
+                             rdfs:label "jobTitle" .
+
+
+###  http://schema.org/latitude
+<http://schema.org/latitude> rdf:type owl:DatatypeProperty ;
+                             rdfs:domain <http://schema.org/GeoCoordinates> ;
+                             rdfs:range xsd:decimal ;
+                             rdfs:comment "The latitude of a location. For example <code>37.42242</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." ;
+                             rdfs:label "latitude" .
+
+
+###  http://schema.org/legalName
+<http://schema.org/legalName> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <http://schema.org/Organization> ;
+                              rdfs:range xsd:string ;
+                              <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                              rdfs:comment "The official name of the organization, e.g. the registered company name." ;
+                              rdfs:label "legalName" .
+
+
+###  http://schema.org/line
+<http://schema.org/line> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain <http://schema.org/GeoShape> ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "A line is a point-to-point path consisting of two or more points. A line is expressed as a series of two or more point objects separated by space." ;
+                         rdfs:label "line" .
+
+
+###  http://schema.org/logo
+<http://schema.org/logo> rdf:type owl:DatatypeProperty ;
+                         rdfs:subPropertyOf <http://schema.org/image> ;
+                         rdfs:domain [ rdf:type owl:Class ;
+                                       owl:unionOf ( <http://schema.org/Organization>
+                                                     <http://schema.org/Place>
+                                                   )
+                                     ] ;
+                         rdfs:range xsd:anyURI ;
+                         <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                         rdfs:comment "An associated logo." ;
+                         rdfs:label "logo" .
+
+
+###  http://schema.org/longitude
+<http://schema.org/longitude> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <http://schema.org/GeoCoordinates> ;
+                              rdfs:range xsd:decimal ;
+                              rdfs:comment "The longitude of a location. For example <code>-122.08585</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." ;
+                              rdfs:label "longitude" .
+
+
+###  http://schema.org/naics
+<http://schema.org/naics> rdf:type owl:DatatypeProperty ;
+                          rdfs:domain [ rdf:type owl:Class ;
+                                        owl:unionOf ( <http://schema.org/Organization>
+                                                      <http://schema.org/Person>
+                                                    )
+                                      ] ;
+                          rdfs:range xsd:string ;
+                          <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                          rdfs:comment "The North American Industry Classification System (NAICS) code for a particular organization or business person." ;
+                          rdfs:label "naics" .
+
+
+###  http://schema.org/name
+<http://schema.org/name> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain <http://schema.org/Thing> ;
+                         rdfs:range xsd:string ;
+                         rdfs:comment "The name of the item." ;
+                         rdfs:label "name" .
+
+
+###  http://schema.org/numberedPosition
+<http://schema.org/numberedPosition> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain <http://schema.org/OrganizationRole> ;
+                                     rdfs:range xsd:decimal ;
+                                     rdfs:comment "A number associated with a role in an organization, for example, the number on an athlete's jersey." ;
+                                     rdfs:label "numberedPosition" .
+
+
+###  http://schema.org/openingHours
+<http://schema.org/openingHours> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain [ rdf:type owl:Class ;
+                                               owl:unionOf ( <http://schema.org/CivicStructure>
+                                                             <http://schema.org/LocalBusiness>
+                                                           )
+                                             ] ;
+                                 rdfs:range xsd:string ;
+                                 rdfs:comment """<p>The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.</p>
+<ul>
+<li>Days are specified using the following two-letter combinations: <code>Mo</code>, <code>Tu</code>, <code>We</code>, <code>Th</code>, <code>Fr</code>, <code>Sa</code>, <code>Su</code>.</li>
+<li>Times are specified using 24:00 time. For example, 3pm is specified as <code>15:00</code>. </li>
+<li>Here is an example: <code>&lt;time itemprop=\"openingHours\" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.</li>
+<li>If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.</li>
+</ul>""" ;
+                                 rdfs:label "openingHours" .
+
+
+###  http://schema.org/opens
+<http://schema.org/opens> rdf:type owl:DatatypeProperty ;
+                          rdfs:domain <http://schema.org/OpeningHoursSpecification> ;
+                          rdfs:range xsd:dateTime ;
+                          <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                          rdfs:comment "The opening hour of the place or service on the given day(s) of the week." ;
+                          rdfs:label "opens" .
+
+
+###  http://schema.org/polygon
+<http://schema.org/polygon> rdf:type owl:DatatypeProperty ;
+                            rdfs:domain <http://schema.org/GeoShape> ;
+                            rdfs:range xsd:string ;
+                            rdfs:comment "A polygon is the area enclosed by a point-to-point path for which the starting and ending points are the same. A polygon is expressed as a series of four or more space delimited points where the first and final points are identical." ;
+                            rdfs:label "polygon" .
+
+
+###  http://schema.org/postOfficeBoxNumber
+<http://schema.org/postOfficeBoxNumber> rdf:type owl:DatatypeProperty ;
+                                        rdfs:domain <http://schema.org/PostalAddress> ;
+                                        rdfs:range xsd:string ;
+                                        rdfs:comment "The post office box number for PO box addresses." ;
+                                        rdfs:label "postOfficeBoxNumber" .
+
+
+###  http://schema.org/postalCode
+<http://schema.org/postalCode> rdf:type owl:DatatypeProperty ;
+                               rdfs:domain [ rdf:type owl:Class ;
+                                             owl:unionOf ( <http://schema.org/GeoCoordinates>
+                                                           <http://schema.org/GeoShape>
+                                                           <http://schema.org/PostalAddress>
+                                                         )
+                                           ] ;
+                               rdfs:range xsd:string ;
+                               rdfs:comment "The postal code. For example, 94043." ;
+                               rdfs:label "postalCode" .
+
+
+###  http://schema.org/roleName
+<http://schema.org/roleName> rdf:type owl:DatatypeProperty ;
+                             rdfs:domain <http://schema.org/Role> ;
+                             rdfs:range xsd:string ;
+                             rdfs:comment "A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'." ;
+                             rdfs:label "roleName" .
+
+
+###  http://schema.org/startDate
+<http://schema.org/startDate> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <http://schema.org/Role> ;
+                              rdfs:range xsd:date ;
+                              rdfs:comment "The start date and time of the item (in <a href=\"http://en.wikipedia.org/wiki/ISO_8601\">ISO 8601 date format</a>)." ;
+                              rdfs:label "startDate" .
+
+
+###  http://schema.org/streetAddress
+<http://schema.org/streetAddress> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <http://schema.org/PostalAddress> ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:comment "The street address. For example, 1600 Amphitheatre Pkwy." ;
+                                  rdfs:label "streetAddress" .
+
+
+###  http://schema.org/telephone
+<http://schema.org/telephone> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain [ rdf:type owl:Class ;
+                                            owl:unionOf ( <http://schema.org/ContactPoint>
+                                                          <http://schema.org/Organization>
+                                                          <http://schema.org/Person>
+                                                          <http://schema.org/Place>
+                                                        )
+                                          ] ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "The telephone number." ;
+                              rdfs:label "telephone" .
+
+
+###  http://schema.org/validFrom
+<http://schema.org/validFrom> rdf:type owl:DatatypeProperty ;
+                              rdfs:domain <http://schema.org/OpeningHoursSpecification> ;
+                              rdfs:range xsd:dateTime ;
+                              <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                              rdfs:comment "The date when the item becomes valid." ;
+                              rdfs:label "validFrom" .
+
+
+###  http://schema.org/validThrough
+<http://schema.org/validThrough> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <http://schema.org/OpeningHoursSpecification> ;
+                                 rdfs:range xsd:dateTime ;
+                                 <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
+                                 rdfs:comment "The date after when the item is not valid. For example the end of an offer, salary period, or a period of opening hours." ;
+                                 rdfs:label "validThrough" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/ohsu/schema#Campus
+<http://purl.org/ohsu/schema#Campus> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://schema.org/Place> ;
+                                     rdfs:label "Campus" .
+
+
+###  http://purl.org/ohsu/schema#CivicStructureLocalSearchCategory
+<http://purl.org/ohsu/schema#CivicStructureLocalSearchCategory> rdf:type owl:Class ;
+                                                                rdfs:subClassOf <http://purl.org/ohsu/schema#LocalSearchCategory> ;
+                                                                rdfs:label "Civic Structure Local Search Category" .
+
+
+###  http://purl.org/ohsu/schema#HealthcareFacility
+<http://purl.org/ohsu/schema#HealthcareFacility> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://schema.org/CivicStructure> ;
+                                                 rdfs:comment "Health facilities are places that provide health care. They include hospitals, clinics, outpatient care centers, and specialized care centers, such as birthing centers and psychiatric care centers." ;
+                                                 rdfs:isDefinedBy <https://medlineplus.gov/healthfacilities.html> ;
+                                                 rdfs:label "Healthcare Facility" .
+
+
+###  http://purl.org/ohsu/schema#HealthcareLocalSearchCategory
+<http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> rdf:type owl:Class ;
+                                                            rdfs:subClassOf <http://purl.org/ohsu/schema#LocalSearchCategory> ;
+                                                            rdfs:label "Healthcare Local Search Category" .
+
+
+###  http://purl.org/ohsu/schema#LocalSearchCategory
+<http://purl.org/ohsu/schema#LocalSearchCategory> rdf:type owl:Class ;
+                                                  rdfs:subClassOf <http://schema.org/Enumeration> ;
+                                                  <http://purl.org/dc/terms/source> <https://moz.com/local/categories> ;
+                                                  rdfs:comment "A category used by search engines for ranking purposes." ;
+                                                  rdfs:label "Local Search Category" .
+
+
+###  http://schema.org/AdministrativeArea
+<http://schema.org/AdministrativeArea> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://schema.org/Place> ;
+                                       rdfs:comment "A geographical region, typically under the jurisdiction of a particular government." ;
+                                       rdfs:label "Administrative Area" .
+
+
+###  http://schema.org/City
+<http://schema.org/City> rdf:type owl:Class ;
+                         rdfs:subClassOf <http://schema.org/AdministrativeArea> ;
+                         rdfs:comment "A city or town." ;
+                         rdfs:label "City" .
+
+
+###  http://schema.org/CivicStructure
+<http://schema.org/CivicStructure> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://schema.org/Place> ;
+                                   rdfs:comment "A public structure, such as a town hall or concert hall." ;
+                                   rdfs:label "Civic Structure" .
+
+
+###  http://schema.org/CollegeOrUniversity
+<http://schema.org/CollegeOrUniversity> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://schema.org/EducationalOrganization> ;
+                                        rdfs:comment "A college, university, or other third-level educational institution." ;
+                                        rdfs:label "College Or University" .
+
+
+###  http://schema.org/ContactPoint
+<http://schema.org/ContactPoint> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://schema.org/StructuredValue> ;
+                                 rdfs:comment "A contact point&#x2014;for example, a Customer Complaints department." ;
+                                 rdfs:label "Contact Point" .
+
+
+###  http://schema.org/ContactPointOption
+<http://schema.org/ContactPointOption> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://schema.org/Enumeration> ;
+                                       rdfs:comment "Enumerated options related to a ContactPoint." ;
+                                       rdfs:label "Contact Point Option" .
+
+
+###  http://schema.org/Country
+<http://schema.org/Country> rdf:type owl:Class ;
+                            rdfs:subClassOf <http://schema.org/AdministrativeArea> ;
+                            rdfs:comment "A country." ;
+                            rdfs:label "Country" .
+
+
+###  http://schema.org/DayOfWeek
+<http://schema.org/DayOfWeek> rdf:type owl:Class ;
+                              rdfs:subClassOf <http://schema.org/Enumeration> ;
+                              <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+                              rdfs:comment """The day of the week, e.g. used to specify to which day the opening hours of an OpeningHoursSpecification refer.</p>
+<p>Originally, URLs from <a href=\"http://purl.org/goodrelations/v1\">GoodRelations</a> were used (for <a class=\"localLink\" href=\"/Monday\">Monday</a>, <a class=\"localLink\" href=\"/Tuesday\">Tuesday</a>, <a class=\"localLink\" href=\"/Wednesday\">Wednesday</a>, <a class=\"localLink\" href=\"/Thursday\">Thursday</a>, <a class=\"localLink\" href=\"/Friday\">Friday</a>, <a class=\"localLink\" href=\"/Saturday\">Saturday</a>, <a class=\"localLink\" href=\"/Sunday\">Sunday</a> plus a special entry for <a class=\"localLink\" href=\"/PublicHolidays\">PublicHolidays</a>); these have now been integrated directly into schema.org.""" ;
+                              rdfs:label "DayOfWeek" .
+
+
+###  http://schema.org/Dentist
+<http://schema.org/Dentist> rdf:type owl:Class ;
+                            rdfs:subClassOf <http://schema.org/LocalBusiness> ,
+                                            <http://schema.org/MedicalOrganization> ;
+                            rdfs:comment "A dentist." ;
+                            rdfs:label "Dentist" .
+
+
+###  http://schema.org/EducationalOrganization
+<http://schema.org/EducationalOrganization> rdf:type owl:Class ;
+                                            rdfs:subClassOf <http://schema.org/Organization> ;
+                                            rdfs:comment "An educational organization." ;
+                                            rdfs:label "Educational Organization" .
+
+
+###  http://schema.org/EmergencyService
+<http://schema.org/EmergencyService> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://schema.org/LocalBusiness> ;
+                                     rdfs:comment "An emergency service, such as a fire station or ER." ;
+                                     rdfs:label "Emergency Service" .
+
+
+###  http://schema.org/EmployeeRole
+<http://schema.org/EmployeeRole> rdf:type owl:Class ;
+                                 rdfs:subClassOf <http://schema.org/OrganizationRole> ;
+                                 rdfs:comment "A subclass of OrganizationRole used to describe employee relationships." ;
+                                 rdfs:label "Employee Role" .
+
+
+###  http://schema.org/Enumeration
+<http://schema.org/Enumeration> rdf:type owl:Class ;
+                                rdfs:subClassOf <http://schema.org/Intangible> ;
+                                rdfs:comment "Lists or enumerations—for example, a list of cuisines or music genres, etc." ;
+                                rdfs:label "Enumeration" .
+
+
+###  http://schema.org/GeoCircle
+<http://schema.org/GeoCircle> rdf:type owl:Class ;
+                              rdfs:subClassOf <http://schema.org/GeoShape> ;
+                              rdfs:comment """A GeoCircle is a GeoShape representing a circular geographic area. As it is a GeoShape
+          it provides the simple textual property 'circle', but also allows the combination of postalCode alongside geoRadius.
+          The center of the circle can be indicated via the 'geoMidpoint' property, or more approximately using 'address', 'postalCode'.""" ;
+                              rdfs:label "Geo Circle" .
+
+
+###  http://schema.org/GeoCoordinates
+<http://schema.org/GeoCoordinates> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://schema.org/StructuredValue> ;
+                                   rdfs:comment "The geographic coordinates of a place or event." ;
+                                   rdfs:label "Geo Coordinates" .
+
+
+###  http://schema.org/GeoShape
+<http://schema.org/GeoShape> rdf:type owl:Class ;
+                             rdfs:subClassOf <http://schema.org/StructuredValue> ;
+                             <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+                             rdfs:comment "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs. Either whitespace or commas can be used to separate latitude and longitude; whitespace should be used when writing a list of several such points." ;
+                             rdfs:label "Geo Shape" .
+
+
+###  http://schema.org/Hospital
+<http://schema.org/Hospital> rdf:type owl:Class ;
+                             rdfs:subClassOf <http://schema.org/CivicStructure> ,
+                                             <http://schema.org/EmergencyService> ,
+                                             <http://schema.org/MedicalOrganization> ;
+                             rdfs:comment "A hospital." ;
+                             rdfs:label "Hospital" .
+
+
+###  http://schema.org/Intangible
+<http://schema.org/Intangible> rdf:type owl:Class ;
+                               rdfs:subClassOf owl:Thing ;
+                               rdfs:comment "A utility class that serves as the umbrella for a number of 'intangible' things such as quantities, structured values, etc." ;
+                               rdfs:label "Intangible" .
+
+
+###  http://schema.org/Landform
+<http://schema.org/Landform> rdf:type owl:Class ;
+                             rdfs:subClassOf <http://schema.org/Place> ;
+                             rdfs:comment "A landform or physical feature.  Landform elements include mountains, plains, lakes, rivers, seascape and oceanic waterbody interface features such as bays, peninsulas, seas and so forth, including sub-aqueous terrain features such as submersed mountain ranges, volcanoes, and the great ocean basins." ;
+                             rdfs:label "Landform" .
+
+
+###  http://schema.org/Language
+<http://schema.org/Language> rdf:type owl:Class ;
+                             rdfs:subClassOf <http://schema.org/Intangible> ;
+                             rdfs:comment "Natural languages such as Spanish, Tamil, Hindi, English, etc. Formal language code tags expressed in <a href=\"https://en.wikipedia.org/wiki/IETF_language_tag\">BCP 47</a> can be used via the <a class=\"localLink\" href=\"/alternateName\">alternateName</a> property. The Language type previously also covered programming languages such as Scheme and Lisp, which are now best represented using <a class=\"localLink\" href=\"/ComputerLanguage\">ComputerLanguage</a>." ;
+                             rdfs:label "Language" .
+
+
+###  http://schema.org/Library
+<http://schema.org/Library> rdf:type owl:Class ;
+                            rdfs:subClassOf <http://schema.org/LocalBusiness> ;
+                            rdfs:comment "A library." ;
+                            rdfs:label "Library" .
+
+
+###  http://schema.org/LocalBusiness
+<http://schema.org/LocalBusiness> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://schema.org/Organization> ,
+                                                  <http://schema.org/Place> ;
+                                  rdfs:comment "A particular physical business or branch of an organization. Examples of LocalBusiness include a restaurant, a particular branch of a restaurant chain, a branch of a bank, a medical practice, a club, a bowling alley, etc." ;
+                                  rdfs:label "Local Business" .
+
+
+###  http://schema.org/MedicalBusiness
+<http://schema.org/MedicalBusiness> rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://schema.org/LocalBusiness> ;
+                                    rdfs:comment "A particular physical or virtual business of an organization for medical purposes. Examples of MedicalBusiness include differents business run by health professionals." ;
+                                    rdfs:label "Medical Business" .
+
+
+###  http://schema.org/MedicalClinic
+<http://schema.org/MedicalClinic> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://schema.org/MedicalBusiness> ,
+                                                  <http://schema.org/MedicalOrganization> ;
+                                  rdfs:comment "A facility, often associated with a hospital or medical school, that is devoted to the specific diagnosis and/or healthcare. Previously limited to outpatients but with evolution it may be open to inpatients as well." ;
+                                  rdfs:label "Medical Clinic" .
+
+
+###  http://schema.org/MedicalEnumeration
+<http://schema.org/MedicalEnumeration> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://schema.org/Enumeration> ;
+                                       rdfs:comment "Enumerations related to health and the practice of medicine: A concept that is used to attribute a quality to another concept, as a qualifier, a collection of items or a listing of all of the elements of a set in medicine practice." ;
+                                       rdfs:label "Medical Enumeration" .
+
+
+###  http://schema.org/MedicalOrganization
+<http://schema.org/MedicalOrganization> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://schema.org/Organization> ;
+                                        rdfs:comment "A medical organization (physical or not), such as hospital, institution or clinic." ;
+                                        rdfs:label "Medical Organization" .
+
+
+###  http://schema.org/MedicalSpecialty
+<http://schema.org/MedicalSpecialty> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://schema.org/MedicalEnumeration> ,
+                                                     <http://schema.org/Specialty> ;
+                                     rdfs:comment "Any specific branch of medical science or practice. Medical specialities include clinical specialties that pertain to particular organ systems and their respective disease states, as well as allied health specialties. Enumerated type." ;
+                                     rdfs:label "Medical Specialty" .
+
+
+###  http://schema.org/OpeningHoursSpecification
+<http://schema.org/OpeningHoursSpecification> rdf:type owl:Class ;
+                                              rdfs:subClassOf <http://schema.org/StructuredValue> ;
+                                              <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+                                              rdfs:comment """A structured value providing information about the opening hours of a place or a certain service inside a place.</p>
+<p>The place is <strong>open</strong> if the <a class=\"localLink\" href=\"/opens\">opens</a> property is specified, and <strong>closed</strong> otherwise.</p>
+<p>If the value for the <a class=\"localLink\" href=\"/closes\">closes</a> property is less than the value for the <a class=\"localLink\" href=\"/opens\">opens</a> property then the hour range is assumed to span over the next day.""" ;
+                                              rdfs:label "OpeningHoursSpecification" .
+
+
+###  http://schema.org/Optician
+<http://schema.org/Optician> rdf:type owl:Class ;
+                             rdfs:subClassOf <http://schema.org/MedicalBusiness> ;
+                             rdfs:comment "A store that sells reading glasses and similar devices for improving vision." ;
+                             rdfs:label "Optician" .
+
+
+###  http://schema.org/Organization
+<http://schema.org/Organization> rdf:type owl:Class ;
+                                 rdfs:subClassOf owl:Thing ;
+                                 rdfs:comment "An organization such as a school, NGO, corporation, club, etc." ;
+                                 rdfs:label "Organization" .
+
+
+###  http://schema.org/OrganizationRole
+<http://schema.org/OrganizationRole> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://schema.org/Role> ;
+                                     rdfs:comment "A subclass of Role used to describe roles within organizations." ;
+                                     rdfs:label "Organization Role" .
+
+
+###  http://schema.org/ParkingFacility
+<http://schema.org/ParkingFacility> rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://schema.org/CivicStructure> ;
+                                    rdfs:comment "A parking lot or other parking facility." ;
+                                    rdfs:label "Parking Facility" .
+
+
+###  http://schema.org/Person
+<http://schema.org/Person> rdf:type owl:Class ;
+                           owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> ;
+                           rdfs:subClassOf owl:Thing ;
+                           <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_rNews> ;
+                           rdfs:comment "A person (alive, dead, undead, or fictional)." ;
+                           rdfs:label "Person" .
+
+
+###  http://schema.org/Pharmacy
+<http://schema.org/Pharmacy> rdf:type owl:Class ;
+                             rdfs:subClassOf <http://schema.org/MedicalBusiness> ,
+                                             <http://schema.org/MedicalOrganization> ;
+                             rdfs:comment "A pharmacy or drugstore." ;
+                             rdfs:label "Pharmacy" .
+
+
+###  http://schema.org/Physician
+<http://schema.org/Physician> rdf:type owl:Class ;
+                              rdfs:subClassOf <http://schema.org/MedicalBusiness> ,
+                                              <http://schema.org/MedicalOrganization> ;
+                              rdfs:comment "A doctor's office." ;
+                              rdfs:label "Physician" .
+
+
+###  http://schema.org/Place
+<http://schema.org/Place> rdf:type owl:Class ;
+                          rdfs:subClassOf owl:Thing ;
+                          rdfs:comment "Entities that have a somewhat fixed, physical extension." ;
+                          rdfs:label "Place" .
+
+
+###  http://schema.org/PostalAddress
+<http://schema.org/PostalAddress> rdf:type owl:Class ;
+                                  rdfs:subClassOf <http://schema.org/ContactPoint> ;
+                                  rdfs:comment "The mailing address." ;
+                                  rdfs:label "Postal Address" .
+
+
+###  http://schema.org/RVPark
+<http://schema.org/RVPark> rdf:type owl:Class ;
+                           rdfs:subClassOf <http://schema.org/CivicStructure> ;
+                           rdfs:comment "A place offering space for \"Recreational Vehicles\", Caravans, mobile homes and the like." ;
+                           rdfs:label "RVPark" .
+
+
+###  http://schema.org/Role
+<http://schema.org/Role> rdf:type owl:Class ;
+                         rdfs:subClassOf <http://schema.org/Intangible> ;
+                         rdfs:comment """Represents additional information about a relationship or property. For example a Role can be used to say that a 'member' role linking some SportsTeam to a player occurred during a particular time period. Or that a Person's 'actor' role in a Movie was for some particular characterName. Such properties can be attached to a Role entity, which is then associated with the main entities using ordinary properties like 'member' or 'actor'.</p>
+<p>See also <a href=\"http://blog.schema.org/2014/06/introducing-role.html\">blog post</a>.""" ;
+                         rdfs:label "Role" .
+
+
+###  http://schema.org/School
+<http://schema.org/School> rdf:type owl:Class ;
+                           rdfs:subClassOf <http://schema.org/EducationalOrganization> ;
+                           rdfs:comment "A school." ;
+                           rdfs:label "School" .
+
+
+###  http://schema.org/Specialty
+<http://schema.org/Specialty> rdf:type owl:Class ;
+                              rdfs:subClassOf <http://schema.org/Enumeration> ;
+                              rdfs:comment "Any branch of a field in which people typically develop specific expertise, usually after significant study, time, and effort." ;
+                              rdfs:label "Specialty" .
+
+
+###  http://schema.org/State
+<http://schema.org/State> rdf:type owl:Class ;
+                          rdfs:subClassOf <http://schema.org/AdministrativeArea> ;
+                          rdfs:comment "A state or province of a country." ;
+                          rdfs:label "State" .
+
+
+###  http://schema.org/StructuredValue
+<http://schema.org/StructuredValue> rdf:type owl:Class ;
+                                    rdfs:subClassOf <http://schema.org/Intangible> ;
+                                    rdfs:comment "Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing." ;
+                                    rdfs:label "Structured Value" .
+
+
+###  http://schema.org/Thing
+<http://schema.org/Thing> rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.org/ohsu/schema#AbortionClinic
+<http://purl.org/ohsu/schema#AbortionClinic> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                             <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Abortion%20Clinic> ;
+                                             rdfs:label "Abortion Clinic" .
+
+
+###  http://purl.org/ohsu/schema#AcupunctureClinic
+<http://purl.org/ohsu/schema#AcupunctureClinic> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Acupuncture%20Clinic> ;
+                                                rdfs:label "Acupuncture Clinic" .
+
+
+###  http://purl.org/ohsu/schema#AddictionTreatmentCenter
+<http://purl.org/ohsu/schema#AddictionTreatmentCenter> rdf:type owl:NamedIndividual ,
+                                                                <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                       <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Addiction%20Treatment%20Center> ;
+                                                       rdfs:label "Addiction Treatment Center" .
+
+
+###  http://purl.org/ohsu/schema#AlcoholismTreatmentProgram
+<http://purl.org/ohsu/schema#AlcoholismTreatmentProgram> rdf:type owl:NamedIndividual ,
+                                                                  <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                         <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Alcoholism%20Treatment%20Program> ;
+                                                         rdfs:label "Alcoholism Treatment Program" .
+
+
+###  http://purl.org/ohsu/schema#Allergist
+<http://purl.org/ohsu/schema#Allergist> rdf:type owl:NamedIndividual ,
+                                                 <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                        <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Allergist> ;
+                                        rdfs:label "Allergist" .
+
+
+###  http://purl.org/ohsu/schema#AlternativeMedicinePractitioner
+<http://purl.org/ohsu/schema#AlternativeMedicinePractitioner> rdf:type owl:NamedIndividual ,
+                                                                       <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                              <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Alternative%20Medicine%20Practitioner> ;
+                                                              rdfs:label "Alternative Medicine Practitioner" .
+
+
+###  http://purl.org/ohsu/schema#AmbulanceService
+<http://purl.org/ohsu/schema#AmbulanceService> rdf:type owl:NamedIndividual ,
+                                                        <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                               <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Ambulance%20Service> ;
+                                               rdfs:label "Ambulance Service" .
+
+
+###  http://purl.org/ohsu/schema#Anesthesiologist
+<http://purl.org/ohsu/schema#Anesthesiologist> rdf:type owl:NamedIndividual ,
+                                                        <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                               <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Anesthesiologist> ;
+                                               rdfs:label "Anesthesiologist" .
+
+
+###  http://purl.org/ohsu/schema#Audiologist
+<http://purl.org/ohsu/schema#Audiologist> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Audiologist> ;
+                                          rdfs:label "Audiologist" .
+
+
+###  http://purl.org/ohsu/schema#Biofeedback
+<http://purl.org/ohsu/schema#Biofeedback> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Biofeedback%20Therapist> ;
+                                          rdfs:label "Biofeedback" .
+
+
+###  http://purl.org/ohsu/schema#BirthControlCenter
+<http://purl.org/ohsu/schema#BirthControlCenter> rdf:type owl:NamedIndividual ,
+                                                          <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                 <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Birth%20Control%20Center> ;
+                                                 rdfs:label "Birth Control Center" .
+
+
+###  http://purl.org/ohsu/schema#CancerTreatmentCenter
+<http://purl.org/ohsu/schema#CancerTreatmentCenter> rdf:type owl:NamedIndividual ,
+                                                             <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                    <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Cancer%20Treatment%20Center> ;
+                                                    rdfs:label "Cancer Treatment Center" .
+
+
+###  http://purl.org/ohsu/schema#Cardiologist
+<http://purl.org/ohsu/schema#Cardiologist> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Cardiologist> ;
+                                           rdfs:label "Cardiologist" .
+
+
+###  http://purl.org/ohsu/schema#ChildPsychologist
+<http://purl.org/ohsu/schema#ChildPsychologist> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Child%20Psychologist> ;
+                                                rdfs:label "Child Psychologist" .
+
+
+###  http://purl.org/ohsu/schema#ChildrensHospital
+<http://purl.org/ohsu/schema#ChildrensHospital> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Children's%20Hospital> ;
+                                                rdfs:label "Children's Hospital" .
+
+
+###  http://purl.org/ohsu/schema#Chiropractor
+<http://purl.org/ohsu/schema#Chiropractor> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Chiropractor> ;
+                                           rdfs:label "Chiropractor" .
+
+
+###  http://purl.org/ohsu/schema#Counselor
+<http://purl.org/ohsu/schema#Counselor> rdf:type owl:NamedIndividual ,
+                                                 <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                        <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Counselor> ;
+                                        rdfs:label "Counselor" .
+
+
+###  http://purl.org/ohsu/schema#Culture
+<http://purl.org/ohsu/schema#Culture> rdf:type owl:NamedIndividual ,
+                                               <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Culture> ;
+                                      rdfs:label "Culture" .
+
+
+###  http://purl.org/ohsu/schema#DentalClinic
+<http://purl.org/ohsu/schema#DentalClinic> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Dental%20Clinic> ;
+                                           rdfs:label "Dental Clinic" .
+
+
+###  http://purl.org/ohsu/schema#DentalImplantsPeriodontist
+<http://purl.org/ohsu/schema#DentalImplantsPeriodontist> rdf:type owl:NamedIndividual ,
+                                                                  <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                         <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Dental%20Implants%20Periodontist> ;
+                                                         rdfs:label "Dental Implants Periodontist" .
+
+
+###  http://purl.org/ohsu/schema#DentalLab
+<http://purl.org/ohsu/schema#DentalLab> rdf:type owl:NamedIndividual ,
+                                                 <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                        <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Dental%20Lab> ;
+                                        rdfs:label "Dental Lab" .
+
+
+###  http://purl.org/ohsu/schema#Dentist
+<http://purl.org/ohsu/schema#Dentist> rdf:type owl:NamedIndividual ,
+                                               <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Dentist> ;
+                                      rdfs:label "Dentist" .
+
+
+###  http://purl.org/ohsu/schema#Dermatologist
+<http://purl.org/ohsu/schema#Dermatologist> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                            <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Dermatologist> ;
+                                            rdfs:label "Dermatologist" .
+
+
+###  http://purl.org/ohsu/schema#DiabetesCenter
+<http://purl.org/ohsu/schema#DiabetesCenter> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                             <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Diabetes%20Center> ;
+                                             rdfs:label "Diabetes Center" .
+
+
+###  http://purl.org/ohsu/schema#Diabetologist
+<http://purl.org/ohsu/schema#Diabetologist> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                            <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Diabetologist> ;
+                                            rdfs:label "Diabetologist" .
+
+
+###  http://purl.org/ohsu/schema#DialysisCenter
+<http://purl.org/ohsu/schema#DialysisCenter> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                             <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Dialysis%20Center> ;
+                                             rdfs:label "Dialysis Center" .
+
+
+###  http://purl.org/ohsu/schema#Doctor
+<http://purl.org/ohsu/schema#Doctor> rdf:type owl:NamedIndividual ,
+                                              <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                     <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Doctor> ;
+                                     rdfs:label "Doctor" .
+
+
+###  http://purl.org/ohsu/schema#DrugAddictionTreatmentCenter
+<http://purl.org/ohsu/schema#DrugAddictionTreatmentCenter> rdf:type owl:NamedIndividual ,
+                                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Drug%20Addiction%20Treatment%20Center> ;
+                                                           rdfs:label "Drug Addiction Treatment Center" .
+
+
+###  http://purl.org/ohsu/schema#EatingDisorderTreatmentCenter
+<http://purl.org/ohsu/schema#EatingDisorderTreatmentCenter> rdf:type owl:NamedIndividual ,
+                                                                     <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                            <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Eating%20Disorder%20Treatment%20Center> ;
+                                                            rdfs:label "Eating Disorder Treatment Center" .
+
+
+###  http://purl.org/ohsu/schema#EmergencyCarePhysician
+<http://purl.org/ohsu/schema#EmergencyCarePhysician> rdf:type owl:NamedIndividual ,
+                                                              <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                     <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Emergency%20Care%20Physician> ;
+                                                     rdfs:label "Emergency Care Physician" .
+
+
+###  http://purl.org/ohsu/schema#EmergencyDentalService
+<http://purl.org/ohsu/schema#EmergencyDentalService> rdf:type owl:NamedIndividual ,
+                                                              <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                     <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Emergency%20Dental%20Service> ;
+                                                     rdfs:label "Emergency Dental Service" .
+
+
+###  http://purl.org/ohsu/schema#EmergencyRoom
+<http://purl.org/ohsu/schema#EmergencyRoom> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                            <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Emergency%20Room> ;
+                                            rdfs:label "Emergency Room" .
+
+
+###  http://purl.org/ohsu/schema#Endocrinologist
+<http://purl.org/ohsu/schema#Endocrinologist> rdf:type owl:NamedIndividual ,
+                                                       <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                              <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Endocrinologist> ;
+                                              rdfs:label "Endocrinologist" .
+
+
+###  http://purl.org/ohsu/schema#Endodontist
+<http://purl.org/ohsu/schema#Endodontist> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Endodontist> ;
+                                          rdfs:label "Endodontist" .
+
+
+###  http://purl.org/ohsu/schema#EyeCareCenter
+<http://purl.org/ohsu/schema#EyeCareCenter> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                            <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Eye%20Care%20Center> ;
+                                            rdfs:label "Eye Care Center" .
+
+
+###  http://purl.org/ohsu/schema#FamliyPracticePhysician
+<http://purl.org/ohsu/schema#FamliyPracticePhysician> rdf:type owl:NamedIndividual ,
+                                                               <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Family%20Practice%20Physician> ;
+                                                      rdfs:label "Famliy Practice Physician" .
+
+
+###  http://purl.org/ohsu/schema#FertilityClinic
+<http://purl.org/ohsu/schema#FertilityClinic> rdf:type owl:NamedIndividual ,
+                                                       <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                              <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Fertility%20Clinic> ;
+                                              rdfs:label "Fertility Clinic" .
+
+
+###  http://purl.org/ohsu/schema#FertilityPhysician
+<http://purl.org/ohsu/schema#FertilityPhysician> rdf:type owl:NamedIndividual ,
+                                                          <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                 <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Fertility%20Physician> ;
+                                                 rdfs:label "Fertility Physician" .
+
+
+###  http://purl.org/ohsu/schema#FreeClinic
+<http://purl.org/ohsu/schema#FreeClinic> rdf:type owl:NamedIndividual ,
+                                                  <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                         <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Free%20Clinic> ;
+                                         rdfs:label "Free Clinic" .
+
+
+###  http://purl.org/ohsu/schema#Gastroenterologist
+<http://purl.org/ohsu/schema#Gastroenterologist> rdf:type owl:NamedIndividual ,
+                                                          <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                 <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Gastroenterologist> ;
+                                                 rdfs:label "Gastroenterologist" .
+
+
+###  http://purl.org/ohsu/schema#Gym
+<http://purl.org/ohsu/schema#Gym> rdf:type owl:NamedIndividual ,
+                                           <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                  <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Gym> ;
+                                  rdfs:Label "Gym" .
+
+
+###  http://purl.org/ohsu/schema#HandSurgeon
+<http://purl.org/ohsu/schema#HandSurgeon> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Hand%20Surgeon> ;
+                                          rdfs:label "Hand Surgeon" .
+
+
+###  http://purl.org/ohsu/schema#HearingAidEquipmentStore
+<http://purl.org/ohsu/schema#HearingAidEquipmentStore> rdf:type owl:NamedIndividual ,
+                                                                <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                       <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Hearing%20Aid%20Equipment%20Store> ;
+                                                       rdfs:label "Hearing Aid Equipment Store" .
+
+
+###  http://purl.org/ohsu/schema#HearingAidRepairService
+<http://purl.org/ohsu/schema#HearingAidRepairService> rdf:type owl:NamedIndividual ,
+                                                               <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Hearing%20Aid%20Repair%20Service> ;
+                                                      rdfs:label "Hearing Aid Repair Service" .
+
+
+###  http://purl.org/ohsu/schema#HearingAidStore
+<http://purl.org/ohsu/schema#HearingAidStore> rdf:type owl:NamedIndividual ,
+                                                       <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                              <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Hearing%20Aid%20Store> ;
+                                              rdfs:label "Hearing Aid Store" .
+
+
+###  http://purl.org/ohsu/schema#Heliport
+<http://purl.org/ohsu/schema#Heliport> rdf:type owl:NamedIndividual ,
+                                                <http://purl.org/ohsu/schema#CivicStructureLocalSearchCategory> ;
+                                       <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Heliport> ;
+                                       rdfs:label "Heliport" .
+
+
+###  http://purl.org/ohsu/schema#Hematologist
+<http://purl.org/ohsu/schema#Hematologist> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Hematologist> ;
+                                           rdfs:label "Hematologist" .
+
+
+###  http://purl.org/ohsu/schema#HolisticMedicinePractitioner
+<http://purl.org/ohsu/schema#HolisticMedicinePractitioner> rdf:type owl:NamedIndividual ,
+                                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Holistic%20Medicine%20Practitioner> ;
+                                                           rdfs:label "Holistic Medicine Practitioner" .
+
+
+###  http://purl.org/ohsu/schema#Hospital
+<http://purl.org/ohsu/schema#Hospital> rdf:type owl:NamedIndividual ,
+                                                <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                       <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Hospital> ;
+                                       rdfs:label "Hospital" .
+
+
+###  http://purl.org/ohsu/schema#InfectiousDiseasePhysician
+<http://purl.org/ohsu/schema#InfectiousDiseasePhysician> rdf:type owl:NamedIndividual ,
+                                                                  <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                         <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Infectious%20Disease%20Physician> ;
+                                                         rdfs:label "Infectious Disease Physician" .
+
+
+###  http://purl.org/ohsu/schema#Internist
+<http://purl.org/ohsu/schema#Internist> rdf:type owl:NamedIndividual ,
+                                                 <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                        <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Internist> ;
+                                        rdfs:label "Internist" .
+
+
+###  http://purl.org/ohsu/schema#MRICenter
+<http://purl.org/ohsu/schema#MRICenter> rdf:type owl:NamedIndividual ,
+                                                 <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                        <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/MRI%20Center> ;
+                                        rdfs:label "MRI Center" .
+
+
+###  http://purl.org/ohsu/schema#MammographyService
+<http://purl.org/ohsu/schema#MammographyService> rdf:type owl:NamedIndividual ,
+                                                          <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                 <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Mammography%20Service> ;
+                                                 rdfs:label "Mammography Service" .
+
+
+###  http://purl.org/ohsu/schema#MassageTherapist
+<http://purl.org/ohsu/schema#MassageTherapist> rdf:type owl:NamedIndividual ,
+                                                        <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                               <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Massage%20Therapist> ;
+                                               rdfs:label "Massage Therapist" .
+
+
+###  http://purl.org/ohsu/schema#MedicalCenter
+<http://purl.org/ohsu/schema#MedicalCenter> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                            <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Medical%20Center> ;
+                                            rdfs:label "Medical Center" .
+
+
+###  http://purl.org/ohsu/schema#MedicalClinic
+<http://purl.org/ohsu/schema#MedicalClinic> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                            <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Medical%20Clinic> ;
+                                            rdfs:label "Medical Clinic" .
+
+
+###  http://purl.org/ohsu/schema#MedicalDiagnosticImagingCenter
+<http://purl.org/ohsu/schema#MedicalDiagnosticImagingCenter> rdf:type owl:NamedIndividual ,
+                                                                      <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                             <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Medical%20Diagnostic%20Imaging%20Center> ;
+                                                             rdfs:label "Medical Diagnostic Imaging Center" .
+
+
+###  http://purl.org/ohsu/schema#MedicalGroup
+<http://purl.org/ohsu/schema#MedicalGroup> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Medical%20Group> ;
+                                           rdfs:label "Medical Group" .
+
+
+###  http://purl.org/ohsu/schema#MedicalLaboratory
+<http://purl.org/ohsu/schema#MedicalLaboratory> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Medical%20Laboratory> ;
+                                                rdfs:label "Medical Laboratory" .
+
+
+###  http://purl.org/ohsu/schema#MedicalSpa
+<http://purl.org/ohsu/schema#MedicalSpa> rdf:type owl:NamedIndividual ,
+                                                  <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                         <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Medical%20Spa> ;
+                                         rdfs:label "Medical Spa" .
+
+
+###  http://purl.org/ohsu/schema#MedicalTranscriptionService
+<http://purl.org/ohsu/schema#MedicalTranscriptionService> rdf:type owl:NamedIndividual ,
+                                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Medical%20Transcription%20Service> ;
+                                                          rdfs:label "Medical Transcription Service" .
+
+
+###  http://purl.org/ohsu/schema#MeditationCenter
+<http://purl.org/ohsu/schema#MeditationCenter> rdf:type owl:NamedIndividual ,
+                                                        <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                               <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Meditation%20Center> ;
+                                               rdfs:label "MeditationCenter" .
+
+
+###  http://purl.org/ohsu/schema#MentalHealthClinic
+<http://purl.org/ohsu/schema#MentalHealthClinic> rdf:type owl:NamedIndividual ,
+                                                          <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                 <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Mental%20Health%20Clinic> ;
+                                                 rdfs:label "Mental Health Clinic" .
+
+
+###  http://purl.org/ohsu/schema#MentalHealthService
+<http://purl.org/ohsu/schema#MentalHealthService> rdf:type owl:NamedIndividual ,
+                                                           <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                  <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Mental%20Health%20Service> ;
+                                                  rdfs:label "Mental Health Service" .
+
+
+###  http://purl.org/ohsu/schema#Midwife
+<http://purl.org/ohsu/schema#Midwife> rdf:type owl:NamedIndividual ,
+                                               <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Midwife> ;
+                                      rdfs:label "Midwife" .
+
+
+###  http://purl.org/ohsu/schema#NeonatalPhysician
+<http://purl.org/ohsu/schema#NeonatalPhysician> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Neonatal%20Physician> ;
+                                                rdfs:label "Neonatal Physician" .
+
+
+###  http://purl.org/ohsu/schema#Nephrologist
+<http://purl.org/ohsu/schema#Nephrologist> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Nephrologist> ;
+                                           rdfs:label "Nephrologist" .
+
+
+###  http://purl.org/ohsu/schema#Neurologist
+<http://purl.org/ohsu/schema#Neurologist> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Neurologist> ;
+                                          rdfs:label "Neurologist" .
+
+
+###  http://purl.org/ohsu/schema#Nutritionist
+<http://purl.org/ohsu/schema#Nutritionist> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Nutritionist> ;
+                                           rdfs:label "Nutritionist" .
+
+
+###  http://purl.org/ohsu/schema#ObstetricianGynecologist
+<http://purl.org/ohsu/schema#ObstetricianGynecologist> rdf:type owl:NamedIndividual ,
+                                                                <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                       <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Obstetrician-Gynecologist> ;
+                                                       rdfs:label "Obstetrician-Gynecologist" .
+
+
+###  http://purl.org/ohsu/schema#OccupationalHealthService
+<http://purl.org/ohsu/schema#OccupationalHealthService> rdf:type owl:NamedIndividual ,
+                                                                 <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                        <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Occupational%20Health%20Service> ;
+                                                        rdfs:label "Occupational Health Service" .
+
+
+###  http://purl.org/ohsu/schema#OccupationalTherapist
+<http://purl.org/ohsu/schema#OccupationalTherapist> rdf:type owl:NamedIndividual ,
+                                                             <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                    <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Occupational%20Therapist> ;
+                                                    rdfs:label "Occupational Therapist" .
+
+
+###  http://purl.org/ohsu/schema#Oncologist
+<http://purl.org/ohsu/schema#Oncologist> rdf:type owl:NamedIndividual ,
+                                                  <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                         <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Oncologist> ;
+                                         rdfs:label "Oncologist" .
+
+
+###  http://purl.org/ohsu/schema#Opthalmologist
+<http://purl.org/ohsu/schema#Opthalmologist> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                             <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Ophthalmologist> ;
+                                             rdfs:label "Opthalmologist" .
+
+
+###  http://purl.org/ohsu/schema#Optician
+<http://purl.org/ohsu/schema#Optician> rdf:type owl:NamedIndividual ,
+                                                <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                       <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Optician> ;
+                                       rdfs:label "Optician" .
+
+
+###  http://purl.org/ohsu/schema#Optometrist
+<http://purl.org/ohsu/schema#Optometrist> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Optometrist> ;
+                                          rdfs:label "Optometrist" .
+
+
+###  http://purl.org/ohsu/schema#OralSurgeon
+<http://purl.org/ohsu/schema#OralSurgeon> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Oral%20Surgeon> ;
+                                          rdfs:label "Oral Surgeon" .
+
+
+###  http://purl.org/ohsu/schema#Orthodontist
+<http://purl.org/ohsu/schema#Orthodontist> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Orthodontist> ;
+                                           rdfs:label "Orthodontist" .
+
+
+###  http://purl.org/ohsu/schema#OrthopedicSurgeon
+<http://purl.org/ohsu/schema#OrthopedicSurgeon> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Orthopedic%20Surgeon> ;
+                                                rdfs:label "Orthopedic Surgeon" .
+
+
+###  http://purl.org/ohsu/schema#OrthoticsAndProstheticsService
+<http://purl.org/ohsu/schema#OrthoticsAndProstheticsService> rdf:type owl:NamedIndividual ,
+                                                                      <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                             <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Orthotics%20%26%20Prosthetics%20Service> ;
+                                                             rdfs:label "Orthotics & Prosthetics Service" .
+
+
+###  http://purl.org/ohsu/schema#Osteopath
+<http://purl.org/ohsu/schema#Osteopath> rdf:type owl:NamedIndividual ,
+                                                 <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                        <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Osteopath> ;
+                                        rdfs:label "Osteopath" .
+
+
+###  http://purl.org/ohsu/schema#Otolaryngologist
+<http://purl.org/ohsu/schema#Otolaryngologist> rdf:type owl:NamedIndividual ,
+                                                        <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                               <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Otolaryngologist> ;
+                                               rdfs:label "Otolaryngologist" .
+
+
+###  http://purl.org/ohsu/schema#PainControlClinic
+<http://purl.org/ohsu/schema#PainControlClinic> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Pain%20Control%20Clinic> ;
+                                                rdfs:label "Pain Control Clinic" .
+
+
+###  http://purl.org/ohsu/schema#PainManagementPhysician
+<http://purl.org/ohsu/schema#PainManagementPhysician> rdf:type owl:NamedIndividual ,
+                                                               <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Pain%20Management%20Physician> ;
+                                                      rdfs:label "Pain Management Physician" .
+
+
+###  http://purl.org/ohsu/schema#ParkingGarage
+<http://purl.org/ohsu/schema#ParkingGarage> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ohsu/schema#CivicStructureLocalSearchCategory> ;
+                                            <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Parking%20Garage> ;
+                                            rdfs:label "Parking Garage" .
+
+
+###  http://purl.org/ohsu/schema#ParkingLot
+<http://purl.org/ohsu/schema#ParkingLot> rdf:type owl:NamedIndividual ,
+                                                  <http://purl.org/ohsu/schema#CivicStructureLocalSearchCategory> ;
+                                         <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Parking%20Lot> ;
+                                         rdfs:label "Parking Lot" .
+
+
+###  http://purl.org/ohsu/schema#Pathologist
+<http://purl.org/ohsu/schema#Pathologist> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Pathologist> ;
+                                          rdfs:label "Pathologist" .
+
+
+###  http://purl.org/ohsu/schema#PediatricCardiologist
+<http://purl.org/ohsu/schema#PediatricCardiologist> rdf:type owl:NamedIndividual ,
+                                                             <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                    <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Pediatric%20Cardiologist> ;
+                                                    rdfs:label "Pediatric Cardiologist" .
+
+
+###  http://purl.org/ohsu/schema#PediatricDentist
+<http://purl.org/ohsu/schema#PediatricDentist> rdf:type owl:NamedIndividual ,
+                                                        <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                               <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Pediatric%20Dentist> ;
+                                               rdfs:label "Pediatric Dentist" .
+
+
+###  http://purl.org/ohsu/schema#PediatricOpthalmologist
+<http://purl.org/ohsu/schema#PediatricOpthalmologist> rdf:type owl:NamedIndividual ,
+                                                               <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Pediatric%20Opthalmologist> ;
+                                                      rdfs:label "Pediatric Opthalmologist" .
+
+
+###  http://purl.org/ohsu/schema#Pediatrician
+<http://purl.org/ohsu/schema#Pediatrician> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Pediatrician> ;
+                                           rdfs:label "Pediatrician" .
+
+
+###  http://purl.org/ohsu/schema#Periodontist
+<http://purl.org/ohsu/schema#Periodontist> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Periodontist> ;
+                                           rdfs:label "Periodontist" .
+
+
+###  http://purl.org/ohsu/schema#Pharmacy
+<http://purl.org/ohsu/schema#Pharmacy> rdf:type owl:NamedIndividual ,
+                                                <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                       <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Pharmacy> ;
+                                       rdfs:label "Pharmacy" .
+
+
+###  http://purl.org/ohsu/schema#Physiatrist
+<http://purl.org/ohsu/schema#Physiatrist> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Physiatrist> ;
+                                          rdfs:label "Physiatrist" .
+
+
+###  http://purl.org/ohsu/schema#PhysicalFitnessProgram
+<http://purl.org/ohsu/schema#PhysicalFitnessProgram> rdf:type owl:NamedIndividual ,
+                                                              <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                     <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Physical%20Fitness%20Program> ;
+                                                     rdfs:label "Physical Fitness Program" .
+
+
+###  http://purl.org/ohsu/schema#PhysicalTherapyClinic
+<http://purl.org/ohsu/schema#PhysicalTherapyClinic> rdf:type owl:NamedIndividual ,
+                                                             <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                    <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Physical%20Therapy%20Clinic> ;
+                                                    rdfs:label "Physical Therapy Clinic" .
+
+
+###  http://purl.org/ohsu/schema#PhysicianReferralService
+<http://purl.org/ohsu/schema#PhysicianReferralService> rdf:type owl:NamedIndividual ,
+                                                                <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                       <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Physician%20Referral%20Service> ;
+                                                       rdfs:label "Physician Referral Service" .
+
+
+###  http://purl.org/ohsu/schema#Physiotherapist
+<http://purl.org/ohsu/schema#Physiotherapist> rdf:type owl:NamedIndividual ,
+                                                       <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                              <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Physiotherapist> ;
+                                              rdfs:label "Physiotherapist" .
+
+
+###  http://purl.org/ohsu/schema#PlasticSurgeon
+<http://purl.org/ohsu/schema#PlasticSurgeon> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                             <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Plastic%20Surgeon> ;
+                                             rdfs:label "Plastic Surgeon" .
+
+
+###  http://purl.org/ohsu/schema#Podiatrist
+<http://purl.org/ohsu/schema#Podiatrist> rdf:type owl:NamedIndividual ,
+                                                  <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                         <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Podiatrist> ;
+                                         rdfs:label "Podiatrist" .
+
+
+###  http://purl.org/ohsu/schema#PregnancyCareCenter
+<http://purl.org/ohsu/schema#PregnancyCareCenter> rdf:type owl:NamedIndividual ,
+                                                           <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                  <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Pregnancy%20Care%20Center> ;
+                                                  rdfs:label "Pregnancy Care Center" .
+
+
+###  http://purl.org/ohsu/schema#Proctologist
+<http://purl.org/ohsu/schema#Proctologist> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Proctologist> ;
+                                           rdfs:label "Proctologist" .
+
+
+###  http://purl.org/ohsu/schema#Psychiatrist
+<http://purl.org/ohsu/schema#Psychiatrist> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Psychiatrist> ;
+                                           rdfs:label "Psychiatrist" .
+
+
+###  http://purl.org/ohsu/schema#Psychologist
+<http://purl.org/ohsu/schema#Psychologist> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Psychologist> ;
+                                           rdfs:label "Psychologist" .
+
+
+###  http://purl.org/ohsu/schema#Psychotherapist
+<http://purl.org/ohsu/schema#Psychotherapist> rdf:type owl:NamedIndividual ,
+                                                       <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                              <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Psychotherapist> ;
+                                              rdfs:label "Psychotherapist" .
+
+
+###  http://purl.org/ohsu/schema#Pulmonologist
+<http://purl.org/ohsu/schema#Pulmonologist> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                            <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Pulmonologist> ;
+                                            rdfs:label "Pulmonologist" .
+
+
+###  http://purl.org/ohsu/schema#RVPark
+<http://purl.org/ohsu/schema#RVPark> rdf:type owl:NamedIndividual ,
+                                              <http://purl.org/ohsu/schema#CivicStructureLocalSearchCategory> ;
+                                     <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/RV%20Park> ;
+                                     rdfs:label "RV Park" .
+
+
+###  http://purl.org/ohsu/schema#Radiologist
+<http://purl.org/ohsu/schema#Radiologist> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Radiologist> ;
+                                          rdfs:label "Radiologist" .
+
+
+###  http://purl.org/ohsu/schema#RehabilitationCenter
+<http://purl.org/ohsu/schema#RehabilitationCenter> rdf:type owl:NamedIndividual ,
+                                                            <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                   <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Rehabilitation%20Center> ;
+                                                   rdfs:label "Rehabilitation Center" .
+
+
+###  http://purl.org/ohsu/schema#ReproductiveHealthClinic
+<http://purl.org/ohsu/schema#ReproductiveHealthClinic> rdf:type owl:NamedIndividual ,
+                                                                <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                       <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Reproductive%20Health%20Clinic> ;
+                                                       rdfs:label "Reproductive Health Clinic" .
+
+
+###  http://purl.org/ohsu/schema#Rheumatologist
+<http://purl.org/ohsu/schema#Rheumatologist> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                             <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Rheumatologist> ;
+                                             rdfs:label "Rheumatologist" .
+
+
+###  http://purl.org/ohsu/schema#STDTestingService
+<http://purl.org/ohsu/schema#STDTestingService> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/STD%20Testing%20Service> ;
+                                                rdfs:label "STD Testing Service" .
+
+
+###  http://purl.org/ohsu/schema#SkinCareClinic
+<http://purl.org/ohsu/schema#SkinCareClinic> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                             <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Skin%20Care%20Clinic> ;
+                                             rdfs:label "Skin Care Clinic" .
+
+
+###  http://purl.org/ohsu/schema#SleepClinic
+<http://purl.org/ohsu/schema#SleepClinic> rdf:type owl:NamedIndividual ,
+                                                   <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Sleep%20Clinic> ;
+                                          rdfs:label "Sleep Clinic" .
+
+
+###  http://purl.org/ohsu/schema#Spa
+<http://purl.org/ohsu/schema#Spa> rdf:type owl:NamedIndividual ,
+                                           <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                  <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Spa> ;
+                                  rdfs:label "Spa" .
+
+
+###  http://purl.org/ohsu/schema#SpeechPathologist
+<http://purl.org/ohsu/schema#SpeechPathologist> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Speech%20Pathologist> ;
+                                                rdfs:label "Speech Pathologist" .
+
+
+###  http://purl.org/ohsu/schema#SportsMassageTherapist
+<http://purl.org/ohsu/schema#SportsMassageTherapist> rdf:type owl:NamedIndividual ,
+                                                              <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                     <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Sports%20Massage%20Therapist> ;
+                                                     rdfs:label "Sports Massage Therapist" .
+
+
+###  http://purl.org/ohsu/schema#SportsMedicineClinic
+<http://purl.org/ohsu/schema#SportsMedicineClinic> rdf:type owl:NamedIndividual ,
+                                                            <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                   <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Sports%20Medicine%20Clinic> ;
+                                                   rdfs:label "Sports Medicine Clinic" .
+
+
+###  http://purl.org/ohsu/schema#SportsMedicinePhysician
+<http://purl.org/ohsu/schema#SportsMedicinePhysician> rdf:type owl:NamedIndividual ,
+                                                               <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Sports%20Medicine%20Physician> ;
+                                                      rdfs:label "Sports Medicine Physician" .
+
+
+###  http://purl.org/ohsu/schema#Surgeon
+<http://purl.org/ohsu/schema#Surgeon> rdf:type owl:NamedIndividual ,
+                                               <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Surgeon> ;
+                                      rdfs:label "Surgeon" .
+
+
+###  http://purl.org/ohsu/schema#SurgicalCenter
+<http://purl.org/ohsu/schema#SurgicalCenter> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                             <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Surgical%20Center> ;
+                                             rdfs:label "Surgical Center" .
+
+
+###  http://purl.org/ohsu/schema#TeethWhiteningService
+<http://purl.org/ohsu/schema#TeethWhiteningService> rdf:type owl:NamedIndividual ,
+                                                             <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                    <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Teeth%20Whitening%20Service> ;
+                                                    rdfs:label "Teeth Whitening Service" .
+
+
+###  http://purl.org/ohsu/schema#UniversityHospital
+<http://purl.org/ohsu/schema#UniversityHospital> rdf:type owl:NamedIndividual ,
+                                                          <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                 <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/University%20Hospital> ;
+                                                 rdfs:label "University Hospital" .
+
+
+###  http://purl.org/ohsu/schema#UrgentCareFacility
+<http://purl.org/ohsu/schema#UrgentCareFacility> rdf:type owl:NamedIndividual ,
+                                                          <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                 <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Urgent%20Care%20Facility> ;
+                                                 rdfs:label "Urgent Care Facility" .
+
+
+###  http://purl.org/ohsu/schema#Urologist
+<http://purl.org/ohsu/schema#Urologist> rdf:type owl:NamedIndividual ,
+                                                 <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                        <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Urologist> ;
+                                        rdfs:label "Urologist" .
+
+
+###  http://purl.org/ohsu/schema#VascularSurgeon
+<http://purl.org/ohsu/schema#VascularSurgeon> rdf:type owl:NamedIndividual ,
+                                                       <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                              <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Vascular%20Surgeon> ;
+                                              rdfs:label "Vascular Surgeon" .
+
+
+###  http://purl.org/ohsu/schema#WalkInClinic
+<http://purl.org/ohsu/schema#WalkInClinic> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Walk-In%20Clinic> ;
+                                           rdfs:label "Walk-In Clinic" .
+
+
+###  http://purl.org/ohsu/schema#WeightLossService
+<http://purl.org/ohsu/schema#WeightLossService> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Weight%20Loss%20Service> ;
+                                                rdfs:label "Weight Loss Service" .
+
+
+###  http://purl.org/ohsu/schema#WellnessProgram
+<http://purl.org/ohsu/schema#WellnessProgram> rdf:type owl:NamedIndividual ,
+                                                       <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                              <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Wellness%20Program> ;
+                                              rdfs:label "Wellness Program" .
+
+
+###  http://purl.org/ohsu/schema#WomensHealthClinic
+<http://purl.org/ohsu/schema#WomensHealthClinic> rdf:type owl:NamedIndividual ,
+                                                          <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                                 <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Women's%20Health%20Clinic> ;
+                                                 rdfs:label "Women's Health Clinic" .
+
+
+###  http://purl.org/ohsu/schema#XrayLab
+<http://purl.org/ohsu/schema#XrayLab> rdf:type owl:NamedIndividual ,
+                                               <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
+                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/X-ray%20Lab> ;
+                                      rdfs:label "X-ray Lab" .
+
+
+###  http://schema.org/Anesthesia
+<http://schema.org/Anesthesia> rdf:type owl:NamedIndividual ,
+                                        <http://schema.org/MedicalSpecialty> ;
+                               rdfs:comment "A specific branch of medical science that pertains to study of anesthetics and their application." ;
+                               rdfs:label "Anesthesia" .
+
+
+###  http://schema.org/Cardiovascular
+<http://schema.org/Cardiovascular> rdf:type owl:NamedIndividual ,
+                                            <http://schema.org/MedicalSpecialty> ;
+                                   rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of heart and vasculature." ;
+                                   rdfs:label "Cardiovascular" .
+
+
+###  http://schema.org/CommunityHealth
+<http://schema.org/CommunityHealth> rdf:type owl:NamedIndividual ,
+                                             <http://schema.org/MedicalSpecialty> ;
+                                    rdfs:comment "A field of public health focusing on improving health characteristics of a defined population in relation with their geographical or environment areas" ;
+                                    rdfs:label "Community Health" .
+
+
+###  http://schema.org/Dentistry
+<http://schema.org/Dentistry> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/MedicalSpecialty> ;
+                              rdfs:comment "A branch of medicine that is involved in the dental care." ;
+                              rdfs:label "Dentistry" .
+
+
+###  http://schema.org/Dermatology
+<http://schema.org/Dermatology> rdf:type owl:NamedIndividual ,
+                                         <http://schema.org/MedicalSpecialty> ;
+                                rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of skin." ;
+                                rdfs:label "Dermatology" .
+
+
+###  http://schema.org/DietNutrition
+<http://schema.org/DietNutrition> rdf:type owl:NamedIndividual ,
+                                           <http://schema.org/MedicalSpecialty> ;
+                                  rdfs:comment "Dietetic and nutrition as a medical speciality." ;
+                                  rdfs:label "Diet Nutrition" .
+
+
+###  http://schema.org/Emergency
+<http://schema.org/Emergency> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/MedicalSpecialty> ;
+                              rdfs:comment "A specific branch of medical science that deals with the evaluation and initial treatment of medical conditions caused by trauma or sudden illness." ;
+                              rdfs:label "Emergency" .
+
+
+###  http://schema.org/Endocrine
+<http://schema.org/Endocrine> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/MedicalSpecialty> ;
+                              rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of endocrine glands and their secretions." ;
+                              rdfs:label "Endocrine" .
+
+
+###  http://schema.org/Friday
+<http://schema.org/Friday> rdf:type owl:NamedIndividual ,
+                                    <http://schema.org/DayOfWeek> ;
+                           owl:sameAs <http://www.wikidata.org/entity/Q130> ;
+                           rdfs:comment "The day of the week between Thursday and Saturday." ;
+                           rdfs:label "Friday" .
+
+
+###  http://schema.org/Gastroenterologic
+<http://schema.org/Gastroenterologic> rdf:type owl:NamedIndividual ,
+                                               <http://schema.org/MedicalSpecialty> ;
+                                      rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of digestive system." ;
+                                      rdfs:label "Gastroenterologic" .
+
+
+###  http://schema.org/Genetic
+<http://schema.org/Genetic> rdf:type owl:NamedIndividual ,
+                                     <http://schema.org/MedicalSpecialty> ;
+                            rdfs:comment "A specific branch of medical science that pertains to hereditary transmission and the variation of inherited characteristics and disorders." ;
+                            rdfs:label "Genetic" .
+
+
+###  http://schema.org/Geriatric
+<http://schema.org/Geriatric> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/MedicalSpecialty> ;
+                              rdfs:comment "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases, debilities and provision of care to the aged." ;
+                              rdfs:label "Geriatric" .
+
+
+###  http://schema.org/Gynecologic
+<http://schema.org/Gynecologic> rdf:type owl:NamedIndividual ,
+                                         <http://schema.org/MedicalSpecialty> ;
+                                rdfs:comment "A specific branch of medical science that pertains to the health care of women, particularly in the diagnosis and treatment of disorders affecting the female reproductive system." ;
+                                rdfs:label "Gynecologic" .
+
+
+###  http://schema.org/HearingImpairedSupported
+<http://schema.org/HearingImpairedSupported> rdf:type owl:NamedIndividual ,
+                                                      <http://schema.org/ContactPointOption> ;
+                                             rdfs:comment "Uses devices to support users with hearing impairments." ;
+                                             rdfs:label "Hearing Impaired Supported" .
+
+
+###  http://schema.org/Hematologic
+<http://schema.org/Hematologic> rdf:type owl:NamedIndividual ,
+                                         <http://schema.org/MedicalSpecialty> ;
+                                rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of blood and blood producing organs." ;
+                                rdfs:label "Hematologic" .
+
+
+###  http://schema.org/Infectious
+<http://schema.org/Infectious> rdf:type owl:NamedIndividual ,
+                                        <http://schema.org/MedicalSpecialty> ;
+                               rdfs:comment "Something in medical science that pertains to infectious diseases i.e caused by bacterial, viral, fungal or parasitic infections." ;
+                               rdfs:label "Infectious" .
+
+
+###  http://schema.org/LaboratoryScience
+<http://schema.org/LaboratoryScience> rdf:type owl:NamedIndividual ,
+                                               <http://schema.org/MedicalSpecialty> ;
+                                      rdfs:comment "A medical science pertaining to chemical, hematological, immunologic, microscopic, or bacteriological diagnostic analyses or research" ;
+                                      rdfs:label "Laboratory Science" .
+
+
+###  http://schema.org/Midwifery
+<http://schema.org/Midwifery> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/MedicalSpecialty> ;
+                              rdfs:comment "A nurse-like health profession that deals with pregnancy, childbirth, and the postpartum period (including care of the newborn), besides sexual and reproductive health of women throughout their lives." ;
+                              rdfs:label "Midwifery" .
+
+
+###  http://schema.org/Monday
+<http://schema.org/Monday> rdf:type owl:NamedIndividual ,
+                                    <http://schema.org/DayOfWeek> ;
+                           owl:sameAs <http://www.wikidata.org/entity/Q105> ;
+                           rdfs:comment "The day of the week between Sunday and Tuesday." ;
+                           rdfs:label "Monday" .
+
+
+###  http://schema.org/Musculoskeletal
+<http://schema.org/Musculoskeletal> rdf:type owl:NamedIndividual ,
+                                             <http://schema.org/MedicalSpecialty> ;
+                                    rdfs:comment "A specific branch of medical science that pertains to diagnosis and treatment of disorders of muscles, ligaments and skeletal system." ;
+                                    rdfs:label "Musculoskeletal" .
+
+
+###  http://schema.org/Neurologic
+<http://schema.org/Neurologic> rdf:type owl:NamedIndividual ,
+                                        <http://schema.org/MedicalSpecialty> ;
+                               rdfs:comment "A specific branch of medical science that studies the nerves and nervous system and its respective disease states." ;
+                               rdfs:label "Neurologic" .
+
+
+###  http://schema.org/Nursing
+<http://schema.org/Nursing> rdf:type owl:NamedIndividual ,
+                                     <http://schema.org/MedicalSpecialty> ;
+                            rdfs:comment "A health profession of a person formally educated and trained in the care of the sick or infirm person." ;
+                            rdfs:label "Nursing" .
+
+
+###  http://schema.org/Obstetric
+<http://schema.org/Obstetric> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/MedicalSpecialty> ;
+                              rdfs:comment "A specific branch of medical science that specializes in the care of women during the prenatal and postnatal care and with the delivery of the child." ;
+                              rdfs:label "Obstetric" .
+
+
+###  http://schema.org/OccupationalTherapy
+<http://schema.org/OccupationalTherapy> rdf:type owl:NamedIndividual ,
+                                                 <http://schema.org/MedicalSpecialty> ;
+                                        rdfs:comment "A treatment of people with physical, emotional, or social problems, using purposeful activity to help them overcome or learn to deal with their problems." ;
+                                        rdfs:label "Occupational Therapy" .
+
+
+###  http://schema.org/Oncologic
+<http://schema.org/Oncologic> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/MedicalSpecialty> ;
+                              rdfs:comment "A specific branch of medical science that deals with benign and malignant tumors, including the study of their development, diagnosis, treatment and prevention." ;
+                              rdfs:label "Oncologic" .
+
+
+###  http://schema.org/Optometric
+<http://schema.org/Optometric> rdf:type owl:NamedIndividual ,
+                                        <http://schema.org/MedicalSpecialty> ;
+                               rdfs:comment "The science or practice of testing visual acuity and prescribing corrective lenses." ;
+                               rdfs:label "Optometric" .
+
+
+###  http://schema.org/Otolaryngologic
+<http://schema.org/Otolaryngologic> rdf:type owl:NamedIndividual ,
+                                             <http://schema.org/MedicalSpecialty> ;
+                                    rdfs:comment "A specific branch of medical science that is concerned with the ear, nose and throat and their respective disease states." ;
+                                    rdfs:label "Otolaryngologic" .
+
+
+###  http://schema.org/Pathology
+<http://schema.org/Pathology> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/MedicalSpecialty> ;
+                              rdfs:comment "A specific branch of medical science that is concerned with the study of the cause, origin and nature of a disease state, including its consequences as a result of manifestation of the disease. In clinical care, the term is used to designate a branch of medicine using laboratory tests to diagnose and determine the prognostic significance of illness." ;
+                              rdfs:label "Pathology" .
+
+
+###  http://schema.org/Pediatric
+<http://schema.org/Pediatric> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/MedicalSpecialty> ;
+                              rdfs:comment "A specific branch of medical science that specializes in the care of infants, children and adolescents." ;
+                              rdfs:label "Pediatric" .
+
+
+###  http://schema.org/PharmacySpecialty
+<http://schema.org/PharmacySpecialty> rdf:type owl:NamedIndividual ,
+                                               <http://schema.org/MedicalSpecialty> ;
+                                      rdfs:comment "The practice or art and science of preparing and dispensing drugs and medicines." ;
+                                      rdfs:label "Pharmacy Specialty" .
+
+
+###  http://schema.org/Physiotherapy
+<http://schema.org/Physiotherapy> rdf:type owl:NamedIndividual ,
+                                           <http://schema.org/MedicalSpecialty> ;
+                                  rdfs:comment "The practice of treatment of disease, injury, or deformity by physical methods such as massage, heat treatment, and exercise rather than by drugs or surgery.." ;
+                                  rdfs:label "Physiotherapy" .
+
+
+###  http://schema.org/PlasticSurgery
+<http://schema.org/PlasticSurgery> rdf:type owl:NamedIndividual ,
+                                            <http://schema.org/MedicalSpecialty> ;
+                                   rdfs:comment "A specific branch of medical science that pertains to therapeutic or cosmetic repair or re-formation of missing, injured or malformed tissues or body parts by manual and instrumental means." ;
+                                   rdfs:label "Plastic Surgery" .
+
+
+###  http://schema.org/Podiatric
+<http://schema.org/Podiatric> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/MedicalSpecialty> ;
+                              rdfs:comment "Podiatry is the care of the human foot, especially the diagnosis and treatment of foot disorders." ;
+                              rdfs:label "Podiatric" .
+
+
+###  http://schema.org/PrimaryCare
+<http://schema.org/PrimaryCare> rdf:type owl:NamedIndividual ,
+                                         <http://schema.org/MedicalSpecialty> ;
+                                rdfs:comment "The medical care by a physician, or other health-care professional, who is the patient's first contact with the health-care system and who may recommend a specialist if necessary." ;
+                                rdfs:label "Primary Care" .
+
+
+###  http://schema.org/Psychiatric
+<http://schema.org/Psychiatric> rdf:type owl:NamedIndividual ,
+                                         <http://schema.org/MedicalSpecialty> ;
+                                rdfs:comment "A specific branch of medical science that is concerned with the study, treatment, and prevention of mental illness, using both medical and psychological therapies." ;
+                                rdfs:label "Psychiatric" .
+
+
+###  http://schema.org/PublicHealth
+<http://schema.org/PublicHealth> rdf:type owl:NamedIndividual ,
+                                          <http://schema.org/MedicalSpecialty> ;
+                                 rdfs:comment "Branch of medicine that pertains to the health services to improve and protect community health, especially epidemiology, sanitation, immunization, and preventive medicine." ;
+                                 rdfs:label "Public Health" .
+
+
+###  http://schema.org/PublicHolidays
+<http://schema.org/PublicHolidays> rdf:type owl:NamedIndividual ,
+                                            <http://schema.org/DayOfWeek> ;
+                                   <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+                                   rdfs:comment "This stands for any day that is a public holiday; it is a placeholder for all official public holidays in some particular location. While not technically a \"day of the week\", it can be used with <a class=\"localLink\" href=\"/OpeningHoursSpecification\">OpeningHoursSpecification</a>. In the context of an opening hours specification it can be used to indicate opening hours on public holidays, overriding general opening hours for the day of the week on which a public holiday occurs." ;
+                                   rdfs:label "PublicHolidays" .
+
+
+###  http://schema.org/Pulmonary
+<http://schema.org/Pulmonary> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/MedicalSpecialty> ;
+                              rdfs:comment "A specific branch of medical science that pertains to the study of the respiratory system and its respective disease states." ;
+                              rdfs:label "Pulmonary" .
+
+
+###  http://schema.org/Radiography
+<http://schema.org/Radiography> rdf:type owl:NamedIndividual ,
+                                         <http://schema.org/MedicalSpecialty> ;
+                                rdfs:comment "Radiography is an imaging technique that uses electromagnetic radiation other than visible light, especially X-rays, to view the internal structure of a non-uniformly composed and opaque object such as the human body." ;
+                                rdfs:label "Radiography" .
+
+
+###  http://schema.org/Renal
+<http://schema.org/Renal> rdf:type owl:NamedIndividual ,
+                                   <http://schema.org/MedicalSpecialty> ;
+                          rdfs:comment "A specific branch of medical science that pertains to the study of the kidneys and its respective disease states." ;
+                          rdfs:label "Renal" .
+
+
+###  http://schema.org/RespiratoryTherapy
+<http://schema.org/RespiratoryTherapy> rdf:type owl:NamedIndividual ,
+                                                <http://schema.org/MedicalSpecialty> ;
+                                       rdfs:comment "The therapy that is concerned with the maintenance or improvement of respiratory function (as in patients with pulmonary disease)." ;
+                                       rdfs:label "Respiratory Therapy" .
+
+
+###  http://schema.org/Rheumatologic
+<http://schema.org/Rheumatologic> rdf:type owl:NamedIndividual ,
+                                           <http://schema.org/MedicalSpecialty> ;
+                                  rdfs:comment "A specific branch of medical science that deals with the study and treatment of rheumatic, autoimmune or joint diseases." ;
+                                  rdfs:label "Rheumatologic" .
+
+
+###  http://schema.org/Saturday
+<http://schema.org/Saturday> rdf:type owl:NamedIndividual ,
+                                      <http://schema.org/DayOfWeek> ;
+                             owl:sameAs <http://www.wikidata.org/entity/Q131> ;
+                             rdfs:comment "The day of the week between Friday and Sunday." ;
+                             rdfs:label "Saturday" .
+
+
+###  http://schema.org/SpeechPathology
+<http://schema.org/SpeechPathology> rdf:type owl:NamedIndividual ,
+                                             <http://schema.org/MedicalSpecialty> ;
+                                    rdfs:comment "The scientific study and treatment of defects, disorders, and malfunctions of speech and voice, as stuttering, lisping, or lalling, and of language disturbances, as aphasia or delayed language acquisition." ;
+                                    rdfs:label "Speech Pathology" .
+
+
+###  http://schema.org/Sunday
+<http://schema.org/Sunday> rdf:type owl:NamedIndividual ,
+                                    <http://schema.org/DayOfWeek> ;
+                           owl:sameAs <http://www.wikidata.org/entity/Q132> ;
+                           rdfs:comment "The day of the week between Saturday and Monday." ;
+                           rdfs:label "Sunday" .
+
+
+###  http://schema.org/Surgical
+<http://schema.org/Surgical> rdf:type owl:NamedIndividual ,
+                                      <http://schema.org/MedicalSpecialty> ;
+                             rdfs:comment "A specific branch of medical science that pertains to treating diseases, injuries and deformities by manual and instrumental means." ;
+                             rdfs:label "Surgical" .
+
+
+###  http://schema.org/Thursday
+<http://schema.org/Thursday> rdf:type owl:NamedIndividual ,
+                                      <http://schema.org/DayOfWeek> ;
+                             owl:sameAs <http://www.wikidata.org/entity/Q129> ;
+                             rdfs:comment "The day of the week between Wednesday and Friday." ;
+                             rdfs:label "Thursday" .
+
+
+###  http://schema.org/TollFree
+<http://schema.org/TollFree> rdf:type owl:NamedIndividual ,
+                                      <http://schema.org/ContactPointOption> ;
+                             rdfs:comment "The associated telephone number is toll free." ;
+                             rdfs:label "Toll Free" .
+
+
+###  http://schema.org/Toxicologic
+<http://schema.org/Toxicologic> rdf:type owl:NamedIndividual ,
+                                         <http://schema.org/MedicalSpecialty> ;
+                                rdfs:comment "A specific branch of medical science that is concerned with poisons, their nature, effects and detection and involved in the treatment of poisoning." ;
+                                rdfs:label "Toxicologic" .
+
+
+###  http://schema.org/Tuesday
+<http://schema.org/Tuesday> rdf:type owl:NamedIndividual ,
+                                     <http://schema.org/DayOfWeek> ;
+                            owl:sameAs <http://www.wikidata.org/entity/Q127> ;
+                            rdfs:comment "The day of the week between Monday and Wednesday." ;
+                            rdfs:label "Tuesday" .
+
+
+###  http://schema.org/Urologic
+<http://schema.org/Urologic> rdf:type owl:NamedIndividual ,
+                                      <http://schema.org/MedicalSpecialty> ;
+                             rdfs:comment "A specific branch of medical science that is concerned with the diagnosis and treatment of diseases pertaining to the urinary tract and the urogenital system." ;
+                             rdfs:label "Urologic" .
+
+
+###  http://schema.org/Wednesday
+<http://schema.org/Wednesday> rdf:type owl:NamedIndividual ,
+                                       <http://schema.org/DayOfWeek> ;
+                              owl:sameAs <http://www.wikidata.org/entity/Q128> ;
+                              rdfs:comment "The day of the week between Tuesday and Thursday." ;
+                              rdfs:label "Wednesday" .
+
+
+###  http://www.wikidata.org/entity/Q105
+<http://www.wikidata.org/entity/Q105> rdf:type owl:NamedIndividual .
+
+
+###  http://www.wikidata.org/entity/Q127
+<http://www.wikidata.org/entity/Q127> rdf:type owl:NamedIndividual .
+
+
+###  http://www.wikidata.org/entity/Q128
+<http://www.wikidata.org/entity/Q128> rdf:type owl:NamedIndividual .
+
+
+###  http://www.wikidata.org/entity/Q129
+<http://www.wikidata.org/entity/Q129> rdf:type owl:NamedIndividual .
+
+
+###  http://www.wikidata.org/entity/Q130
+<http://www.wikidata.org/entity/Q130> rdf:type owl:NamedIndividual .
+
+
+###  http://www.wikidata.org/entity/Q131
+<http://www.wikidata.org/entity/Q131> rdf:type owl:NamedIndividual .
+
+
+###  http://www.wikidata.org/entity/Q132
+<http://www.wikidata.org/entity/Q132> rdf:type owl:NamedIndividual .
+
+
+#################################################################
+#    Annotations
+#################################################################
+
+<http://schema.org/alternateName> rdfs:comment "An alias for the item." ;
+                                  rdfs:label "alternateName" .
+
+
+###  Generated by the OWL API (version 4.2.6) https://github.com/owlcs/owlapi
