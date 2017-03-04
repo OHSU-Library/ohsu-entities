@@ -580,7 +580,6 @@ schema:disambiguatingDescription a owl:DatatypeProperty ;
     rdfs:domain owl:Thing ;
     rdfs:range xsd:string ;
     rdfs:comment "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation." ;
-    rdfs:subPropertyOf rdfs:comment ;
 .
 schema:duns a owl:DatatypeProperty ;
     rdfs:label "duns" ;
