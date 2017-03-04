@@ -7,5 +7,5 @@
 <http://purl.org/ohsu/schema#>
     rdf:type owl:Ontology ;
     rdfs:label "OHSU Entities Ontology" ;
-    rdfs:comment "The OHSU Entities Ontology describes people, places, and things at Oregon Health & Science University, and the relationships between them. It reuses and extends the schema.org ontology." ;
+    rdfs:comment "The OHSU Entities Ontology describes people, places, and things at Oregon Health & Science University, and the relationships between them. It reuses and extends the schema.org vocabulary." ;
 .
