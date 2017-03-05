@@ -23,6 +23,16 @@ schema:AdministrativeArea a owl:Class ;
     rdfs:comment "A geographical region, typically under the jurisdiction of a particular government." ;
     rdfs:subClassOf schema:Place ;
 .
+schema:BarOrPub a owl:Class ;
+    rdfs:label "Bar or Pub" ;
+    rdfs:comment "A bar or pub." ;
+    rdfs:subClassOf schema:FoodEstablishment
+.
+schema:CafeOrCoffeeShop a owl:Class ;
+    rdfs:label "Cafe or Coffee Shop" ;
+    rdfs:comment "A cafe or coffee shop." ;
+    rdfs:subClassOf schema:FoodEstablishment
+.
 schema:City a owl:Class ;
     rdfs:label "City" ;
     rdfs:comment "A city or town." ;
@@ -85,6 +95,11 @@ schema:Enumeration a owl:Class ;
     rdfs:label "Enumeration" ;
     rdfs:comment "Lists or enumerations—for example, a list of cuisines or music genres, etc." ;
     rdfs:subClassOf schema:Intangible ;
+.
+schema:FoodEstablishment a owl:Class ;
+    rdfs:label "Food Establishment" ;
+    rdfs:comment "A food-related business." ;
+    rdfs:subClassOf schema:LocalBusiness
 .
 schema:GeoCircle a owl:Class ;
     rdfs:label "Geo Circle" ;
@@ -742,6 +757,12 @@ schema:longitude a owl:DatatypeProperty ;
     rdfs:range xsd:decimal ;
     rdfs:comment "The longitude of a location. For example <code>-122.08585</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." ;
 .
+schema:menu a owl:DatatypeProperty ;
+    rdfs:label "menu" ;
+    rdfs:domain schema:FoodEstablishment ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "The URL of the menu." 
+.
 schema:naics a owl:DatatypeProperty ;
     rdfs:label "naics" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
@@ -823,6 +844,12 @@ schema:roleName a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "A role played, performed or filled by a person or organization. For example, the team of creators for a comic book might fill the roles named 'inker', 'penciller', and 'letterer'; or an athlete in a SportsTeam might play in the position named 'Quarterback'." ;
 .
+schema:servesCuisine a owl:DatatypeProperty ;
+    rdfs:label "servesCuisine" ;
+    rdfs:domain schema:FoodEstablishment ;
+    rdfs:range xsd:string ;
+    rdfs:comment "The cuisine of the restaurant." .
+
 schema:startDate a rdf:Property ;
     rdfs:label "startDate" ;
     rdfs:domain schema:Role ;
