@@ -34,5 +34,5 @@ ohsu:LocalSearchCategory a owl:Class ;
 #
 ohsu:nationalProviderId a owl:DatatypeProperty ;
     schema:alternateName "NPI" ;
-    rdfs:domain schema:Person ;
+    rdfs:domain schema:MedicalBusiness ;
 .
