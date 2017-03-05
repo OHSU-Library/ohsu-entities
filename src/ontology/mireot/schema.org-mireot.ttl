@@ -373,12 +373,6 @@ schema:dayOfWeek a owl:ObjectProperty ;
     rdfs:range schema:DayOfWeek ;
     rdfs:comment "The day of the week for which these opening hours are valid." ;
 .
-schema:department a owl:ObjectProperty ;
-    rdfs:label "department" ;
-    rdfs:domain schema:Organization ;
-    rdfs:range schema:Organization ;
-    rdfs:comment "A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe." ;
-.
 schema:employee a owl:ObjectProperty ;
     rdfs:label "employee" ;
     rdfs:domain schema:Organization ;
