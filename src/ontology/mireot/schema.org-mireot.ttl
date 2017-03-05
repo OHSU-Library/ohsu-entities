@@ -855,6 +855,12 @@ schema:telephone a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The telephone number." ;
 .
+schema:url a owl:DatatypeProperty ;
+    rdfs:label "url" ;
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:anyURI ;
+    rdfs:comment "URL of the item." 
+.
 schema:validFrom a owl:DatatypeProperty ;
     rdfs:label "validFrom" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
