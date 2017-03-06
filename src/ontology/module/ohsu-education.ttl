@@ -17,6 +17,9 @@
 #
 # Classes
 #
+ohsu:AcademicFacility a owl:Class ;
+    rdfs:label "Academic Facility" ;
+.
 ohsu:EducationLocalSearchCategory a owl:Class ;
     rdfs:label "Education Local Search Category" ;
     rdfs:subClassOf ohsu:LocalSearchCategory ;
