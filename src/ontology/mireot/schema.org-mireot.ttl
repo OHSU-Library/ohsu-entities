@@ -620,7 +620,7 @@ schema:contactType a owl:DatatypeProperty ;
 .
 schema:description a owl:DatatypeProperty ;
     rdfs:label "description" ;
-    rdfs:domain schema:Thing ;
+    rdfs:domain owl:Thing ;
     rdfs:range xsd:string ;
     rdfs:comment "A description of the item." ;
     owl:equivalentProperty dct:description
@@ -832,7 +832,7 @@ schema:naics a owl:DatatypeProperty ;
 .
 schema:name a owl:DatatypeProperty ;
     rdfs:label "name" ;
-    rdfs:domain schema:Thing ;
+    rdfs:domain owl:Thing ;
     rdfs:range xsd:string ;
     rdfs:comment "The name of the item."
 .
