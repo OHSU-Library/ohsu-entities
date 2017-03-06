@@ -150,7 +150,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://schema.org/brand
 <http://schema.org/brand> rdf:type owl:ObjectProperty ;
-                          rdfs:domain _:genid-nodeid-node1bah7ur7rx14 ;
+                          rdfs:domain _:genid-nodeid-node1bahaj23vx14 ;
                           rdfs:range [ rdf:type owl:Class ;
                                        owl:unionOf ( <http://schema.org/Brand>
                                                      <http://schema.org/Organization>
@@ -517,7 +517,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://schema.org/description
 <http://schema.org/description> rdf:type owl:DatatypeProperty ;
-                                rdfs:domain <http://schema.org/Thing> ;
+                                rdfs:domain owl:Thing ;
                                 rdfs:range xsd:string ;
                                 rdfs:comment "A description of the item." ;
                                 rdfs:label "description" .
@@ -766,7 +766,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://schema.org/name
 <http://schema.org/name> rdf:type owl:DatatypeProperty ;
-                         rdfs:domain <http://schema.org/Thing> ;
+                         rdfs:domain owl:Thing ;
                          rdfs:range xsd:string ;
                          rdfs:comment "The name of the item." ;
                          rdfs:label "name" .
@@ -894,8 +894,8 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  _:genid-nodeid-node1bah7ur7rx14
-_:genid-nodeid-node1bah7ur7rx14 rdf:type owl:Class .
+###  _:genid-nodeid-node1bahaj23vx14
+_:genid-nodeid-node1bahaj23vx14 rdf:type owl:Class .
 
 
 ###  http://purl.org/ohsu/schema#AcademicFacility
@@ -1393,10 +1393,6 @@ _:genid-nodeid-node1bah7ur7rx14 rdf:type owl:Class .
                               rdfs:subClassOf <http://schema.org/CivicStructure> ;
                               rdfs:comment "A taxi stand." ;
                               rdfs:label "Taxi Stand" .
-
-
-###  http://schema.org/Thing
-<http://schema.org/Thing> rdf:type owl:Class .
 
 
 ###  http://xmlns.com/foaf/0.1/Person
