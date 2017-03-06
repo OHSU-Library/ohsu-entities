@@ -141,3 +141,8 @@ ohsu:searchPriority a owl:DatatypeProperty ;
     rdfs:domain owl:Thing ;
     rdfs:range xsd:string ;
 .
+ohsu:tagline a owl:DatatypeProperty ;
+    rdfs:label "tagline";
+    rdfs:domain owl:Thing ;
+    rdfs:range xsd:string ;
+.
