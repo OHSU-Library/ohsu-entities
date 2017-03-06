@@ -106,7 +106,7 @@ ohsu:localSearchCategory a owl:ObjectProperty ;
 ohsu:nearestDropOffLocation a owl:ObjectProperty ;
     rdfs:label "nearest drop off location" ;
 .
-ohsu:nearestParkingFacility a owl:ObjectProperty ;
+ohsu:nearestParking a owl:ObjectProperty ;
     rdfs:label "nearest parking facility" ;
 .
 ohsu:nearestTransitStop a owl:ObjectProperty ;
