@@ -9,6 +9,13 @@
 
 
 #
+# Ontology
+#
+<http://purl.org/ohsu/schema/general> a owl:Ontology ;
+.
+
+
+#
 # Classes
 #
 ohsu:AerialTram a owl:Class ;
