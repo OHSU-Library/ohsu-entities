@@ -17,6 +17,9 @@
 #
 # Classes
 #
+ohsu:ResearchFacility a owl:Class ;
+    rdfs:label "Research Facility" ;
+.
 ohsu:ResearchLocalSearchCategory a owl:Class ;
     rdfs:label "Research Local Search Category" ;
     rdfs:subClassOf ohsu:LocalSearchCategory ;

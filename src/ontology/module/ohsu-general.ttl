@@ -11,8 +11,23 @@
 #
 # Classes
 #
+ohsu:AerialTram a owl:Class ;
+    rdfs:label "Aerial Tram" ;
+.
+ohsu:AerialTramTerminal a owl:Class ;
+    rdfs:label "Aerial Tram Terminal" ;
+.
+ohsu:BicycleParkingFacility a owl:Class ;
+    rdfs:label "Bicycle Parking" ;
+.
 ohsu:Campus a owl:Class ;
     rdfs:label "Campus" ;
+.
+ohsu:EmployeeParkingFacility a owl:Class ;
+    rdfs:label "Employee Parking" ;
+.
+ohsu:CarShareParkingFacility a owl:Class ;
+    rdfs:label "Car Share Parking" ;
 .
 ohsu:LocalSearchCategory a owl:Class ;
     rdfs:label "Local Search Category" ;
@@ -22,6 +37,18 @@ ohsu:LocalSearchCategory a owl:Class ;
 ohsu:CivicStructureLocalSearchCategory a owl:Class ;
     rdfs:label "Civic Structure Local Search Category" ;
     rdfs:subClassOf ohsu:LocalSearchCategory ;
+.
+ohsu:LightRailOrStreetcarStop a owl:Class ;
+    rdfs:label "Light Rail or Streetcar Stop" ;
+.
+ohsu:PatientParkingFacility a owl:Class;
+    rdfs:label "Patient Parking" ;
+.
+ohsu:Skybridge  a owl:Class ;
+    rdfs:label "Skybridge" ;
+.
+ohsu:VisitorParkingFacility a owl:Class ;
+    rdfs:label "Visitor Parking";
 .
 
 
@@ -62,6 +89,18 @@ ohsu:localSearchCategory a owl:ObjectProperty ;
     rdfs:domain owl:Thing ;
     rdfs:range ohsu:LocalSearchCategory ;
 .
+ohsu:nearestDropOffLocation a owl:ObjectProperty ;
+    rdfs:label "nearest drop off location" ;
+.
+ohsu:nearestParkingFacility a owl:ObjectProperty ;
+    rdfs:label "nearest parking facility" ;
+.
+ohsu:nearestTransitStop a owl:ObjectProperty ;
+    rdfs:label "nearest transit stop" ;
+.
+ohsu:parkingFor a owl:ObjectProperty ;
+    rdfs:label "parking for" ;
+.
 ohsu:primaryLocalSearchCategory a owl:ObjectProperty ;
     rdfs:label "primary local search category" ;
     rdfs:comment "The primary local search category of a thing." ;
@@ -74,6 +113,16 @@ ohsu:primaryLocalSearchCategory a owl:ObjectProperty ;
 #
 # Datatype Properties
 #
+ohsu:handicappedParkingSpaces a owl:DatatypeProperty ;
+    rdfs:label "handicapped parking spaces" ;
+    rdfs:comment "The number of handicapped parking spaces at a parking facility." ;
+    rdfs:range xsd:decimal ;
+.
+ohsu:parkingSpaces a owl:DatatypeProperty ;
+    rdfs:label "parking spaces" ;
+    rdfs:comment "The number of parking spaces at a parking facility." ;
+    rdfs:range xsd:decimal ;
+.    
 ohsu:searchPriority a owl:DatatypeProperty ;
     rdfs:label "search priority";
     rdfs:domain owl:Thing ;

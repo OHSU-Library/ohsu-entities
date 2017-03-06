@@ -26,12 +26,17 @@ schema:AdministrativeArea a owl:Class ;
 schema:BarOrPub a owl:Class ;
     rdfs:label "Bar or Pub" ;
     rdfs:comment "A bar or pub." ;
-    rdfs:subClassOf schema:FoodEstablishment
+    rdfs:subClassOf schema:FoodEstablishment ;
+.
+schema:BusStop a owl:Class ;
+    rdfs:label "Bus Stop" ;
+    rdfs:comment "A bus stop." ;
+    rdfs:subClassOf schema:CivicStructure ;
 .
 schema:CafeOrCoffeeShop a owl:Class ;
     rdfs:label "Cafe or Coffee Shop" ;
     rdfs:comment "A cafe or coffee shop." ;
-    rdfs:subClassOf schema:FoodEstablishment
+    rdfs:subClassOf schema:FoodEstablishment ;
 .
 schema:City a owl:Class ;
     rdfs:label "City" ;
@@ -66,7 +71,7 @@ schema:Country a owl:Class ;
 schema:ConvenienceStore a owl:Class ;
     rdfs:label "Convenience Store" ;
     rdfs:comment "A convenience store." ;
-    rdfs:subClassOf schema:Store 
+    rdfs:subClassOf schema:Store ;
 .
 schema:DayOfWeek a owl:Class ;
     rdfs:label "DayOfWeek" ;
@@ -241,14 +246,18 @@ schema:State a owl:Class ;
 schema:Store a owl:Class ;
     rdfs:label "Store" ;
     rdfs:comment "A retail good store." ;
-    rdfs:subClassOf schema:LocalBusiness
+    rdfs:subClassOf schema:LocalBusiness ;
 .
 schema:StructuredValue a owl:Class ;
     rdfs:label "Structured Value" ;
     rdfs:comment "Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing." ;
     rdfs:subClassOf schema:Intangible ;
 .
-
+schema:TaxiStand a owl:Class ;
+    rdfs:label "Taxi Stand" ;
+    rdfs:comment "A taxi stand." ;
+    rdfs:subClassOf schema:CivicStructure ;
+.
 
 #
 # Enumeration Members
