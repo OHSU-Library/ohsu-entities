@@ -1,14 +1,14 @@
+@prefix : <http://purl.org/ohsu/schema/general#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@base <http://www.w3.org/2002/07/owl#> .
+@base <http://purl.org/ohsu/schema/general> .
 
-[ rdf:type owl:Ontology ;
-   rdfs:label "OHSU Entities Ontology" ;
-   rdfs:comment "The OHSU Entities Ontology describes people, places, and things at Oregon Health & Science University, and the relationships between them. It reuses and extends the schema.org ontology."
- ] .
+<http://purl.org/ohsu/schema/general> rdf:type owl:Ontology ;
+                                       rdfs:comment "The OHSU Entities Ontology describes people, places, and things at Oregon Health & Science University, and the relationships between them. It reuses and extends the schema.org vocabulary." ;
+                                       rdfs:label "OHSU Entities Ontology" .
 
 #################################################################
 #    Annotation properties
@@ -34,12 +34,69 @@ xsd:date rdf:type rdfs:Datatype .
 #    Object Properties
 #################################################################
 
+###  http://purl.org/ohsu/schema#additionalLocalSearchCategory
+<http://purl.org/ohsu/schema#additionalLocalSearchCategory> rdf:type owl:ObjectProperty ;
+                                                            rdfs:subPropertyOf <http://purl.org/ohsu/schema#localSearchCategory> ;
+                                                            rdfs:domain owl:Thing ;
+                                                            rdfs:range <http://purl.org/ohsu/schema#LocalSearchCategory> ;
+                                                            rdfs:comment "An additional local search category of a thing." ;
+                                                            rdfs:label "additional local search category" .
+
+
 ###  http://purl.org/ohsu/schema#localSearchCategory
 <http://purl.org/ohsu/schema#localSearchCategory> rdf:type owl:ObjectProperty ;
                                                   rdfs:domain owl:Thing ;
                                                   rdfs:range <http://purl.org/ohsu/schema#LocalSearchCategory> ;
-                                                  rdfs:comment "A local category search of a thing." ;
+                                                  rdfs:comment "A local search category of a thing." ;
                                                   rdfs:label "local search category" .
+
+
+###  http://purl.org/ohsu/schema#nearestDropOffLocation
+<http://purl.org/ohsu/schema#nearestDropOffLocation> rdf:type owl:ObjectProperty ;
+                                                     rdfs:domain <http://schema.org/CivicStructure> ;
+                                                     rdfs:range <http://schema.org/TaxiStand> ;
+                                                     rdfs:label "nearest drop off location" .
+
+
+###  http://purl.org/ohsu/schema#nearestParking
+<http://purl.org/ohsu/schema#nearestParking> rdf:type owl:ObjectProperty ;
+                                             owl:inverseOf <http://purl.org/ohsu/schema#parkingFor> ;
+                                             rdfs:domain <http://schema.org/CivicStructure> ;
+                                             rdfs:range <http://schema.org/ParkingFacility> .
+
+
+###  http://purl.org/ohsu/schema#nearestParkingFacility
+<http://purl.org/ohsu/schema#nearestParkingFacility> rdf:type owl:ObjectProperty ;
+                                                     rdfs:label "nearest parking facility" .
+
+
+###  http://purl.org/ohsu/schema#nearestTransitStop
+<http://purl.org/ohsu/schema#nearestTransitStop> rdf:type owl:ObjectProperty ;
+                                                 rdfs:domain <http://schema.org/CivicStructure> ;
+                                                 rdfs:range [ rdf:type owl:Class ;
+                                                              owl:unionOf ( <http://purl.org/ohsu/schema#AerialTramTerminal>
+                                                                            <http://purl.org/ohsu/schema#LightRailOrStreetcarStop>
+                                                                            <http://schema.org/BusStop>
+                                                                            <http://schema.org/TaxiStand>
+                                                                          )
+                                                            ] ;
+                                                 rdfs:label "nearest transit stop" .
+
+
+###  http://purl.org/ohsu/schema#parkingFor
+<http://purl.org/ohsu/schema#parkingFor> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://schema.org/ParkingFacility> ;
+                                         rdfs:range <http://schema.org/CivicStructure> ;
+                                         rdfs:label "parking for" .
+
+
+###  http://purl.org/ohsu/schema#primaryLocalSearchCategory
+<http://purl.org/ohsu/schema#primaryLocalSearchCategory> rdf:type owl:ObjectProperty ;
+                                                         rdfs:subPropertyOf <http://purl.org/ohsu/schema#localSearchCategory> ;
+                                                         rdfs:domain owl:Thing ;
+                                                         rdfs:range <http://purl.org/ohsu/schema#LocalSearchCategory> ;
+                                                         rdfs:comment "The primary local search category of a thing." ;
+                                                         rdfs:label "primary local search category" .
 
 
 ###  http://schema.org/address
@@ -89,6 +146,18 @@ xsd:date rdf:type rdfs:Datatype .
                                       rdfs:range <http://schema.org/Language> ;
                                       rdfs:comment "A language someone may use with the item. Please use one of the language codes from the <a href=\"http://tools.ietf.org/html/bcp47\">IETF BCP 47 standard</a>. See also <a class=\"localLink\" href=\"/inLanguage\">inLanguage</a>" ;
                                       rdfs:label "availableLanguage" .
+
+
+###  http://schema.org/brand
+<http://schema.org/brand> rdf:type owl:ObjectProperty ;
+                          rdfs:domain _:genid-nodeid-node1bah7ur7rx14 ;
+                          rdfs:range [ rdf:type owl:Class ;
+                                       owl:unionOf ( <http://schema.org/Brand>
+                                                     <http://schema.org/Organization>
+                                                   )
+                                     ] ;
+                          rdfs:comment "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person." ;
+                          rdfs:label "brand" .
 
 
 ###  http://schema.org/colleague
@@ -143,14 +212,6 @@ xsd:date rdf:type rdfs:Datatype .
                               <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
                               rdfs:comment "The day of the week for which these opening hours are valid." ;
                               rdfs:label "dayOfWeek" .
-
-
-###  http://schema.org/department
-<http://schema.org/department> rdf:type owl:ObjectProperty ;
-                               rdfs:domain <http://schema.org/Organization> ;
-                               rdfs:range <http://schema.org/Organization> ;
-                               rdfs:comment "A relationship between an organization and a department of that organization, also described as an organization (allowing different urls, logos, opening hours). For example: a store with a pharmacy, or a bakery with a cafe." ;
-                               rdfs:label "department" .
 
 
 ###  http://schema.org/employee
@@ -308,12 +369,51 @@ xsd:date rdf:type rdfs:Datatype .
 #    Data properties
 #################################################################
 
+###  http://purl.org/ohsu/schema#addressSubLocality
+<http://purl.org/ohsu/schema#addressSubLocality> rdf:type owl:DatatypeProperty ;
+                                                 rdfs:domain <http://schema.org/PostalAddress> ;
+                                                 rdfs:range xsd:string ;
+                                                 rdfs:comment "The sub-locality. For example, the Pearl District." ;
+                                                 rdfs:label "address locality" .
+
+
+###  http://purl.org/ohsu/schema#certification
+<http://purl.org/ohsu/schema#certification> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://schema.org/Organization> ;
+                                            rdfs:range xsd:string ;
+                                            rdfs:label "certification" .
+
+
+###  http://purl.org/ohsu/schema#handicappedParkingSpaces
+<http://purl.org/ohsu/schema#handicappedParkingSpaces> rdf:type owl:DatatypeProperty ;
+                                                       rdfs:domain <http://schema.org/ParkingFacility> ;
+                                                       rdfs:range xsd:decimal ;
+                                                       rdfs:comment "The number of handicapped parking spaces at a parking facility." ;
+                                                       rdfs:label "handicapped parking spaces" .
+
+
+###  http://purl.org/ohsu/schema#isOutOfBusiness
+<http://purl.org/ohsu/schema#isOutOfBusiness> rdf:type owl:DatatypeProperty ;
+                                              rdfs:domain <http://schema.org/LocalBusiness> ;
+                                              rdfs:range xsd:boolean ;
+                                              rdfs:comment "Whether a business is still operating" ;
+                                              rdfs:label "is out of business" .
+
+
 ###  http://purl.org/ohsu/schema#nationalProviderId
 <http://purl.org/ohsu/schema#nationalProviderId> rdf:type owl:DatatypeProperty ;
-                                                 rdfs:domain <http://schema.org/Person> ;
+                                                 rdfs:domain <http://schema.org/MedicalBusiness> ;
                                                  rdfs:range xsd:string ;
                                                  <http://schema.org/alternateName> "NPI" ;
                                                  rdfs:label "national provider id" .
+
+
+###  http://purl.org/ohsu/schema#parkingSpaces
+<http://purl.org/ohsu/schema#parkingSpaces> rdf:type owl:DatatypeProperty ;
+                                            rdfs:domain <http://schema.org/ParkingFacility> ;
+                                            rdfs:range xsd:decimal ;
+                                            rdfs:comment "The number of parking spaces at a parking facility." ;
+                                            rdfs:label "parking spaces" .
 
 
 ###  http://purl.org/ohsu/schema#searchPriority
@@ -321,6 +421,13 @@ xsd:date rdf:type rdfs:Datatype .
                                              rdfs:domain owl:Thing ;
                                              rdfs:range xsd:string ;
                                              rdfs:label "search priority" .
+
+
+###  http://purl.org/ohsu/schema#tagline
+<http://purl.org/ohsu/schema#tagline> rdf:type owl:DatatypeProperty ;
+                                      rdfs:domain owl:Thing ;
+                                      rdfs:range xsd:string ;
+                                      rdfs:label "tagline" .
 
 
 ###  http://schema.org/additionalName
@@ -424,6 +531,14 @@ xsd:date rdf:type rdfs:Datatype .
                                               rdfs:label "disambiguatingDescription" .
 
 
+###  http://schema.org/dissolutionDate
+<http://schema.org/dissolutionDate> rdf:type owl:DatatypeProperty ;
+                                    rdfs:domain <http://schema.org/Organization> ;
+                                    rdfs:range xsd:date ;
+                                    rdfs:comment "The date that this organization was dissolved." ;
+                                    rdfs:label "dissolutionDate" .
+
+
 ###  http://schema.org/duns
 <http://schema.org/duns> rdf:type owl:DatatypeProperty ;
                          rdfs:domain [ rdf:type owl:Class ;
@@ -478,6 +593,14 @@ xsd:date rdf:type rdfs:Datatype .
                               rdfs:range xsd:string ;
                               rdfs:comment "The fax number." ;
                               rdfs:label "faxNumber" .
+
+
+###  http://schema.org/foundingDate
+<http://schema.org/foundingDate> rdf:type owl:DatatypeProperty ;
+                                 rdfs:domain <http://schema.org/Organization> ;
+                                 rdfs:range xsd:date ;
+                                 rdfs:comment "The date that this organization was founded." ;
+                                 rdfs:label "foundingDate" .
 
 
 ###  http://schema.org/gender
@@ -601,7 +724,8 @@ xsd:date rdf:type rdfs:Datatype .
 <http://schema.org/logo> rdf:type owl:DatatypeProperty ;
                          rdfs:subPropertyOf <http://schema.org/image> ;
                          rdfs:domain [ rdf:type owl:Class ;
-                                       owl:unionOf ( <http://schema.org/Organization>
+                                       owl:unionOf ( <http://schema.org/Brand>
+                                                     <http://schema.org/Organization>
                                                      <http://schema.org/Place>
                                                    )
                                      ] ;
@@ -617,6 +741,14 @@ xsd:date rdf:type rdfs:Datatype .
                               rdfs:range xsd:decimal ;
                               rdfs:comment "The longitude of a location. For example <code>-122.08585</code> (<a href=\"https://en.wikipedia.org/wiki/World_Geodetic_System\">WGS 84</a>)." ;
                               rdfs:label "longitude" .
+
+
+###  http://schema.org/menu
+<http://schema.org/menu> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain <http://schema.org/FoodEstablishment> ;
+                         rdfs:range xsd:anyURI ;
+                         rdfs:comment "The URL of the menu." ;
+                         rdfs:label "menu" .
 
 
 ###  http://schema.org/naics
@@ -646,24 +778,6 @@ xsd:date rdf:type rdfs:Datatype .
                                      rdfs:range xsd:decimal ;
                                      rdfs:comment "A number associated with a role in an organization, for example, the number on an athlete's jersey." ;
                                      rdfs:label "numberedPosition" .
-
-
-###  http://schema.org/openingHours
-<http://schema.org/openingHours> rdf:type owl:DatatypeProperty ;
-                                 rdfs:domain [ rdf:type owl:Class ;
-                                               owl:unionOf ( <http://schema.org/CivicStructure>
-                                                             <http://schema.org/LocalBusiness>
-                                                           )
-                                             ] ;
-                                 rdfs:range xsd:string ;
-                                 rdfs:comment """<p>The general opening hours for a business. Opening hours can be specified as a weekly time range, starting with days, then times per day. Multiple days can be listed with commas ',' separating each day. Day or time ranges are specified using a hyphen '-'.</p>
-<ul>
-<li>Days are specified using the following two-letter combinations: <code>Mo</code>, <code>Tu</code>, <code>We</code>, <code>Th</code>, <code>Fr</code>, <code>Sa</code>, <code>Su</code>.</li>
-<li>Times are specified using 24:00 time. For example, 3pm is specified as <code>15:00</code>. </li>
-<li>Here is an example: <code>&lt;time itemprop=\"openingHours\" datetime=&quot;Tu,Th 16:00-20:00&quot;&gt;Tuesdays and Thursdays 4-8pm&lt;/time&gt;</code>.</li>
-<li>If a business is open 7 days a week, then it can be specified as <code>&lt;time itemprop=&quot;openingHours&quot; datetime=&quot;Mo-Su&quot;&gt;Monday through Sunday, all day&lt;/time&gt;</code>.</li>
-</ul>""" ;
-                                 rdfs:label "openingHours" .
 
 
 ###  http://schema.org/opens
@@ -712,6 +826,14 @@ xsd:date rdf:type rdfs:Datatype .
                              rdfs:label "roleName" .
 
 
+###  http://schema.org/servesCuisine
+<http://schema.org/servesCuisine> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain <http://schema.org/FoodEstablishment> ;
+                                  rdfs:range xsd:string ;
+                                  rdfs:comment "The cuisine of the restaurant." ;
+                                  rdfs:label "servesCuisine" .
+
+
 ###  http://schema.org/startDate
 <http://schema.org/startDate> rdf:type owl:DatatypeProperty ;
                               rdfs:domain <http://schema.org/Role> ;
@@ -742,6 +864,14 @@ xsd:date rdf:type rdfs:Datatype .
                               rdfs:label "telephone" .
 
 
+###  http://schema.org/url
+<http://schema.org/url> rdf:type owl:DatatypeProperty ;
+                        rdfs:domain owl:Thing ;
+                        rdfs:range xsd:anyURI ;
+                        rdfs:comment "URL of the item." ;
+                        rdfs:label "url" .
+
+
 ###  http://schema.org/validFrom
 <http://schema.org/validFrom> rdf:type owl:DatatypeProperty ;
                               rdfs:domain <http://schema.org/OpeningHoursSpecification> ;
@@ -764,16 +894,71 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
+###  _:genid-nodeid-node1bah7ur7rx14
+_:genid-nodeid-node1bah7ur7rx14 rdf:type owl:Class .
+
+
+###  http://purl.org/ohsu/schema#AcademicFacility
+<http://purl.org/ohsu/schema#AcademicFacility> rdf:type owl:Class ;
+                                               rdfs:label "Academic Facility" .
+
+
+###  http://purl.org/ohsu/schema#AerialTram
+<http://purl.org/ohsu/schema#AerialTram> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://schema.org/CivicStructure> ;
+                                         rdfs:label "Aerial Tram" .
+
+
+###  http://purl.org/ohsu/schema#AerialTramTerminal
+<http://purl.org/ohsu/schema#AerialTramTerminal> rdf:type owl:Class ;
+                                                 rdfs:subClassOf <http://schema.org/CivicStructure> ;
+                                                 rdfs:label "Aerial Tram Terminal" .
+
+
+###  http://purl.org/ohsu/schema#BicycleParkingFacility
+<http://purl.org/ohsu/schema#BicycleParkingFacility> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://schema.org/ParkingFacility> ;
+                                                     rdfs:label "Bicycle Parking" .
+
+
+###  http://purl.org/ohsu/schema#BusinessType
+<http://purl.org/ohsu/schema#BusinessType> rdf:type owl:Class ;
+                                           rdfs:label "Business Type" .
+
+
 ###  http://purl.org/ohsu/schema#Campus
 <http://purl.org/ohsu/schema#Campus> rdf:type owl:Class ;
                                      rdfs:subClassOf <http://schema.org/Place> ;
                                      rdfs:label "Campus" .
 
 
+###  http://purl.org/ohsu/schema#CarShareParkingFacility
+<http://purl.org/ohsu/schema#CarShareParkingFacility> rdf:type owl:Class ;
+                                                      rdfs:label "Car Share Parking" .
+
+
 ###  http://purl.org/ohsu/schema#CivicStructureLocalSearchCategory
 <http://purl.org/ohsu/schema#CivicStructureLocalSearchCategory> rdf:type owl:Class ;
                                                                 rdfs:subClassOf <http://purl.org/ohsu/schema#LocalSearchCategory> ;
                                                                 rdfs:label "Civic Structure Local Search Category" .
+
+
+###  http://purl.org/ohsu/schema#EducationLocalSearchCategory
+<http://purl.org/ohsu/schema#EducationLocalSearchCategory> rdf:type owl:Class ;
+                                                           rdfs:subClassOf <http://purl.org/ohsu/schema#LocalSearchCategory> ;
+                                                           rdfs:label "Education Local Search Category" .
+
+
+###  http://purl.org/ohsu/schema#EmployeeParkingFacility
+<http://purl.org/ohsu/schema#EmployeeParkingFacility> rdf:type owl:Class ;
+                                                      rdfs:subClassOf <http://schema.org/ParkingFacility> ;
+                                                      rdfs:label "Employee Parking" .
+
+
+###  http://purl.org/ohsu/schema#FarmersMarket
+<http://purl.org/ohsu/schema#FarmersMarket> rdf:type owl:Class ;
+                                            rdfs:comment "A farmers market." ;
+                                            rdfs:label "Farmers Market" .
 
 
 ###  http://purl.org/ohsu/schema#HealthcareFacility
@@ -790,6 +975,12 @@ xsd:date rdf:type rdfs:Datatype .
                                                             rdfs:label "Healthcare Local Search Category" .
 
 
+###  http://purl.org/ohsu/schema#LightRailOrStreetcarStop
+<http://purl.org/ohsu/schema#LightRailOrStreetcarStop> rdf:type owl:Class ;
+                                                       rdfs:subClassOf <http://schema.org/CivicStructure> ;
+                                                       rdfs:label "Light Rail or Streetcar Stop" .
+
+
 ###  http://purl.org/ohsu/schema#LocalSearchCategory
 <http://purl.org/ohsu/schema#LocalSearchCategory> rdf:type owl:Class ;
                                                   rdfs:subClassOf <http://schema.org/Enumeration> ;
@@ -798,11 +989,69 @@ xsd:date rdf:type rdfs:Datatype .
                                                   rdfs:label "Local Search Category" .
 
 
+###  http://purl.org/ohsu/schema#PatientParkingFacility
+<http://purl.org/ohsu/schema#PatientParkingFacility> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://schema.org/ParkingFacility> ;
+                                                     rdfs:label "Patient Parking" .
+
+
+###  http://purl.org/ohsu/schema#ResearchFacility
+<http://purl.org/ohsu/schema#ResearchFacility> rdf:type owl:Class ;
+                                               rdfs:label "Research Facility" .
+
+
+###  http://purl.org/ohsu/schema#ResearchLocalSearchCategory
+<http://purl.org/ohsu/schema#ResearchLocalSearchCategory> rdf:type owl:Class ;
+                                                          rdfs:subClassOf <http://purl.org/ohsu/schema#LocalSearchCategory> ;
+                                                          rdfs:label "Research Local Search Category" .
+
+
+###  http://purl.org/ohsu/schema#Skybridge
+<http://purl.org/ohsu/schema#Skybridge> rdf:type owl:Class ;
+                                        rdfs:subClassOf <http://schema.org/CivicStructure> ;
+                                        rdfs:label "Skybridge" .
+
+
+###  http://purl.org/ohsu/schema#VisitorParkingFacility
+<http://purl.org/ohsu/schema#VisitorParkingFacility> rdf:type owl:Class ;
+                                                     rdfs:subClassOf <http://schema.org/ParkingFacility> ;
+                                                     rdfs:label "Visitor Parking" .
+
+
 ###  http://schema.org/AdministrativeArea
 <http://schema.org/AdministrativeArea> rdf:type owl:Class ;
                                        rdfs:subClassOf <http://schema.org/Place> ;
                                        rdfs:comment "A geographical region, typically under the jurisdiction of a particular government." ;
                                        rdfs:label "Administrative Area" .
+
+
+###  http://schema.org/BarOrPub
+<http://schema.org/BarOrPub> rdf:type owl:Class ;
+                             rdfs:subClassOf <http://schema.org/FoodEstablishment> ;
+                             rdfs:comment "A bar or pub." ;
+                             rdfs:label "Bar or Pub" .
+
+
+###  http://schema.org/Brand
+<http://schema.org/Brand> rdf:type owl:Class ;
+                          rdfs:subClassOf <http://schema.org/Intangible> ;
+                          <http://purl.org/dc/terms/source> <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+                          rdfs:comment "A brand is a name used by an organization or business person for labeling a product, product group, or similar." ;
+                          rdfs:label "Brand" .
+
+
+###  http://schema.org/BusStop
+<http://schema.org/BusStop> rdf:type owl:Class ;
+                            rdfs:subClassOf <http://schema.org/CivicStructure> ;
+                            rdfs:comment "A bus stop." ;
+                            rdfs:label "Bus Stop" .
+
+
+###  http://schema.org/CafeOrCoffeeShop
+<http://schema.org/CafeOrCoffeeShop> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://schema.org/FoodEstablishment> ;
+                                     rdfs:comment "A cafe or coffee shop." ;
+                                     rdfs:label "Cafe or Coffee Shop" .
 
 
 ###  http://schema.org/City
@@ -838,6 +1087,13 @@ xsd:date rdf:type rdfs:Datatype .
                                        rdfs:subClassOf <http://schema.org/Enumeration> ;
                                        rdfs:comment "Enumerated options related to a ContactPoint." ;
                                        rdfs:label "Contact Point Option" .
+
+
+###  http://schema.org/ConvenienceStore
+<http://schema.org/ConvenienceStore> rdf:type owl:Class ;
+                                     rdfs:subClassOf <http://schema.org/Store> ;
+                                     rdfs:comment "A convenience store." ;
+                                     rdfs:label "Convenience Store" .
 
 
 ###  http://schema.org/Country
@@ -890,6 +1146,13 @@ xsd:date rdf:type rdfs:Datatype .
                                 rdfs:subClassOf <http://schema.org/Intangible> ;
                                 rdfs:comment "Lists or enumerations—for example, a list of cuisines or music genres, etc." ;
                                 rdfs:label "Enumeration" .
+
+
+###  http://schema.org/FoodEstablishment
+<http://schema.org/FoodEstablishment> rdf:type owl:Class ;
+                                      rdfs:subClassOf <http://schema.org/LocalBusiness> ;
+                                      rdfs:comment "A food-related business." ;
+                                      rdfs:label "Food Establishment" .
 
 
 ###  http://schema.org/GeoCircle
@@ -1111,11 +1374,25 @@ xsd:date rdf:type rdfs:Datatype .
                           rdfs:label "State" .
 
 
+###  http://schema.org/Store
+<http://schema.org/Store> rdf:type owl:Class ;
+                          rdfs:subClassOf <http://schema.org/LocalBusiness> ;
+                          rdfs:comment "A retail good store." ;
+                          rdfs:label "Store" .
+
+
 ###  http://schema.org/StructuredValue
 <http://schema.org/StructuredValue> rdf:type owl:Class ;
                                     rdfs:subClassOf <http://schema.org/Intangible> ;
                                     rdfs:comment "Structured values are used when the value of a property has a more complex structure than simply being a textual value or a reference to another thing." ;
                                     rdfs:label "Structured Value" .
+
+
+###  http://schema.org/TaxiStand
+<http://schema.org/TaxiStand> rdf:type owl:Class ;
+                              rdfs:subClassOf <http://schema.org/CivicStructure> ;
+                              rdfs:comment "A taxi stand." ;
+                              rdfs:label "Taxi Stand" .
 
 
 ###  http://schema.org/Thing
@@ -1242,6 +1519,13 @@ xsd:date rdf:type rdfs:Datatype .
                                            rdfs:label "Chiropractor" .
 
 
+###  http://purl.org/ohsu/schema#College
+<http://purl.org/ohsu/schema#College> rdf:type owl:NamedIndividual ,
+                                               <http://purl.org/ohsu/schema#EducationLocalSearchCategory> ;
+                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/College> ;
+                                      rdfs:label "College" .
+
+
 ###  http://purl.org/ohsu/schema#Counselor
 <http://purl.org/ohsu/schema#Counselor> rdf:type owl:NamedIndividual ,
                                                  <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
@@ -1275,6 +1559,13 @@ xsd:date rdf:type rdfs:Datatype .
                                                  <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
                                         <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Dental%20Lab> ;
                                         rdfs:label "Dental Lab" .
+
+
+###  http://purl.org/ohsu/schema#DentalSchool
+<http://purl.org/ohsu/schema#DentalSchool> rdf:type owl:NamedIndividual ,
+                                                    <http://purl.org/ohsu/schema#EducationLocalSearchCategory> ;
+                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Dental%20School> ;
+                                           rdfs:label "Dental School" .
 
 
 ###  http://purl.org/ohsu/schema#Dentist
@@ -1410,6 +1701,13 @@ xsd:date rdf:type rdfs:Datatype .
                                                  rdfs:label "Gastroenterologist" .
 
 
+###  http://purl.org/ohsu/schema#GraduateSchool
+<http://purl.org/ohsu/schema#GraduateSchool> rdf:type owl:NamedIndividual ,
+                                                      <http://purl.org/ohsu/schema#EducationLocalSearchCategory> ;
+                                             <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Graduate%20School> ;
+                                             rdfs:label "Graduate School" .
+
+
 ###  http://purl.org/ohsu/schema#Gym
 <http://purl.org/ohsu/schema#Gym> rdf:type owl:NamedIndividual ,
                                            <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
@@ -1487,6 +1785,13 @@ xsd:date rdf:type rdfs:Datatype .
                                         rdfs:label "Internist" .
 
 
+###  http://purl.org/ohsu/schema#Library
+<http://purl.org/ohsu/schema#Library> rdf:type owl:NamedIndividual ,
+                                               <http://purl.org/ohsu/schema#EducationLocalSearchCategory> ;
+                                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Library> ;
+                                      rdfs:label "Library" .
+
+
 ###  http://purl.org/ohsu/schema#MRICenter
 <http://purl.org/ohsu/schema#MRICenter> rdf:type owl:NamedIndividual ,
                                                  <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
@@ -1541,6 +1846,13 @@ xsd:date rdf:type rdfs:Datatype .
                                                          <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
                                                 <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Medical%20Laboratory> ;
                                                 rdfs:label "Medical Laboratory" .
+
+
+###  http://purl.org/ohsu/schema#MedicalSchool
+<http://purl.org/ohsu/schema#MedicalSchool> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ohsu/schema#EducationLocalSearchCategory> ;
+                                            <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Medical%20School> ;
+                                            rdfs:label "Medical School" .
 
 
 ###  http://purl.org/ohsu/schema#MedicalSpa
@@ -1604,6 +1916,13 @@ xsd:date rdf:type rdfs:Datatype .
                                                    <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
                                           <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Neurologist> ;
                                           rdfs:label "Neurologist" .
+
+
+###  http://purl.org/ohsu/schema#NursingSchool
+<http://purl.org/ohsu/schema#NursingSchool> rdf:type owl:NamedIndividual ,
+                                                     <http://purl.org/ohsu/schema#EducationLocalSearchCategory> ;
+                                            <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Nursing%20School> ;
+                                            rdfs:label "Nursing School" .
 
 
 ###  http://purl.org/ohsu/schema#Nutritionist
@@ -1865,6 +2184,13 @@ xsd:date rdf:type rdfs:Datatype .
                                               rdfs:label "Psychotherapist" .
 
 
+###  http://purl.org/ohsu/schema#PublicUniversity
+<http://purl.org/ohsu/schema#PublicUniversity> rdf:type owl:NamedIndividual ,
+                                                        <http://purl.org/ohsu/schema#EducationLocalSearchCategory> ;
+                                               <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Public%20University> ;
+                                               rdfs:label "Public University" .
+
+
 ###  http://purl.org/ohsu/schema#Pulmonologist
 <http://purl.org/ohsu/schema#Pulmonologist> rdf:type owl:NamedIndividual ,
                                                      <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
@@ -1898,6 +2224,20 @@ xsd:date rdf:type rdfs:Datatype .
                                                                 <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
                                                        <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Reproductive%20Health%20Clinic> ;
                                                        rdfs:label "Reproductive Health Clinic" .
+
+
+###  http://purl.org/ohsu/schema#ResearchFoundation
+<http://purl.org/ohsu/schema#ResearchFoundation> rdf:type owl:NamedIndividual ,
+                                                          <http://purl.org/ohsu/schema#ResearchLocalSearchCategory> ;
+                                                 <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Research%20Foundation> ;
+                                                 rdfs:label "ResearchFoundation" .
+
+
+###  http://purl.org/ohsu/schema#ResearchInstitute
+<http://purl.org/ohsu/schema#ResearchInstitute> rdf:type owl:NamedIndividual ,
+                                                         <http://purl.org/ohsu/schema#ResearchLocalSearchCategory> ;
+                                                <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Research%20Institute> ;
+                                                rdfs:label "Resarch Institute" .
 
 
 ###  http://purl.org/ohsu/schema#Rheumatologist
@@ -1982,6 +2322,13 @@ xsd:date rdf:type rdfs:Datatype .
                                                              <http://purl.org/ohsu/schema#HealthcareLocalSearchCategory> ;
                                                     <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Teeth%20Whitening%20Service> ;
                                                     rdfs:label "Teeth Whitening Service" .
+
+
+###  http://purl.org/ohsu/schema#University
+<http://purl.org/ohsu/schema#University> rdf:type owl:NamedIndividual ,
+                                                  <http://purl.org/ohsu/schema#EducationLocalSearchCategory> ;
+                                         <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/University> ;
+                                         rdfs:label "University" .
 
 
 ###  http://purl.org/ohsu/schema#UniversityHospital
