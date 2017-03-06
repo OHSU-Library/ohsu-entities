@@ -146,7 +146,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://schema.org/brand
 <http://schema.org/brand> rdf:type owl:ObjectProperty ;
-                          rdfs:domain _:genid-nodeid-node1bahbgbs4x14 ;
+                          rdfs:domain _:genid-nodeid-node1bai8qhfax14 ;
                           rdfs:range [ rdf:type owl:Class ;
                                        owl:unionOf ( <http://schema.org/Brand>
                                                      <http://schema.org/Organization>
@@ -669,6 +669,14 @@ xsd:date rdf:type rdfs:Datatype .
                           rdfs:label "image" .
 
 
+###  http://schema.org/isAcceptingNewPatients
+<http://schema.org/isAcceptingNewPatients> rdf:type owl:DatatypeProperty ;
+                                           rdfs:domain <http://schema.org/MedicalOrganization> ;
+                                           rdfs:range xsd:boolean ;
+                                           rdfs:comment "Whether the provider is accepting new patients." ;
+                                           rdfs:label "isAcceptingNewPatients" .
+
+
 ###  http://schema.org/isicV4
 <http://schema.org/isicV4> rdf:type owl:DatatypeProperty ;
                            rdfs:domain [ rdf:type owl:Class ;
@@ -890,8 +898,8 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  _:genid-nodeid-node1bahbgbs4x14
-_:genid-nodeid-node1bahbgbs4x14 rdf:type owl:Class .
+###  _:genid-nodeid-node1bai8qhfax14
+_:genid-nodeid-node1bai8qhfax14 rdf:type owl:Class .
 
 
 ###  http://purl.org/ohsu/schema#AcademicFacility
