@@ -68,6 +68,7 @@ ohsu:nearestParking a owl:ObjectProperty ;
 ohsu:nearestTransitStop a owl:ObjectProperty ;
     rdfs:domain schema:CivicStructure ;
     rdfs:range [
+        rdf:type owl:Class ;
         owl:unionOf (
             ohsu:AerialTramTerminal
             ohsu:LightRailOrStreetcarStop
