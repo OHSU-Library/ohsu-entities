@@ -26,11 +26,15 @@ ohsu:BusinessType a owl:Class ;
 ohsu:Campus a owl:Class ;
     rdfs:label "Campus" ;
 .
+ohsu:CarShareParkingFacility a owl:Class ;
+    rdfs:label "Car Share Parking" ;
+.
 ohsu:EmployeeParkingFacility a owl:Class ;
     rdfs:label "Employee Parking" ;
 .
-ohsu:CarShareParkingFacility a owl:Class ;
-    rdfs:label "Car Share Parking" ;
+ohsu:FarmersMarket a owl:Class ;
+    rdfs:label "Farmers Market"
+    rdfs:comment "A farmers market." ;
 .
 ohsu:LocalSearchCategory a owl:Class ;
     rdfs:label "Local Search Category" ;
