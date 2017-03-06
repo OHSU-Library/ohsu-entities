@@ -128,7 +128,7 @@ ohsu:primaryLocalSearchCategory a owl:ObjectProperty ;
 # Datatype Properties
 #
 ohsu:addressSubLocality a owl:DatatypeProperty ;
-    rdfs:label "address locality" ;
+    rdfs:label "address sub locality" ;
     rdfs:domain schema:PostalAddress ;
     rdfs:range xsd:string ;
     rdfs:comment "The sub-locality. For example, the Pearl District." ;
