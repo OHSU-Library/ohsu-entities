@@ -247,3 +247,15 @@ schema:medicalSpecialty a owl:ObjectProperty ;
     rdfs:range schema:MedicalSpecialty ;
     rdfs:comment "A medical specialty of the provider." ;
 .
+
+
+#
+# Datatype Properties
+#
+schema:isAcceptingNewPatients a owl:DatatypeProperty ;
+    rdfs:label "isAcceptingNewPatients" ;
+    dct:source <https://github.com/schemaorg/schemaorg/issues/1062> ;
+    rdfs:domain schema:MedicalOrganization ;
+    rdfs:range xsd:boolean ;
+    rdfs:comment "Whether the provider is accepting new patients."
+.
