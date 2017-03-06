@@ -40,7 +40,7 @@ ohsu:EmployeeParkingFacility a owl:Class ;
     rdfs:label "Employee Parking" ;
 .
 ohsu:FarmersMarket a owl:Class ;
-    rdfs:label "Farmers Market"
+    rdfs:label "Farmers Market" ;
     rdfs:comment "A farmers market." ;
 .
 ohsu:LocalSearchCategory a owl:Class ;
