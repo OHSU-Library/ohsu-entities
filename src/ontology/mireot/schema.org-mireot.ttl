@@ -28,6 +28,12 @@ schema:BarOrPub a owl:Class ;
     rdfs:comment "A bar or pub." ;
     rdfs:subClassOf schema:FoodEstablishment ;
 .
+schema:Brand a owl:Class ;
+    rdfs:label "Brand" ;
+    dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
+    rdfs:comment "A brand is a name used by an organization or business person for labeling a product, product group, or similar." ;
+    rdfs:subClassOf schema:Intangible ;
+.
 schema:BusStop a owl:Class ;
     rdfs:label "Bus Stop" ;
     rdfs:comment "A bus stop." ;
@@ -361,6 +367,22 @@ schema:availableLanguage a owl:ObjectProperty ;
     rdfs:domain schema:ContactPoint ;
     rdfs:range schema:Language ;
     rdfs:comment "A language someone may use with the item. Please use one of the language codes from the <a href=\"http://tools.ietf.org/html/bcp47\">IETF BCP 47 standard</a>. See also <a class=\"localLink\" href=\"/inLanguage\">inLanguage</a>" ;
+.
+schema:brand a owl:ObjectProperty ;
+    rdfs:label "brand" ;
+    rdfs:domain [
+        owl:unionOf (
+            schema:Organization
+            schema:Person
+        ) ;
+    ] ;
+    rdfs:range [
+        owl:unionOf (
+            schema:Brand
+            schema:Organization
+        ) ;
+    ] ;
+    rdfs:comment "The brand(s) associated with a product or service, or the brand(s) maintained by an organization or business person."
 .
 schema:colleague a owl:ObjectProperty ;
     rdfs:label "colleague" ;
@@ -762,6 +784,7 @@ schema:logo a owl:DatatypeProperty ;
     rdfs:domain [
         rdf:type owl:Class ;
         owl:unionOf (
+             schema:Brand
              schema:Organization
              schema:Place
         ) ;
