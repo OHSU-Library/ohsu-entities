@@ -89,6 +89,9 @@ ohsu:parkingFor a owl:ObjectProperty ;
 ohsu:addressSubLocality a owl:DatatypeProperty ;
     rdfs:domain schema:PostalAddress ;
 .
+ohsu:certification a owl:DatatypeProperty ;
+    rdfs:domain Organization ;
+.
 ohsu:handicappedParkingSpaces a owl:DatatypeProperty ;
     rdfs:domain schema:ParkingFacility ;
 .

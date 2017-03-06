@@ -20,6 +20,9 @@ ohsu:AerialTramTerminal a owl:Class ;
 ohsu:BicycleParkingFacility a owl:Class ;
     rdfs:label "Bicycle Parking" ;
 .
+ohsu:BusinessType a owl:Class ;
+    rdfs:label "Business Type" ;
+.
 ohsu:Campus a owl:Class ;
     rdfs:label "Campus" ;
 .
@@ -118,6 +121,10 @@ ohsu:addressSubLocality a owl:DatatypeProperty ;
     rdfs:domain schema:PostalAddress ;
     rdfs:range xsd:string ;
     rdfs:comment "The sub-locality. For example, the Pearl District." ;
+.
+ohsu:certification a owl:DatatypeProperty ;
+    rdfs:label "certification" ;
+    rdfs:range xsd:string ;
 .
 ohsu:handicappedParkingSpaces a owl:DatatypeProperty ;
     rdfs:label "handicapped parking spaces" ;
