@@ -63,6 +63,11 @@ schema:Country a owl:Class ;
     rdfs:comment "A country." ;
     rdfs:subClassOf schema:AdministrativeArea ;
 .
+schema:ConvenienceStore a owl:Class ;
+    rdfs:label "Convenience Store" ;
+    rdfs:comment "A convenience store." ;
+    rdfs:subClassOf schema:Store 
+.
 schema:DayOfWeek a owl:Class ;
     rdfs:label "DayOfWeek" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsClass> ;
@@ -232,6 +237,11 @@ schema:State a owl:Class ;
     rdfs:label "State" ;
     rdfs:comment "A state or province of a country." ;
     rdfs:subClassOf schema:AdministrativeArea ;
+.
+schema:Store a owl:Class ;
+    rdfs:label "Store" ;
+    rdfs:comment "A retail good store." ;
+    rdfs:subClassOf schema:LocalBusiness
 .
 schema:StructuredValue a owl:Class ;
     rdfs:label "Structured Value" ;
