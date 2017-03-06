@@ -18,21 +18,83 @@
 #
 # Classes
 #
+ohsu:AerialTram a owl:Class ;
+    rdfs:subClassOf schema:CivicStructure ;
+.
+ohsu:AerialTramTerminal a owl:Class ;
+    rdfs:subClassOf schema:CivicStructure ;
+.
+ohsu:BicycleParkingFacility a owl:Class ;
+    rdfs:subClassOf schema:ParkingFacility ;
+.
 ohsu:Campus a owl:Class ;
     rdfs:subClassOf schema:Place ;
+.
+ohsu:EmployeeParkingFacility a owl:Class ;
+    rdfs:subClassOf schema:ParkingFacility ;
 .
 ohsu:HealthcareFacility a owl:Class ;
     rdfs:subClassOf schema:CivicStructure ;
 .
+ohsu:LightRailOrStreetcarStop a owl:Class ;
+    rdfs:subClassOf schema:CivicStructure ;
+.
 ohsu:LocalSearchCategory a owl:Class ;
     rdfs:subClassOf schema:Enumeration ;
+.
+ohsu:PatientParkingFacility a owl:Class;
+    rdfs:subClassOf schema:ParkingFacility ;
+.
+ohsu:Skybridge a owl:Class ;
+    rdfs:subClassOf schema:CivicStructure ;
+.
+ohsu:VisitorParkingFacility a owl:Class ;
+    rdfs:subClassOf schema:ParkingFacility ;
+.
+
+
+#
+# Object Properties
+#
+ohsu:nearestDropOffLocation a owl:ObjectProperty ;
+    rdfs:domain schema:CivicStructure ;
+    rdfs:range schema:TaxiStand ;
+.
+ohsu:nearestParking a owl:ObjectProperty ;
+    rdfs:domain schema:CivicStructure ;
+    rdfs:range schema:ParkingFacility ;
+    owl:inverseOf ohsu:parkingFor ;
+.
+ohsu:nearestTransitStop a owl:ObjectProperty ;
+    rdfs:domain schema:CivicStructure ;
+    rdfs:range [
+        owl:unionOf (
+            ohsu:AerialTramTerminal
+            ohsu:LightRailOrStreetcarStop
+            schema:BusStop
+            schema:TaxiStand
+        ) ;
+    ] ;       
+.
+ohsu:parkingFor a owl:ObjectProperty ;
+    rdfs:domain schema:ParkingFacility ;
+    rdfs:range schema:CivicStructure ;
+    owl:inverseOf ohsu:nearestParking ;
 .
 
 
 #
 # Datatype Properties
 #
+ohsu:addressSubLocality a owl:DatatypeProperty ;
+    rdfs:domain schema:PostalAddress ;
+.
+ohsu:handicappedParkingSpaces a owl:DatatypeProperty ;
+    rdfs:domain schema:ParkingFacility ;
+.
 ohsu:nationalProviderId a owl:DatatypeProperty ;
     schema:alternateName "NPI" ;
     rdfs:domain schema:MedicalBusiness ;
 .
+ohsu:parkingSpaces a owl:DatatypeProperty ;
+    rdfs:domain schema:ParkingFacility ;
