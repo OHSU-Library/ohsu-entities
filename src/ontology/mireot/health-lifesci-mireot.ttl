@@ -254,7 +254,6 @@ schema:medicalSpecialty a owl:ObjectProperty ;
 #
 schema:isAcceptingNewPatients a owl:DatatypeProperty ;
     rdfs:label "isAcceptingNewPatients" ;
-    dct:source <https://github.com/schemaorg/schemaorg/issues/1062> ;
     rdfs:domain schema:MedicalOrganization ;
     rdfs:range xsd:boolean ;
     rdfs:comment "Whether the provider is accepting new patients."
