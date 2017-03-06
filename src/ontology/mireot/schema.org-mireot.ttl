@@ -631,6 +631,12 @@ schema:disambiguatingDescription a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "A sub property of description. A short description of the item used to disambiguate from other, similar items. Information from other properties (in particular, name) may be necessary for the description to be useful for disambiguation." ;
 .
+schema:dissolutionDate a owl:DatatypeProperty ;
+    rdfs:label "dissolutionDate" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range xsd:date ;
+    rdfs:comment "The date that this organization was dissolved."
+.
 schema:duns a owl:DatatypeProperty ;
     rdfs:label "duns" ;
     dct:source <http://www.w3.org/wiki/WebSchemas/SchemaDotOrgSources#source_GoodRelationsTerms> ;
@@ -682,6 +688,12 @@ schema:faxNumber a owl:DatatypeProperty ;
     ] ;
     rdfs:range xsd:string ;
     rdfs:comment "The fax number." ;
+.
+schema:foundingDate a owl:DatatypeProperty ;
+    rdfs:label "foundingDate" ;
+    rdfs:domain schema:Organization ;
+    rdfs:range xsd:date ;
+    rdfs:comment "The date that this organization was founded." 
 .
 schema:gender a owl:DatatypeProperty ;
     rdfs:label "gender" ;

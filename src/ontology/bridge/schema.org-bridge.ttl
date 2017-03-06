@@ -95,6 +95,9 @@ ohsu:certification a owl:DatatypeProperty ;
 ohsu:handicappedParkingSpaces a owl:DatatypeProperty ;
     rdfs:domain schema:ParkingFacility ;
 .
+ohsu:isOutOfBusiness a owl:DatatypeProperty ;
+    rdfs:domain schema:LocalBusiness ;
+.
 ohsu:nationalProviderId a owl:DatatypeProperty ;
     schema:alternateName "NPI" ;
     rdfs:domain schema:MedicalBusiness ;

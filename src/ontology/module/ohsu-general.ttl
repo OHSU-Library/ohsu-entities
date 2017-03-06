@@ -131,6 +131,11 @@ ohsu:handicappedParkingSpaces a owl:DatatypeProperty ;
     rdfs:comment "The number of handicapped parking spaces at a parking facility." ;
     rdfs:range xsd:decimal ;
 .
+ohsu:isOutOfBusiness a owl:DatatypeProperty ;
+    rdfs:label "is out of business" ;
+    rdfs:comment "Whether a business is still operating" ;
+    rdfs:range xsd:boolean ;
+.
 ohsu:parkingSpaces a owl:DatatypeProperty ;
     rdfs:label "parking spaces" ;
     rdfs:comment "The number of parking spaces at a parking facility." ;
