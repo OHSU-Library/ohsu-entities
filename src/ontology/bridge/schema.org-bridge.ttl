@@ -28,7 +28,7 @@ ohsu:BicycleParkingFacility a owl:Class ;
     rdfs:subClassOf schema:ParkingFacility ;
 .
 ohsu:Campus a owl:Class ;
-    rdfs:subClassOf schema:Place ;
+    rdfs:subClassOf schema:CivicStructure ;
 .
 ohsu:EmployeeParkingFacility a owl:Class ;
     rdfs:subClassOf schema:ParkingFacility ;
