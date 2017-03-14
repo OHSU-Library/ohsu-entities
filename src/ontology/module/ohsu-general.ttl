@@ -11,7 +11,7 @@
 #
 # Ontology
 #
-<http://purl.org/ohsu/schema/general> a owl:Ontology ;
+<http://purl.org/ohsu/schema> a owl:Ontology ;
 .
 
 
