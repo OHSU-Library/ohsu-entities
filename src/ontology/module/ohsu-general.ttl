@@ -157,6 +157,12 @@ ohsu:searchPriority a owl:DatatypeProperty ;
     rdfs:domain owl:Thing ;
     rdfs:range xsd:string ;
 .
+ohsu:additionalStreetAddressInfo a owl:DatatypeProperty ;
+    rdfs:label "additional street address information" ;
+    rdfs:domain schema:PostalAddress ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Additional street address information, such as a number, suite, or floor" ;
+.
 ohsu:tagline a owl:DatatypeProperty ;
     rdfs:label "tagline";
     rdfs:domain owl:Thing ;
