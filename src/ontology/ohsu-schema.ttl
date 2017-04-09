@@ -146,7 +146,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://schema.org/brand
 <http://schema.org/brand> rdf:type owl:ObjectProperty ;
-                          rdfs:domain _:genid-nodeid-node1bb7ipbonx14 ;
+                          rdfs:domain _:genid-nodeid-node1bdaccgqhx14 ;
                           rdfs:range [ rdf:type owl:Class ;
                                        owl:unionOf ( <http://schema.org/Brand>
                                                      <http://schema.org/Organization>
@@ -364,6 +364,14 @@ xsd:date rdf:type rdfs:Datatype .
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://purl.org/ohsu/schema#additionalStreetAddressInfo
+:additionalStreetAddressInfo rdf:type owl:DatatypeProperty ;
+                             rdfs:domain <http://schema.org/PostalAddress> ;
+                             rdfs:range xsd:string ;
+                             rdfs:comment "Additional street address information, such as a number, suite, or floor" ;
+                             rdfs:label "additional street address information" .
+
 
 ###  http://purl.org/ohsu/schema#addressSubLocality
 :addressSubLocality rdf:type owl:DatatypeProperty ;
@@ -898,8 +906,8 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  _:genid-nodeid-node1bb7ipbonx14
-_:genid-nodeid-node1bb7ipbonx14 rdf:type owl:Class .
+###  _:genid-nodeid-node1bdaccgqhx14
+_:genid-nodeid-node1bdaccgqhx14 rdf:type owl:Class .
 
 
 ###  http://purl.org/ohsu/schema#AcademicFacility
