@@ -146,7 +146,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://schema.org/brand
 <http://schema.org/brand> rdf:type owl:ObjectProperty ;
-                          rdfs:domain _:genid-nodeid-node1bdaccgqhx14 ;
+                          rdfs:domain _:genid-nodeid-node1bdddk8qex14 ;
                           rdfs:range [ rdf:type owl:Class ;
                                        owl:unionOf ( <http://schema.org/Brand>
                                                      <http://schema.org/Organization>
@@ -707,6 +707,13 @@ xsd:date rdf:type rdfs:Datatype .
                              rdfs:label "jobTitle" .
 
 
+###  http://schema.org/keywords
+<http://schema.org/keywords> rdf:type owl:DatatypeProperty ;
+                             rdfs:range xsd:string ;
+                             rdfs:comment "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas." ;
+                             rdfs:label "keywords" .
+
+
 ###  http://schema.org/latitude
 <http://schema.org/latitude> rdf:type owl:DatatypeProperty ;
                              rdfs:domain <http://schema.org/GeoCoordinates> ;
@@ -906,8 +913,8 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  _:genid-nodeid-node1bdaccgqhx14
-_:genid-nodeid-node1bdaccgqhx14 rdf:type owl:Class .
+###  _:genid-nodeid-node1bdddk8qex14
+_:genid-nodeid-node1bdddk8qex14 rdf:type owl:Class .
 
 
 ###  http://purl.org/ohsu/schema#AcademicFacility
