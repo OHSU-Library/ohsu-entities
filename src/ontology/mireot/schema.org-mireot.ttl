@@ -771,6 +771,11 @@ schema:jobTitle a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
     rdfs:comment "The job title of the person (for example, Financial Manager)." ;
 .
+schema:keywords a owl:DatatypeProperty ;
+    rdfs:label "keywords" ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Keywords or tags used to describe this content. Multiple entries in a keywords list are typically delimited by commas." 
+.
 schema:latitude a owl:DatatypeProperty ;
     rdfs:label "latitude" ;
     rdfs:domain schema:GeoCoordinates ;
