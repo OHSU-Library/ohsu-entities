@@ -127,6 +127,12 @@ ohsu:primaryLocalSearchCategory a owl:ObjectProperty ;
 #
 # Datatype Properties
 #
+ohsu:additionalStreetAddressInfo a owl:DatatypeProperty ;
+    rdfs:label "additional street address information" ;
+    rdfs:domain schema:PostalAddress ;
+    rdfs:range xsd:string ;
+    rdfs:comment "Additional street address information, such as a number, suite, or floor." ;
+.
 ohsu:addressSubLocality a owl:DatatypeProperty ;
     rdfs:label "address sub locality" ;
     rdfs:domain schema:PostalAddress ;
@@ -156,12 +162,6 @@ ohsu:searchPriority a owl:DatatypeProperty ;
     rdfs:label "search priority";
     rdfs:domain owl:Thing ;
     rdfs:range xsd:string ;
-.
-ohsu:additionalStreetAddressInfo a owl:DatatypeProperty ;
-    rdfs:label "additional street address information" ;
-    rdfs:domain schema:PostalAddress ;
-    rdfs:range xsd:string ;
-    rdfs:comment "Additional street address information, such as a number, suite, or floor" ;
 .
 ohsu:tagline a owl:DatatypeProperty ;
     rdfs:label "tagline";
