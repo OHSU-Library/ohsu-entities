@@ -142,7 +142,6 @@ ohsu:addressSubLocality a owl:DatatypeProperty ;
 .
 ohsu:buildingNumber a owl:DatatypeProperty ;
     a owl:FunctionalProperty ;
-    a owl:InverseFunctionalProperty ;
     rdfs:subPropertyOf dct:identifier ;
     rdfs:label "OHSU CPDRE Building Number" ;
     rdfs:comment "Building number assigned by OHSU Campus Planning, Development & Real Estate. This number does not change." ;
@@ -152,7 +151,7 @@ ohsu:buildingNumber a owl:DatatypeProperty ;
 ohsu:buildingTag a owl:DatatypeProperty ;
     rdfs:subPropertyOf skos:notation ;
     rdfs:label "OHSU CPDRE Building Tag" ;
-    rdfs:comment "Building tag assigned by OHSU Campus Planning, Development & Real Estate. Tags are subject to change."
+    rdfs:comment "Building tag assigned by OHSU Campus Planning, Development & Real Estate. Tags are subject to change." ;
     rdfs:domain schema:CivicStructure ;
     rdfs:range xsd:string ;
 .
@@ -177,7 +176,6 @@ ohsu:parkingSpaces a owl:DatatypeProperty ;
 .
 ohsu:profilesPersonId a owl:DatatypeProperty ;
     a owl:FunctionalProperty ;
-    a owl:InverseFunctionalProperty ;
     rdfs:subPropertyOf dct:identifier ;
     rdfs:label "OHSU Profiles app Person ID" ;
     rdfs:comment "Primary key of the Person table in the OHSU Profiles App database." ;

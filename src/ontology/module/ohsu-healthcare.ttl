@@ -3,6 +3,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
@@ -548,7 +549,6 @@ ohsu:XrayLab a ohsu:HealthcareLocalSearchCategory ;
 #
 ohsu:nationalProviderId a owl:DatatypeProperty ;
     a owl:FunctionalProperty ;
-    a owl:InverseFunctionalProperty ;
     rdfs:subPropertyOf dct:identifier ;
     rdfs:label "national provider id" ;
     rdfs:comment "A National Provider Identifier or NPI is a unique 10-digit identification number issued to health care providers in the United States by the Centers for Medicare and Medicaid Services (CMS)." ;
