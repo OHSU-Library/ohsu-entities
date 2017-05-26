@@ -63,7 +63,6 @@ ohsu:nearestDropOffLocation a owl:ObjectProperty ;
 ohsu:nearestParking a owl:ObjectProperty ;
     rdfs:domain schema:CivicStructure ;
     rdfs:range schema:ParkingFacility ;
-    owl:inverseOf ohsu:parkingFor ;
 .
 ohsu:nearestTransitStop a owl:ObjectProperty ;
     rdfs:domain schema:CivicStructure ;
@@ -80,7 +79,6 @@ ohsu:nearestTransitStop a owl:ObjectProperty ;
 ohsu:parkingFor a owl:ObjectProperty ;
     rdfs:domain schema:ParkingFacility ;
     rdfs:range schema:CivicStructure ;
-    owl:inverseOf ohsu:nearestParking ;
 .
 
 

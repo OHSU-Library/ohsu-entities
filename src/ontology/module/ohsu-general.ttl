@@ -109,12 +109,14 @@ ohsu:nearestDropOffLocation a owl:ObjectProperty ;
 .
 ohsu:nearestParking a owl:ObjectProperty ;
     rdfs:label "nearest parking facility" ;
+    owl:inverseOf ohsu:parkingFor ;
 .
 ohsu:nearestTransitStop a owl:ObjectProperty ;
     rdfs:label "nearest transit stop" ;
 .
 ohsu:parkingFor a owl:ObjectProperty ;
     rdfs:label "parking for" ;
+    owl:inverseOf ohsu:nearestParking ;
 .
 ohsu:primaryLocalSearchCategory a owl:ObjectProperty ;
     rdfs:label "primary local search category" ;
