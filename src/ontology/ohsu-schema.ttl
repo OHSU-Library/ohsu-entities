@@ -22,6 +22,10 @@
 rdfs:Label rdf:type owl:AnnotationProperty .
 
 
+###  http://www.w3.org/2004/02/skos/core#editorialNote
+<http://www.w3.org/2004/02/skos/core#editorialNote> rdf:type owl:AnnotationProperty .
+
+
 #################################################################
 #    Datatypes
 #################################################################
@@ -146,7 +150,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://schema.org/brand
 <http://schema.org/brand> rdf:type owl:ObjectProperty ;
-                          rdfs:domain _:genid-nodeid-node1bdddk8qex14 ;
+                          rdfs:domain _:genid-nodeid-node1bh1jgreex14 ;
                           rdfs:range [ rdf:type owl:Class ;
                                        owl:unionOf ( <http://schema.org/Brand>
                                                      <http://schema.org/Organization>
@@ -365,11 +369,15 @@ xsd:date rdf:type rdfs:Datatype .
 #    Data properties
 #################################################################
 
+###  http://purl.org/dc/terms/identifier
+<http://purl.org/dc/terms/identifier> rdf:type owl:DatatypeProperty .
+
+
 ###  http://purl.org/ohsu/schema#additionalStreetAddressInfo
 :additionalStreetAddressInfo rdf:type owl:DatatypeProperty ;
                              rdfs:domain <http://schema.org/PostalAddress> ;
                              rdfs:range xsd:string ;
-                             rdfs:comment "Additional street address information, such as a number, suite, or floor" ;
+                             rdfs:comment "Additional street address information, such as a number, suite, or floor." ;
                              rdfs:label "additional street address information" .
 
 
@@ -379,6 +387,25 @@ xsd:date rdf:type rdfs:Datatype .
                     rdfs:range xsd:string ;
                     rdfs:comment "The sub-locality. For example, the Pearl District." ;
                     rdfs:label "address sub locality" .
+
+
+###  http://purl.org/ohsu/schema#buildingNumber
+:buildingNumber rdf:type owl:DatatypeProperty ;
+                rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                rdf:type owl:FunctionalProperty ;
+                rdfs:domain <http://schema.org/CivicStructure> ;
+                rdfs:range xsd:string ;
+                rdfs:comment "Building number assigned by OHSU Campus Planning, Development & Real Estate. This number does not change." ;
+                rdfs:label "OHSU CPDRE Building Number" .
+
+
+###  http://purl.org/ohsu/schema#buildingTag
+:buildingTag rdf:type owl:DatatypeProperty ;
+             rdfs:subPropertyOf <http://www.w3.org/2004/02/skos/core#notation> ;
+             rdfs:domain <http://schema.org/CivicStructure> ;
+             rdfs:range xsd:string ;
+             rdfs:comment "Building tag assigned by OHSU Campus Planning, Development & Real Estate. Tags are subject to change." ;
+             rdfs:label "OHSU CPDRE Building Tag" .
 
 
 ###  http://purl.org/ohsu/schema#certification
@@ -400,16 +427,20 @@ xsd:date rdf:type rdfs:Datatype .
 :isOutOfBusiness rdf:type owl:DatatypeProperty ;
                  rdfs:domain <http://schema.org/LocalBusiness> ;
                  rdfs:range xsd:boolean ;
-                 rdfs:comment "Whether a business is still operating" ;
+                 rdfs:comment "Whether a business is still operating." ;
                  rdfs:label "is out of business" .
 
 
 ###  http://purl.org/ohsu/schema#nationalProviderId
 :nationalProviderId rdf:type owl:DatatypeProperty ;
+                    rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                    rdf:type owl:FunctionalProperty ;
                     rdfs:domain <http://schema.org/MedicalBusiness> ;
                     rdfs:range xsd:string ;
                     <http://schema.org/alternateName> "NPI" ;
-                    rdfs:label "national provider id" .
+                    rdfs:comment "A National Provider Identifier or NPI is a unique 10-digit identification number issued to health care providers in the United States by the Centers for Medicare and Medicaid Services (CMS)." ;
+                    rdfs:label "national provider id" ;
+                    <http://www.w3.org/2004/02/skos/core#editorialNote> "In data sources that include NPI, use it as the primary key." .
 
 
 ###  http://purl.org/ohsu/schema#parkingSpaces
@@ -418,6 +449,26 @@ xsd:date rdf:type rdfs:Datatype .
                rdfs:range xsd:decimal ;
                rdfs:comment "The number of parking spaces at a parking facility." ;
                rdfs:label "parking spaces" .
+
+
+###  http://purl.org/ohsu/schema#profilesPersonId
+:profilesPersonId rdf:type owl:DatatypeProperty ;
+                  rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                  rdf:type owl:FunctionalProperty ;
+                  rdfs:domain <http://schema.org/Person> ;
+                  rdfs:range xsd:string ;
+                  rdfs:comment "Primary key of the Person table in the OHSU Profiles App database." ;
+                  rdfs:label "OHSU Profiles app Person ID" .
+
+
+###  http://purl.org/ohsu/schema#profilesPlaceId
+:profilesPlaceId rdf:type owl:DatatypeProperty ;
+                 rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
+                 rdf:type owl:FunctionalProperty ;
+                 rdfs:domain <http://schema.org/MedicalClinic> ;
+                 rdfs:range xsd:string ;
+                 rdfs:comment "Primary key of the Place table in the OHSU Profiles App database. Places in the Profiles app are clinics." ;
+                 rdfs:label "OHSU Profiles app Place ID" .
 
 
 ###  http://purl.org/ohsu/schema#searchPriority
@@ -909,12 +960,16 @@ xsd:date rdf:type rdfs:Datatype .
                                  rdfs:label "validThrough" .
 
 
+###  http://www.w3.org/2004/02/skos/core#notation
+<http://www.w3.org/2004/02/skos/core#notation> rdf:type owl:DatatypeProperty .
+
+
 #################################################################
 #    Classes
 #################################################################
 
-###  _:genid-nodeid-node1bdddk8qex14
-_:genid-nodeid-node1bdddk8qex14 rdf:type owl:Class .
+###  _:genid-nodeid-node1bh1jgreex14
+_:genid-nodeid-node1bh1jgreex14 rdf:type owl:Class .
 
 
 ###  http://purl.org/ohsu/schema#AcademicFacility
