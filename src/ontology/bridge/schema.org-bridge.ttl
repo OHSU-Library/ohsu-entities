@@ -80,6 +80,9 @@ ohsu:parkingFor a owl:ObjectProperty ;
     rdfs:domain schema:ParkingFacility ;
     rdfs:range schema:CivicStructure ;
 .
+ohsu:profilesPlaceId a owl:DatatypeProperty ;
+    rdfs:domain schema:MedicalClinic ;
+.
 
 
 #

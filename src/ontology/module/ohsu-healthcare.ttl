@@ -555,3 +555,10 @@ ohsu:nationalProviderId a owl:DatatypeProperty ;
     skos:editorialNote "In data sources that include NPI, use it as the primary key." ;
     rdfs:range xsd:string ;
 .
+ohsu:profilesPlaceId a owl:DatatypeProperty ;
+    a owl:FunctionalProperty ;
+    rdfs:subPropertyOf dct:identifier ;
+    rdfs:label "OHSU Profiles app Place ID" ;
+    rdfs:comment "Primary key of the Place table in the OHSU Profiles App database. Places in the Profiles app are clinics." ;
+    rdfs:range xsd:string ; 
+.
