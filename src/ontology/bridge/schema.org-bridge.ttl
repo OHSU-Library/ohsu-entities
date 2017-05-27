@@ -56,6 +56,18 @@ ohsu:VisitorParkingFacility a owl:Class ;
 #
 # Object Properties
 #
+ohsu:additionalStreetAddressInfo a owl:DatatypeProperty ;
+    rdfs:domain schema:PostalAddress ;
+.
+ohsu:addressSubLocality a owl:DatatypeProperty ;
+    rdfs:domain schema:PostalAddress ;
+.
+ohsu:buildingNumber a owl:DatatypeProperty ;
+    rdfs:domain schema:CivicStructure ;
+.
+ohsu:buildingTag a owl:DatatypeProperty ;
+    rdfs:domain schema:CivicStructure ;
+.
 ohsu:nearestDropOffLocation a owl:ObjectProperty ;
     rdfs:domain schema:CivicStructure ;
     rdfs:range schema:TaxiStand ;
@@ -109,4 +121,7 @@ ohsu:parkingSpaces a owl:DatatypeProperty ;
 .
 ohsu:profilesFacilityId a owl:DatatypeProperty ;
     rdfs:domain schema:CivicStructure ;
+.
+ohsu:profilesPersonId a owl:DatatypeProperty ;
+    rdfs:domain schema:Person ;
 .

@@ -3,7 +3,6 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -132,13 +131,11 @@ ohsu:primaryLocalSearchCategory a owl:ObjectProperty ;
 #
 ohsu:additionalStreetAddressInfo a owl:DatatypeProperty ;
     rdfs:label "additional street address information" ;
-    rdfs:domain schema:PostalAddress ;
     rdfs:range xsd:string ;
     rdfs:comment "Additional street address information, such as a number, suite, or floor." ;
 .
 ohsu:addressSubLocality a owl:DatatypeProperty ;
     rdfs:label "address sub locality" ;
-    rdfs:domain schema:PostalAddress ;
     rdfs:range xsd:string ;
     rdfs:comment "The sub-locality. For example, the Pearl District." ;
 .
@@ -147,14 +144,12 @@ ohsu:buildingNumber a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:identifier ;
     rdfs:label "OHSU CPDRE Building Number" ;
     rdfs:comment "Building number assigned by OHSU Campus Planning, Development & Real Estate. This number does not change." ;
-    rdfs:domain schema:CivicStructure ;
     rdfs:range xsd:string ;
 .
 ohsu:buildingTag a owl:DatatypeProperty ;
     rdfs:subPropertyOf skos:notation ;
     rdfs:label "OHSU CPDRE Building Tag" ;
     rdfs:comment "Building tag assigned by OHSU Campus Planning, Development & Real Estate. Tags are subject to change." ;
-    rdfs:domain schema:CivicStructure ;
     rdfs:range xsd:string ;
 .
 ohsu:certification a owl:DatatypeProperty ;
@@ -188,7 +183,6 @@ ohsu:profilesPersonId a owl:DatatypeProperty ;
     rdfs:subPropertyOf dct:identifier ;
     rdfs:label "OHSU Profiles app Person ID" ;
     rdfs:comment "Primary key of the Person table in the OHSU Profiles App database." ;
-    rdfs:domain schema:Person ;
     rdfs:range xsd:string ; 
 .
 ohsu:searchPriority a owl:DatatypeProperty ;
