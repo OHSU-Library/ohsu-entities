@@ -176,6 +176,13 @@ ohsu:parkingSpaces a owl:DatatypeProperty ;
     rdfs:comment "The number of parking spaces at a parking facility." ;
     rdfs:range xsd:decimal ;
 .
+ohsu:profilesFacilityId a owl:DatatypeProperty ;
+    a owl:FunctionalProperty ;
+    rdfs:subPropertyOf dct:identifier ;
+    rdfs:label "OHSU Profiles app Facility ID" ;
+    rdfs:comment "Primary key of the Facility table in the OHSU Profiles App database." ;
+    rdfs:range xsd:string ; 
+.
 ohsu:profilesPersonId a owl:DatatypeProperty ;
     a owl:FunctionalProperty ;
     rdfs:subPropertyOf dct:identifier ;

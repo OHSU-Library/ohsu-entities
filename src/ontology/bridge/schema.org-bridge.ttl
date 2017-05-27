@@ -107,3 +107,6 @@ ohsu:nationalProviderId a owl:DatatypeProperty ;
 ohsu:parkingSpaces a owl:DatatypeProperty ;
     rdfs:domain schema:ParkingFacility ;
 .
+ohsu:profilesFacilityId a owl:DatatypeProperty ;
+    rdfs:domain schema:CivicStructure ;
+.
