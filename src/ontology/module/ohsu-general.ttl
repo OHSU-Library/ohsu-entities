@@ -106,6 +106,10 @@ ohsu:localSearchCategory a owl:ObjectProperty ;
 ohsu:nearestDropOffLocation a owl:ObjectProperty ;
     rdfs:label "nearest drop off location" ;
 .
+ohsu:nearestEntrance a owl:ObjectProperty ;
+    rdfs:label "nearest building entrance" ;
+    rdfs:comment "The nearest building entrance to a clinic" ;
+.
 ohsu:nearestParking a owl:ObjectProperty ;
     rdfs:label "nearest parking facility" ;
     owl:inverseOf ohsu:parkingFor ;

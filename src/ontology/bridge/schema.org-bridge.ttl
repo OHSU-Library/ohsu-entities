@@ -72,6 +72,10 @@ ohsu:nearestDropOffLocation a owl:ObjectProperty ;
     rdfs:domain schema:CivicStructure ;
     rdfs:range schema:TaxiStand ;
 .
+ohsu:nearestEntrance a owl:ObjectProperty;
+    rdfs:domain schema:MedicalClinic ;
+    rdfs:range schema:GeoCoordinates ;
+.
 ohsu:nearestParking a owl:ObjectProperty ;
     rdfs:domain schema:CivicStructure ;
     rdfs:range schema:ParkingFacility ;
