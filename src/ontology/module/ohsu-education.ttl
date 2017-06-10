@@ -45,6 +45,9 @@ ohsu:Library a ohsu:EducationLocalSearchCategory ;
     rdfs:label "Library" ;
     dct:source <https://moz.com/local/categories/category/Library> ;
 .
+ohsu:MediaAndInformationSciencesFaculty a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Media and Information Sciences Faculty" ;
+.
 ohsu:MedicalSchool a ohsu:EducationLocalSearchCategory ;
     rdfs:label "Medical School" ;
     dct:source <https://moz.com/local/categories/category/Medical%20School> ;
@@ -56,6 +59,10 @@ ohsu:NursingSchool a ohsu:EducationLocalSearchCategory ;
 ohsu:PublicUniversity a ohsu:EducationLocalSearchCategory ;
     rdfs:label "Public University" ;
     dct:source <https://moz.com/local/categories/category/Public%20University> ;
+.
+ohsu:SpecialEducationSchool a ohsu:EducationLocalSearchCategory ;
+    rdfs:label "Special Education School" ;
+    dct:source <https://moz.com/local/categories/category/Special%20Education%20School> ;
 .
 ohsu:University a ohsu:EducationLocalSearchCategory ;
     rdfs:label "University" ;

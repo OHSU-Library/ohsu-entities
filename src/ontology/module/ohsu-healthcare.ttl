@@ -44,6 +44,9 @@ ohsu:AddictionTreatmentCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Addiction Treatment Center" ;
     dct:source <https://moz.com/local/categories/category/Addiction%20Treatment%20Center> ;
 .
+ohsu:AgedCare a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Aged Care" ;
+.
 ohsu:AlcoholismTreatmentProgram a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Alcoholism Treatment Program" ;
     dct:source <https://moz.com/local/categories/category/Alcoholism%20Treatment%20Program> ;
@@ -200,6 +203,9 @@ ohsu:HandSurgeon a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Hand Surgeon" ;
     dct:source <https://moz.com/local/categories/category/Hand%20Surgeon> ;
 .
+ohsu:HealthConsultant a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Health Consultant" ;
+.
 ohsu:HearingAidEquipmentStore a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Hearing Aid Equipment Store" ;
     dct:source <https://moz.com/local/categories/category/Hearing%20Aid%20Equipment%20Store> ;
@@ -279,6 +285,9 @@ ohsu:MentalHealthClinic a ohsu:HealthcareLocalSearchCategory ;
 ohsu:MentalHealthService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Mental Health Service" ;
     dct:source <https://moz.com/local/categories/category/Mental%20Health%20Service> ;
+.
+ohsu:Microbiologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Microbiologist" ;
 .
 ohsu:Midwife a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Midwife" ;
@@ -384,6 +393,9 @@ ohsu:Pediatrician a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Pediatrician" ;
     dct:source <https://moz.com/local/categories/category/Pediatrician> ;
 .
+ohsu:PerinatalCenter a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Perinatal Center" ;
+.
 ohsu:Periodontist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Periodontist" ;
     dct:source <https://moz.com/local/categories/category/Periodontist> ;
@@ -447,6 +459,9 @@ ohsu:Pulmonologist a ohsu:HealthcareLocalSearchCategory ;
 ohsu:Radiologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Radiologist" ;
     dct:source <https://moz.com/local/categories/category/Radiologist> ;
+.
+ohsu:RegisteredGeneralNurse a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Registered General Nurse" ;
 .
 ohsu:RehabilitationCenter a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Rehabilitation Center" ;
