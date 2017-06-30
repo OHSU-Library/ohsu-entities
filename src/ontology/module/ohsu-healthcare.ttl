@@ -571,7 +571,6 @@ ohsu:nationalProviderId a owl:DatatypeProperty ;
     rdfs:range xsd:string ;
 .
 ohsu:profilesPlaceId a owl:DatatypeProperty ;
-    a owl:FunctionalProperty ;
     rdfs:subPropertyOf dct:identifier ;
     rdfs:label "OHSU Profiles app Place ID" ;
     rdfs:comment "Primary key of the Place table in the OHSU Profiles App database. Places in the Profiles app are clinics." ;

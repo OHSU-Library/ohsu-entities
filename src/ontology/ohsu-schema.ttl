@@ -158,7 +158,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://schema.org/brand
 <http://schema.org/brand> rdf:type owl:ObjectProperty ;
-                          rdfs:domain _:genid-nodeid-node1bh3q8d59x14 ;
+                          rdfs:domain _:genid-nodeid-node1bjrg321fx14 ;
                           rdfs:range [ rdf:type owl:Class ;
                                        owl:unionOf ( <http://schema.org/Brand>
                                                      <http://schema.org/Organization>
@@ -482,7 +482,6 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://purl.org/ohsu/schema#profilesPlaceId
 :profilesPlaceId rdf:type owl:DatatypeProperty ;
                  rdfs:subPropertyOf <http://purl.org/dc/terms/identifier> ;
-                 rdf:type owl:FunctionalProperty ;
                  rdfs:domain <http://schema.org/MedicalClinic> ;
                  rdfs:range xsd:string ;
                  rdfs:comment "Primary key of the Place table in the OHSU Profiles App database. Places in the Profiles app are clinics." ;
@@ -986,8 +985,8 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  _:genid-nodeid-node1bh3q8d59x14
-_:genid-nodeid-node1bh3q8d59x14 rdf:type owl:Class .
+###  _:genid-nodeid-node1bjrg321fx14
+_:genid-nodeid-node1bjrg321fx14 rdf:type owl:Class .
 
 
 ###  http://purl.org/ohsu/schema#AcademicFacility
@@ -1516,6 +1515,12 @@ _:genid-nodeid-node1bh3q8d59x14 rdf:type owl:Class .
                           rdfs:label "Addiction Treatment Center" .
 
 
+###  http://purl.org/ohsu/schema#AgedCare
+:AgedCare rdf:type owl:NamedIndividual ,
+                   :HealthcareLocalSearchCategory ;
+          rdfs:label "Aged Care" .
+
+
 ###  http://purl.org/ohsu/schema#AlcoholismTreatmentProgram
 :AlcoholismTreatmentProgram rdf:type owl:NamedIndividual ,
                                      :HealthcareLocalSearchCategory ;
@@ -1810,6 +1815,12 @@ _:genid-nodeid-node1bh3q8d59x14 rdf:type owl:Class .
              rdfs:label "Hand Surgeon" .
 
 
+###  http://purl.org/ohsu/schema#HealthConsultant
+:HealthConsultant rdf:type owl:NamedIndividual ,
+                           :HealthcareLocalSearchCategory ;
+                  rdfs:label "Health Consultant" .
+
+
 ###  http://purl.org/ohsu/schema#HearingAidEquipmentStore
 :HearingAidEquipmentStore rdf:type owl:NamedIndividual ,
                                    :HealthcareLocalSearchCategory ;
@@ -1901,6 +1912,12 @@ _:genid-nodeid-node1bh3q8d59x14 rdf:type owl:Class .
                   rdfs:label "Massage Therapist" .
 
 
+###  http://purl.org/ohsu/schema#MediaAndInformationSciencesFaculty
+:MediaAndInformationSciencesFaculty rdf:type owl:NamedIndividual ,
+                                             :EducationLocalSearchCategory ;
+                                    rdfs:label "Media and Information Sciences Faculty" .
+
+
 ###  http://purl.org/ohsu/schema#MedicalCenter
 :MedicalCenter rdf:type owl:NamedIndividual ,
                         :HealthcareLocalSearchCategory ;
@@ -1976,6 +1993,12 @@ _:genid-nodeid-node1bh3q8d59x14 rdf:type owl:Class .
                               :HealthcareLocalSearchCategory ;
                      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Mental%20Health%20Service> ;
                      rdfs:label "Mental Health Service" .
+
+
+###  http://purl.org/ohsu/schema#Microbiologist
+:Microbiologist rdf:type owl:NamedIndividual ,
+                         :HealthcareLocalSearchCategory ;
+                rdfs:label "Microbiologist" .
 
 
 ###  http://purl.org/ohsu/schema#Midwife
@@ -2174,6 +2197,12 @@ _:genid-nodeid-node1bh3q8d59x14 rdf:type owl:Class .
               rdfs:label "Pediatrician" .
 
 
+###  http://purl.org/ohsu/schema#PerinatalCenter
+:PerinatalCenter rdf:type owl:NamedIndividual ,
+                          :HealthcareLocalSearchCategory ;
+                 rdfs:label "Perinatal Center" .
+
+
 ###  http://purl.org/ohsu/schema#Periodontist
 :Periodontist rdf:type owl:NamedIndividual ,
                        :HealthcareLocalSearchCategory ;
@@ -2300,6 +2329,12 @@ _:genid-nodeid-node1bh3q8d59x14 rdf:type owl:Class .
              rdfs:label "Radiologist" .
 
 
+###  http://purl.org/ohsu/schema#RegisteredGeneralNurse
+:RegisteredGeneralNurse rdf:type owl:NamedIndividual ,
+                                 :HealthcareLocalSearchCategory ;
+                        rdfs:label "Registered General Nurse" .
+
+
 ###  http://purl.org/ohsu/schema#RehabilitationCenter
 :RehabilitationCenter rdf:type owl:NamedIndividual ,
                                :HealthcareLocalSearchCategory ;
@@ -2361,6 +2396,13 @@ _:genid-nodeid-node1bh3q8d59x14 rdf:type owl:Class .
               :HealthcareLocalSearchCategory ;
      <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Spa> ;
      rdfs:label "Spa" .
+
+
+###  http://purl.org/ohsu/schema#SpecialEducationSchool
+:SpecialEducationSchool rdf:type owl:NamedIndividual ,
+                                 :EducationLocalSearchCategory ;
+                        <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Special%20Education%20School> ;
+                        rdfs:label "Special Education School" .
 
 
 ###  http://purl.org/ohsu/schema#SpeechPathologist
