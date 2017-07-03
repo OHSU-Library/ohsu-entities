@@ -69,6 +69,10 @@ ohsu:VisitorParkingFacility a owl:Class ;
 #
 # Enumeration Members
 #
+ohsu:Building a ohsu:CivicStructureLocalSearchCategory ;
+    rdfs:label "Building" ;
+    dct:source <https://moz.com/local/categories/category/Building> ;
+.
 ohsu:Heliport a ohsu:CivicStructureLocalSearchCategory ;
     rdfs:label "Heliport" ;
     dct:source <https://moz.com/local/categories/category/Heliport> ;
