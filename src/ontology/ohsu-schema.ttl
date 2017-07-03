@@ -158,7 +158,7 @@ xsd:date rdf:type rdfs:Datatype .
 
 ###  http://schema.org/brand
 <http://schema.org/brand> rdf:type owl:ObjectProperty ;
-                          rdfs:domain _:genid-nodeid-node1bjrg321fx14 ;
+                          rdfs:domain _:genid-nodeid-node1bk2sbgkex14 ;
                           rdfs:range [ rdf:type owl:Class ;
                                        owl:unionOf ( <http://schema.org/Brand>
                                                      <http://schema.org/Organization>
@@ -985,8 +985,8 @@ xsd:date rdf:type rdfs:Datatype .
 #    Classes
 #################################################################
 
-###  _:genid-nodeid-node1bjrg321fx14
-_:genid-nodeid-node1bjrg321fx14 rdf:type owl:Class .
+###  _:genid-nodeid-node1bk2sbgkex14
+_:genid-nodeid-node1bk2sbgkex14 rdf:type owl:Class .
 
 
 ###  http://purl.org/ohsu/schema#AcademicFacility
@@ -1575,6 +1575,13 @@ _:genid-nodeid-node1bjrg321fx14 rdf:type owl:Class .
                              :HealthcareLocalSearchCategory ;
                     <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Birth%20Control%20Center> ;
                     rdfs:label "Birth Control Center" .
+
+
+###  http://purl.org/ohsu/schema#Building
+:Building rdf:type owl:NamedIndividual ,
+                   :CivicStructureLocalSearchCategory ;
+          <http://purl.org/dc/terms/source> <https://moz.com/local/categories/category/Building> ;
+          rdfs:label "Building" .
 
 
 ###  http://purl.org/ohsu/schema#CancerTreatmentCenter
