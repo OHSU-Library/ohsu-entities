@@ -196,7 +196,7 @@ ohsu:Gastroenterologist a ohsu:HealthcareLocalSearchCategory ;
     dct:source <https://moz.com/local/categories/category/Gastroenterologist> ;
 .
 ohsu:Gym a ohsu:HealthcareLocalSearchCategory ;
-    rdfs:Label "Gym" ;
+    rdfs:label "Gym" ;
     dct:source <https://moz.com/local/categories/category/Gym> ;
 .
 ohsu:HandSurgeon a ohsu:HealthcareLocalSearchCategory ;
@@ -237,6 +237,9 @@ ohsu:InfectiousDiseasePhysician a ohsu:HealthcareLocalSearchCategory ;
 ohsu:Internist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Internist" ;
     dct:source <https://moz.com/local/categories/category/Internist> ;
+.
+ohsu:LocalMedicalServices a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Local Medical Services" ;
 .
 ohsu:MammographyService a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Mammography Service" ;
