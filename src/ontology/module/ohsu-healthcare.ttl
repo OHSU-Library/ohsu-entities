@@ -332,8 +332,8 @@ ohsu:Oncologist a ohsu:HealthcareLocalSearchCategory ;
     rdfs:label "Oncologist" ;
     dct:source <https://moz.com/local/categories/category/Oncologist> ;
 .
-ohsu:Opthalmologist a ohsu:HealthcareLocalSearchCategory ;
-    rdfs:label "Opthalmologist" ;
+ohsu:Ophthalmologist a ohsu:HealthcareLocalSearchCategory ;
+    rdfs:label "Ophthalmologist" ;
     dct:source <https://moz.com/local/categories/category/Ophthalmologist> ;
 .
 ohsu:Optician a ohsu:HealthcareLocalSearchCategory ;
@@ -578,4 +578,16 @@ ohsu:profilesPlaceId a owl:DatatypeProperty ;
     rdfs:label "OHSU Profiles app Place ID" ;
     rdfs:comment "Primary key of the Place table in the OHSU Profiles App database. Places in the Profiles app are clinics." ;
     rdfs:range xsd:string ; 
+.
+
+ohsu:treatsAdults a owl:DatatypeProptery ;
+    rdfs:label "treats adults" ;
+    rdfs:comment "A property of a healthcare provider that indicates they treat adults." ;
+    rdfs:range xsd:boolean ;
+.
+
+ohsu:treatsChildren a owl:DatatypeProptery ;
+    rdfs:label "treats children" ;
+    rdfs:comment "A property of a healthcare provider that indicates they treat children." ;
+    rdfs:range xsd:boolean ;
 .
